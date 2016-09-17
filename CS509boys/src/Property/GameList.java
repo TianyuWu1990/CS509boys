@@ -1,7 +1,7 @@
 package com.java.Property;
 
 public class GameList {
-	private String gameID;
+	private String gameID;//read from database
 	
 	private int userNumber;
 	

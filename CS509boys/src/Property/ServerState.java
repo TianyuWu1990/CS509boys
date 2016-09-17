@@ -4,19 +4,22 @@ import java.math.BigDecimal;
 
 public class ServerState {
 	private String activeGame;
-	private Integer PlayerMembershi;
+	
+	private Integer PlayerMembership;
+	
 	private BigDecimal scores;
+	
 	public String getActiveGame() {
 		return activeGame;
 	}
 	public void setActiveGame(String activeGame) {
 		this.activeGame = activeGame;
 	}
-	public Integer getPlayerMembershi() {
-		return PlayerMembershi;
+	public Integer getPlayerMembership() {
+		return PlayerMembership;
 	}
-	public void setPlayerMembershi(Integer playerMembershi) {
-		PlayerMembershi = playerMembershi;
+	public void setPlayerMembership(Integer playerMembership) {
+		PlayerMembership = playerMembership;
 	}
 	public BigDecimal getScores() {
 		return scores;
