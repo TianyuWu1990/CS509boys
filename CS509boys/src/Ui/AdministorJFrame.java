@@ -1,4 +1,4 @@
-package com.java.Ui;
+package Ui;
 
 import java.awt.EventQueue;
 import java.awt.EventQueue;
@@ -30,6 +30,7 @@ public class AdministorJFrame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	public AdministorJFrame() {
+		setTitle("Administor");
 		getContentPane().setLayout(null);
 		
 		JButton btnStart = new JButton("Start");

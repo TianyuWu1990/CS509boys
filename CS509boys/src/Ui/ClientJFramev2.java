@@ -14,10 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
 
-public class ClientJFrame extends JFrame {
+public class ClientJFramev2 extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtEricsGame;
+	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField txtUserid;
@@ -41,7 +41,7 @@ public class ClientJFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ClientJFrame() {
+	public ClientJFramev2() {
 		setTitle("Client");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 812, 513);
@@ -72,52 +72,49 @@ public class ClientJFrame extends JFrame {
 		lblDate.setBounds(380, 53, 64, 34);
 		contentPane.add(lblDate);
 		
-		txtEricsGame = new JTextField();
-		txtEricsGame.setText("Eric's Game");
-		txtEricsGame.setBounds(71, 59, 117, 23);
-		contentPane.add(txtEricsGame);
-		txtEricsGame.setColumns(10);
+		textField = new JTextField();
+		textField.setBounds(71, 59, 117, 23);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setText("4");
 		textField_1.setColumns(10);
 		textField_1.setBounds(253, 59, 117, 23);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
-		textField_2.setText("9/20/2016");
 		textField_2.setColumns(10);
 		textField_2.setBounds(417, 59, 117, 23);
 		contentPane.add(textField_2);
 		
-		JButton btnPractiseModel = new JButton("Practice model");
+		JButton btnPractiseModel = new JButton("Practise model");
 		btnPractiseModel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnPractiseModel.setBounds(378, 375, 111, 23);
+		btnPractiseModel.setBounds(412, 375, 111, 23);
 		contentPane.add(btnPractiseModel);
 		
 		JButton btnExit = new JButton("Exit");
-		btnExit.setBounds(540, 375, 111, 23);
+		btnExit.setBounds(596, 375, 111, 23);
 		contentPane.add(btnExit);
 		
 		JTextArea txtrGames = new JTextArea();
-		txtrGames.setText("Holder:\t\tplayers:\t\tlock:\r\nEric\t\t3\t\t\tno\r\nPeter\t\t4\t\t\tyes\r\nLily\t\t2\t\t\tno\r\nSun\t\t2\t\t\tyes");
-		txtrGames.setBounds(53, 99, 519, 241);
+		txtrGames.setText("Games Lists here");
+		txtrGames.setBounds(53, 88, 687, 252);
 		contentPane.add(txtrGames);
 		
 		JButton btnNewButton = new JButton("Join");
-		btnNewButton.setBounds(198, 375, 127, 23);
+		btnNewButton.setBounds(216, 375, 127, 23);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblWelcome = new JLabel("Welcome");
 		lblWelcome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblWelcome.setBounds(22, 11, 64, 31);
+		lblWelcome.setBounds(22, 11, 182, 31);
 		contentPane.add(lblWelcome);
 		
 		txtUserid = new JTextField();
-		txtUserid.setText("Laren");
+		txtUserid.setText("UserID");
 		txtUserid.setBounds(98, 18, 86, 20);
 		contentPane.add(txtUserid);
 		txtUserid.setColumns(10);
