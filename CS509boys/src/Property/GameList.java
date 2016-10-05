@@ -1,4 +1,4 @@
-package com.java.Property;
+package Property;
 
 public class GameList {
 	private String gameID;//read from database

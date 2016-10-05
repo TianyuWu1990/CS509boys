@@ -1,4 +1,4 @@
-package com.java.Property;
+package Property;
 
 import java.math.BigDecimal;
 
