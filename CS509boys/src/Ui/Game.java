@@ -11,7 +11,5 @@ public class Game {
         page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		page.setVisible(true);
 		
-		
-	}
-
+}
 }
