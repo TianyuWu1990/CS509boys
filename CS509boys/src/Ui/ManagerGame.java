@@ -135,6 +135,15 @@ public class ManagerGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				StartPage page = new StartPage();
+				page.setSize(600, 300); // set StartPage size
+				page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				page.setVisible(true);
+			}
+		});
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);
 

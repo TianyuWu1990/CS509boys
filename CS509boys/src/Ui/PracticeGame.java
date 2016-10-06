@@ -20,14 +20,28 @@ public class PracticeGame extends JFrame {
 	private JTextField textField;
 
 	public PracticeGame() {
-		setTitle("PratiseModel");
+		setTitle("PracticeGame");
 		getContentPane().setLayout(null);
 
 		JButton btnNewButton_2 = new JButton("Exit Practice");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				StartPage page = new StartPage();
+				page.setSize(600, 300); // set StartPage size
+				page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				page.setVisible(true);
+			}
+		});
 		btnNewButton_2.setBounds(462, 14, 111, 38);
 		getContentPane().add(btnNewButton_2);
 
 		JButton btnNewButton_3 = new JButton("a");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtOwn.setText(btnNewButton_3);
+			}
+		});
 		btnNewButton_3.setBounds(31, 89, 89, 23);
 		getContentPane().add(btnNewButton_3);
 
@@ -108,34 +122,34 @@ public class PracticeGame extends JFrame {
 		btnNewButton_4.setBounds(322, 13, 134, 40);
 		getContentPane().add(btnNewButton_4);
 
-		JButton btnUp = new JButton("UP");
-		btnUp.setToolTipText("");
-		btnUp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnUp.setBounds(496, 142, 53, 38);
-		getContentPane().add(btnUp);
-
-		JButton btnLeft = new JButton("LEFT");
-		btnLeft.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnLeft.setBounds(444, 160, 53, 38);
-		getContentPane().add(btnLeft);
-
-		JButton btnDown = new JButton("DOWN");
-		btnDown.setBounds(496, 176, 53, 38);
-		getContentPane().add(btnDown);
-
-		JButton btnRight = new JButton("RIGHT");
-		btnRight.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnRight.setBounds(548, 160, 53, 38);
-		getContentPane().add(btnRight);
+		// JButton btnUp = new JButton("UP");
+		// btnUp.setToolTipText("");
+		// btnUp.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// }
+		// });
+		// btnUp.setBounds(496, 142, 53, 38);
+		// getContentPane().add(btnUp);
+		//
+		// JButton btnLeft = new JButton("LEFT");
+		// btnLeft.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// }
+		// });
+		// btnLeft.setBounds(444, 160, 53, 38);
+		// getContentPane().add(btnLeft);
+		//
+		// JButton btnDown = new JButton("DOWN");
+		// btnDown.setBounds(496, 176, 53, 38);
+		// getContentPane().add(btnDown);
+		//
+		// JButton btnRight = new JButton("RIGHT");
+		// btnRight.addActionListener(new ActionListener() {
+		// public void actionPerformed(ActionEvent e) {
+		// }
+		// });
+		// btnRight.setBounds(548, 160, 53, 38);
+		// getContentPane().add(btnRight);
 
 		JLabel lblScore = new JLabel("Score :");
 		lblScore.setBounds(64, 54, 61, 16);

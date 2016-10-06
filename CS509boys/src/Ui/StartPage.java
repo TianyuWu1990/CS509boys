@@ -20,7 +20,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.java.Property.*;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -37,18 +36,50 @@ public class StartPage extends JFrame {
 		getContentPane().setLayout(null);
 
 		JButton btnStart = new JButton("Create a game");
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ManagerGame manager = new ManagerGame();
+				manager.setSize(620, 500); // set ManagerGame size
+				manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				manager.setVisible(true);
+			}
+		});
 		btnStart.setBounds(65, 37, 137, 23);
 		getContentPane().add(btnStart);
 
 		JButton btnStop = new JButton("Join a game");
+		btnStop.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				GuestGame guest = new GuestGame();
+				guest.setSize(620, 500); // set ManagerGame size
+				guest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				guest.setVisible(true);
+			}
+		});
 		btnStop.setBounds(65, 128, 149, 23);
 		getContentPane().add(btnStop);
 
 		JButton btnNewButton_1 = new JButton("Practice mode");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PracticeGame practice = new PracticeGame();
+				practice.setSize(600, 300); // set practicegame size
+				practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				practice.setVisible(true);
+			}
+		});
 		btnNewButton_1.setBounds(65, 215, 117, 29);
 		getContentPane().add(btnNewButton_1);
 
 		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0); // exit game
+			}
+		});
 		btnExit.setBounds(370, 215, 117, 29);
 		getContentPane().add(btnExit);
 
