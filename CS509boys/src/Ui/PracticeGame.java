@@ -21,6 +21,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 	private JTextField txtOwn;
 	private JTextField textField;
 	Board board = new Board();
+	
 
 	JButton btnArray[][] = new JButton[4][4];
 
@@ -35,6 +36,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 				btnArray[i][j] = new JButton(board.letterArray[i][j].letter);
 				btnArray[i][j].setBounds(x, y, 89, 23);
 				btnArray[i][j].addActionListener(this);
+				btnArray[i][j].putClientProperty(i, j);
 				getContentPane().add(btnArray[i][j]);
 			}
 		}
@@ -190,23 +192,32 @@ public class PracticeGame extends JFrame implements ActionListener {
 		btnResetBoard.setBounds(462, 89, 111, 23);
 		getContentPane().add(btnResetBoard);
 
-		JButton btnUndo = new JButton("Undo");
+		//Clear text when click clear button
+		JButton btnUndo = new JButton("Clear");
 		btnUndo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txtOwn.getText().length() != 0) {
-					txtOwn.setText(txtOwn.getText().substring(0, txtOwn.getText().length() - 1));
+					txtOwn.setText(null);
 				}
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						btnArray[i][j].setEnabled(true);;
+					}
+			}
 			}
 		});
 		btnUndo.setBounds(333, 49, 117, 29);
 		getContentPane().add(btnUndo);
 	}
+	
+	
+	
 
 	public void actionPerformed(ActionEvent a) {
 		JButton button = (JButton) a.getSource();
 		String val = txtOwn.getText();
-
 		txtOwn.setText(val + button.getText());
+		button.setEnabled(false);
 
 	}
 }
