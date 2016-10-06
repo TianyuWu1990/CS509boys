@@ -16,16 +16,29 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
 
-public class PracticeGame extends JFrame {
+public class PracticeGameRevised extends JFrame {
 	private JTextField txtOwn;
 	private JTextField textField;
 	Board board = new Board();
 	
+	JButton btnArray[][] = new JButton[4][4];
 	
 
-	public PracticeGame() {
+	
+
+	public PracticeGameRevised() {
 		setTitle("PracticeGame");
 		getContentPane().setLayout(null);
+		board.setcellArray();
+		for(int i =0;i<4;i++){
+			for(int j = 0;j<4;j++){
+			int x  = 30+i*100;
+			int y = 80+j*40;
+			btnArray[i][j] = new JButton(board.letterArray[i][j].letter);
+			btnArray[i][j].setBounds(x,y,89, 23);
+			getContentPane().add(btnArray[i][j]);
+		}
+	}
 
 		JButton btnNewButton_2 = new JButton("Exit Practice");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -41,87 +54,88 @@ public class PracticeGame extends JFrame {
 		getContentPane().add(btnNewButton_2);
 		board.setcellArray();
 		
-		JButton btn11 = new JButton(board.letterArray[0][0].letter);
-		btn11.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
-		btn11.setBounds(31, 89, 89, 23);
-		getContentPane().add(btn11);
-
-		JButton btn12 = new JButton("s");
-		btn12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn12.setBounds(130, 89, 89, 23);
-		getContentPane().add(btn12);
-
-		JButton btn13 = new JButton("k");
-		btn13.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn13.setBounds(233, 89, 89, 23);
-		getContentPane().add(btn13);
-
-		JButton btn14 = new JButton("o");
-		btn14.setBounds(332, 89, 89, 23);
-		getContentPane().add(btn14);
-
-		JButton btn15 = new JButton("l");
-		btn15.setBounds(31, 123, 89, 23);
-		getContentPane().add(btn15);
-
-		JButton btn16 = new JButton("l");
-		btn16.setBounds(130, 123, 89, 23);
-		getContentPane().add(btn16);
-
-		JButton btn17 = new JButton("o");
-		btn17.setBounds(233, 123, 89, 23);
-		getContentPane().add(btn17);
-
-		JButton btn18 = new JButton("w");
-		btn18.setBounds(332, 123, 89, 23);
-		getContentPane().add(btn18);
-
-		JButton btn19 = new JButton("l");
-		btn19.setBounds(31, 157, 89, 23);
-		getContentPane().add(btn19);
-
-		JButton btn110 = new JButton("o");
-		btn110.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btn110.setBounds(130, 157, 89, 23);
-		getContentPane().add(btn110);
-
-		JButton btn111 = new JButton("a");
-		btn111.setBounds(233, 157, 89, 23);
-		getContentPane().add(btn111);
-
-		JButton btn112 = new JButton("n");
-		btn112.setBounds(332, 157, 89, 23);
-		getContentPane().add(btn112);
-
-		JButton btn113 = new JButton("y");
-		btn113.setBounds(31, 191, 89, 23);
-		getContentPane().add(btn113);
-
-		JButton btn114 = new JButton("e");
-		btn114.setBounds(130, 191, 89, 23);
-		getContentPane().add(btn114);
-
-		JButton btn115 = new JButton("s");
-		btn115.setBounds(233, 191, 89, 23);
-		getContentPane().add(btn115);
-
-		JButton btn116 = new JButton("o");
-		btn116.setBounds(332, 191, 89, 23);
-		getContentPane().add(btn116);
+		
+//		JButton btn11 = new JButton(board.letterArray[0][0].letter);
+//		btn11.addActionListener(new ActionListener() {
+//			
+//			public void actionPerformed(ActionEvent e) {
+//				
+//			}
+//		});
+//		btn11.setBounds(31, 89, 89, 23);
+//		getContentPane().add(btn11);
+//
+//		JButton btn12 = new JButton("s");
+//		btn12.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btn12.setBounds(130, 89, 89, 23);
+//		getContentPane().add(btn12);
+//
+//		JButton btn13 = new JButton("k");
+//		btn13.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btn13.setBounds(233, 89, 89, 23);
+//		getContentPane().add(btn13);
+//
+//		JButton btn14 = new JButton("o");
+//		btn14.setBounds(332, 89, 89, 23);
+//		getContentPane().add(btn14);
+//
+//		JButton btn15 = new JButton("l");
+//		btn15.setBounds(31, 123, 89, 23);
+//		getContentPane().add(btn15);
+//
+//		JButton btn16 = new JButton("l");
+//		btn16.setBounds(130, 123, 89, 23);
+//		getContentPane().add(btn16);
+//
+//		JButton btn17 = new JButton("o");
+//		btn17.setBounds(233, 123, 89, 23);
+//		getContentPane().add(btn17);
+//
+//		JButton btn18 = new JButton("w");
+//		btn18.setBounds(332, 123, 89, 23);
+//		getContentPane().add(btn18);
+//
+//		JButton btn19 = new JButton("l");
+//		btn19.setBounds(31, 157, 89, 23);
+//		getContentPane().add(btn19);
+//
+//		JButton btn110 = new JButton("o");
+//		btn110.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btn110.setBounds(130, 157, 89, 23);
+//		getContentPane().add(btn110);
+//
+//		JButton btn111 = new JButton("a");
+//		btn111.setBounds(233, 157, 89, 23);
+//		getContentPane().add(btn111);
+//
+//		JButton btn112 = new JButton("n");
+//		btn112.setBounds(332, 157, 89, 23);
+//		getContentPane().add(btn112);
+//
+//		JButton btn113 = new JButton("y");
+//		btn113.setBounds(31, 191, 89, 23);
+//		getContentPane().add(btn113);
+//
+//		JButton btn114 = new JButton("e");
+//		btn114.setBounds(130, 191, 89, 23);
+//		getContentPane().add(btn114);
+//
+//		JButton btn115 = new JButton("s");
+//		btn115.setBounds(233, 191, 89, 23);
+//		getContentPane().add(btn115);
+//
+//		JButton btn116 = new JButton("o");
+//		btn116.setBounds(332, 191, 89, 23);
+//		getContentPane().add(btn116);
 
 		JLabel lblLettersYouPick = new JLabel("Your Word :");
 		lblLettersYouPick.setBounds(35, 22, 89, 20);
