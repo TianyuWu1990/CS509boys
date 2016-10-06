@@ -3,7 +3,7 @@ package Entity;
 public class Board {
 public Cell letterArray[][] = new Cell[4][4];
 
-public void setleeterArray(){
+public void setcellArray(){
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
 			letterArray[i][j] = new Cell();
@@ -13,7 +13,7 @@ public void setleeterArray(){
 }
 public static void main(String[] args){
 	Board board = new Board();
-	board.setleeterArray();
+	board.setcellArray();
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
 			System.out.print(board.letterArray[i][j].letter
