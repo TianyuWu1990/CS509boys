@@ -1,5 +1,6 @@
 package Ui;
 
+
 import java.awt.BorderLayout;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -36,78 +37,86 @@ public class PracticeGame extends JFrame {
 		btnNewButton_2.setBounds(462, 14, 111, 38);
 		getContentPane().add(btnNewButton_2);
 
-		JButton btnNewButton_3 = new JButton("a");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btn11 = new JButton("a");
+		btn11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtOwn.setText(btnNewButton_3);
+				txtOwn.setText(btn11);
 			}
 		});
-		btnNewButton_3.setBounds(31, 89, 89, 23);
-		getContentPane().add(btnNewButton_3);
+		btn11.setBounds(31, 89, 89, 23);
+		getContentPane().add(btn11);
 
-		JButton btnS = new JButton("s");
-		btnS.setBounds(130, 89, 89, 23);
-		getContentPane().add(btnS);
-
-		JButton btnK = new JButton("k");
-		btnK.setBounds(233, 89, 89, 23);
-		getContentPane().add(btnK);
-
-		JButton btnO = new JButton("o");
-		btnO.setBounds(332, 89, 89, 23);
-		getContentPane().add(btnO);
-
-		JButton btnL = new JButton("l");
-		btnL.setBounds(31, 123, 89, 23);
-		getContentPane().add(btnL);
-
-		JButton btnL_2 = new JButton("l");
-		btnL_2.setBounds(130, 123, 89, 23);
-		getContentPane().add(btnL_2);
-
-		JButton btnO_3 = new JButton("o");
-		btnO_3.setBounds(233, 123, 89, 23);
-		getContentPane().add(btnO_3);
-
-		JButton btnW = new JButton("w");
-		btnW.setBounds(332, 123, 89, 23);
-		getContentPane().add(btnW);
-
-		JButton btnL_1 = new JButton("l");
-		btnL_1.setBounds(31, 157, 89, 23);
-		getContentPane().add(btnL_1);
-
-		JButton btnO_2 = new JButton("o");
-		btnO_2.addActionListener(new ActionListener() {
+		JButton btn12 = new JButton("s");
+		btn12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnO_2.setBounds(130, 157, 89, 23);
-		getContentPane().add(btnO_2);
+		btn12.setBounds(130, 89, 89, 23);
+		getContentPane().add(btn12);
 
-		JButton btnA = new JButton("a");
-		btnA.setBounds(233, 157, 89, 23);
-		getContentPane().add(btnA);
+		JButton btn13 = new JButton("k");
+		btn13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btn13.setBounds(233, 89, 89, 23);
+		getContentPane().add(btn13);
 
-		JButton btnN = new JButton("n");
-		btnN.setBounds(332, 157, 89, 23);
-		getContentPane().add(btnN);
+		JButton btn14 = new JButton("o");
+		btn14.setBounds(332, 89, 89, 23);
+		getContentPane().add(btn14);
 
-		JButton btnY = new JButton("y");
-		btnY.setBounds(31, 191, 89, 23);
-		getContentPane().add(btnY);
+		JButton btn15 = new JButton("l");
+		btn15.setBounds(31, 123, 89, 23);
+		getContentPane().add(btn15);
 
-		JButton btnE = new JButton("e");
-		btnE.setBounds(130, 191, 89, 23);
-		getContentPane().add(btnE);
+		JButton btn16 = new JButton("l");
+		btn16.setBounds(130, 123, 89, 23);
+		getContentPane().add(btn16);
 
-		JButton btnS_1 = new JButton("s");
-		btnS_1.setBounds(233, 191, 89, 23);
-		getContentPane().add(btnS_1);
+		JButton btn17 = new JButton("o");
+		btn17.setBounds(233, 123, 89, 23);
+		getContentPane().add(btn17);
 
-		JButton btnO_1 = new JButton("o");
-		btnO_1.setBounds(332, 191, 89, 23);
-		getContentPane().add(btnO_1);
+		JButton btn18 = new JButton("w");
+		btn18.setBounds(332, 123, 89, 23);
+		getContentPane().add(btn18);
+
+		JButton btn19 = new JButton("l");
+		btn19.setBounds(31, 157, 89, 23);
+		getContentPane().add(btn19);
+
+		JButton btn110 = new JButton("o");
+		btn110.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btn110.setBounds(130, 157, 89, 23);
+		getContentPane().add(btn110);
+
+		JButton btn111 = new JButton("a");
+		btn111.setBounds(233, 157, 89, 23);
+		getContentPane().add(btn111);
+
+		JButton btn112 = new JButton("n");
+		btn112.setBounds(332, 157, 89, 23);
+		getContentPane().add(btn112);
+
+		JButton btn113 = new JButton("y");
+		btn113.setBounds(31, 191, 89, 23);
+		getContentPane().add(btn113);
+
+		JButton btn114 = new JButton("e");
+		btn114.setBounds(130, 191, 89, 23);
+		getContentPane().add(btn114);
+
+		JButton btn115 = new JButton("s");
+		btn115.setBounds(233, 191, 89, 23);
+		getContentPane().add(btn115);
+
+		JButton btn116 = new JButton("o");
+		btn116.setBounds(332, 191, 89, 23);
+		getContentPane().add(btn116);
 
 		JLabel lblLettersYouPick = new JLabel("Your Word :");
 		lblLettersYouPick.setBounds(35, 22, 89, 20);
