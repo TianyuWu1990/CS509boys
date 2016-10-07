@@ -36,7 +36,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 				btnArray[i][j] = new JButton(board.letterArray[i][j].letter);
 				btnArray[i][j].setBounds(x, y, 89, 23);
 				btnArray[i][j].addActionListener(this);
-				btnArray[i][j].putClientProperty(i, j);
+				
 				getContentPane().add(btnArray[i][j]);
 			}
 		}
@@ -53,7 +53,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 		});
 		btnNewButton_2.setBounds(462, 14, 111, 38);
 		getContentPane().add(btnNewButton_2);
-		board.setcellArray();
+		
 
 		// JButton btn11 = new JButton(board.letterArray[0][0].letter);
 		// btn11.addActionListener(new ActionListener() {
@@ -189,6 +189,29 @@ public class PracticeGame extends JFrame implements ActionListener {
 		textField.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
+		btnResetBoard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (txtOwn.getText().length() != 0) {
+					txtOwn.setText(null);
+				}
+				board.setcellArray();
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						int x = 30 + i * 100;
+						int y = 80 + j * 40;
+						btnArray[i][j].setText(board.letterArray[i][j].letter); 
+						
+						
+					}
+					
+				}
+				for (int i = 0; i < 4; i++) {
+					for (int j = 0; j < 4; j++) {
+						btnArray[i][j].setEnabled(true);;
+					}
+			}
+			}
+		});
 		btnResetBoard.setBounds(462, 89, 111, 23);
 		getContentPane().add(btnResetBoard);
 
