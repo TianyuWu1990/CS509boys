@@ -196,14 +196,9 @@ public class PracticeGame extends JFrame implements ActionListener {
 				}
 				board.setcellArray();
 				for (int i = 0; i < 4; i++) {
-					for (int j = 0; j < 4; j++) {
-						int x = 30 + i * 100;
-						int y = 80 + j * 40;
-						btnArray[i][j].setText(board.letterArray[i][j].letter); 
-						
-						
-					}
-					
+					for (int j = 0; j < 4; j++) {						
+					btnArray[i][j].setText(board.letterArray[i][j].letter); 												
+					}					
 				}
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {
