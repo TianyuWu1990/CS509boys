@@ -1,4 +1,4 @@
-package Ui;
+package com.capricorn.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import Entity.Board;
+import com.capricorn.controller.CellController;
+import com.capricorn.entity.Board;
 
 public class PracticeGame extends JFrame implements ActionListener {
 	List<String> list=new ArrayList<String>();
@@ -22,6 +23,9 @@ public class PracticeGame extends JFrame implements ActionListener {
 	JButton btnArray[][] = new JButton[4][4];
 
 	public PracticeGame() {
+		//put to controller to handle;
+		CellController cellCon = new CellController(this);
+		
 		setTitle("PracticeGame");
 		getContentPane().setLayout(null);
 		board.setcellArray();
@@ -36,7 +40,9 @@ public class PracticeGame extends JFrame implements ActionListener {
 				getContentPane().add(btnArray[i][j]);
 			}
 		}
-
+		
+		
+		
 		JButton btnNewButton_2 = new JButton("Exit Practice");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

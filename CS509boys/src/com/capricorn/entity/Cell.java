@@ -1,4 +1,4 @@
-package Entity;
+package com.capricorn.entity;
 
 import java.util.Random;
 

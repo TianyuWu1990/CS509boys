@@ -1,4 +1,4 @@
-package Ui;
+package com.capricorn.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -19,17 +19,13 @@ import javax.swing.JInternalFrame;
 import java.awt.Color;
 import javax.swing.UIManager;
 
-public class ManagerGame extends JFrame {
+public class GuestGame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 
-	public ManagerGame() {
+	public GuestGame() {
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
-
-		JButton btnNewButton_1 = new JButton("Unlock");
-		btnNewButton_1.setBounds(35, 413, 89, 23);
-		getContentPane().add(btnNewButton_1);
 
 		textField = new JTextField();
 		textField.setBounds(132, 21, 192, 22);
@@ -147,14 +143,6 @@ public class ManagerGame extends JFrame {
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);
 
-		JButton btnLock = new JButton("Lock");
-		btnLock.setBounds(35, 378, 89, 23);
-		getContentPane().add(btnLock);
-
-		JButton button_5 = new JButton("Reset Board");
-		button_5.setBounds(35, 343, 111, 23);
-		getContentPane().add(button_5);
-
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(211, 237, 390, 199);
 		getContentPane().add(textPane);
@@ -162,10 +150,6 @@ public class ManagerGame extends JFrame {
 		JLabel lblScoreRanking = new JLabel("Score Ranking :");
 		lblScoreRanking.setBounds(98, 237, 101, 16);
 		getContentPane().add(lblScoreRanking);
-
-		JLabel lblManagerPanel = new JLabel("Manager Control");
-		lblManagerPanel.setBounds(42, 315, 126, 16);
-		getContentPane().add(lblManagerPanel);
 
 		JButton button_6 = new JButton("k");
 		button_6.setBounds(37, 89, 89, 23);

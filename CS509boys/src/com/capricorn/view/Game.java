@@ -1,4 +1,4 @@
-package Ui;
+package com.capricorn.view;
 
 import javax.swing.JFrame;
 

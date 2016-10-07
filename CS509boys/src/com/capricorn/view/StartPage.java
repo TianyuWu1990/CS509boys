@@ -1,4 +1,4 @@
-package Ui;
+package com.capricorn.view;
 
 import java.awt.EventQueue;
 import java.awt.EventQueue;

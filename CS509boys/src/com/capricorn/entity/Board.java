@@ -1,4 +1,4 @@
-package Entity;
+package com.capricorn.entity;
 
 public class Board {
 public Cell letterArray[][] = new Cell[4][4];
