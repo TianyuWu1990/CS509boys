@@ -1,23 +1,19 @@
 package Ui;
 
-import Entity.*;
-
-import java.awt.BorderLayout;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import java.awt.Font;
+
+import Entity.Board;
 
 public class PracticeGame extends JFrame implements ActionListener {
+	List<String> list=new ArrayList<String>();
 	private JTextField txtOwn;
 	private JTextField textField;
 	Board board = new Board();
@@ -205,6 +201,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 						btnArray[i][j].setEnabled(true);;
 					}
 			}
+				list=new ArrayList<String>();	
 			}
 		});
 		btnResetBoard.setBounds(462, 89, 111, 23);
@@ -222,6 +219,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 						btnArray[i][j].setEnabled(true);;
 					}
 			}
+				 list=new ArrayList<String>();	
 			}
 		});
 		btnUndo.setBounds(333, 49, 117, 29);
@@ -230,12 +228,35 @@ public class PracticeGame extends JFrame implements ActionListener {
 	
 	
 	
-
+	
 	public void actionPerformed(ActionEvent a) {
+		
 		JButton button = (JButton) a.getSource();
+		int x=button.getBounds().x;
+		int y=button.getBounds().y;
+		int indx=(x-30)/100;
+		int indy=(y-80)/40;
+		
+		String coor=indx+""+indy+"";
+		list.add(coor);
+        
+		for (int i = 0; i < 4; i++) {
+			
+			for (int j = 0; j < 4; j++) {
+				if (((indx-1==i&&indy-1==j)||(indx-1==i&&indy==j)||(indx-1==i&&indy+1==j)||(indx==i&&indy-1==j)||
+						(indx==i&&indy+1==j)||(indx+1==i&&indy-1==j)||(indx+1==i&&indy==j)||(indx+1==i&&indy+1==j))&&(!list.contains(i+""+j+""))){
+				btnArray[i][j].setEnabled(true);}
+				else{
+					btnArray[i][j].setEnabled(false);
+				}
+				
+			}
+	}
+		
 		String val = txtOwn.getText();
 		txtOwn.setText(val + button.getText());
 		button.setEnabled(false);
+		
 
 	}
 }
