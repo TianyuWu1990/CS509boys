@@ -15,14 +15,16 @@ import com.capricorn.entity.Board;
 
 public class PracticeGame extends JFrame implements ActionListener {
 	List<String> list=new ArrayList<String>();
-	private JTextField txtOwn;
-	private JTextField textField;
+	private JTextField word_text;
+	private JTextField score_text;
 	Board board = new Board();
 	
 
 	JButton btnArray[][] = new JButton[4][4];
 
 	public PracticeGame() {
+		
+		
 		//put to controller to handle;
 		CellController cellCon = new CellController(this);
 		
@@ -57,144 +59,37 @@ public class PracticeGame extends JFrame implements ActionListener {
 		getContentPane().add(btnNewButton_2);
 		
 
-		// JButton btn11 = new JButton(board.letterArray[0][0].letter);
-		// btn11.addActionListener(new ActionListener() {
-		//
-		// public void actionPerformed(ActionEvent e) {
-		//
-		// }
-		// });
-		// btn11.setBounds(31, 89, 89, 23);
-		// getContentPane().add(btn11);
-		//
-		// JButton btn12 = new JButton("s");
-		// btn12.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btn12.setBounds(130, 89, 89, 23);
-		// getContentPane().add(btn12);
-		//
-		// JButton btn13 = new JButton("k");
-		// btn13.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btn13.setBounds(233, 89, 89, 23);
-		// getContentPane().add(btn13);
-		//
-		// JButton btn14 = new JButton("o");
-		// btn14.setBounds(332, 89, 89, 23);
-		// getContentPane().add(btn14);
-		//
-		// JButton btn15 = new JButton("l");
-		// btn15.setBounds(31, 123, 89, 23);
-		// getContentPane().add(btn15);
-		//
-		// JButton btn16 = new JButton("l");
-		// btn16.setBounds(130, 123, 89, 23);
-		// getContentPane().add(btn16);
-		//
-		// JButton btn17 = new JButton("o");
-		// btn17.setBounds(233, 123, 89, 23);
-		// getContentPane().add(btn17);
-		//
-		// JButton btn18 = new JButton("w");
-		// btn18.setBounds(332, 123, 89, 23);
-		// getContentPane().add(btn18);
-		//
-		// JButton btn19 = new JButton("l");
-		// btn19.setBounds(31, 157, 89, 23);
-		// getContentPane().add(btn19);
-		//
-		// JButton btn110 = new JButton("o");
-		// btn110.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btn110.setBounds(130, 157, 89, 23);
-		// getContentPane().add(btn110);
-		//
-		// JButton btn111 = new JButton("a");
-		// btn111.setBounds(233, 157, 89, 23);
-		// getContentPane().add(btn111);
-		//
-		// JButton btn112 = new JButton("n");
-		// btn112.setBounds(332, 157, 89, 23);
-		// getContentPane().add(btn112);
-		//
-		// JButton btn113 = new JButton("y");
-		// btn113.setBounds(31, 191, 89, 23);
-		// getContentPane().add(btn113);
-		//
-		// JButton btn114 = new JButton("e");
-		// btn114.setBounds(130, 191, 89, 23);
-		// getContentPane().add(btn114);
-		//
-		// JButton btn115 = new JButton("s");
-		// btn115.setBounds(233, 191, 89, 23);
-		// getContentPane().add(btn115);
-		//
-		// JButton btn116 = new JButton("o");
-		// btn116.setBounds(332, 191, 89, 23);
-		// getContentPane().add(btn116);
-
+		
 		JLabel lblLettersYouPick = new JLabel("Your Word :");
 		lblLettersYouPick.setBounds(35, 22, 89, 20);
 		getContentPane().add(lblLettersYouPick);
 
-		txtOwn = new JTextField();
-		txtOwn.setColumns(10);
-		txtOwn.setBounds(130, 22, 180, 20);
-		getContentPane().add(txtOwn);
+		word_text = new JTextField();
+		word_text.setColumns(10);
+		word_text.setBounds(130, 22, 180, 20);
+		word_text.setEditable(false);
+		getContentPane().add(word_text);
 
 		JButton btnNewButton_4 = new JButton("Submit");
 		btnNewButton_4.setBounds(322, 13, 134, 40);
 		getContentPane().add(btnNewButton_4);
 
-		// JButton btnUp = new JButton("UP");
-		// btnUp.setToolTipText("");
-		// btnUp.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btnUp.setBounds(496, 142, 53, 38);
-		// getContentPane().add(btnUp);
-		//
-		// JButton btnLeft = new JButton("LEFT");
-		// btnLeft.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btnLeft.setBounds(444, 160, 53, 38);
-		// getContentPane().add(btnLeft);
-		//
-		// JButton btnDown = new JButton("DOWN");
-		// btnDown.setBounds(496, 176, 53, 38);
-		// getContentPane().add(btnDown);
-		//
-		// JButton btnRight = new JButton("RIGHT");
-		// btnRight.addActionListener(new ActionListener() {
-		// public void actionPerformed(ActionEvent e) {
-		// }
-		// });
-		// btnRight.setBounds(548, 160, 53, 38);
-		// getContentPane().add(btnRight);
-
+		
 		JLabel lblScore = new JLabel("Score :");
 		lblScore.setBounds(64, 54, 61, 16);
 		getContentPane().add(lblScore);
 
-		textField = new JTextField();
-		textField.setBounds(130, 48, 134, 28);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		score_text = new JTextField();
+		score_text.setBounds(130, 48, 134, 28);
+		score_text.setEditable(false);
+		getContentPane().add(score_text);
+		score_text.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
 		btnResetBoard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtOwn.getText().length() != 0) {
-					txtOwn.setText(null);
+				if (word_text.getText().length() != 0) {
+					word_text.setText(null);
 				}
 				board.setcellArray();
 				for (int i = 0; i < 4; i++) {
@@ -217,8 +112,8 @@ public class PracticeGame extends JFrame implements ActionListener {
 		JButton btnUndo = new JButton("Clear");
 		btnUndo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtOwn.getText().length() != 0) {
-					txtOwn.setText(null);
+				if (word_text.getText().length() != 0) {
+					word_text.setText(null);
 				}
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {
@@ -230,6 +125,12 @@ public class PracticeGame extends JFrame implements ActionListener {
 		});
 		btnUndo.setBounds(333, 49, 117, 29);
 		getContentPane().add(btnUndo);
+		
+		//initialized practice page
+		setSize(600, 300); // set practicegame size
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
 	}
 	
 	
@@ -259,8 +160,8 @@ public class PracticeGame extends JFrame implements ActionListener {
 			}
 	}
 		
-		String val = txtOwn.getText();
-		txtOwn.setText(val + button.getText());
+		String val = word_text.getText();
+		word_text.setText(val + button.getText());
 		button.setEnabled(false);
 		
 

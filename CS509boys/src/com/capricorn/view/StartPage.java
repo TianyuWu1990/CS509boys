@@ -26,12 +26,14 @@ import java.awt.Color;
 import javax.swing.UIManager;
 
 public class StartPage extends JFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField create_id_text;
+	private JTextField join_id_text;
+	private JTextField join_pass_text;
+	private JTextField create_pass_text;
 
 	public StartPage() {
+
+		setSize(600, 300);
 		setTitle("WordSweeper");
 		getContentPane().setLayout(null);
 
@@ -40,9 +42,6 @@ public class StartPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				ManagerGame manager = new ManagerGame();
-				manager.setSize(620, 500); // set ManagerGame size
-				manager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				manager.setVisible(true);
 			}
 		});
 		btnStart.setBounds(65, 37, 137, 23);
@@ -66,9 +65,6 @@ public class StartPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				PracticeGame practice = new PracticeGame();
-				practice.setSize(600, 300); // set practicegame size
-				practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				practice.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(65, 215, 117, 29);
@@ -83,37 +79,37 @@ public class StartPage extends JFrame {
 		btnExit.setBounds(370, 215, 117, 29);
 		getContentPane().add(btnExit);
 
-		textField = new JTextField();
-		textField.setBounds(226, 33, 134, 28);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		create_id_text = new JTextField();
+		create_id_text.setBounds(226, 33, 134, 28);
+		getContentPane().add(create_id_text);
+		create_id_text.setColumns(10);
 
 		JLabel lblOptionalPassword = new JLabel("Game ID");
 		lblOptionalPassword.setBounds(389, 39, 61, 16);
 		getContentPane().add(lblOptionalPassword);
 
-		textField_1 = new JTextField();
-		textField_1.setBounds(226, 124, 134, 28);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		join_id_text = new JTextField();
+		join_id_text.setBounds(226, 124, 134, 28);
+		getContentPane().add(join_id_text);
+		join_id_text.setColumns(10);
 
 		JLabel lblEnterGameId = new JLabel("Enter game ID");
 		lblEnterGameId.setBounds(389, 130, 98, 16);
 		getContentPane().add(lblEnterGameId);
 
-		textField_2 = new JTextField();
-		textField_2.setBounds(226, 152, 134, 28);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		join_pass_text = new JTextField();
+		join_pass_text.setBounds(226, 152, 134, 28);
+		getContentPane().add(join_pass_text);
+		join_pass_text.setColumns(10);
 
 		JLabel lblPassword = new JLabel("Password ( Optional )");
 		lblPassword.setBounds(389, 158, 137, 16);
 		getContentPane().add(lblPassword);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(226, 63, 134, 28);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		create_pass_text = new JTextField();
+		create_pass_text.setBounds(226, 63, 134, 28);
+		getContentPane().add(create_pass_text);
+		create_pass_text.setColumns(10);
 
 		JLabel lblPasswordOptional = new JLabel("Password ( Optional )");
 		lblPasswordOptional.setBounds(389, 69, 137, 16);

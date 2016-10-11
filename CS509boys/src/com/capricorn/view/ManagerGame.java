@@ -24,6 +24,11 @@ public class ManagerGame extends JFrame {
 	private JTextField textField_1;
 
 	public ManagerGame() {
+		
+		setSize(620, 500); // set ManagerGame size
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+		
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
 
