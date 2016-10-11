@@ -91,6 +91,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 				if (word_text.getText().length() != 0) {
 					word_text.setText(null);
 				}
+				score_text.setText(null);
 				board.setcellArray();
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {						
@@ -115,6 +116,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 				if (word_text.getText().length() != 0) {
 					word_text.setText(null);
 				}
+				score_text.setText(null);
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {
 						btnArray[i][j].setEnabled(true);;
@@ -162,6 +164,8 @@ public class PracticeGame extends JFrame implements ActionListener {
 		
 		String val = word_text.getText();
 		word_text.setText(val + button.getText());
+		String s = Integer.toString((val + button.getText()).length());
+		score_text.setText(s);
 		button.setEnabled(false);
 		
 
