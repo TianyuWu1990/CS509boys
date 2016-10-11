@@ -67,7 +67,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 		word_text = new JTextField();
 		word_text.setColumns(10);
 		word_text.setBounds(130, 22, 180, 20);
-		word_text.setEditable(false);
+		//word_text.setEditable(false);
 		getContentPane().add(word_text);
 
 		JButton btnNewButton_4 = new JButton("Submit");
@@ -81,16 +81,16 @@ public class PracticeGame extends JFrame implements ActionListener {
 
 		score_text = new JTextField();
 		score_text.setBounds(130, 48, 134, 28);
-		score_text.setEditable(false);
+		//score_text.setEditable(false);
 		getContentPane().add(score_text);
 		score_text.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
 		btnResetBoard.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (word_text.getText().length() != 0) {
+				//if (word_text.getText().length() != 0) {
 					word_text.setText(null);
-				}
+				//}
 				score_text.setText(null);
 				board.setcellArray();
 				for (int i = 0; i < 4; i++) {
@@ -113,9 +113,9 @@ public class PracticeGame extends JFrame implements ActionListener {
 		JButton btnUndo = new JButton("Clear");
 		btnUndo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (word_text.getText().length() != 0) {
+				//if (word_text.getText().length() != 0) {
 					word_text.setText(null);
-				}
+				//}
 				score_text.setText(null);
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {
@@ -128,10 +128,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 		btnUndo.setBounds(333, 49, 117, 29);
 		getContentPane().add(btnUndo);
 		
-		//initialized practice page
-		setSize(600, 300); // set practicegame size
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+
 		
 	}
 	

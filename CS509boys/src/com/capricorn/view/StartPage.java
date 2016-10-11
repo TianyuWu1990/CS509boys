@@ -65,6 +65,10 @@ public class StartPage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 				PracticeGame practice = new PracticeGame();
+				// initialized practice page
+				practice.setSize(600, 300); // set practicegame size
+				practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				practice.setVisible(true);
 			}
 		});
 		btnNewButton_1.setBounds(65, 215, 117, 29);
