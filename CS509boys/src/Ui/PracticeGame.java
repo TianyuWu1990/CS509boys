@@ -140,6 +140,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 		txtOwn = new JTextField();
 		txtOwn.setColumns(10);
 		txtOwn.setBounds(130, 22, 180, 20);
+		txtOwn.setEditable(false);
 		getContentPane().add(txtOwn);
 
 		JButton btnNewButton_4 = new JButton("Submit");
@@ -182,6 +183,7 @@ public class PracticeGame extends JFrame implements ActionListener {
 		textField = new JTextField();
 		textField.setBounds(130, 48, 134, 28);
 		getContentPane().add(textField);
+		textField.setEditable(false);
 		textField.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
@@ -193,7 +195,8 @@ public class PracticeGame extends JFrame implements ActionListener {
 				board.setcellArray();
 				for (int i = 0; i < 4; i++) {
 					for (int j = 0; j < 4; j++) {						
-					btnArray[i][j].setText(board.letterArray[i][j].letter); 												
+					btnArray[i][j].setText(board.letterArray[i][j].letter); 
+						
 					}					
 				}
 				for (int i = 0; i < 4; i++) {
