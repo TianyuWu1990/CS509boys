@@ -10,7 +10,7 @@ public String getLetter() {
 }
 
 public void setLetter() {
-	String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","Qu"};  
+	String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","Qu"};  
     Random random = new Random();  
 //    for( int i = 0; i < 8; i ++) {  
 //        System.out.println(c[random.nextInt(c.length)]); 
