@@ -38,8 +38,13 @@ public void actionPerformed(ActionEvent a) {
 	}
 		
 		String val = p.txtOwn.getText();
-		int points = Integer.parseInt(p.textField.getText()) + Integer.parseInt(button.getToolTipText());
+		int points = 0;
 		p.txtOwn.setText(val + button.getText());
+		if(p.txtOwn.getText().length() >= 3){
+			points = Integer.parseInt(p.textField.getText()) + Integer.parseInt(button.getToolTipText())*10*((int)Math.pow(2, val.length()));
+		}else{
+			points = Integer.parseInt(p.textField.getText()) + Integer.parseInt(button.getToolTipText());
+		}
 		p.textField.setText(String.valueOf(points));
 		button.setEnabled(false);
 		
