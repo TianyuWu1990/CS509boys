@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.capricorn.controller.Exit;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -140,15 +143,8 @@ public class ManagerGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				StartPage page = new StartPage();
-				page.setSize(600, 300); // set StartPage size
-				page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				page.setVisible(true);
-			}
-		});
+		Exit exitControl = new Exit(this);
+		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);
 

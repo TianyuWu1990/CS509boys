@@ -13,21 +13,22 @@ import com.capricorn.controller.ClickLetter;
 import com.capricorn.controller.Exit;
 import com.capricorn.controller.Reset;
 import com.capricorn.entity.Board;
+import com.capricorn.model.Model;
 public class PracticeGame extends JFrame {
 	public List<String> list=new ArrayList<String>();
 	public JTextField txtOwn;
 	public JTextField textField;
-	public Board board = new Board();
+	public Model m;
 	public JButton btnArray[][] = new JButton[4][4];
-    public PracticeGame() {
+    public PracticeGame(Model m) {
+    	this.m=m;
 		setTitle("PracticeGame");
 		getContentPane().setLayout(null);
-		board.setcellArray();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				int x = 30 + i * 100;
 				int y = 80 + j * 40;
-				btnArray[i][j] = new JButton(board.letterArray[i][j].letter);
+				btnArray[i][j] = new JButton(m.board.letterArray[i][j].letter);
 				btnArray[i][j].setBounds(x, y, 89, 23);
 				ClickLetter clickControl = new ClickLetter(this);
 				btnArray[i][j].addActionListener(clickControl);
@@ -60,7 +61,7 @@ public class PracticeGame extends JFrame {
 		textField.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
-		Reset resetControl = new Reset(this);
+		Reset resetControl = new Reset(this,m);
 		btnResetBoard.addActionListener(resetControl);
 		btnResetBoard.setBounds(462, 89, 111, 23);
 		getContentPane().add(btnResetBoard);

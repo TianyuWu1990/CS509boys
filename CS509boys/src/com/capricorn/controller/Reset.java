@@ -4,12 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import com.capricorn.entity.Board;
+import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
 
 public class Reset implements ActionListener{
 	PracticeGame p;
-	public Reset(PracticeGame p){
+	Model m;
+	public Reset(PracticeGame p,Model m){
 		this.p=p;
+		this.m=m;
 	}
 
 	@Override
@@ -17,10 +21,10 @@ public class Reset implements ActionListener{
 		if (p.txtOwn.getText().length() != 0) {
 			p.txtOwn.setText(null);
 		}
-		p.board.setcellArray();
+		m.board.setcellArray();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {						
-			p.btnArray[i][j].setText(p.board.letterArray[i][j].letter); 
+			p.btnArray[i][j].setText(m.board.letterArray[i][j].letter); 
 				
 			}					
 		}

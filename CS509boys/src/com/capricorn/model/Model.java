@@ -1,10 +1,12 @@
 package com.capricorn.model;
 
+import com.capricorn.entity.Board;
+
 public class Model {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public Board board;
+	public Model(){
+		board=new Board();
+		board.setcellArray();
 	}
 
 }

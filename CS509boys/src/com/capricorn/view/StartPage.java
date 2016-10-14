@@ -20,6 +20,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.capricorn.controller.StartPractice;
+import com.capricorn.entity.Board;
+import com.capricorn.model.Model;
+
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -30,9 +34,11 @@ public class StartPage extends JFrame {
 	private JTextField join_id_text;
 	private JTextField join_pass_text;
 	private JTextField create_pass_text;
+	static Model model;
 
-	public StartPage() {
-
+	public StartPage(Model m) {
+		if (m!=null){
+          this.model=m;}
 		setSize(600, 300);
 		setTitle("WordSweeper");
 		getContentPane().setLayout(null);
@@ -59,18 +65,12 @@ public class StartPage extends JFrame {
 		});
 		btnStop.setBounds(65, 128, 149, 23);
 		getContentPane().add(btnStop);
-
+		
 		JButton btnNewButton_1 = new JButton("Practice mode");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				PracticeGame practice = new PracticeGame();
-				// initialized practice page
-				practice.setSize(600, 300); // set practicegame size
-				practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				practice.setVisible(true);
-			}
-		});
+//		m=new Model();
+		StartPractice StartPracticeControl= new StartPractice(this,model);
+		System.out.println(StartPracticeControl);
+		btnNewButton_1.addActionListener(StartPracticeControl);
 		btnNewButton_1.setBounds(65, 215, 117, 29);
 		getContentPane().add(btnNewButton_1);
 
