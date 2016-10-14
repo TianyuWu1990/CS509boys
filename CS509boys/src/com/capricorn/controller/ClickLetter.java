@@ -38,7 +38,9 @@ public void actionPerformed(ActionEvent a) {
 	}
 		
 		String val = p.txtOwn.getText();
+		int points = Integer.parseInt(p.textField.getText()) + Integer.parseInt(button.getToolTipText());
 		p.txtOwn.setText(val + button.getText());
+		p.textField.setText(String.valueOf(points));
 		button.setEnabled(false);
 		
 

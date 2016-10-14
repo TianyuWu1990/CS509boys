@@ -29,6 +29,7 @@ public class PracticeGame extends JFrame {
 				int x = 30 + i * 100;
 				int y = 80 + j * 40;
 				btnArray[i][j] = new JButton(m.board.letterArray[i][j].letter);
+				btnArray[i][j].setToolTipText(m.board.letterArray[i][j].points);
 				btnArray[i][j].setBounds(x, y, 89, 23);
 				ClickLetter clickControl = new ClickLetter(this);
 				btnArray[i][j].addActionListener(clickControl);
@@ -57,6 +58,7 @@ public class PracticeGame extends JFrame {
 		textField = new JTextField();
 		textField.setBounds(130, 48, 134, 28);
 		getContentPane().add(textField);
+		textField.setText("0");
 		textField.setEditable(false);
 		textField.setColumns(10);
 
