@@ -69,7 +69,7 @@ public class StartPage extends JFrame {
 		JButton btnNewButton_1 = new JButton("Practice mode");
 //		m=new Model();
 		StartPractice StartPracticeControl= new StartPractice(this,model);
-		System.out.println(StartPracticeControl);
+		
 		btnNewButton_1.addActionListener(StartPracticeControl);
 		btnNewButton_1.setBounds(65, 215, 117, 29);
 		getContentPane().add(btnNewButton_1);
