@@ -22,6 +22,7 @@ public class Reset implements ActionListener{
 			p.txtOwn.setText(null);
 		}
 		p.textField.setText("0");
+		p.sum = 0;
 		m.board.setcellArray();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {						

@@ -19,6 +19,7 @@ public class PracticeGame extends JFrame {
 	public JTextField txtOwn;
 	public JTextField textField;
 	public Model m;
+	public int sum;
 	public JButton btnArray[][] = new JButton[4][4];
     public PracticeGame(Model m) {
     	this.m=m;
