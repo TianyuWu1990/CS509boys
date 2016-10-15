@@ -1,8 +1,13 @@
 package com.capricorn.client;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
+import com.capricorn.view.StartPage;
+
 import client.ServerAccess;
 import xml.Message;
+import com.capricorn.model.Model;
 
 /** Launch command-line Client to show minimal access needs. */
 public class ClientLauncher {
@@ -26,6 +31,12 @@ public class ClientLauncher {
 		Message m = new Message ("<request id='l23kjlkasjldksljad'><connectRequest/></request>");
 		
 		sa.sendRequest(m);
+		
+		//initiate model
+		Model model=new Model();
+		StartPage page = new StartPage(model);
+        page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		page.setVisible(true);
 		
 		// await response. If we don't stop ServerAccess manually, there will be a background thread
 		// the continually runs and the program will never terminate. 
