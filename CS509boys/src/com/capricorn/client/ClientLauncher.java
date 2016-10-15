@@ -12,13 +12,14 @@ public class ClientLauncher {
 	 * which is typically the failed connection to a server.
 	 */
 	public static void main(String[] args) throws Exception {
-		// FIRST thing to do is register the protocol being used. There will be a single class protocol
-		// that will be defined and which everyone will use. For now, demonstrate with skeleton protocol.
-		if (!Message.configure("skeleton.xsd")) {
+		// FIRST thing to do is register the protocol being used. 
+		// There will be a single class protocol, we have set it as wordsweeper
+		if (!Message.configure("wordsweeper.xsd")) {
 			System.exit(0);
 		}
 		
 		ServerAccess sa = new ServerAccess("localhost");
+		//ServerAccess sa = new ServerAccess("130.215.218.214");
 		sa.connect(new SampleClientMessageHandler());
 		
 		// send an introductory connect request 
