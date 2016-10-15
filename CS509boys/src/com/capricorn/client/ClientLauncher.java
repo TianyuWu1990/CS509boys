@@ -1,8 +1,13 @@
 package com.capricorn.client;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
+import com.capricorn.view.StartPage;
+
 import client.ServerAccess;
 import xml.Message;
+import com.capricorn.model.Model;
 
 /** Launch command-line Client to show minimal access needs. */
 public class ClientLauncher {
@@ -12,19 +17,26 @@ public class ClientLauncher {
 	 * which is typically the failed connection to a server.
 	 */
 	public static void main(String[] args) throws Exception {
-		// FIRST thing to do is register the protocol being used. There will be a single class protocol
-		// that will be defined and which everyone will use. For now, demonstrate with skeleton protocol.
-		if (!Message.configure("skeleton.xsd")) {
+		// FIRST thing to do is register the protocol being used. 
+		// There will be a single class protocol, we have set it as wordsweeper
+		if (!Message.configure("wordsweeper.xsd")) {
 			System.exit(0);
 		}
 		
 		ServerAccess sa = new ServerAccess("localhost");
+		//ServerAccess sa = new ServerAccess("130.215.218.214");
 		sa.connect(new SampleClientMessageHandler());
 		
 		// send an introductory connect request 
 		Message m = new Message ("<request id='l23kjlkasjldksljad'><connectRequest/></request>");
 		
 		sa.sendRequest(m);
+		
+		//initiate model
+		Model model=new Model();
+		StartPage page = new StartPage(model);
+        page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		page.setVisible(true);
 		
 		// await response. If we don't stop ServerAccess manually, there will be a background thread
 		// the continually runs and the program will never terminate. 

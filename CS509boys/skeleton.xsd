@@ -32,6 +32,8 @@
 
 <xs:element name='connectRequest'/>    <!-- Connect to server -->
 
+
+
 <xs:element name='connectResponse'>   <!-- Response to connectRequest -->
   <xs:complexType>
     <xs:attribute name='id' type='xs:string' use='required'/>
