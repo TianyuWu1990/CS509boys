@@ -16,6 +16,7 @@ import xml.Message;
 public class JoinGameController implements ActionListener{
 	StartPage st;
 	Model m;
+	Message mssg;
 	
 	/**
 	 * the action 
@@ -29,6 +30,10 @@ public class JoinGameController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		this.process();
+		
+		//deal with mssg to get what you need
+		//....
 		
 	}
 
@@ -37,10 +42,7 @@ public class JoinGameController implements ActionListener{
 	public void process() {
 		// send the request to create the game.
 		String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne'/></request>";
-		Message m = new Message (xmlString);
-
-		// deal with the m (message) to get parameters
-		
+		mssg = new Message (xmlString);
 		
 	}
 }
