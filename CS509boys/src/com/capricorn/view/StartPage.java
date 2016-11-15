@@ -24,6 +24,8 @@ import com.capricorn.controller.StartPractice;
 import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
 
+import client.ServerAccess;
+
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -35,6 +37,16 @@ public class StartPage extends JFrame {
 	private JTextField join_pass_text;
 	private JTextField create_pass_text;
 	static Model model;
+	
+	ServerAccess serverAccess;
+
+	public ServerAccess getServerAccess() {
+		return serverAccess;
+	}
+
+	public void setServerAccess(ServerAccess serverAccess) {
+		this.serverAccess = serverAccess;
+	}
 
 	public StartPage(Model m) {
 		if (m!=null){

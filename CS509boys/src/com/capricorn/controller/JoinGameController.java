@@ -10,6 +10,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
 import com.capricorn.view.StartPage;
 
+import client.ServerAccess;
 import xml.Message;
 
 
@@ -35,6 +36,7 @@ public class JoinGameController implements ActionListener{
 		//deal with mssg to get what you need
 		//....
 		
+		
 	}
 
 
@@ -43,6 +45,9 @@ public class JoinGameController implements ActionListener{
 		// send the request to create the game.
 		String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne'/></request>";
 		mssg = new Message (xmlString);
+		ServerAccess sa = this.st.getServerAccess();
+		//sa.sendRequest(this,mssg);
+		
 		
 	}
 }
