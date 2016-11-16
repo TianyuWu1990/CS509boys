@@ -45,7 +45,8 @@ public class JoinGameController implements ActionListener{
 		// send the request to create the game.
 		String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne'/></request>";
 		mssg = new Message (xmlString);
-		ServerAccess sa = this.st.getServerAccess();
+		st.getServerAccess().sendRequest(mssg);
+		
 		//sa.sendRequest(this,mssg);
 		
 		

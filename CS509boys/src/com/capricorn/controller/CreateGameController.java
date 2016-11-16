@@ -18,10 +18,6 @@ public class CreateGameController extends ControllerChain{
 		this.model = model;
 	}
 
-	/** Make the request on the server and wait for response. */
-	public void process() {
-	
-	}
 
 	@Override
 	public boolean process(Message response) {

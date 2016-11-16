@@ -32,17 +32,15 @@ public class BoardResponseController extends ControllerChain {
 			return next.process(response);
 		}
 		
+		
 		// this refers to the outer node of the Message DOM (in this case, updateResponse).
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
-		
-	
-		
-		// at this point, you would normally start processing this...
-		
+
 		return true;
+		
 	}
 
 }
