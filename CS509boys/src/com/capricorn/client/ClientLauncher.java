@@ -68,19 +68,18 @@ public class ClientLauncher {
 		String xmlString = Message.requestHeader() + "<connectRequest/></request>";	//"<request id='l23kjlkasjldksljad'><connectRequest/></request>"
 		Message m = new Message (xmlString);	
 		sa.sendRequest(m);
-		
+	
 		page.setVisible(true);
-		
-
 		
 		// await response. If we don't stop ServerAccess manually, there will be a background thread
 		// the continually runs and the program will never terminate. 
 		// This problem is not as noticeable in GUI-based clients.
-		System.err.println("Press Return to terminate client.");
-		Scanner sc = new Scanner (System.in);
-		sc.nextLine();
+//		System.err.println("Press Return to terminate client.");
+//		Scanner sc = new Scanner (System.in);
+//		sc.nextLine();
+//		
+//		System.out.println("Client disconnected.");
+//		sa.disconnect();
 		
-		System.out.println("Client disconnected.");
-		sa.disconnect();
 	} 
 }
