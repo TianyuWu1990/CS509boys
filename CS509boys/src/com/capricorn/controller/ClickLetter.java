@@ -7,16 +7,25 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 import com.capricorn.view.PracticeGame;
-
+/**
+ * In the word board, we want to realize the function that click the letter
+ * and demostrate the letter in the blank 
+ */
 public class ClickLetter implements ActionListener{
 	PracticeGame p;
+	/** Define the defalut p for PracticeGame
+	 *Construct ClickLetter object to use default port number. 
+	 */
 	public ClickLetter(PracticeGame p){
 		this.p=p;
 	}
-
+	/**Define the function actionPerformed is used after clicking  */
 	@Override
 public void actionPerformed(ActionEvent a) {
-		
+		/**
+		 * first part is aim to make the button dark after clicking 
+		 * avoid reclicking the button again
+		 */
 		JButton button = (JButton) a.getSource();
 		int x=button.getBounds().x;
 		int y=button.getBounds().y;
@@ -36,7 +45,7 @@ public void actionPerformed(ActionEvent a) {
 				
 			}
 	}
-		
+        /**After clicking, get the value on the button and then sent to the 'txtOwn'*/
 		String val = p.txtOwn.getText();
 		int points = 0;
 		p.sum += Integer.parseInt(button.getToolTipText());
