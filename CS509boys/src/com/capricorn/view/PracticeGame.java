@@ -1,5 +1,4 @@
 package com.capricorn.view;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,16 +13,26 @@ import com.capricorn.controller.Exit;
 import com.capricorn.controller.Reset;
 import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
+/**
+ *View part including here is designed by Jframe. PracticeGame is an interface
+ *connect to the player who want to play a single game without request and response. 
+ *Which means practice game can be run under the condition without connecting to server.
+ *<p>
+ *Jframe owns the advantage that different parts are individually and will not affect each other.
+ */
 public class PracticeGame extends JFrame {
-	public List<String> list=new ArrayList<String>();
-	public JTextField txtOwn;
-	public JTextField textField;
-	public Model m;
-	public int sum;
+	public List<String> list=new ArrayList<String>();//new word list
+	public JTextField txtOwn;//the word on the button
+	public JTextField textField;//define the place to store word
+	public Model m;//define a new modle of game 
+	public int sum;//the sum of combination of score with different word 
 	public JButton btnArray[][] = new JButton[4][4];
+	//define the variables in order to implement the game funtion
+	/**Here is a constructor for PracticeGame in order to make a fault value.
+	 * Construct PracticeGame object to use default port number.*/
     public PracticeGame(Model m) {
     	this.m=m;
-		setTitle("PracticeGame");
+		setTitle("PracticeGame");//set the title
 		getContentPane().setLayout(null);
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
