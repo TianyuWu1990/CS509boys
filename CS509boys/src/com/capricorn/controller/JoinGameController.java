@@ -14,7 +14,7 @@ import client.ServerAccess;
 import xml.Message;
 
 
-public class JoinGameController implements ActionListener{
+public class JoinGameController extends ControllerChain{
 	StartPage st;
 	Model m;
 	Message mssg;
@@ -28,27 +28,15 @@ public class JoinGameController implements ActionListener{
 		this.m=m;
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
-		this.process();
-		
-		//deal with mssg to get what you need
-		//....
-		
-		
-	}
-
 
 	/** Make the request on the server and wait for response. */
-	public void process() {
+	public boolean process(Message response) {
 		// send the request to create the game.
 		String xmlString = Message.requestHeader() + "<joinGameRequest gameId='somePlace' name='nextOne'/></request>";
 		mssg = new Message (xmlString);
-		st.getServerAccess().sendRequest(mssg);
 		
-		//sa.sendRequest(this,mssg);
-		
+		return st.getServerAccess().sendRequest(mssg);
 		
 	}
+
 }
