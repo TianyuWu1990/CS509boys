@@ -5,7 +5,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import com.capricorn.view.PracticeGame;
-
+/**
+ * Responsible for clear all the letters in the board field.
+ */
 public class Clear implements ActionListener{
 	PracticeGame p;
 	public Clear(PracticeGame p){
