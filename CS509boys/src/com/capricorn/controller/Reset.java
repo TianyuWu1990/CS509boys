@@ -7,7 +7,14 @@ import java.util.ArrayList;
 import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
-
+/**
+ * When accour to some conflict condition like no word can be find 
+ * or want to have a better begnning for the game.
+ * Reset function right now is used to slove problems by the administer
+ * <p>
+ * The whole process is rebulid the data letter randomly and resend to the board
+ * Same like clear funtion, not only will reset clear everthing, but also renew the board   
+ */
 public class Reset implements ActionListener{
 	PracticeGame p;
 	Model m;
@@ -15,7 +22,7 @@ public class Reset implements ActionListener{
 		this.p=p;
 		this.m=m;
 	}
-
+/**ActionListener when the creset button push the following happen.*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (p.txtOwn.getText().length() != 0) {
