@@ -21,7 +21,7 @@ public class ConnectResponseController extends ControllerChain{
 	public boolean process(Message response) {
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("connectResponse")) {
-			
+			return next.process(response);
 		}
 		
 		
