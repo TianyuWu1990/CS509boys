@@ -36,7 +36,7 @@ public class StartPage extends JFrame {
 	private JTextField join_id_text;
 	private JTextField join_pass_text;
 	private JTextField create_pass_text;
-	static Model model;
+	public final Model model;
 	
 	ServerAccess serverAccess;
 
@@ -49,8 +49,7 @@ public class StartPage extends JFrame {
 	}
 
 	public StartPage(Model m) {
-		if (m!=null){
-          this.model=m;}
+        this.model=m;
 		setSize(600, 300);
 		setTitle("WordSweeper");
 		getContentPane().setLayout(null);
