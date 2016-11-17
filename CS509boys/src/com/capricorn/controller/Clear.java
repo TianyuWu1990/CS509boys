@@ -17,7 +17,8 @@ public class Clear implements ActionListener{
 	public Clear(PracticeGame p){
 		this.p=p;
 	}
-	/** Override the the actionPerformed, so under the conditions that
+	/** 
+	 * Override the the actionPerformed, so under the conditions that
 	 *  Firstly nothing exists so we set null
 	 *  Secondly else if there can be got something like letters we set it to 0;
 	 */
