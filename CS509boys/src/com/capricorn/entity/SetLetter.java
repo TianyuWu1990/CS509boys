@@ -3,7 +3,7 @@ package com.capricorn.entity;
 import java.util.Random;
 
 import junit.framework.TestCase;
-
+/**Test of the setletter method*/
 public class SetLetter extends TestCase {  
     public void testRandom1() throws Exception {  
 //        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";  
