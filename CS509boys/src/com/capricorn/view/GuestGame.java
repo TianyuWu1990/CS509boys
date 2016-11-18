@@ -53,6 +53,7 @@ public class GuestGame extends JFrame {
 		Object[][] objAy = new Object[pi.size()][3] ;
 		int i =0;
 		int j =0;
+		int k=0;
 		for (String key : pi.keySet()) { 
 			
 		
@@ -65,8 +66,9 @@ public class GuestGame extends JFrame {
 		    j+=1;  
 		  
 		}
-		for(int k=0;j<=pi.size();k++){
-			objAy[k][2]=pi.size()-k ;
+		while(k<pi.size()){
+			objAy[k][2]=pi.size()-k;
+			k = k+1;
 		}
 		
 			return objAy;
