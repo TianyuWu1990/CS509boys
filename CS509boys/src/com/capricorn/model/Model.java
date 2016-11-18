@@ -1,12 +1,20 @@
 package com.capricorn.model;
 
 import com.capricorn.entity.Board;
+import com.capricorn.entity.Game;
+import com.capricorn.entity.Player;
 
 
 
 public class Model {
 	static Model model=null;
+	Game game;
 	public Board board=new Board();
+	public Player player = new Player();
+	public Game getGame(){
+		
+		return game;
+	}
 	public Model(){
 		
 		board.setcellArray();
@@ -20,6 +28,12 @@ public class Model {
 	}
 	public Board getBoard() {
 		return board;
+	}
+	public Player getPlayer(){
+		return player;
+	}
+	public void updateModel(){
+		
 	}
 	
 	

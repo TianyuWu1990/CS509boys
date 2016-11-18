@@ -13,4 +13,7 @@ public void setcellArray(){
 		}
 	}
 }
+public void updateBoard(){
+	
+}
 }

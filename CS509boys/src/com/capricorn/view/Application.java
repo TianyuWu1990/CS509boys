@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import com.capricorn.RequestController.CreateGameController;
 import com.capricorn.RequestController.StartPractice;
 import com.capricorn.model.Model;
+import com.capricorn.entity.*;
 
 import client.ServerAccess;
 
@@ -26,7 +27,12 @@ public class Application extends JFrame {
 	ManagerGame managerg;
 	GuestGame   guestg;
 	
+	
 	ServerAccess serverAccess;
+	
+	
+	
+	
 
 	public ServerAccess getServerAccess() {
 		return serverAccess;
@@ -61,7 +67,8 @@ public class Application extends JFrame {
 		}
 		return false;
 	}			
-	
+//	public List<Player> getPlayerInformation():
+		
 
 	public String getPassword() {
 		return create_pass_text.getText();

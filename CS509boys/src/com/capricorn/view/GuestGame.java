@@ -2,25 +2,100 @@ package com.capricorn.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.Exit;
+import com.capricorn.entity.Game;
 import com.capricorn.model.Model;
 
 public class GuestGame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTable table;
 	Model model;
+	private  HashMap sortByComparator(HashMap unsortMap) { 
+        List list = new LinkedList(unsortMap.entrySet()); 
+        // sort list based on comparator
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o1, Object o2) {
+                return ((Comparable) ((Map.Entry) (o1)).getValue())
+                                       .compareTo(((Map.Entry) (o2)).getValue());
+            }
+        });
+
+        // put sorted list into map again
+                //LinkedHashMap make sure order in which keys were inserted
+        HashMap sortedMap = new LinkedHashMap();
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            Map.Entry entry = (Map.Entry) it.next();
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
+    }
+
+    
+	private Object[][] convertListToHashMap(HashMap<String, Long> pi){
+		Object[][] objAy = new Object[pi.size()][3] ;
+		int i =0;
+		int j =0;
+		for (String key : pi.keySet()) { 
+			
+		
+			objAy[i][0]= key;
+  
+		    i+=1;
+		}  		  		 		  
+		for (Long value : pi.values()) {  
+			objAy[j][1]= value;
+		    j+=1;  
+		  
+		}
+		for(int k=0;j<=pi.size();k++){
+			objAy[k][2]=pi.size()-k ;
+		}
+		
+			return objAy;
+		}
+		
+	public void refresh(){
+//		Game game = model.getGame();
+		HashMap<String, Long> pi = this.sortByComparator(model.getGame().getPlayerInformation());
+//		this.sortByComparator(pi);
+
+//		int count = pi.size();
+		JTable jt = new JTable();
+		Object[][] objHM = convertListToHashMap(pi) ;
+		jt.setModel(new DefaultTableModel(objHM,new String[] {
+				"Name", "Score", "Rank" 
+				
+		
+			}));
+		
+	
+		
+	}
+	//
 
 	public GuestGame(Model model) {
 		this.model=model;
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
+		
 
 		textField = new JTextField();
 		textField.setBounds(132, 21, 192, 22);
@@ -130,7 +205,8 @@ public class GuestGame extends JFrame {
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);
-
+//refresh function here
+		
 		JTextPane textPane = new JTextPane();
 		textPane.setBounds(211, 237, 390, 199);
 		getContentPane().add(textPane);
