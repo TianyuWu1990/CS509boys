@@ -11,7 +11,7 @@ public class TestStartPage {
 		//Model m = new Model();
 		// TODO Auto-generated method stub
 		Model m=new Model();
-		StartPage page = new StartPage(m);
+		Application page = new Application(m);
         page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		page.setVisible(true);
 		

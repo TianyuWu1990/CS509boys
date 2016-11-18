@@ -1,42 +1,30 @@
 package com.capricorn.view;
 
-import java.awt.EventQueue;
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
-import com.capricorn.controller.StartPractice;
-import com.capricorn.entity.Board;
+import com.capricorn.RequestController.CreateGameController;
+import com.capricorn.RequestController.StartPractice;
 import com.capricorn.model.Model;
 
 import client.ServerAccess;
 
-import javax.swing.JTextArea;
-import javax.swing.border.LineBorder;
-import java.awt.Color;
-import javax.swing.UIManager;
-
-public class StartPage extends JFrame {
+public class Application extends JFrame {
 	private JTextField create_id_text;
-	private JTextField join_id_text;
-	private JTextField join_pass_text;
+	private JTextField name_id_text;
 	private JTextField create_pass_text;
-	public final Model model;
+	public Model model;
+	String playerName;
+	String password;
+	String gameNumber;
+	ManagerGame managerg;
+	GuestGame   guestg;
 	
 	ServerAccess serverAccess;
 
@@ -47,8 +35,59 @@ public class StartPage extends JFrame {
 	public void setServerAccess(ServerAccess serverAccess) {
 		this.serverAccess = serverAccess;
 	}
+	public String getPlayName(){
+		return name_id_text.getText();
+	}
+	public boolean notHasPlayerName(){
+		playerName = name_id_text.getText();
+		if(playerName.length() == 0){
+			JOptionPane.showMessageDialog(Application.this, "playerName can not be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+			name_id_text.requestFocus();
+			return true;
+		}
+		return false;
+	}
+	public boolean notHasPlayerNameAndGameId(){			
+		gameNumber = create_id_text.getText();
+		playerName = name_id_text.getText();
+		if(gameNumber.length() == 0){
+			JOptionPane.showMessageDialog(Application.this, "gameID can not be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+			create_id_text.requestFocus();
+			return true;
+		}else if(playerName.length() == 0){
+			JOptionPane.showMessageDialog(Application.this, "playerName can not be empty", "Warning", JOptionPane.WARNING_MESSAGE);
+			name_id_text.requestFocus();
+			return true;
+		}
+		return false;
+	}			
+	
 
-	public StartPage(Model m) {
+	public String getPassword() {
+		return create_pass_text.getText();
+	}
+
+	
+
+	public String getGameNumber() {
+		return gameNumber;
+	}
+
+	
+
+	public ManagerGame getManagerg() {
+		return managerg;
+	}
+
+	
+
+	public GuestGame getGuestg() {
+		return guestg;
+	}
+
+	
+
+	public Application(Model m) {
         this.model=m;
 		setSize(600, 300);
 		setTitle("WordSweeper");
@@ -57,24 +96,33 @@ public class StartPage extends JFrame {
 		JButton btnStart = new JButton("Create a game");
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(!notHasPlayerName()){
+				managerg = new ManagerGame(model);
+				managerg.setSize(600, 300); 
+				managerg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				managerg.setVisible(true);
 				dispose();
-				ManagerGame manager = new ManagerGame();
+				new CreateGameController(Application.this, model).process();
+				
+			}
 			}
 		});
-		btnStart.setBounds(65, 37, 137, 23);
+		btnStart.setBounds(65, 37, 149, 23);
 		getContentPane().add(btnStart);
 
 		JButton btnStop = new JButton("Join a game");
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				GuestGame guest = new GuestGame();
-				guest.setSize(620, 500); // set ManagerGame size
-				guest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				guest.setVisible(true);
+				if(!notHasPlayerNameAndGameId()){
+				
+				GuestGame guestg = new GuestGame(model);
+				
+				guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				guestg.setVisible(true);
+			}
 			}
 		});
-		btnStop.setBounds(65, 128, 149, 23);
+		btnStop.setBounds(65, 72, 149, 23);
 		getContentPane().add(btnStop);
 		
 		JButton btnNewButton_1 = new JButton("Practice mode");
@@ -103,23 +151,14 @@ public class StartPage extends JFrame {
 		lblOptionalPassword.setBounds(389, 39, 61, 16);
 		getContentPane().add(lblOptionalPassword);
 
-		join_id_text = new JTextField();
-		join_id_text.setBounds(226, 124, 134, 28);
-		getContentPane().add(join_id_text);
-		join_id_text.setColumns(10);
+		name_id_text = new JTextField();
+		name_id_text.setBounds(226, 96, 134, 28);
+		getContentPane().add(name_id_text);
+		name_id_text.setColumns(10);
 
-		JLabel lblEnterGameId = new JLabel("Enter game ID");
-		lblEnterGameId.setBounds(389, 130, 98, 16);
+		JLabel lblEnterGameId = new JLabel("Player Name");
+		lblEnterGameId.setBounds(389, 102, 98, 16);
 		getContentPane().add(lblEnterGameId);
-
-		join_pass_text = new JTextField();
-		join_pass_text.setBounds(226, 152, 134, 28);
-		getContentPane().add(join_pass_text);
-		join_pass_text.setColumns(10);
-
-		JLabel lblPassword = new JLabel("Password ( Optional )");
-		lblPassword.setBounds(389, 158, 137, 16);
-		getContentPane().add(lblPassword);
 
 		create_pass_text = new JTextField();
 		create_pass_text.setBounds(226, 63, 134, 28);

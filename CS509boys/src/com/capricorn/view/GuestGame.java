@@ -1,32 +1,24 @@
 package com.capricorn.view;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import com.capricorn.controller.Exit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.Box;
 import javax.swing.JTextPane;
-import javax.swing.JTable;
-import javax.swing.JInternalFrame;
-import java.awt.Color;
-import javax.swing.UIManager;
+
+import com.capricorn.RequestController.Exit;
+import com.capricorn.model.Model;
 
 public class GuestGame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
+	Model model;
 
-	public GuestGame() {
+	public GuestGame(Model model) {
+		this.model=model;
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
 

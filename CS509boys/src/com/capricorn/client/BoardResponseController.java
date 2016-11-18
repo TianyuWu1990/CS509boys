@@ -4,9 +4,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.capricorn.controller.ControllerChain;
+import com.capricorn.RequestController.ControllerChain;
 import com.capricorn.model.Model;
-import com.capricorn.view.StartPage;
+import com.capricorn.view.Application;
 
 import xml.Message;
 
@@ -17,10 +17,10 @@ import xml.Message;
  */
 public class BoardResponseController extends ControllerChain {
 
-	public StartPage app;
+	public Application app;
 	public Model model;
 	
-	public BoardResponseController(StartPage a, Model m) {
+	public BoardResponseController(Application a, Model m) {
 		super();
 		this.app = a;
 		this.model = m;

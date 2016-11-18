@@ -7,10 +7,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import com.capricorn.controller.Clear;
-import com.capricorn.controller.ClickLetter;
-import com.capricorn.controller.Exit;
-import com.capricorn.controller.Reset;
+
+import com.capricorn.RequestController.Clear;
+import com.capricorn.RequestController.ClickLetter;
+import com.capricorn.RequestController.Exit;
+import com.capricorn.RequestController.Reset;
 import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
 /**
