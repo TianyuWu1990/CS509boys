@@ -16,13 +16,15 @@ public class Exit implements ActionListener{
 	Model m;
 /**Here is a constructor for Exit in order to make a fault value.
 	 * Construct Exit object to use default port number.*/
-	public Exit(JFrame j){
+	public Exit(JFrame j,Model m){
 		this.j=j;
+		this.m=m;
 	}
 /**Dispose the interface and shut down the software.*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		j.dispose();
+		m.getBoard().setcellArrayForPractice();
 		Application page = new Application(m);
 		page.setSize(600, 300); // set StartPage size
 		page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

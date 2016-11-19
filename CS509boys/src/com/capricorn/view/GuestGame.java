@@ -203,7 +203,7 @@ public class GuestGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
-		Exit exitControl = new Exit(this);
+		Exit exitControl = new Exit(this,model);
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);

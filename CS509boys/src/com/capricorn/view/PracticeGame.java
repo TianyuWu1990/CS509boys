@@ -89,7 +89,7 @@ public class PracticeGame extends JFrame {
 		getContentPane().add(btnUndo);
 		
 		JButton btnNewButton_2 = new JButton("Exit Practice");
-		Exit exitControl = new Exit(this);
+		Exit exitControl = new Exit(this,m);
 		btnNewButton_2.addActionListener(exitControl);
 		btnNewButton_2.setBounds(462, 14, 111, 38);
 		getContentPane().add(btnNewButton_2);
