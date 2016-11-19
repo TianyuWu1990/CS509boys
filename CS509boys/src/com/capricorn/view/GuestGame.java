@@ -76,7 +76,7 @@ public class GuestGame extends JFrame {
 		
 	public void refresh(){
 //		Game game = model.getGame();
-		HashMap<String, Long> pi = this.sortByComparator(model.getGame().getPlayerInformation());
+		HashMap<String, Long> pi = this.sortByComparator(model.getGame().getPlayersInformation());
 //		this.sortByComparator(pi);
 
 //		int count = pi.size();

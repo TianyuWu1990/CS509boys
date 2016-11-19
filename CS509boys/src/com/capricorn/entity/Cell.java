@@ -1,6 +1,9 @@
 package com.capricorn.entity;
 
+
 import java.util.Random;
+
+import com.capricorn.entity.Coordinate;
 /**
  * Define the cell with two attributes with letters and point.
  * Each cell should consisted with letters and potentially score('point').
@@ -9,6 +12,54 @@ import java.util.Random;
 public class Cell {
 public String letter;
 public String points;
+private Coordinate localCoordinate;
+private Coordinate globalCoordinate;
+boolean isSelected;
+boolean isBonus;
+public Cell(){
+	localCoordinate=new Coordinate();
+	globalCoordinate=new Coordinate();
+	letter = "";
+	isBonus = false;
+	isSelected = false;
+}
+
+public Coordinate getLocalCoordinate() {
+	return localCoordinate;
+}
+
+public void setLocalCoordinate(Coordinate localCoordinate) {
+	this.localCoordinate = localCoordinate;
+}
+
+public Coordinate getGlobalCoordinate() {
+	return globalCoordinate;
+}
+
+public void setGlobalCoordinate(Coordinate globalCoordinate) {
+	this.globalCoordinate = globalCoordinate;
+}
+
+public boolean isSelected() {
+	return isSelected;
+}
+
+public void setSelected(boolean isSelected) {
+	this.isSelected = isSelected;
+}
+
+public boolean isBonus() {
+	return isBonus;
+}
+
+public void setBonus(boolean isBonus) {
+	this.isBonus = isBonus;
+}
+
+public void setLetter(String letter) {
+	this.letter = letter;
+}
+
 //two attributes of cell letter and points
 public String getLetter() {
 	return letter;
@@ -18,7 +69,7 @@ public String getPoints() {
 }
 //get method
 /**Setletter replace the set method. The Letter should be define among English letter with unique posibility. */
-public void setLetter() {
+public void setLetterForPractice() {
 	String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","Qu"};  
     //English words demonstrated in order to be generated to the setletter function
 	int k=0;
