@@ -1,10 +1,6 @@
 package com.capricorn.entity;
 
-
 import java.util.ArrayList;
-
-import com.capricorn.entity.Coordinate;
-import com.capricorn.entity.Word;
 
 /**As defined, the size of the board is should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters in it.
@@ -12,7 +8,7 @@ import com.capricorn.entity.Word;
 public class Board {
 public Cell cells[][] = new Cell[4][4];
 private ArrayList<Cell> chosenCells;
-private Word word;
+private Word word=new Word();
 private int globalStartingCol;
 private int globalStartingRow;
 
@@ -130,8 +126,32 @@ public String getChosenCellsXMLString(){
 		}
 	return chosenCellsString;
 }
+public void addToChosenCellsByIndex(int ChosenCellIndex){
 	
+		int row=ChosenCellIndex/4;
+		int col=ChosenCellIndex%4;
+		chosenCells.add(cells[row][col]);
+		cells[row][col].setSelected(true);
+		word.setContent(getChosenCellsLetters());
+		
+
 }
+public String getChosenCellsLetters(){
+	String chosenLetters = "";
+	for(Cell cell : chosenCells)
+			chosenLetters += cell.getLetter(); 
+	return chosenLetters;
+}
+public void clearChosenCells(){
+	for(Cell cell : chosenCells){
+		cell.setSelected(false);
+	}
+	chosenCells.removeAll(chosenCells);
+}
+
+
+}
+
 
 
 

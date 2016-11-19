@@ -24,8 +24,8 @@ public class Application extends JFrame {
 	String playerName;
 	String password;
 	String gameNumber;
-	ManagerGame managerg;
-	GuestGame   guestg;
+	MultiGame managerg;
+	
 	
 	
 	ServerAccess serverAccess;
@@ -82,15 +82,13 @@ public class Application extends JFrame {
 
 	
 
-	public ManagerGame getManagerg() {
+	public MultiGame getManagerg() {
 		return managerg;
 	}
 
 	
 
-	public GuestGame getGuestg() {
-		return guestg;
-	}
+	
 
 	
 
@@ -104,8 +102,8 @@ public class Application extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerName()){
-				managerg = new ManagerGame(model);
-				managerg.setSize(600, 300); 
+				managerg = new MultiGame(model);
+				managerg.setSize(900, 600); 
 				managerg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				managerg.setVisible(true);
 				dispose();
@@ -122,7 +120,8 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
 				
-				GuestGame guestg = new GuestGame(model);
+				MultiGame guestg = new MultiGame(model);
+				guestg.setSize(900, 600); 
 				
 				guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				guestg.setVisible(true);

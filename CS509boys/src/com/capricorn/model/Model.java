@@ -8,7 +8,7 @@ import com.capricorn.entity.Player;
 
 public class Model {
 	static Model model=null;
-	public Game game;
+	public Game game=new Game();
 	public Board board=new Board();
 	public Player player = new Player();
 	public Game getGame(){

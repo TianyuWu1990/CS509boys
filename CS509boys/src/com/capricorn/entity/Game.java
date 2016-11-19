@@ -2,13 +2,18 @@ package com.capricorn.entity;
 
 
 
-import java.util.HashMap;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
 	String gameId;
 	Player player;
 	private String managingUser;
-	HashMap<String,Long> playersInformation; 
+	List<Player> playersInformation; 
 	private boolean isLocked;
 	
 
@@ -17,23 +22,60 @@ public class Game {
 		gameId = "";
 		managingUser = null;
 		isLocked = false;
-		playersInformation = new HashMap<String, Long>();;
+		playersInformation = new LinkedList<Player>();;
 	}
 	public String getGameId() {
 		return gameId;
 	}
 
-	public void setGameId(String gameId) {
-		gameId = gameId;
+	public String getManagingUser() {
+		return managingUser;
 	}
-	public HashMap<String,Long> getPlayersInformation(){
+	public void setManagingUser(String managingUser) {
+		this.managingUser = managingUser;
+	}
+	public boolean isLocked() {
+		return isLocked;
+	}
+	public void setLocked(boolean isLocked) {
+		this.isLocked = isLocked;
+	}
+	public void setGameId(String gameId) {
+		this.gameId = gameId;
+	}
+	public List<Player> getPlayersInformation(){
 		
 		
 		return playersInformation;
 		
 	}
-	public void addPlayersInformation(String name,Long score ) {
-		playersInformation.put(name, score);
+	public void addPlayersInformation(Player player) {
+		playersInformation.add(player);
 		
 	}
+	@SuppressWarnings("unchecked")
+	public List<Player> getPlayersListByScore(){
+		Comparator<Object> comparator =new Comparator<Object>(){
+			@Override
+			public int compare(Object o1,Object o2){
+	           if(o1 instanceof Player&& o2 instanceof Player){
+	        	   Player p1=(Player) o1;
+	        	   Player p2=(Player) o2;
+	        	   return -( p1.getScore()-p2.getScore()>0?1: (p1.getScore()==p2.getScore()?0:-1));
+	        	   }
+	           return 0;
+	           }
+		
+			
+		};
+		Collections.sort(this.playersInformation, comparator);   
+		return playersInformation;
+		
+	}
+	
+	
+	
+	
+	
 }
+

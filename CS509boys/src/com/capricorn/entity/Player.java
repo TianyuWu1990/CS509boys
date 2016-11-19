@@ -15,12 +15,18 @@ public class Player {
 	public long getScore() {
 		return score;
 	}
-//	public List getPlayerInformation() {
+public void setName(String name) {
+		this.name = name;
+	}
+	//	public List getPlayerInformation() {
 //		return PlayerInformation;
 //	}
 //	public List<Player> getPlayerInformations() {
 //		return PlayerInformations;
 //	}
+	public void setScore(long score) {
+		this.score = score;
+	}
 
 
 }

@@ -2,22 +2,27 @@ package com.capricorn.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
+import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.Exit;
+import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 
-public class ManagerGame extends JFrame {
+public class MultiGame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	Model model;
+	private JTable table;
 
-	public ManagerGame(Model m) {
+	public MultiGame(Model m) {
 		this.model=m;
 		
 		setSize(620, 500); // set ManagerGame size
@@ -148,12 +153,8 @@ public class ManagerGame extends JFrame {
 		button_5.setBounds(35, 343, 111, 23);
 		getContentPane().add(button_5);
 
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(211, 237, 390, 199);
-		getContentPane().add(textPane);
-
 		JLabel lblScoreRanking = new JLabel("Score Ranking :");
-		lblScoreRanking.setBounds(98, 237, 101, 16);
+		lblScoreRanking.setBounds(42, 240, 101, 16);
 		getContentPane().add(lblScoreRanking);
 
 		JLabel lblManagerPanel = new JLabel("Manager Control");
@@ -163,5 +164,42 @@ public class ManagerGame extends JFrame {
 		JButton button_6 = new JButton("k");
 		button_6.setBounds(37, 89, 89, 23);
 		getContentPane().add(button_6);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(158, 239, 428, 197);
+		getContentPane().add(scrollPane);
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+				convertPlayersListToArray(),
+				new String[] {
+					"Player Name", "Player Score", "Rank"
+				}
+				));
+		scrollPane.setViewportView(table);
+		table.setBounds(200, 238, 402, 234);
+	
+		
 	}
-}
+
+	
+		public Object[][] convertPlayersListToArray(){
+			List playersList=model.getGame().getPlayersListByScore();
+			Object[][] objAy = new Object[playersList.size()][3] ;
+			for (int i=0;i<objAy.length;i++){
+				
+			
+				Player p = (Player)playersList.get(i);  
+				objAy[i][0] = p.getName() ;
+				objAy[i][1] = p.getScore();
+				objAy[i][2] = "No."+(i+1);
+				
+			
+			
+		}
+			return objAy; 
+		}
+		
+		
+		
+		
+	}
+
