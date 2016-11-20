@@ -28,6 +28,7 @@ public class PracticeGame extends JFrame {
 	public Model m;//define a new modle of game 
 	public int sum;//the sum of combination of score with different word 
 	public JButton btnArray[][] = new JButton[4][4];
+	
 	//define the variables in order to implement the game funtion
 	/**Here is a constructor for PracticeGame in order to make a fault value.
 	 * Construct PracticeGame object to use default port number.*/

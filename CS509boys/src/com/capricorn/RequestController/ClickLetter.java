@@ -2,10 +2,11 @@ package com.capricorn.RequestController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 
+import com.capricorn.model.Model;
+import com.capricorn.view.MultiGame;
 import com.capricorn.view.PracticeGame;
 /**
  * In the word board, we want to realize the function that click the letter
@@ -62,4 +63,5 @@ public void actionPerformed(ActionEvent a) {
 		
 
 	}
+	
 	}

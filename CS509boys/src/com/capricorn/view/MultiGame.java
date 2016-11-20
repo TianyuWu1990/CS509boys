@@ -2,6 +2,7 @@ package com.capricorn.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -12,6 +13,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
@@ -19,12 +21,15 @@ import com.capricorn.model.Model;
 public class MultiGame extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
-	Model model;
+	private Model model;
 	private JTable table;
-
+	private List<JButton> chosenbtns;
+	private List<JButton> allCellsbtns;
 	public MultiGame(Model m) {
 		this.model=m;
-		
+		chosenbtns=new ArrayList<JButton>();
+		allCellsbtns=new ArrayList<JButton>(); 
+		setallCellsbtns();
 		setSize(620, 500); // set ManagerGame size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -45,69 +50,7 @@ public class MultiGame extends JFrame {
 		lblNewLabel.setBounds(35, 22, 85, 20);
 		getContentPane().add(lblNewLabel);
 
-		JButton btnK = new JButton("k");
-		btnK.setBounds(136, 89, 89, 23);
-		getContentPane().add(btnK);
-
-		JButton btnO = new JButton("o");
-		btnO.setBounds(235, 89, 89, 23);
-		getContentPane().add(btnO);
-
-		JButton btnL_2 = new JButton("l");
-		btnL_2.setBounds(37, 123, 89, 23);
-		getContentPane().add(btnL_2);
-
-		JButton btnO_3 = new JButton("o");
-		btnO_3.setBounds(136, 123, 89, 23);
-		getContentPane().add(btnO_3);
-
-		JButton btnW = new JButton("w");
-		btnW.setBounds(235, 123, 89, 23);
-		getContentPane().add(btnW);
-
-		JButton btnO_2 = new JButton("o");
-		btnO_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnO_2.setBounds(37, 157, 89, 23);
-		getContentPane().add(btnO_2);
-
-		JButton btnA = new JButton("a");
-		btnA.setBounds(136, 157, 89, 23);
-		getContentPane().add(btnA);
-
-		JButton btnN = new JButton("n");
-		btnN.setBounds(235, 157, 89, 23);
-		getContentPane().add(btnN);
-
-		JButton btnE = new JButton("e");
-		btnE.setBounds(37, 191, 89, 23);
-		getContentPane().add(btnE);
-
-		JButton btnS_1 = new JButton("s");
-		btnS_1.setBounds(136, 191, 89, 23);
-		getContentPane().add(btnS_1);
-
-		JButton btnO_1 = new JButton("o");
-		btnO_1.setBounds(235, 191, 89, 23);
-		getContentPane().add(btnO_1);
-
-		JButton btnA_2 = new JButton("a");
-		btnA_2.setBounds(334, 157, 89, 23);
-		getContentPane().add(btnA_2);
-
-		JButton btnD = new JButton("d");
-		btnD.setBounds(334, 191, 89, 23);
-		getContentPane().add(btnD);
-
-		JButton btnS_2 = new JButton("s");
-		btnS_2.setBounds(334, 123, 89, 23);
-		getContentPane().add(btnS_2);
-
-		JButton btnA_1 = new JButton("a");
-		btnA_1.setBounds(334, 89, 89, 23);
-		getContentPane().add(btnA_1);
+		
 
 		JLabel label = new JLabel("Score :");
 		label.setBounds(66, 54, 61, 16);
@@ -161,9 +104,7 @@ public class MultiGame extends JFrame {
 		lblManagerPanel.setBounds(42, 315, 126, 16);
 		getContentPane().add(lblManagerPanel);
 
-		JButton button_6 = new JButton("k");
-		button_6.setBounds(37, 89, 89, 23);
-		getContentPane().add(button_6);
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(158, 239, 428, 197);
 		getContentPane().add(scrollPane);
@@ -197,7 +138,35 @@ public class MultiGame extends JFrame {
 		}
 			return objAy; 
 		}
-		
+		public List<JButton> getChosenbtns(){
+			return this.chosenbtns;
+		}
+		public void setChosenbtns(JButton btn){
+			chosenbtns.add(btn);
+		}
+		public void setallCellsbtns(){
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					int x = 37 + i * 100;
+					int y = 89 + j * 35;
+					JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
+					btn.setToolTipText(model.board.cells[i][j].getPoints());
+					btn.setBounds(x, y, 89, 23);
+					allCellsbtns.add(btn);
+					ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
+					btn.addActionListener(clickControl);
+					getContentPane().add(btn);
+				}
+			}
+		}
+		public static void main(String[] args) {
+			MultiGame mg=new MultiGame(new Model());
+			
+			
+		}
+
+
+	
 		
 		
 		
