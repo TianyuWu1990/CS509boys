@@ -1,11 +1,13 @@
 package com.capricorn.view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -24,28 +26,23 @@ public class MultiGame extends JFrame {
 	private List<JButton> chosenbtns;
 	private List<JButton> allCellsbtns;
 	public int sum;
+	JPanel panel;
+	
+	
+	JLabel message;
+	
+	
 	public MultiGame(Model m) {
+		
 		this.model=m;
+		
+		
 		
 		getContentPane().setLayout(null);
 		chosenbtns=new ArrayList<JButton>();
 		allCellsbtns=new ArrayList<JButton>(); 
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				int x = 37 + i * 100;
-				int y = 89 + j * 35;
-				
-				JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
-				
-				btn.setToolTipText(model.board.cells[i][j].getPoints());
-				btn.setBounds(x, y, 89, 23);
-				allCellsbtns.add(btn);
-				ClickButton_multiGame clickControl =new ClickButton_multiGame(this);
-				btn.addActionListener(clickControl);
-				getContentPane().add(btn);
-			}
-		}
-//		setallCellsbtns();
+		
+
 		setSize(620, 500); // set ManagerGame size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -76,6 +73,7 @@ public class MultiGame extends JFrame {
 		textField_score.setColumns(10);
 		textField_score.setBounds(130, 48, 134, 28);
 		getContentPane().add(textField_score);
+		textField_score.setText("0");
 
 		JButton button = new JButton("UP");
 		button.setToolTipText("");
@@ -95,6 +93,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button_3);
 
 		JButton button_4 = new JButton("Submit");
+		button_4.setBackground(Color.WHITE);
 		button_4.setBounds(336, 13, 147, 40);
 		getContentPane().add(button_4);
 
@@ -125,19 +124,41 @@ public class MultiGame extends JFrame {
 		scrollPane.setBounds(158, 239, 428, 197);
 		getContentPane().add(scrollPane);
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-				convertPlayersListToArray(),
-				new String[] {
-					"Player Name", "Player Score", "Rank"
-				}
-				));
+		
+		
 		scrollPane.setViewportView(table);
 		table.setBounds(200, 238, 402, 234);
-	
 		
+		panel = new JPanel();
+		panel.setForeground(Color.WHITE);
+		
+		panel.setBounds(30, 74, 398, 161);
+		getContentPane().add(panel);
+		
+		message = new JLabel("New label");
+		message.setBounds(455, 79, 111, 51);
+		getContentPane().add(message);
+		
+		
+		
+		refreshBoard();
+		
+		
+	}
+	
+	public void setScoreTable(){
+		table.setModel(new DefaultTableModel(
+			convertPlayersListToArray(),
+			new String[] {
+				"Player Name", "Player Score", "Rank"
+			}
+			));
 	}
 
 	
+		
+
+
 		public Model getModel() {
 		return model;
 	}
@@ -180,22 +201,29 @@ public class MultiGame extends JFrame {
 		public void setChosenbtns(JButton btn){
 			chosenbtns.add(btn);
 		}
-//		public void setallCellsbtns(){
-//			for (int i = 0; i < 4; i++) {
-//				for (int j = 0; j < 4; j++) {
-//					int x = 37 + i * 100;
-//					int y = 89 + j * 35;
-//					JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
-//					
-//					btn.setToolTipText(model.board.cells[i][j].getPoints());
-//					btn.setBounds(x, y, 89, 23);
-//					allCellsbtns.add(btn);
-//					ClickButton_multiGame clickControl =new ClickButton_multiGame(this);
-//					btn.addActionListener(clickControl);
-//					getContentPane().add(btn);
-//				}
-//			}
+		public void setallCellsbtns(){
+			for (int i = 0; i < 4; i++) {
+				for (int j = 0; j < 4; j++) {
+					
+					JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
+					btn.setToolTipText(model.board.cells[i][j].getPoints());
+					allCellsbtns.add(btn);
+					ClickButton_multiGame clickControl =new ClickButton_multiGame(this);
+					btn.addActionListener(clickControl);
+					
+					panel.add(btn);
+					
+				}
+			}
 		}
+		public void refreshBoard(){
+			setallCellsbtns();
+			setScoreTable();
+			
+			
+			
+		}
+}
 		
 
 	

@@ -24,7 +24,7 @@ public class Application extends JFrame {
 	String playerName;
 	String password;
 	String gameNumber;
-	MultiGame managerg;
+	MultiGame mg;
 	
 	
 	
@@ -83,7 +83,7 @@ public class Application extends JFrame {
 	
 
 	public MultiGame getManagerg() {
-		return managerg;
+		return mg;
 	}
 
 	
@@ -102,10 +102,10 @@ public class Application extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerName()){
-				managerg = new MultiGame(model);
-				managerg.setSize(900, 600); 
-				managerg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				managerg.setVisible(true);
+				mg = new MultiGame(model);
+				mg.setSize(900, 600); 
+				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				mg.setVisible(true);
 				dispose();
 				new CreateGameController(Application.this, model).process();
 				

@@ -1,5 +1,6 @@
 package com.capricorn.RequestController;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,18 +24,37 @@ public void actionPerformed(ActionEvent a) {
 		 * first part is aim to make the button dark after clicking 
 		 * avoid reclicking the button again
 		 */
+		
 		JButton button = (JButton) a.getSource();
+		button.setForeground(Color.red);
+		
+		if(mg.getChosenbtns().contains(button)){
+		mg.message.setText("This Letter has been chosen");
+        System.out.println("false");
+        return;
+        }
+		System.out.println("fs");
 		mg.getChosenbtns().add(button);
 		int index = mg.getAllCellsbtns().indexOf(button);     
         mg.getModel().getBoard().addToChosenCellsByIndex(index);
 		for (int i = 0; i < 15; i++) {
 			
 			
-		if ((1==Math.abs(index-i)||4==Math.abs(index-i)||3==Math.abs(index-i)||5==Math.abs(index-i))&&(!mg.getChosenbtns().contains(mg.getAllCellsbtns().get(i)))){
-		mg.getAllCellsbtns().get(i).setEnabled(true);}
+if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3==Math.abs(index-i)||5==Math.abs(index-i))
+		||((index%4==0)&&((1==-index+i)||4==Math.abs(index-i)||3==index-i||5==-index+i))
+		||(((index+1)%4==0)&&((1==index-i)||4==Math.abs(index-i)||5==index-i||3==-index+i))
+		||(mg.getChosenbtns().contains(mg.getAllCellsbtns().get(i))))
+	
+		{
+		mg.getAllCellsbtns().get(i).setEnabled(true);
+		}
 		else{
 				mg.getAllCellsbtns().get(i).setEnabled(false);
+				
+				
+				
 				}
+		
 				
 			}
 	
@@ -51,7 +71,7 @@ public void actionPerformed(ActionEvent a) {
 			points = Integer.parseInt(mg.textField_score.getText()) + Integer.parseInt(button.getToolTipText());
 		}
 		mg.textField_score.setText(String.valueOf(points));
-		button.setEnabled(false);
+		
 		
 
 	}
