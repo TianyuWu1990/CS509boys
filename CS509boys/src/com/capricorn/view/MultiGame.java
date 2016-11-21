@@ -29,7 +29,7 @@ public class MultiGame extends JFrame {
 	JPanel panel;
 	
 	
-	JLabel message;
+	public JLabel message;
 	
 	
 	public MultiGame(Model m) {
