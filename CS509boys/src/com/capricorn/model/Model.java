@@ -17,7 +17,7 @@ public class Model {
 	}
 	public Model(){
 		
-        board.setcellArrayForPractice();
+       board.setcellArrayForPractice();
 	}
 	public static Model getInstance() {
 		if (model == null) {
