@@ -33,6 +33,7 @@ public void actionPerformed(ActionEvent a) {
         System.out.println("false");
         return;
         }
+		mg.message.setText("");
 		System.out.println("fs");
 		mg.getChosenbtns().add(button);
 		int index = mg.getAllCellsbtns().indexOf(button);     

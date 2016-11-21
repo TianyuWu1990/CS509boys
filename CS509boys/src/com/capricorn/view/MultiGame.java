@@ -43,7 +43,7 @@ public class MultiGame extends JFrame {
 		allCellsbtns=new ArrayList<JButton>(); 
 		
 
-		setSize(620, 500); // set ManagerGame size
+		setSize(820, 700); // set ManagerGame size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		
@@ -135,8 +135,8 @@ public class MultiGame extends JFrame {
 		panel.setBounds(30, 74, 398, 161);
 		getContentPane().add(panel);
 		
-		message = new JLabel("New label");
-		message.setBounds(455, 79, 111, 51);
+		message = new JLabel("Message");
+		message.setBounds(446, 54, 280, 76);
 		getContentPane().add(message);
 		
 		
