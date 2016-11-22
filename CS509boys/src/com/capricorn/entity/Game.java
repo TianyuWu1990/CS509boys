@@ -14,7 +14,7 @@ public class Game {
 	Player player;
 	private String managingUser;
 	List<Player> playersInformation; 
-	private boolean isLocked;
+	public boolean isLocked;
 	
 
 	

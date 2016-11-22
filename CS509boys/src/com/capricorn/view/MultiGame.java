@@ -18,6 +18,9 @@ import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
+import com.capricorn.RequestController.Lock;
+import com.capricorn.RequestController.LockGameRequest;
+import com.capricorn.entity.Game;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 
@@ -30,7 +33,7 @@ public class MultiGame extends JFrame {
 	private List<JButton> allCellsbtns;
 	public int sum;
 	JPanel panel;
-
+	Application app;
 	public JLabel message;
 	private JTextField textField_name;
 	private JTextField textField_gameId;
@@ -49,10 +52,6 @@ public class MultiGame extends JFrame {
 
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
-
-		JButton btnNewButton_1 = new JButton("Unlock");
-		btnNewButton_1.setBounds(35, 413, 89, 23);
-		getContentPane().add(btnNewButton_1);
 
 		textField_word = new JTextField();
 		textField_word.setBounds(603, 65, 192, 22);
@@ -108,8 +107,24 @@ public class MultiGame extends JFrame {
 		getContentPane().add(btnExit);
 
 		JButton btnLock = new JButton("Lock");
+		if (m.getGame().isLocked) {
+			btnLock.setEnabled(false);
+		} else {
+			btnLock.setEnabled(true);
+		}
+		Lock lockcontroller = new Lock(app, m);
+		btnLock.addActionListener(lockcontroller);
 		btnLock.setBounds(35, 378, 89, 23);
 		getContentPane().add(btnLock);
+
+		// JButton btnNewButton_1 = new JButton("Unlock");
+		// if (m.getGame().isLocked) {
+		// btnLock.setEnabled(true);
+		// } else {
+		// btnNewButton_1.setEnabled(false);
+		// }
+		// btnNewButton_1.setBounds(35, 413, 89, 23);
+		// getContentPane().add(btnNewButton_1);
 
 		JButton button_5 = new JButton("Reset Board");
 		button_5.setBounds(35, 343, 111, 23);
@@ -176,6 +191,11 @@ public class MultiGame extends JFrame {
 		setallCellsbtns();
 
 		refreshBoard();
+
+	}
+
+	private void setLockEnable() {
+		// TODO Auto-generated method stub
 
 	}
 
@@ -250,6 +270,7 @@ public class MultiGame extends JFrame {
 			}
 			this.allCellsbtns.get(i).setText(lettToBeAdd);
 		}
+
 		setScoreTable();
 		clearAllChosen();
 		panel.repaint();
