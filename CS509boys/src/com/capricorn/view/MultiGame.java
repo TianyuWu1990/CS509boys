@@ -123,8 +123,8 @@ public class MultiGame extends JFrame {
 
 		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
-
-		panel.setBounds(30, 74, 350, 160);
+		panel.setLayout(null);
+		panel.setBounds(0, 0, 415, 225);
 		getContentPane().add(panel);
 
 		message = new JLabel("Message");
