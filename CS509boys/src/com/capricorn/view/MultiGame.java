@@ -28,26 +28,21 @@ public class MultiGame extends JFrame {
 	private List<JButton> allCellsbtns;
 	public int sum;
 	JPanel panel;
-	
-	
+
 	public JLabel message;
-	
-	
+
 	public MultiGame(Model m) {
-		
-		this.model=m;
-		
-		
-		
+
+		this.model = m;
+
 		getContentPane().setLayout(null);
-		chosenbtns=new ArrayList<JButton>();
-		allCellsbtns=new ArrayList<JButton>(); 
-		
+		chosenbtns = new ArrayList<JButton>();
+		allCellsbtns = new ArrayList<JButton>();
 
 		setSize(820, 700); // set ManagerGame size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		
+
 		setTitle("Your Game");
 		getContentPane().setLayout(null);
 
@@ -63,8 +58,6 @@ public class MultiGame extends JFrame {
 		JLabel lblNewLabel = new JLabel("Your Word :");
 		lblNewLabel.setBounds(35, 22, 85, 20);
 		getContentPane().add(lblNewLabel);
-
-		
 
 		JLabel label = new JLabel("Score :");
 		label.setBounds(66, 54, 61, 16);
@@ -99,7 +92,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
-		Exit exitControl = new Exit(this,model);
+		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(511, 14, 69, 38);
 		getContentPane().add(btnExit);
@@ -120,116 +113,90 @@ public class MultiGame extends JFrame {
 		lblManagerPanel.setBounds(42, 315, 126, 16);
 		getContentPane().add(lblManagerPanel);
 
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(158, 239, 428, 197);
 		getContentPane().add(scrollPane);
 		table = new JTable();
-		
-		
+
 		scrollPane.setViewportView(table);
 		table.setBounds(200, 238, 402, 234);
-		
+
 		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
-		
-		panel.setBounds(30, 74, 398, 161);
+
+		panel.setBounds(30, 74, 329, 161);
 		getContentPane().add(panel);
-		
+
 		message = new JLabel("Message");
 		message.setBounds(446, 54, 280, 76);
 		getContentPane().add(message);
-		
-		
-		
+
 		refreshBoard();
-		
-		
-	}
-	
-	public void setScoreTable(){
-		table.setModel(new DefaultTableModel(
-			convertPlayersListToArray(),
-			new String[] {
-				"Player Name", "Player Score", "Rank"
-			}
-			));
+
 	}
 
-	
-		
+	public void setScoreTable() {
+		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
+				new String[] { "Player Name", "Player Score", "Rank" }));
+	}
 
-
-		public Model getModel() {
+	public Model getModel() {
 		return model;
 	}
-
 
 	public void setModel(Model model) {
 		this.model = model;
 	}
 
-
-		public List<JButton> getAllCellsbtns() {
+	public List<JButton> getAllCellsbtns() {
 		return allCellsbtns;
 	}
-
 
 	public void setAllCellsbtns(List<JButton> allCellsbtns) {
 		this.allCellsbtns = allCellsbtns;
 	}
 
+	public Object[][] convertPlayersListToArray() {
+		List playersList = model.getGame().getPlayersListByScore();
+		Object[][] objAy = new Object[playersList.size()][3];
+		for (int i = 0; i < objAy.length; i++) {
 
-		public Object[][] convertPlayersListToArray(){
-			List playersList=model.getGame().getPlayersListByScore();
-			Object[][] objAy = new Object[playersList.size()][3] ;
-			for (int i=0;i<objAy.length;i++){
-				
-			
-				Player p = (Player)playersList.get(i);  
-				objAy[i][0] = p.getName() ;
-				objAy[i][1] = p.getScore();
-				objAy[i][2] = "No."+(i+1);
-				
-			
-			
+			Player p = (Player) playersList.get(i);
+			objAy[i][0] = p.getName();
+			objAy[i][1] = p.getScore();
+			objAy[i][2] = "No." + (i + 1);
+
 		}
-			return objAy; 
-		}
-		public List<JButton> getChosenbtns(){
-			return this.chosenbtns;
-		}
-		public void setChosenbtns(JButton btn){
-			chosenbtns.add(btn);
-		}
-		public void setallCellsbtns(){
-			for (int i = 0; i < 4; i++) {
-				for (int j = 0; j < 4; j++) {
-					
-					JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
-					btn.setToolTipText(model.board.cells[i][j].getPoints());
-					allCellsbtns.add(btn);
-					ClickButton_multiGame clickControl =new ClickButton_multiGame(this);
-					btn.addActionListener(clickControl);
-					
-					panel.add(btn);
-					
-				}
+		return objAy;
+	}
+
+	public List<JButton> getChosenbtns() {
+		return this.chosenbtns;
+	}
+
+	public void setChosenbtns(JButton btn) {
+		chosenbtns.add(btn);
+	}
+
+	public void setallCellsbtns() {
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+
+				JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
+				btn.setToolTipText(model.board.cells[i][j].getPoints());
+				allCellsbtns.add(btn);
+				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
+				btn.addActionListener(clickControl);
+
+				panel.add(btn);
+
 			}
 		}
-		public void refreshBoard(){
-			setallCellsbtns();
-			setScoreTable();
-			
-			
-			
-		}
+	}
+
+	public void refreshBoard() {
+		setallCellsbtns();
+		setScoreTable();
+
+	}
 }
-		
-
-	
-		
-		
-		
-	
-
