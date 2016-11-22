@@ -124,7 +124,7 @@ public class MultiGame extends JFrame {
 		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
 
-		panel.setBounds(30, 74, 329, 161);
+		panel.setBounds(30, 74, 350, 160);
 		getContentPane().add(panel);
 
 		message = new JLabel("Message");
@@ -181,13 +181,16 @@ public class MultiGame extends JFrame {
 	public void setallCellsbtns() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-
+				int x = 30 + i * 100;
+				int y = 80 + j * 40;
 				JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
+				btn.setBounds(x, y, 89, 23);
 				btn.setToolTipText(model.board.cells[i][j].getPoints());
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
 
+				System.out.println(x + "," + y);
 				panel.add(btn);
 
 			}
