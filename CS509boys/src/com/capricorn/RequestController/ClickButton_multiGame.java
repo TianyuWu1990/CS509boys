@@ -29,16 +29,17 @@ public void actionPerformed(ActionEvent a) {
 		button.setForeground(Color.red);
 		
 		if(mg.getChosenbtns().contains(button)){
-		mg.message.setText("This Letter has been chosen");
-        System.out.println("false");
+		mg.message.setText("This Letter has been chosen!");
+		mg.message.setForeground(Color.RED);
+        
         return;
         }
 		mg.message.setText("");
-		System.out.println("fs");
+		
 		mg.getChosenbtns().add(button);
 		int index = mg.getAllCellsbtns().indexOf(button);     
         mg.getModel().getBoard().addToChosenCellsByIndex(index);
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 16; i++) {
 			
 			
 if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3==Math.abs(index-i)||5==Math.abs(index-i))
@@ -48,6 +49,7 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 	
 		{
 		mg.getAllCellsbtns().get(i).setEnabled(true);
+		
 		}
 		else{
 				mg.getAllCellsbtns().get(i).setEnabled(false);

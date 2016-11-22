@@ -1,7 +1,9 @@
 package com.capricorn.view;
 
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,8 @@ public class MultiGame extends JFrame {
 	JPanel panel;
 
 	public JLabel message;
+	private JTextField textField_name;
+	private JTextField textField_gameId;
 
 	public MultiGame(Model m) {
 
@@ -51,23 +55,25 @@ public class MultiGame extends JFrame {
 		getContentPane().add(btnNewButton_1);
 
 		textField_word = new JTextField();
-		textField_word.setBounds(132, 21, 192, 22);
+		textField_word.setBounds(603, 65, 192, 22);
 		getContentPane().add(textField_word);
 		textField_word.setColumns(10);
+		textField_word.setEditable(false);
 
-		JLabel lblNewLabel = new JLabel("Your Word :");
-		lblNewLabel.setBounds(35, 22, 85, 20);
-		getContentPane().add(lblNewLabel);
+		JLabel lblYourWord = new JLabel("Your Word :");
+		lblYourWord.setBounds(516, 66, 85, 20);
+		getContentPane().add(lblYourWord);
 
-		JLabel label = new JLabel("Score :");
-		label.setBounds(66, 54, 61, 16);
-		getContentPane().add(label);
+		JLabel lblYourScore = new JLabel("Your Score :");
+		lblYourScore.setBounds(516, 98, 75, 16);
+		getContentPane().add(lblYourScore);
 
 		textField_score = new JTextField();
 		textField_score.setColumns(10);
-		textField_score.setBounds(130, 48, 134, 28);
+		textField_score.setBounds(603, 92, 192, 28);
 		getContentPane().add(textField_score);
 		textField_score.setText("0");
+		textField_score.setEditable(false);
 
 		JButton button = new JButton("UP");
 		button.setToolTipText("");
@@ -88,13 +94,13 @@ public class MultiGame extends JFrame {
 
 		JButton button_4 = new JButton("Submit");
 		button_4.setBackground(Color.WHITE);
-		button_4.setBounds(336, 13, 147, 40);
+		button_4.setBounds(472, 13, 147, 40);
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
 		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
-		btnExit.setBounds(511, 14, 69, 38);
+		btnExit.setBounds(625, 14, 69, 38);
 		getContentPane().add(btnExit);
 
 		JButton btnLock = new JButton("Lock");
@@ -114,7 +120,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(lblManagerPanel);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(158, 239, 428, 197);
+		scrollPane.setBounds(158, 239, 571, 197);
 		getContentPane().add(scrollPane);
 		table = new JTable();
 
@@ -124,12 +130,48 @@ public class MultiGame extends JFrame {
 		panel = new JPanel();
 		panel.setForeground(Color.WHITE);
 		panel.setLayout(null);
-		panel.setBounds(0, 0, 415, 225);
+		panel.setBounds(0, 47, 432, 178);
 		getContentPane().add(panel);
 
 		message = new JLabel("Message");
-		message.setBounds(446, 54, 280, 76);
+		message.setBounds(611, 120, 203, 113);
 		getContentPane().add(message);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.setBounds(706, 13, 89, 35);
+		getContentPane().add(btnClear);
+		
+		JLabel lblYourName = new JLabel("Your Name:");
+		lblYourName.setBounds(19, 21, 83, 23);
+		getContentPane().add(lblYourName);
+		
+		
+		JLabel lblGameId = new JLabel("Game ID:");
+		lblGameId.setBounds(245, 19, 89, 27);
+		getContentPane().add(lblGameId);
+		
+		textField_name = new JTextField();
+		textField_name.setBounds(99, 13, 134, 35);
+		getContentPane().add(textField_name);
+		textField_name.setColumns(10);
+		textField_name.setEditable(false);
+		
+		textField_gameId = new JTextField();
+		textField_gameId.setBounds(305, 13, 141, 33);
+		getContentPane().add(textField_gameId);
+		textField_gameId.setColumns(10);
+		textField_gameId.setEditable(false);
+	    btnClear.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clearAllChosen();
+				for(JButton btn:allCellsbtns){
+                     btn.setEnabled(true);
+			}			
+		}
+	    }
+);
+		setallCellsbtns();
 
 		refreshBoard();
 
@@ -182,15 +224,15 @@ public class MultiGame extends JFrame {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				int x = 30 + i * 100;
-				int y = 80 + j * 40;
-				JButton btn = new JButton(model.getBoard().getCells()[i][j].getLetter());
+				int y = 40 + j * 35;
+				JButton btn = new JButton();
 				btn.setBounds(x, y, 89, 23);
 				btn.setToolTipText(model.board.cells[i][j].getPoints());
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
 
-				System.out.println(x + "," + y);
+				
 				panel.add(btn);
 
 			}
@@ -198,8 +240,34 @@ public class MultiGame extends JFrame {
 	}
 
 	public void refreshBoard() {
-		setallCellsbtns();
+		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
+		for(int i=0;i<16;i++){			
+			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
+			if(lettToBeAdd.equals("Q")){
+				lettToBeAdd = "Qu";			
+			}						
+			this.allCellsbtns.get(i).setText(lettToBeAdd);
+		}
 		setScoreTable();
+		clearAllChosen();
+		panel.repaint();
 
+	}
+	private void removeCellBtnsColors(){
+		for(int i=0 ; i<16 ; i++){
+			Component c = this.panel.getComponent(i);
+			c.setForeground(Color.BLACK);
+		}
+		panel.repaint();
+	}
+	
+	
+	private void clearAllChosen(){
+		textField_word.setText("");
+		textField_score.setText("0");
+		message.setText("");
+		this.chosenbtns.removeAll(chosenbtns);
+		model.getBoard().clearChosenCells();
+		removeCellBtnsColors();
 	}
 }
