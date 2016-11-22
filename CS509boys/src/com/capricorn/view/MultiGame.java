@@ -75,21 +75,25 @@ public class MultiGame extends JFrame {
 		textField_score.setText("0");
 		textField_score.setEditable(false);
 
-		JButton button = new JButton("UP");
+		JButton button = new JButton("⬆");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		button.setToolTipText("");
-		button.setBounds(496, 142, 53, 38);
+		button.setBounds(516, 149, 75, 28);
 		getContentPane().add(button);
 
-		JButton button_1 = new JButton("LEFT");
-		button_1.setBounds(444, 157, 53, 38);
+		JButton button_1 = new JButton("⬅");
+		button_1.setBounds(444, 157, 69, 38);
 		getContentPane().add(button_1);
 
-		JButton button_2 = new JButton("RIGHT");
-		button_2.setBounds(548, 157, 53, 38);
+		JButton button_2 = new JButton("➡");
+		button_2.setBounds(597, 157, 69, 38);
 		getContentPane().add(button_2);
 
-		JButton button_3 = new JButton("DOWN");
-		button_3.setBounds(496, 176, 53, 38);
+		JButton button_3 = new JButton("⬇");
+		button_3.setBounds(516, 178, 75, 28);
 		getContentPane().add(button_3);
 
 		JButton button_4 = new JButton("Submit");
@@ -120,7 +124,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(lblManagerPanel);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(158, 239, 571, 197);
+		scrollPane.setBounds(158, 239, 390, 197);
 		getContentPane().add(scrollPane);
 		table = new JTable();
 
@@ -134,43 +138,41 @@ public class MultiGame extends JFrame {
 		getContentPane().add(panel);
 
 		message = new JLabel("Message");
-		message.setBounds(611, 120, 203, 113);
+		message.setBounds(573, 241, 222, 195);
 		getContentPane().add(message);
-		
+
 		JButton btnClear = new JButton("Clear");
 		btnClear.setBounds(706, 13, 89, 35);
 		getContentPane().add(btnClear);
-		
+
 		JLabel lblYourName = new JLabel("Your Name:");
 		lblYourName.setBounds(19, 21, 83, 23);
 		getContentPane().add(lblYourName);
-		
-		
+
 		JLabel lblGameId = new JLabel("Game ID:");
 		lblGameId.setBounds(245, 19, 89, 27);
 		getContentPane().add(lblGameId);
-		
+
 		textField_name = new JTextField();
 		textField_name.setBounds(99, 13, 134, 35);
 		getContentPane().add(textField_name);
 		textField_name.setColumns(10);
 		textField_name.setEditable(false);
-		
+
 		textField_gameId = new JTextField();
 		textField_gameId.setBounds(305, 13, 141, 33);
 		getContentPane().add(textField_gameId);
 		textField_gameId.setColumns(10);
 		textField_gameId.setEditable(false);
-	    btnClear.addActionListener(new ActionListener(){
+		btnClear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				clearAllChosen();
-				for(JButton btn:allCellsbtns){
-                     btn.setEnabled(true);
-			}			
-		}
-	    }
-);
+				for (JButton btn : allCellsbtns) {
+					btn.setEnabled(true);
+				}
+			}
+		});
 		setallCellsbtns();
 
 		refreshBoard();
@@ -232,7 +234,6 @@ public class MultiGame extends JFrame {
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
 
-				
 				panel.add(btn);
 
 			}
@@ -241,11 +242,11 @@ public class MultiGame extends JFrame {
 
 	public void refreshBoard() {
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
-		for(int i=0;i<16;i++){			
+		for (int i = 0; i < 16; i++) {
 			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
-			if(lettToBeAdd.equals("Q")){
-				lettToBeAdd = "Qu";			
-			}						
+			if (lettToBeAdd.equals("Q")) {
+				lettToBeAdd = "Qu";
+			}
 			this.allCellsbtns.get(i).setText(lettToBeAdd);
 		}
 		setScoreTable();
@@ -253,16 +254,16 @@ public class MultiGame extends JFrame {
 		panel.repaint();
 
 	}
-	private void removeCellBtnsColors(){
-		for(int i=0 ; i<16 ; i++){
+
+	private void removeCellBtnsColors() {
+		for (int i = 0; i < 16; i++) {
 			Component c = this.panel.getComponent(i);
 			c.setForeground(Color.BLACK);
 		}
 		panel.repaint();
 	}
-	
-	
-	private void clearAllChosen(){
+
+	private void clearAllChosen() {
 		textField_word.setText("");
 		textField_score.setText("0");
 		message.setText("");

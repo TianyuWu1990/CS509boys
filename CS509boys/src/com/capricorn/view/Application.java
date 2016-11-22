@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.capricorn.RequestController.CreateGameRequest;
+import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.RequestController.StartPractice;
 import com.capricorn.model.Model;
 import com.capricorn.entity.*;
@@ -119,13 +120,13 @@ public class Application extends JFrame {
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
+					new JoinGameRequest(model, Application.this);
+					MultiGame guestg = new MultiGame(model);
+					guestg.setSize(900, 600); 
+					guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					guestg.setVisible(true);
 				
-				MultiGame guestg = new MultiGame(model);
-				guestg.setSize(900, 600); 
-				
-				guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				guestg.setVisible(true);
-			}
+				}
 			}
 		});
 		btnStop.setBounds(65, 72, 149, 23);

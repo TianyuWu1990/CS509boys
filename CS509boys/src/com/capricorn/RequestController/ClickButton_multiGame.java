@@ -65,7 +65,6 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 		String val = mg.textField_word.getText();
 		int points = 0;
 		mg.sum += Integer.parseInt(button.getToolTipText());
-		//System.out.println(p.sum);
 		mg.textField_word.setText(val + button.getText());
 		
 		if(mg.textField_word.getText().length() >= 3){
