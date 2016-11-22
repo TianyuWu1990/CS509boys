@@ -5,8 +5,14 @@ import java.util.List;
 public class Player {
 	String name;
 	long score;
-//	position;
-//	board;
+    String	position;
+public String getPosition() {
+		return position;
+	}
+	public void setPosition(String position) {
+		this.position = position;
+	}
+	//	board;
 //	List PlayerInformation;
 //	List<Player> PlayerInformations;
 	public String getName() {

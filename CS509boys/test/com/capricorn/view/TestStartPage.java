@@ -11,12 +11,15 @@ public class TestStartPage {
 		Player p1=new Player();
 		p1.setName("zhangsan");
 		p1.setScore(90);
+		p1.setPosition("1,2");
 		Player p2=new Player();
 		p2.setName("lisi");
 		p2.setScore(78);
+		p2.setPosition("1,4");
 		Player p3=new Player();
 		p3.setName("wangwu");
 		p3.setScore(96);
+		p3.setPosition("4,5");
 		Model model=new Model();
 		model.getGame().addPlayersInformation(p1);
 		model.getGame().addPlayersInformation(p2);

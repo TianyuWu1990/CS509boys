@@ -179,7 +179,7 @@ public class MultiGame extends JFrame {
 
 	public void setScoreTable() {
 		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
-				new String[] { "Player Name", "Player Score", "Rank" }));
+				new String[] { "Player Name", "Player Score", "Position","Rank" }));
 	}
 
 	public Model getModel() {
@@ -200,13 +200,14 @@ public class MultiGame extends JFrame {
 
 	public Object[][] convertPlayersListToArray() {
 		List playersList = model.getGame().getPlayersListByScore();
-		Object[][] objAy = new Object[playersList.size()][3];
+		Object[][] objAy = new Object[playersList.size()][4];
 		for (int i = 0; i < objAy.length; i++) {
 
 			Player p = (Player) playersList.get(i);
 			objAy[i][0] = p.getName();
 			objAy[i][1] = p.getScore();
-			objAy[i][2] = "No." + (i + 1);
+			objAy[i][2] = p.getPosition();
+			objAy[i][3] = "No." + (i + 1);
 
 		}
 		return objAy;
