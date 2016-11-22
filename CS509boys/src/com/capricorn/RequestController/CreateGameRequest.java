@@ -8,13 +8,14 @@ import xml.Message;
 
 
 
-public class CreateGameController{
+public class CreateGameRequest{
 
     Application app;
     Model model;
 
-	public CreateGameController(Application app,Model model) {
+	public CreateGameRequest(Application app,Model model) {
 		this.app = app;
+		
 	}
 
 
