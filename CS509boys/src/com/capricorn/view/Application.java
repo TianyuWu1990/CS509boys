@@ -26,12 +26,19 @@ public class Application extends JFrame {
 	String password;
 	String gameNumber;
 	MultiGame mg;
+	static Application app;
 	
 	
 	
-	ServerAccess serverAccess;
+	ServerAccess serverAccess ;
 	
-	
+	public static Application getInstance(Model model) {
+		if (app == null) {
+			app = new Application(model);
+		}
+		
+		return app;
+	}
 	
 	
 

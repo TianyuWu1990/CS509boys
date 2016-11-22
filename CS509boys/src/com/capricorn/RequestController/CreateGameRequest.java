@@ -28,7 +28,9 @@ public void process() {
 			xmlString = Message.requestHeader() + String.format("<createGameRequest name='%s' password='%s'/></request>", this.app.getPlayName(), this.app.getPassword());
 		}		
 		Message m = new Message (xmlString);
+		System.out.println(app.getServerAccess());
 		app.getServerAccess().sendRequest(m);
+		
 		
 	}
 

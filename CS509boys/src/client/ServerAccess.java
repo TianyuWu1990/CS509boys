@@ -57,6 +57,7 @@ public class ServerAccess {
 	public ServerAccess(String host) {
 		this(host, defaultPort);
 	}
+	
 
 	/**
 	 * Construct ServerAccess object using specified port number. 

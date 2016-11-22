@@ -75,7 +75,7 @@ public class MultiGame extends JFrame {
 		textField_score.setText("0");
 		textField_score.setEditable(false);
 
-		JButton button = new JButton("⬆");
+		JButton button = new JButton("UP");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -84,15 +84,15 @@ public class MultiGame extends JFrame {
 		button.setBounds(516, 149, 75, 28);
 		getContentPane().add(button);
 
-		JButton button_1 = new JButton("⬅");
-		button_1.setBounds(444, 157, 69, 38);
+		JButton button_1 = new JButton("LEFT");
+		button_1.setBounds(444, 157, 75, 38);
 		getContentPane().add(button_1);
 
-		JButton button_2 = new JButton("➡");
-		button_2.setBounds(597, 157, 69, 38);
+		JButton button_2 = new JButton("RIGHT");
+		button_2.setBounds(591, 157, 75, 38);
 		getContentPane().add(button_2);
 
-		JButton button_3 = new JButton("⬇");
+		JButton button_3 = new JButton("DOWN");
 		button_3.setBounds(516, 178, 75, 28);
 		getContentPane().add(button_3);
 
@@ -181,7 +181,7 @@ public class MultiGame extends JFrame {
 
 	public void setScoreTable() {
 		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
-				new String[] { "Player Name", "Player Score", "Position","Rank" }));
+				new String[] { "Player Name", "Player Score", "Position", "Rank" }));
 	}
 
 	public Model getModel() {

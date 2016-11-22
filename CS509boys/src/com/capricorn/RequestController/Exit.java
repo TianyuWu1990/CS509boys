@@ -25,7 +25,7 @@ public class Exit implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		j.dispose();
 		m.getBoard().setcellArrayForPractice();
-		Application page = new Application(m);
+		Application page = Application.getInstance(m);
 		page.setSize(600, 300); // set StartPage size
 		page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		page.setVisible(true);

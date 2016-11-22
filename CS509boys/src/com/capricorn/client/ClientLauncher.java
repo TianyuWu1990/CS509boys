@@ -38,7 +38,9 @@ public class ClientLauncher {
 		
 		// Initialize the client application and its corresponding model
 		Model model = new Model();
-		Application app = new Application(model);
+		Application app =Application.getInstance(model);
+		ServerAccess serverAccess = new ServerAccess("localhost");
+		
 		
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
 		
