@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.capricorn.RequestController.CreateGameController;
+import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.RequestController.StartPractice;
 import com.capricorn.model.Model;
 import com.capricorn.entity.*;
@@ -107,7 +107,7 @@ public class Application extends JFrame {
 				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mg.setVisible(true);
 				dispose();
-				new CreateGameController(Application.this, model).process();
+				new CreateGameRequest(Application.this, model).process();
 				
 			}
 			}
