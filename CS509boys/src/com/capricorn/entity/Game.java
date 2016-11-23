@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Game {
 	String gameId;
-	Player player;
+
 	private String managingUser;
 	List<Player> playersInformation; 
 	private boolean isLocked;
@@ -22,7 +22,7 @@ public class Game {
 		gameId = "";
 		managingUser = null;
 		isLocked = false;
-		playersInformation = new LinkedList<Player>();;
+		playersInformation = new LinkedList<Player>();
 	}
 	public String getGameId() {
 		return gameId;
@@ -49,8 +49,8 @@ public class Game {
 		return playersInformation;
 		
 	}
-	public void addPlayersInformation(Player player) {
-		playersInformation.add(player);
+	public void setPlayersInformation(List<Player> playersInformation) {
+		this.playersInformation=playersInformation;
 		
 	}
 	@SuppressWarnings("unchecked")
@@ -70,6 +70,10 @@ public class Game {
 		};
 		Collections.sort(this.playersInformation, comparator);   
 		return playersInformation;
+		
+	}
+	public void clearPlayersInformation(Player player) {
+		playersInformation.clear();
 		
 	}
 	

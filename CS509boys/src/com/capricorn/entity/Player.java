@@ -6,6 +6,24 @@ public class Player {
 	String name;
 	long score;
     String	position;
+    boolean isManager;
+public boolean isManager() {
+		return isManager;
+	}
+	public void setManager(boolean isManager) {
+		this.isManager = isManager;
+	}
+public Player(String name, long score, String position) {
+		super();
+		this.name = name;
+		this.score = score;
+		this.position = position;
+	}
+public Player(){
+}
+
+
+
 public String getPosition() {
 		return position;
 	}

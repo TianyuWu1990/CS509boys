@@ -1,17 +1,18 @@
 package com.capricorn.ResponseController;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import xml.Message;
-
 import com.capricorn.RequestController.ControllerChain;
+import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
+
+import xml.Message;
 
 public class BoardResponse extends ControllerChain{
 	public Application app;
@@ -38,11 +39,12 @@ public class BoardResponse extends ControllerChain{
 		
 		String gameId = map.getNamedItem("gameId").getNodeValue();
 		String managingUser = map.getNamedItem("managingUser").getNodeValue();
+		String bonusCell=map.getNamedItem("bonus").getNodeValue();
 		
 		NodeList list = boardResponse.getChildNodes();		
 		
-		Map<String, Integer> allPlayersInfo = new HashMap<>();
-		Map<String, String> allPlayersPositionInfo = new HashMap<>();
+		List<Player> allPlayersInfo =  new LinkedList<Player>();
+		
 		
 		for (int i = 0; i < list.getLength(); i++) {
 			Node n = list.item(i);
@@ -50,13 +52,27 @@ public class BoardResponse extends ControllerChain{
 			String pscore = n.getAttributes().getNamedItem("score").getNodeValue();
 			String boardInfo = n.getAttributes().getNamedItem("board").getNodeValue();
 			String plocation = n.getAttributes().getNamedItem("position").getNodeValue();
+			
 			char[] corRowArray = plocation.toCharArray();
-			Integer globalStartingCol = Integer.valueOf(String.valueOf(corRowArray[0]));
-			Integer globalStaringRow = Integer.valueOf(String.valueOf(corRowArray[corRowArray.length - 1]));
+			int globalStartingCol = Integer.valueOf(String.valueOf(corRowArray[0]));
+			int globalStaringRow = Integer.valueOf(String.valueOf(corRowArray[corRowArray.length - 1]));
 			Long score = Long.valueOf(n.getAttributes().getNamedItem("score").getNodeValue());
-			allPlayersInfo.put(pname, Integer.valueOf(pscore));
-			allPlayersPositionInfo.put(pname, plocation);
+			Player player=new Player(pname,score,plocation);
+			allPlayersInfo.add(player);
+			
+			if (this.flag == false){
+				System.out.println(boardInfo.length());
+				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
+						);
+				
+			}
+			else if (pname.equals(this.model.getPlayer().getName())){
+				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
+					);
+			}
+			
 		}	
+		model.getGame().setPlayersInformation(allPlayersInfo);
 		if (this.flag == true) {
 			app.getManagerg().refreshBoard();
 			

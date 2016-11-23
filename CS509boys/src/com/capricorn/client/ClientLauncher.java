@@ -3,6 +3,11 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import com.capricorn.RequestController.ConnectResponseController;
+import com.capricorn.ResponseController.BoardResponse;
+import com.capricorn.ResponseController.FindWordResponse;
+import com.capricorn.ResponseController.JoinGameResponse;
+import com.capricorn.ResponseController.LockGameResponse;
+import com.capricorn.ResponseController.ResetGameResponse;
 import com.capricorn.ResponseController.SampleClientMessageHandler;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
@@ -43,7 +48,12 @@ public class ClientLauncher {
 		
 		
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
-		
+		handler.registerHandler(new BoardResponse(app, model));
+		handler.registerHandler(new JoinGameResponse(app, model));
+		handler.registerHandler(new ConnectResponseController(app, model));
+		handler.registerHandler(new ResetGameResponse(app, model));
+		handler.registerHandler(new LockGameResponse(app, model));
+		handler.registerHandler(new FindWordResponse(app, model));
 		
 
 

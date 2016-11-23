@@ -24,7 +24,7 @@ public class ResetGameResponse extends ControllerChain{
 		}
 		
 		//need to rewrite in model,empty function right now
-		model.updateModel();
+//		model.updateModel();
 
 		app.getManagerg().refreshBoard();
 			

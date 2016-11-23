@@ -1,5 +1,8 @@
 package com.capricorn.view;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 
@@ -21,9 +24,12 @@ public class TestStartPage {
 		p3.setScore(96);
 		p3.setPosition("4,5");
 		Model model=new Model();
-		model.getGame().addPlayersInformation(p1);
-		model.getGame().addPlayersInformation(p2);
-		model.getGame().addPlayersInformation(p3);
+		List<Player> list=new LinkedList<Player>();
+		list.add(p1);
+		list.add(p2);
+		list.add(p3);
+		
+		model.getGame().setPlayersInformation(list);
 		
 		Application app=new Application(model);
 		app.setVisible(true);

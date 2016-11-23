@@ -11,6 +11,32 @@ private ArrayList<Cell> chosenCells;
 private Word word=new Word();
 private int globalStartingCol;
 private int globalStartingRow;
+private Integer requestColChange;
+private Integer requestRowChange;
+private String bonusCell;
+public String getBonusCell() {
+	return bonusCell;
+}
+
+public void setBonusCell(String bonusCell) {
+	this.bonusCell = bonusCell;
+}
+
+public Integer getRequestColChange() {
+	return requestColChange;
+}
+
+public void setRequestColChange(Integer requestColChange) {
+	this.requestColChange = requestColChange;
+}
+
+public Integer getRequestRowChange() {
+	return requestRowChange;
+}
+
+public void setRequestRowChange(Integer requestRowChange) {
+	this.requestRowChange = requestRowChange;
+}
 
 /**SetLetter method to fill in the cell with different word*/
 public void setcellArrayForPractice(){
@@ -54,19 +80,26 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 	}
 		}
 	
+	
 
 	updateBoardByAllLetters(NewBoardInfo);
 }
 
 private void updateBoardByAllLetters(String cellsLetters){
-	String[] cellInforList = cellsLetters.split(",");
+	System.out.println(cellsLetters.toString());
+	char[] cellInforList = cellsLetters.toCharArray();
+	System.out.println(cellInforList.length);
 	for(int i = 0; i < 16; i++){
 		int row=i/4;
 		int col=i%4;
-		if(cellInforList[i]=="Q")
-			cellInforList[i]="Qu";
-		cells[row][col].setLetter(cellInforList[i]);;
+		if(cellInforList[i]=='Q'){
+			
+		cells[row][col].setLetter("QU");
+		}
+		else{
+			cells[row][col].setLetter(String.valueOf(cellInforList[i]));
 	}
+}
 }
 
 public String getBoardInfo(){
