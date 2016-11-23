@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
-import com.capricorn.RequestController.Lock;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.entity.Game;
 import com.capricorn.entity.Player;
@@ -33,13 +32,13 @@ public class MultiGame extends JFrame {
 	private List<JButton> allCellsbtns;
 	public int sum;
 	JPanel panel;
-	Application app;
+	private Application app;
 	public JLabel message;
 	private JTextField textField_name;
 	private JTextField textField_gameId;
 
-	public MultiGame(Model m) {
-
+	public MultiGame(Model m, Application app) {
+		this.app = app;
 		this.model = m;
 
 		getContentPane().setLayout(null);
@@ -112,8 +111,16 @@ public class MultiGame extends JFrame {
 		} else {
 			btnLock.setEnabled(true);
 		}
-		Lock lockcontroller = new Lock(app, m);
-		btnLock.addActionListener(lockcontroller);
+
+		btnLock.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				new LockGameRequest(model, MultiGame.this.app).process();
+				JButton button = (JButton) e.getSource();
+				button.setEnabled(false);
+
+			}
+		});
 		btnLock.setBounds(35, 378, 89, 23);
 		getContentPane().add(btnLock);
 

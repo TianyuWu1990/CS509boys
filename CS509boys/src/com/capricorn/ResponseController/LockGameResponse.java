@@ -28,6 +28,7 @@ public class LockGameResponse extends ControllerChain{
 			
 			
 			model.getGame().setLocked(true);
+			//System.out.println("LGresponse"+model.getGame().isLocked);
 
 
 			app.getManagerg().refreshBoard();
