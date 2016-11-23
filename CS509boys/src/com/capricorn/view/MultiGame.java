@@ -22,6 +22,7 @@ import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.entity.Game;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
+import java.awt.Font;
 
 public class MultiGame extends JFrame {
 	public JTextField textField_word;
@@ -77,24 +78,28 @@ public class MultiGame extends JFrame {
 		textField_score.setEditable(false);
 
 		JButton button = new JButton("UP");
+		button.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		button.setToolTipText("");
-		button.setBounds(516, 149, 75, 28);
+		button.setBounds(641, 132, 69, 38);
 		getContentPane().add(button);
 
 		JButton button_1 = new JButton("LEFT");
-		button_1.setBounds(444, 157, 75, 38);
+		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_1.setBounds(553, 167, 85, 38);
 		getContentPane().add(button_1);
 
 		JButton button_2 = new JButton("RIGHT");
-		button_2.setBounds(591, 157, 75, 38);
+		button_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_2.setBounds(710, 167, 85, 38);
 		getContentPane().add(button_2);
 
 		JButton button_3 = new JButton("DOWN");
-		button_3.setBounds(516, 178, 75, 28);
+		button_3.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_3.setBounds(641, 204, 69, 38);
 		getContentPane().add(button_3);
 
 		JButton button_4 = new JButton("Submit");
@@ -169,8 +174,18 @@ public class MultiGame extends JFrame {
 		getContentPane().add(message);
 
 		JButton btnClear = new JButton("Clear");
+		btnClear.setBackground(Color.CYAN);
 		btnClear.setBounds(706, 13, 89, 35);
 		getContentPane().add(btnClear);
+		btnClear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clearAllChosen();
+				for (JButton btn : allCellsbtns) {
+					btn.setEnabled(true);
+				}
+			}
+		});
 
 		JLabel lblYourName = new JLabel("Your Name:");
 		lblYourName.setBounds(19, 21, 83, 23);
@@ -191,15 +206,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(textField_gameId);
 		textField_gameId.setColumns(10);
 		textField_gameId.setEditable(false);
-		btnClear.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				clearAllChosen();
-				for (JButton btn : allCellsbtns) {
-					btn.setEnabled(true);
-				}
-			}
-		});
+		
 		setallCellsbtns();
 
 		refreshBoard();
@@ -266,7 +273,7 @@ public class MultiGame extends JFrame {
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
-
+                btn.setBackground(Color.WHITE);
 				panel.add(btn);
 
 			}
@@ -298,6 +305,7 @@ public class MultiGame extends JFrame {
 		for (int i = 0; i < 16; i++) {
 			Component c = this.panel.getComponent(i);
 			c.setForeground(Color.BLACK);
+			c.setBackground(Color.WHITE);
 		}
 		panel.repaint();
 	}

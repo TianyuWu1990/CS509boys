@@ -26,11 +26,11 @@ public void actionPerformed(ActionEvent a) {
 		 */
 		
 		JButton button = (JButton) a.getSource();
-		button.setForeground(Color.red);
+		button.setBackground(Color.red);
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
-		mg.message.setBackground(Color.RED);
+		
         
         return;
         }
