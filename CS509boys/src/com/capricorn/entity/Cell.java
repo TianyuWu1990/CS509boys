@@ -90,6 +90,7 @@ public void setLetterForPractice() {
     	}
     };
     /**Here is the points for each word correspond to the order from A to Z and Qu.*/
+ 
 	String[] p = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 	Random random = new Random();  
 //    for( int i = 0; i < 8; i ++) {  

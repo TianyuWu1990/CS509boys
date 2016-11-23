@@ -103,6 +103,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
+		btnExit.setBackground(Color.RED);
 		
 		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
@@ -273,10 +274,14 @@ public class MultiGame extends JFrame {
 	}
 
 	public void refreshBoard() {
+		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
+		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
 		System.out.println(this.model.getBoard().getBoardInfo());
 		for (int i = 0; i < 16; i++) {
 			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
+			
+			this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
 			if (lettToBeAdd.equals("Q")) {
 				lettToBeAdd = "Qu";
 			}
