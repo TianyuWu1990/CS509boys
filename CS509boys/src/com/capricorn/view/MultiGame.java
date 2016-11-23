@@ -339,9 +339,10 @@ public class MultiGame extends JFrame {
 
 	private void removeCellBtnsColors() {
 		for (int i = 0; i < 16; i++) {
-			Component c = this.panel.getComponent(i);
-			c.setForeground(Color.BLACK);
-			c.setBackground(Color.WHITE);
+			JButton btn = this.allCellsbtns.get(i);
+			
+			btn.setForeground(Color.BLACK);
+			btn.setBackground(Color.WHITE);
 		}
 		panel.repaint();
 	}
