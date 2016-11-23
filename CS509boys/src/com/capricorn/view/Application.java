@@ -27,6 +27,9 @@ public class Application extends JFrame {
 	String gameNumber;
 	MultiGame mg;
 	static Application app;
+	JLabel lbl_GameId;
+	JLabel lbl_Player;
+	
 	
 	
 	
@@ -78,6 +81,72 @@ public class Application extends JFrame {
 //	public List<Player> getPlayerInformation():
 		
 
+	public String getPlayerName() {
+		return playerName;
+	}
+
+
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+
+
+	public void setGameNumber(String gameNumber) {
+		this.gameNumber = gameNumber;
+	}
+
+
+
+	public JTextField getCreate_id_text() {
+		return create_id_text;
+	}
+
+
+
+	public void setCreate_id_text(JTextField create_id_text) {
+		this.create_id_text = create_id_text;
+	}
+
+
+
+	public JTextField getName_id_text() {
+		return name_id_text;
+	}
+
+
+
+	public void setName_id_text(JTextField name_id_text) {
+		this.name_id_text = name_id_text;
+	}
+
+
+
+	public JLabel getLbl_GameId() {
+		return lbl_GameId;
+	}
+
+
+
+	public void setLbl_GameId(JLabel lbl_GameId) {
+		this.lbl_GameId = lbl_GameId;
+	}
+
+
+
+	public JLabel getLbl_Player() {
+		return lbl_Player;
+	}
+
+
+
+	public void setLbl_Player(JLabel lbl_Player) {
+		this.lbl_Player = lbl_Player;
+	}
+
+
+
 	public String getPassword() {
 		return create_pass_text.getText();
 	}
@@ -110,12 +179,22 @@ public class Application extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerName()){
+					
+				
+				
+				
+				new CreateGameRequest(Application.this, model).process();
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				mg = new MultiGame(model,app);
 				mg.setSize(900, 600); 
 				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mg.setVisible(true);
 				dispose();
-				new CreateGameRequest(Application.this, model).process();
 				
 			}
 			}
@@ -161,18 +240,18 @@ public class Application extends JFrame {
 		getContentPane().add(create_id_text);
 		create_id_text.setColumns(10);
 
-		JLabel lblOptionalPassword = new JLabel("Game ID");
-		lblOptionalPassword.setBounds(389, 39, 61, 16);
-		getContentPane().add(lblOptionalPassword);
+		lbl_GameId = new JLabel("Game ID");
+		lbl_GameId.setBounds(389, 39, 61, 16);
+		getContentPane().add(lbl_GameId);
 
 		name_id_text = new JTextField();
 		name_id_text.setBounds(226, 96, 134, 28);
 		getContentPane().add(name_id_text);
 		name_id_text.setColumns(10);
 
-		JLabel lblEnterGameId = new JLabel("Player Name");
-		lblEnterGameId.setBounds(389, 102, 98, 16);
-		getContentPane().add(lblEnterGameId);
+		lbl_Player = new JLabel("Player Name");
+		lbl_Player.setBounds(389, 102, 98, 16);
+		getContentPane().add(lbl_Player);
 
 		create_pass_text = new JTextField();
 		create_pass_text.setBounds(226, 63, 134, 28);

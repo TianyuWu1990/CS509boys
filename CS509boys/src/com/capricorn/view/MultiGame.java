@@ -40,6 +40,9 @@ public class MultiGame extends JFrame {
 	public MultiGame(Model m, Application app) {
 		this.app = app;
 		this.model = m;
+		textField_name=app.getName_id_text();
+		textField_gameId=app.getCreate_id_text();
+		
 
 		getContentPane().setLayout(null);
 		chosenbtns = new ArrayList<JButton>();
@@ -253,8 +256,8 @@ public class MultiGame extends JFrame {
 	public void setallCellsbtns() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				int x = 30 + i * 100;
-				int y = 40 + j * 35;
+				int x = 30 + j * 100;
+				int y = 40 + i * 35;
 				JButton btn = new JButton();
 				btn.setBounds(x, y, 89, 23);
 				btn.setToolTipText(model.board.cells[i][j].getPoints());
@@ -270,6 +273,7 @@ public class MultiGame extends JFrame {
 
 	public void refreshBoard() {
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
+		System.out.println(this.model.getBoard().getBoardInfo());
 		for (int i = 0; i < 16; i++) {
 			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
 			if (lettToBeAdd.equals("Q")) {

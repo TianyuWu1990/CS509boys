@@ -42,7 +42,7 @@ public class ClientLauncher {
 		}
 		
 		// Initialize the client application and its corresponding model
-		Model model = new Model();
+		Model model =Model.getInstance();
 		Application app =Application.getInstance(model);
 		ServerAccess serverAccess = new ServerAccess("localhost");
 		
