@@ -61,7 +61,7 @@ public class BoardResponse extends ControllerChain{
 			allPlayersInfo.add(player);
 			
 			if (this.flag == false){
-				System.out.println(boardInfo.length());
+				
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 						);
 				

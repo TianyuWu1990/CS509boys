@@ -30,7 +30,7 @@ public void actionPerformed(ActionEvent a) {
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
-		
+		mg.message.setForeground(Color.red);
         
         return;
         }
@@ -70,9 +70,9 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 		if(mg.textField_word.getText().length() >= 3){
 			points = mg.sum*10*((int)Math.pow(2, mg.textField_word.getText().length()));
 		}else{
-			points = Integer.parseInt(mg.textField_score.getText()) + Integer.parseInt(button.getToolTipText());
+			points = Integer.parseInt(mg.textField_escore.getText()) + Integer.parseInt(button.getToolTipText());
 		}
-		mg.textField_score.setText(String.valueOf(points));
+		mg.textField_escore.setText(String.valueOf(points));
 		
 		
 

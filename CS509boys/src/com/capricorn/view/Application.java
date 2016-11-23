@@ -191,7 +191,7 @@ public class Application extends JFrame {
 					e1.printStackTrace();
 				}
 				mg = new MultiGame(model,app);
-				mg.setSize(900, 600); 
+				mg.setSize(1000, 700); 
 				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mg.setVisible(true);
 				dispose();
