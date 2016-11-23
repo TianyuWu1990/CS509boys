@@ -110,7 +110,7 @@ public class Application extends JFrame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerName()){
-				mg = new MultiGame(model);
+				mg = new MultiGame(model,app);
 				mg.setSize(900, 600); 
 				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mg.setVisible(true);
@@ -128,7 +128,7 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
 					new JoinGameRequest(model, Application.this);
-					MultiGame guestg = new MultiGame(model);
+					MultiGame guestg = new MultiGame(model,app);
 					guestg.setSize(900, 600); 
 					guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					guestg.setVisible(true);

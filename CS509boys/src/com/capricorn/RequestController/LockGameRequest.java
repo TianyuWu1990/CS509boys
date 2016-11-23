@@ -2,6 +2,8 @@ package com.capricorn.RequestController;
 
 import xml.Message;
 
+import java.awt.event.ActionEvent;
+
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
@@ -13,15 +15,14 @@ public class LockGameRequest {
 		this.app = app;
 		
 	}
+
 	
 	public void process(){
-		String xmlString = Message.requestHeader() + String.format("<lockGameRequest gameID='%s'/></request>", 
-				
-				model.getGame().getGameId());		
+		model.getGame().setLocked(true);
+		String xmlString = Message.requestHeader() + String.format("<lockGameRequest gameId='%s'/></request>", model.getGame().getGameId());		
 
 		Message m = new Message (xmlString);
-		
-		
+		//System.out.println(app);
 		app.getServerAccess().sendRequest(m);
 	}
 	
