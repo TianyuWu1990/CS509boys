@@ -103,6 +103,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button_4);
 
 		JButton btnExit = new JButton("Exit");
+		
 		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(625, 14, 69, 38);

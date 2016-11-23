@@ -27,7 +27,7 @@ public class StartPractice implements ActionListener{
 	/**Dispose the default board at the beginning and connect to the game board.*/
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		m.getBoard().setcellArrayForPractice();
 		st.dispose();
 	//startpage disappear
 		PracticeGame practice = new PracticeGame(m);
