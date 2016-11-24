@@ -20,7 +20,7 @@ public class Game {
 	
 	public Game() {
 		gameId = "";
-		managingUser = null;
+		managingUser = "";
 		isLocked = false;
 		playersInformation = new LinkedList<Player>();
 	}

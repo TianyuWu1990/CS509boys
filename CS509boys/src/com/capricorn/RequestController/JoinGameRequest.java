@@ -16,10 +16,20 @@ public class JoinGameRequest {
 		}
 		
 		public void process(){
-			String xmlString = Message.requestHeader() + String.format("<joinGameResponse gameID='%s'/></request>", 
-					
-					model.getGame().getGameId());		
-
+			String xmlString;
+			if(this.app.getPassword() == null){
+				xmlString = Message.requestHeader() + String.format("<joinGameRequest gameId='%s' name='%s'/></request>", 
+																		app.getGameNumber(), 
+																		app.getPlayerName());
+				
+			}else{
+				xmlString = Message.requestHeader() + String.format("<joinGameRequest gameId='%s' name='%s' password='%s'/></request>", 
+																		app.getGameNumber(), 
+																		app.getPlayerName(),
+																		app.getPassword());		
+			}		
+			
+			System.out.println(xmlString);
 			Message m = new Message (xmlString);
 			
 			

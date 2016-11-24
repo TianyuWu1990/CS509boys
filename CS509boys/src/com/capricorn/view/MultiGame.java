@@ -403,6 +403,8 @@ public class MultiGame extends JFrame {
 		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
 		System.out.println(this.model.getBoard().getBoardInfo());
+		if (this.model.getBoard().getBoardInfo().length()!=0){
+				
 		for (int i = 0; i < 16; i++) {
 			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
 			
@@ -411,6 +413,7 @@ public class MultiGame extends JFrame {
 				lettToBeAdd = "Qu";
 			}
 			this.allCellsbtns.get(i).setText(lettToBeAdd);
+		}
 		}
 
 		setScoreTable();

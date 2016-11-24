@@ -21,6 +21,7 @@ public class LockGameResponse extends ControllerChain{
 		
 		@Override
 		public boolean process(Message response) {
+			
 			String type = response.contents.getFirstChild().getLocalName();
 			if (!type.equals ("lockGameResponse")) {
 				return next.process(response);

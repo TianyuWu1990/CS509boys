@@ -206,7 +206,7 @@ public class Application extends JFrame {
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
-					new JoinGameRequest(model, Application.this);
+					new JoinGameRequest(model, Application.this).process();
 					try {
 						Thread.sleep(100);
 					} catch (InterruptedException e1) {
@@ -214,7 +214,7 @@ public class Application extends JFrame {
 						e1.printStackTrace();
 					}
 					MultiGame guestg = new MultiGame(model,app);
-					guestg.setSize(900, 600); 
+					guestg.setSize(1200, 900); 
 					guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					guestg.setVisible(true);
 				
