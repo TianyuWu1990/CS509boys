@@ -17,7 +17,7 @@ public class JoinGameRequest {
 		
 		public void process(){
 			String xmlString;
-			if(this.app.getPassword() == null){
+			if(this.app.getPassword().length() == 0){
 				xmlString = Message.requestHeader() + String.format("<joinGameRequest gameId='%s' name='%s'/></request>", 
 																		app.getGameNumber(), 
 																		app.getPlayerName());

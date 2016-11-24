@@ -99,51 +99,10 @@ public class Application extends JFrame {
 
 
 
-	public JTextField getCreate_id_text() {
-		return create_id_text;
-	}
+	
 
 
-
-	public void setCreate_id_text(JTextField create_id_text) {
-		this.create_id_text = create_id_text;
-	}
-
-
-
-	public JTextField getName_id_text() {
-		return name_id_text;
-	}
-
-
-
-	public void setName_id_text(JTextField name_id_text) {
-		this.name_id_text = name_id_text;
-	}
-
-
-
-	public JLabel getLbl_GameId() {
-		return lbl_GameId;
-	}
-
-
-
-	public void setLbl_GameId(JLabel lbl_GameId) {
-		this.lbl_GameId = lbl_GameId;
-	}
-
-
-
-	public JLabel getLbl_Player() {
-		return lbl_Player;
-	}
-
-
-
-	public void setLbl_Player(JLabel lbl_Player) {
-		this.lbl_Player = lbl_Player;
-	}
+	
 
 
 
@@ -191,7 +150,7 @@ public class Application extends JFrame {
 					e1.printStackTrace();
 				}
 				mg = new MultiGame(model,app);
-				mg.setSize(1000, 700); 
+				mg.setSize(1200, 900); 
 				mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				mg.setVisible(true);
 				dispose();
@@ -213,10 +172,10 @@ public class Application extends JFrame {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					MultiGame guestg = new MultiGame(model,app);
-					guestg.setSize(1200, 900); 
-					guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					guestg.setVisible(true);
+					mg = new MultiGame(model,app);
+					mg.setSize(1200, 900); 
+					mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					mg.setVisible(true);
 				
 				}
 			}

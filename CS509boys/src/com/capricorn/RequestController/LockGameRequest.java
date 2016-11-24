@@ -23,6 +23,7 @@ public class LockGameRequest {
 
 		Message m = new Message (xmlString);
 		//System.out.println(app);
+		System.out.println(m.toString());
 		app.getServerAccess().sendRequest(m);
 	}
 	

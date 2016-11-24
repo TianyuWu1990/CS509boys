@@ -28,11 +28,12 @@ public class BoardResponse extends ControllerChain{
 	
 	@Override
 	public boolean process(Message response) {
-		System.out.println(response.toString());
+		
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("boardResponse")) {
 			return next.process(response);
 		}
+		System.out.println(response.toString());
 		
 		// this refers to the outer node of the Message DOM (in this case, updateResponse).
 		Node boardResponse = response.contents.getFirstChild();
@@ -75,7 +76,9 @@ public class BoardResponse extends ControllerChain{
 		}	
 		model.getGame().setPlayersInformation(allPlayersInfo);
 		if (this.flag == true) {
+			System.out.println(app);
 			app.getManagerg().refreshBoard();
+			
 			
 		}
 		this.flag = true;

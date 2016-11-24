@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
+import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
 import com.capricorn.entity.Player;
@@ -45,8 +46,7 @@ public class MultiGame extends JFrame {
 	public MultiGame(Model m, Application app) {
 		this.app = app;
 		this.model = m;
-		textField_name=app.getName_id_text();
-		textField_gameId=app.getCreate_id_text();
+		
 		
 
 		getContentPane().setLayout(null);
@@ -90,11 +90,12 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int[] change={-1,0};
+				Integer[] change={-1,0};
 				clearAllChosen();
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				
 				refreshBoard();
 				newRow = model.getBoard().getGlobalStartingRow();
 				if (previousRow == newRow) {
@@ -120,7 +121,7 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int[] change={0,-1};
+				Integer[] change={0,-1};
 				clearAllChosen();
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
@@ -146,7 +147,7 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int[] change={0,1};
+				Integer[] change={0,1};
 				clearAllChosen();
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
@@ -174,7 +175,7 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int[] change={1,0};
+				Integer[] change={1,0};
 				clearAllChosen();
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);

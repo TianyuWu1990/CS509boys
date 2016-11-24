@@ -21,9 +21,10 @@ public class ServerLauncher {
 		ServerModel serverModel = new ServerModel();
 		
 		// Start server and have ProtocolHandler be responsible for all XML messages.
-		Server server = new Server(new SampleProtocolHandler(serverModel), 11425);
+		Server server = new Server(new SampleProtocolHandler(serverModel), 31425);
 	
 		try {
+			System.out.println("dae");
 			server.bind();
 		} catch (IOException ioe) {
 			System.err.println("Unable to launch server:" + ioe.getMessage());

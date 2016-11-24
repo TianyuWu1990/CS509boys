@@ -8,8 +8,8 @@ import com.capricorn.view.Application;
 public class RepositionBoardRequest {
 	Model model;
 	Application app;
-	int []change;
-	public RepositionBoardRequest(Model model,Application app,int[] change){
+	Integer []change;
+	public RepositionBoardRequest(Model model,Application app,Integer[] change){
 		this.model = model;
 		this.app = app;
 		this.change = change;

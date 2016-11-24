@@ -4,7 +4,7 @@ import org.w3c.dom.Node;
 import server.ClientState;
 import server.IShutdownHandler;
 import server.model.ServerModel;
-import xml.*;
+import xml.Message;
 
 /**
  * Sample implementation of a protocol handler to respond to messages received from clients.
@@ -31,11 +31,19 @@ public class SampleProtocolHandler implements IShutdownHandler {
 		Node child = request.contents.getFirstChild();
 		String type = child.getLocalName();
 		
-		System.out.println (request);
+		System.out.println ("hdaidhalkda");
 		if (type.equals ("createGameRequest")) {
 			return new CreateGameRequestController(model).process(st, request); 
 		} else if (type.equals ("joinGameRequest")) {
 			return new JoinGameRequestController(model).process(st, request);
+		} else if (type.equals ("repositionBoardRequest")){
+			return new RepositionBoardRequestController(model).process(st, request);
+		} else if(type.equals("resetGameRequest")){
+			return new ResetGameRequestController(model).process(st, request);
+		} else if(type.equals("lockGameRequest")){
+			return new LockGameRequestController(model).process(st, request);
+		} else if(type.equals("findWordRequest")){
+			return new FindWordRequestController(model).process(st, request);
 		}
 		
 		// unknown? no idea what to do
