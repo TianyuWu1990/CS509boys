@@ -26,6 +26,7 @@ public class LockGameResponse extends ControllerChain{
 			if (!type.equals ("lockGameResponse")) {
 				return next.process(response);
 			}
+			System.out.println(response.toString());
 			
 			
 			model.getGame().setLocked(true);

@@ -42,6 +42,8 @@ public class MultiGame extends JFrame {
 	private JTextField textField_gameId;
 	private JTextField textField_manager;
 	private JTextField textField_score;
+	private JButton btnLock;
+	private JButton button_reset;
 
 	public MultiGame(Model m, Application app) {
 		this.app = app;
@@ -205,8 +207,9 @@ public class MultiGame extends JFrame {
 		btnExit.setBounds(625, 14, 69, 38);
 		getContentPane().add(btnExit);
 
-		JButton btnLock = new JButton("Lock");
-		if (m.getGame().isLocked) {
+		btnLock = new JButton("Lock");
+		if (m.getGame().isLocked||!(m.getGame().getManagingUser().equals(m.getPlayer().getName()))) {
+			
 			btnLock.setEnabled(false);
 		} else {
 			btnLock.setEnabled(true);
@@ -224,9 +227,9 @@ public class MultiGame extends JFrame {
 		btnLock.setBounds(35, 378, 89, 23);
 		getContentPane().add(btnLock);
 
-		JButton button_5 = new JButton("Reset Board");
-		button_5.setBounds(35, 343, 111, 23);
-		getContentPane().add(button_5);
+		button_reset = new JButton("Reset Board");
+		button_reset.setBounds(35, 343, 111, 23);
+		getContentPane().add(button_reset);
 
 		JLabel lblScoreRanking = new JLabel("Score Ranking :");
 		lblScoreRanking.setBounds(42, 240, 101, 16);
@@ -257,7 +260,7 @@ public class MultiGame extends JFrame {
 		 lblNewLabel.setBounds(114, 6, 285, 22);
 		 panel.add(lblNewLabel);
 
-		message = new JLabel("Message");
+		message = new JLabel("");
 		message.setBounds(573, 281, 222, 195);
 		getContentPane().add(message);
 		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); 
@@ -436,7 +439,7 @@ public class MultiGame extends JFrame {
 	private void clearAllChosen() {
 		textField_word.setText("");
 		textField_escore.setText("0");
-		message.setText("");
+//		message.setText("");
 		this.chosenbtns.removeAll(chosenbtns);
 		model.getBoard().clearChosenCells();
 		removeCellBtnsColors();
@@ -454,5 +457,13 @@ public class MultiGame extends JFrame {
 		else{
 		textField_manager.setText(model.getGame().getManagingUser());
 		}
+		if (model.getGame().getManagingUser().equals(model.getPlayer().getName())) {
+			btnLock.setEnabled(true);
+			button_reset.setEnabled(true);
 	}
+		else{
+			btnLock.setEnabled(false);
+			button_reset.setEnabled(false);
+}
+}
 }

@@ -35,7 +35,7 @@ public class ServerAccess {
 	final int serverPort;          /* Actual port to use. */
 
 	boolean isActive = false;      /* Are we actively connected to server? */
-	static final int defaultPort = 11425;  /* Default server port. */
+	static final int defaultPort = 21425;  /* Default server port. */
 
 	
 	/* Waiting controllers. */
