@@ -1,7 +1,6 @@
 package com.capricorn.view;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,16 +15,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
 import com.capricorn.RequestController.LockGameRequest;
+import com.capricorn.RequestController.RepositionBoardRequest;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.CompoundBorder;
 
 public class MultiGame extends JFrame {
 	public JTextField textField_word;
@@ -86,8 +85,26 @@ public class MultiGame extends JFrame {
 		JButton button = new JButton("UP");
 		button.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button.addActionListener(new ActionListener() {
+			int previousRow;
+			int newRow;
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
+				int[] change={-1,0};
+				clearAllChosen();
+				previousRow = model.getBoard().getGlobalStartingRow();
+				model.getBoard().setRequestColChange(1);
+				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				refreshBoard();
+				newRow = model.getBoard().getGlobalStartingRow();
+				if (previousRow == newRow) {
+					message.setText("No More Up!");
+				}
 			}
+
+			
+				
+			
 		});
 		button.setToolTipText("");
 		button.setBounds(641, 163, 69, 38);
@@ -97,16 +114,82 @@ public class MultiGame extends JFrame {
 		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_1.setBounds(555, 197, 75, 38);
 		getContentPane().add(button_1);
+		button_1.addActionListener(new ActionListener() {
+			int previousCol;
+			int newCol;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int[] change={0,-1};
+				clearAllChosen();
+				previousCol = model.getBoard().getGlobalStartingCol();
+				model.getBoard().setRequestColChange(1);
+				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				refreshBoard();
+				newCol = model.getBoard().getGlobalStartingCol();
+				if (previousCol == newCol) {
+					message.setText("No More Left!");
+				}
+			}
+
+			
+				
+			
+		});
 
 		JButton button_2 = new JButton("RIGHT");
 		button_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_2.setBounds(716, 197, 75, 38);
+		button_2.addActionListener(new ActionListener() {
+			int previousCol;
+			int newCol;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int[] change={0,1};
+				clearAllChosen();
+				previousCol = model.getBoard().getGlobalStartingCol();
+				model.getBoard().setRequestColChange(1);
+				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				refreshBoard();
+				newCol = model.getBoard().getGlobalStartingCol();
+				if (previousCol == newCol) {
+					message.setText("No More Right!");
+				}
+			}
+
+			
+				
+			
+		});
 		getContentPane().add(button_2);
 
 		JButton button_3 = new JButton("DOWN");
 		button_3.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_3.setBounds(641, 231, 69, 38);
 		getContentPane().add(button_3);
+		button_3.addActionListener(new ActionListener() {
+			int previousRow;
+			int newRow;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int[] change={1,0};
+				clearAllChosen();
+				previousRow = model.getBoard().getGlobalStartingRow();
+				model.getBoard().setRequestColChange(1);
+				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				refreshBoard();
+				newRow = model.getBoard().getGlobalStartingRow();
+				if (previousRow == newRow) {
+					message.setText("No More Down!");
+				}
+			}
+
+			
+				
+			
+		});
 
 		JButton button_4 = new JButton("Submit");
 		button_4.setBackground(Color.WHITE);
@@ -178,6 +261,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(message);
 		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); 
 		message.setBorder(BorderFactory.createLineBorder(Color.gray));
+		message.setForeground(Color.red);
 		
 
 		JButton btnClear = new JButton("Clear");
@@ -188,9 +272,7 @@ public class MultiGame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				clearAllChosen();
-				for (JButton btn : allCellsbtns) {
-					btn.setEnabled(true);
-				}
+				
 			}
 		});
 
@@ -354,13 +436,16 @@ public class MultiGame extends JFrame {
 		this.chosenbtns.removeAll(chosenbtns);
 		model.getBoard().clearChosenCells();
 		removeCellBtnsColors();
+		for (JButton btn : allCellsbtns) {
+			btn.setEnabled(true);
+		}
 	}
 	private void resetInfo() {
 		textField_name.setText(model.getPlayer().getName());
 		textField_gameId.setText(model.getGame().getGameId());
 		textField_score.setText(String.valueOf(model.getPlayer().getScore()));
 		if(model.getGame().getManagingUser().equals(model.getPlayer().getName())){
-			textField_manager.setText("You");
+			textField_manager.setText("Manager is You");
 		}
 		else{
 		textField_manager.setText(model.getGame().getManagingUser());

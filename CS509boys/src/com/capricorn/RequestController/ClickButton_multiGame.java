@@ -30,7 +30,7 @@ public void actionPerformed(ActionEvent a) {
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
-		mg.message.setForeground(Color.red);
+//		mg.message.setForeground(Color.red);
         
         return;
         }
