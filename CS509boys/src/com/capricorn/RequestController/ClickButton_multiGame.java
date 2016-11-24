@@ -26,7 +26,13 @@ public void actionPerformed(ActionEvent a) {
 		 */
 		
 		JButton button = (JButton) a.getSource();
+		int index = mg.getAllCellsbtns().indexOf(button);  
+		if(mg.isBonusCell(index)){
+			button.setBackground(Color.CYAN);
+		}
+		else{
 		button.setBackground(Color.red);
+		}
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
@@ -37,7 +43,7 @@ public void actionPerformed(ActionEvent a) {
 		mg.message.setText("");
 		
 		mg.getChosenbtns().add(button);
-		int index = mg.getAllCellsbtns().indexOf(button);     
+		
         mg.getModel().getBoard().addToChosenCellsByIndex(index);
 		for (int i = 0; i < 16; i++) {
 			

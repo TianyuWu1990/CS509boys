@@ -21,7 +21,7 @@ public class ServerLauncher {
 		ServerModel serverModel = new ServerModel();
 		
 		// Start server and have ProtocolHandler be responsible for all XML messages.
-		Server server = new Server(new SampleProtocolHandler(serverModel), 21425);
+		Server server = new Server(new SampleProtocolHandler(serverModel), 31425);
 	
 		try {
 			

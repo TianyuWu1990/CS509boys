@@ -72,7 +72,7 @@ public class Game {
 		return playersInformation;
 		
 	}
-	public void clearPlayersInformation(Player player) {
+	public void clearPlayersInformation() {
 		playersInformation.clear();
 		
 	}

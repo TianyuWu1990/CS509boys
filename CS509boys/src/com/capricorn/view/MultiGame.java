@@ -494,4 +494,23 @@ public class MultiGame extends JFrame {
 }
 	  message.setText("");
 }
+	public boolean isBonusCell(int index){
+		String bonusString=model.getBoard().getBonusCell();
+		String []bonuscoordinate=bonusString.split(",");
+		int x=Integer.parseInt(bonuscoordinate[0]);
+		int y=Integer.parseInt(bonuscoordinate[1]);
+		int globalStartingCol=model.getBoard().getGlobalStartingCol();
+		int globalStartingRow=model.getBoard().getGlobalStartingRow();
+		int deltCol=x-globalStartingCol;
+		int deltRow=y-globalStartingRow;
+		if(deltRow>=0&&deltRow<3&&deltCol>=0&&deltCol<3){
+			if(index==deltRow*4+deltCol){
+                   return true;
+		}
+		
+	}
+		return false;
+
+	
+}
 }
