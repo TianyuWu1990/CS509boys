@@ -28,6 +28,7 @@ public class BoardResponse extends ControllerChain{
 	
 	@Override
 	public boolean process(Message response) {
+		System.out.println(response.toString());
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("boardResponse")) {
 			return next.process(response);

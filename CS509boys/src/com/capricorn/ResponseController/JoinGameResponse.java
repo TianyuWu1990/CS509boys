@@ -21,11 +21,12 @@ public class JoinGameResponse extends ControllerChain{
 		}
 		@Override
 		public boolean process(Message response) {
-			
+			System.out.println(response.toString());
 			String type = response.contents.getFirstChild().getLocalName();
 			if (!type.equals ("joinGameResponse")) {
 				return next.process(response);
 			}
+			System.out.println(response.toString());
 			
 			Node boardResponse = response.contents.getFirstChild();
 			NamedNodeMap map = boardResponse.getAttributes();

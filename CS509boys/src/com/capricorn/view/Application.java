@@ -207,6 +207,12 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
 					new JoinGameRequest(model, Application.this);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					MultiGame guestg = new MultiGame(model,app);
 					guestg.setSize(900, 600); 
 					guestg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

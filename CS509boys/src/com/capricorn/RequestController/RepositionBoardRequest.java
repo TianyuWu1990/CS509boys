@@ -24,7 +24,7 @@ public class RepositionBoardRequest {
 			+"' colChange='" + change[1] + "'/></request>";
 
 Message m = new Message (xmlString);
-
+System.out.println(m.toString());
 app.getServerAccess().sendRequest(m);	
 }
 }
