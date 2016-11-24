@@ -24,7 +24,7 @@ public class ServerLauncher {
 		Server server = new Server(new SampleProtocolHandler(serverModel), 21425);
 	
 		try {
-			System.out.println("dae");
+			
 			server.bind();
 		} catch (IOException ioe) {
 			System.err.println("Unable to launch server:" + ioe.getMessage());

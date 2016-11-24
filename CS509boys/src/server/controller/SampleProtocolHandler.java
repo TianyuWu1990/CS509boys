@@ -31,7 +31,7 @@ public class SampleProtocolHandler implements IShutdownHandler {
 		Node child = request.contents.getFirstChild();
 		String type = child.getLocalName();
 		
-		System.out.println ("hdaidhalkda");
+		
 		if (type.equals ("createGameRequest")) {
 			return new CreateGameRequestController(model).process(st, request); 
 		} else if (type.equals ("joinGameRequest")) {

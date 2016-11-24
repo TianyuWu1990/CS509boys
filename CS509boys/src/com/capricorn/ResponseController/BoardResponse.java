@@ -69,6 +69,7 @@ public class BoardResponse extends ControllerChain{
 				
 			}
 			else if (pname.equals(this.model.getPlayer().getName())){
+				System.out.println("shi");
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 					);
 			}

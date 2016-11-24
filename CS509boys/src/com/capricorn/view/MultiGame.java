@@ -97,8 +97,14 @@ public class MultiGame extends JFrame {
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
-				refreshBoard();
+				
 				newRow = model.getBoard().getGlobalStartingRow();
 				if (previousRow == newRow) {
 					message.setText("No More Up!");
@@ -128,7 +134,13 @@ public class MultiGame extends JFrame {
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
-				refreshBoard();
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				newCol = model.getBoard().getGlobalStartingCol();
 				if (previousCol == newCol) {
 					message.setText("No More Left!");
@@ -154,7 +166,14 @@ public class MultiGame extends JFrame {
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
-				refreshBoard();
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				
 				newCol = model.getBoard().getGlobalStartingCol();
 				if (previousCol == newCol) {
 					message.setText("No More Right!");
@@ -182,7 +201,13 @@ public class MultiGame extends JFrame {
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
-				refreshBoard();
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				newRow = model.getBoard().getGlobalStartingRow();
 				if (previousRow == newRow) {
 					message.setText("No More Down!");
@@ -406,7 +431,7 @@ public class MultiGame extends JFrame {
 		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
 		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
-		System.out.println(this.model.getBoard().getBoardInfo());
+		System.out.println("info"+this.model.getBoard().getBoardInfo());
 		if (this.model.getBoard().getBoardInfo().length()!=0){
 				
 		for (int i = 0; i < 16; i++) {
@@ -422,6 +447,7 @@ public class MultiGame extends JFrame {
 
 		setScoreTable();
 		clearAllChosen();
+		resetInfo();
 		panel.repaint();
 
 	}
@@ -439,13 +465,14 @@ public class MultiGame extends JFrame {
 	private void clearAllChosen() {
 		textField_word.setText("");
 		textField_escore.setText("0");
-//		message.setText("");
+		message.setText("");
 		this.chosenbtns.removeAll(chosenbtns);
 		model.getBoard().clearChosenCells();
 		removeCellBtnsColors();
 		for (JButton btn : allCellsbtns) {
 			btn.setEnabled(true);
 		}
+		
 	}
 	private void resetInfo() {
 		textField_name.setText(model.getPlayer().getName());
@@ -465,5 +492,6 @@ public class MultiGame extends JFrame {
 			btnLock.setEnabled(false);
 			button_reset.setEnabled(false);
 }
+	  message.setText("");
 }
 }

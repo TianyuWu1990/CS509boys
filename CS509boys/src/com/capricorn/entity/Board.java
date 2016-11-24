@@ -71,6 +71,7 @@ public Board(){
 public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardInfo){
 	this.globalStartingCol = newStartingCol;
 	this.globalStartingRow = newStaringRow;
+	
 	for(int i=0;i<4;i++){
 		for (int j=0;j<4;j++){
            int x=globalStartingCol+i;
@@ -86,7 +87,7 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 }
 
 private void updateBoardByAllLetters(String cellsLetters){
-	System.out.println(cellsLetters.toString());
+	
 	char[] cellInforList = cellsLetters.toCharArray();
 	System.out.println(cellInforList.length);
 	for(int i = 0; i < 16; i++){
@@ -106,7 +107,12 @@ public String getBoardInfo(){
 	String allCellLetters = "";
 	for(int i=0;i<4;i++){
 		for (int j=0;j<4;j++){
+			if (cells[i][j].getLetter().equals("QU")){
+				allCellLetters+="Q";
+			}
+			else{
 			allCellLetters+=cells[i][j].getLetter();
+			}
 	}
 		}
 	return allCellLetters;
