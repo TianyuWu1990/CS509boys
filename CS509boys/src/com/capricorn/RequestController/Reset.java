@@ -8,13 +8,14 @@ import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
 /**
- * When accour to some conflict condition like no word can be find 
- * or want to have a better begnning for the game.
- * Reset function right now is used to slove problems by the administer
+ * When occur to some conflict condition like no word can be find 
+ * or want to have a better beginning for the game.
+ * Reset function right now is used to solve problems by the administer
  * <p>
- * The whole process is rebulid the data letter randomly and resend to the board
- * Same like clear funtion, not only will reset clear everthing, but also renew the board   
+ * The whole process is rebuild the data letter randomly and resends to the board
+ * Same like clear function, not only will reset clear everything, but also renew the board   
  */
+/**Actionlistener relate to Rest also attached with Constructor */
 public class Reset implements ActionListener{
 	PracticeGame p;
 	Model m;
