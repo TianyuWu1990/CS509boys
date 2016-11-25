@@ -10,7 +10,7 @@ import com.capricorn.view.MultiGame;
 
 public class ClickButton_multiGame implements ActionListener {
 	MultiGame mg;
-	/** Define the defalut p for PracticeGame
+	/** Define the default p for PracticeGame
 	 *Construct ClickLetter object to use default port number. 
 	 */
 public ClickButton_multiGame(MultiGame mg){
@@ -22,7 +22,7 @@ public ClickButton_multiGame(MultiGame mg){
 public void actionPerformed(ActionEvent a) {
 		/**
 		 * first part is aim to make the button dark after clicking 
-		 * avoid reclicking the button again
+		 * avoid re-clicking the button again
 		 */
 		
 		JButton button = (JButton) a.getSource();

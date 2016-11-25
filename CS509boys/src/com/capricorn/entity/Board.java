@@ -3,17 +3,18 @@ package com.capricorn.entity;
 import java.util.ArrayList;
 
 /**As defined, the size of the board is should be 4-letters'-long and 4-letters'-wide.
-  *Applying cell to generate a 4*4 board with 16 letters in it.
+  *Applying cell to generate a 4*4 board with 16 letters.
   */
 public class Board {
 public Cell cells[][] = new Cell[4][4];
 private ArrayList<Cell> chosenCells;
 private Word word=new Word();
-private int globalStartingCol;
-private int globalStartingRow;
+private int     globalStartingCol;
+private int     globalStartingRow;
 private Integer requestColChange;
 private Integer requestRowChange;
-private String bonusCell;
+private String  bonusCell;
+
 public String getBonusCell() {
 	return bonusCell;
 }
@@ -38,7 +39,7 @@ public void setRequestRowChange(Integer requestRowChange) {
 	this.requestRowChange = requestRowChange;
 }
 
-/**SetLetter method to fill in the cell with different word*/
+/**SetLetter method to fill in the cell with different words*/
 public void setcellArrayForPractice(){
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
