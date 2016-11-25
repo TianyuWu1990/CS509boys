@@ -8,7 +8,7 @@ import com.capricorn.entity.Player;
  * If we define a model M, M need to cover all the things following  
  */
 public class Model {
-	static Model model=null;       //define a default
+	static Model model=null;              //define a default null to model
 	public Game game=new Game();
 	public Board board=new Board();
 	public Player player = new Player();
