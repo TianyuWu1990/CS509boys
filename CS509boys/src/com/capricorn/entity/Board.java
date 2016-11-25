@@ -155,16 +155,16 @@ public Cell[][] getCells() {
 }
 public String getChosenCellsXMLString(){
 	String chosenCellsString = "";
-	for(int i=0;i<4;i++){
-		for (int j=0;j<4;j++){
+	for(Cell cell:chosenCells){
 			chosenCellsString += String.format("<cell position='%s,%s' letter='%s'/>", 
-					String.valueOf(cells[i][j].getGlobalCoordinate().col), 
-					String.valueOf(cells[i][j].getGlobalCoordinate().row), 
-					cells[i][j].getLetter());			
+					String.valueOf(cell.getGlobalCoordinate().col), 
+					String.valueOf(cell.getGlobalCoordinate().row), 
+					cell.getLetter());			
 	}
-		}
 	return chosenCellsString;
-}
+		}
+	
+
 public void addToChosenCellsByIndex(int ChosenCellIndex){
 	
 		int row=ChosenCellIndex/4;

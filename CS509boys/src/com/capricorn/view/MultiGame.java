@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.capricorn.RequestController.ClickButton_multiGame;
 import com.capricorn.RequestController.Exit;
-import com.capricorn.RequestController.JoinGameRequest;
+import com.capricorn.RequestController.FindWordRequest;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
 import com.capricorn.entity.Player;
@@ -223,6 +223,54 @@ public class MultiGame extends JFrame {
 		button_4.setBackground(Color.WHITE);
 		button_4.setBounds(472, 13, 147, 40);
 		getContentPane().add(button_4);
+		button_4.addActionListener(new ActionListener() {
+			long playerPreviousScore;
+			long playerNewScore;
+			long localExpectedWordScore;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				
+				
+				
+				String word = textField_word.getText();
+				if (word.length() <= 1) {
+					message.setText("Choose at least 2 letters");
+					return;
+				}
+				localExpectedWordScore = Long.parseLong(textField_escore.getText());
+				
+
+				
+				
+				
+
+				
+				playerPreviousScore = model.getPlayer().getScore();
+				new FindWordRequest(model, MultiGame.this.app).process();
+			   try {
+				Thread.sleep(50);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+				playerNewScore = model.getPlayer().getScore();
+				if (playerNewScore == playerPreviousScore) {
+					message.setText("Word Picked By Others");
+				} else {
+					String wordScoreFromServer = String.valueOf(playerNewScore - playerPreviousScore);
+					
+					if (localExpectedWordScore != Integer.valueOf(wordScoreFromServer)) {
+						message.setText("You get a bonus");
+					}
+				}
+				
+				clearAllChosen();
+				refreshBoard();
+			}
+		});
 
 		JButton btnExit = new JButton("Exit");
 		btnExit.setBackground(Color.RED);
@@ -244,6 +292,12 @@ public class MultiGame extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 				new LockGameRequest(model, MultiGame.this.app).process();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				JButton button = (JButton) e.getSource();
 				button.setEnabled(false);
 

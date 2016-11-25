@@ -27,6 +27,7 @@ public class FindWordResponse extends ControllerChain{
 		if (!type.equals ("findWordResponse")) {
 			return next.process(response);
 		}
+		System.out.println(response.toString());
 		
 		
 		Node boardResponse = response.contents.getFirstChild();
