@@ -49,16 +49,16 @@ public void setcellArrayForPractice(){
 }
 
 public Board(){
-	globalStartingCol=0;
-	globalStartingRow=0;
+	globalStartingCol=1;
+	globalStartingRow=1;
 	chosenCells = new ArrayList<Cell>();
 	word = new Word();
 	
 	for(int i = 1; i < 5 ; i++){
 		for(int j = 1; j < 5; j++){
 			
-		    Coordinate localCoordinate=new Coordinate(i,j);
-		    Coordinate globalCoordinate=new Coordinate(i,j);
+		    Coordinate localCoordinate=new Coordinate(j,i);
+		    Coordinate globalCoordinate=new Coordinate(j,i);
 			Cell cell = new Cell();
 			cell.setLocalCoordinate(localCoordinate);
 			cell.setGlobalCoordinate(globalCoordinate);
@@ -74,8 +74,8 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 	
 	for(int i=0;i<4;i++){
 		for (int j=0;j<4;j++){
-           int x=globalStartingCol+i;
-           int y=globalStartingRow+j;
+           int x=globalStartingCol+j;
+           int y=globalStartingRow+i;
            Coordinate globalCoordinate=new Coordinate(x,y);
            cells[i][j].setGlobalCoordinate(globalCoordinate);
 	}
@@ -158,8 +158,8 @@ public String getChosenCellsXMLString(){
 	for(int i=0;i<4;i++){
 		for (int j=0;j<4;j++){
 			chosenCellsString += String.format("<cell position='%s,%s' letter='%s'/>", 
-					String.valueOf(cells[i][j].getGlobalCoordinate().row), 
 					String.valueOf(cells[i][j].getGlobalCoordinate().col), 
+					String.valueOf(cells[i][j].getGlobalCoordinate().row), 
 					cells[i][j].getLetter());			
 	}
 		}

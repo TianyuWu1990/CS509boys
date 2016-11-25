@@ -69,7 +69,7 @@ public class BoardResponse extends ControllerChain{
 				
 			}
 			else if (pname.equals(this.model.getPlayer().getName())){
-				System.out.println("shi");
+				
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 					);
 			}
@@ -77,7 +77,7 @@ public class BoardResponse extends ControllerChain{
 		}	
 		model.getGame().setPlayersInformation(allPlayersInfo);
 		if (this.flag == true) {
-			System.out.println(app);
+			
 			app.getManagerg().refreshBoard();
 			
 			
