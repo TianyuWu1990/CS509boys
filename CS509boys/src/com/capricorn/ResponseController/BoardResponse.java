@@ -7,7 +7,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.capricorn.RequestController.ControllerChain;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
@@ -63,7 +62,7 @@ public class BoardResponse extends ControllerChain{
 			allPlayersInfo.add(player);
 			
 			if (this.flag == false){
-				System.out.println("shide");
+				
 				
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 						);

@@ -7,7 +7,6 @@ import org.w3c.dom.Node;
 
 import xml.Message;
 
-import com.capricorn.RequestController.ControllerChain;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 

@@ -1,12 +1,11 @@
-package client;
+package com.capricorn.client;
 
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-import com.capricorn.client.IController;
-import com.capricorn.client.IMessageHandler;
-
+import com.capricorn.ResponseController.IController;
+import com.capricorn.ResponseController.IMessageHandler;
 
 import xml.*;
 

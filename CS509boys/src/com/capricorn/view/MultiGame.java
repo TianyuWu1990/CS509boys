@@ -19,12 +19,13 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.capricorn.RequestController.ClickButton_multiGame;
-import com.capricorn.RequestController.Exit;
 import com.capricorn.RequestController.FindWordRequest;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
+import com.capricorn.RequestController.ResetGameRequest;
 import com.capricorn.entity.Player;
+import com.capricorn.listener.ClickButton_multiGame;
+import com.capricorn.listener.Exit;
 import com.capricorn.model.Model;
 
 public class MultiGame extends JFrame {
@@ -300,6 +301,7 @@ public class MultiGame extends JFrame {
 				}
 				JButton button = (JButton) e.getSource();
 				button.setEnabled(false);
+				message.setText("You have locked your game");
 
 			}
 		});
@@ -309,6 +311,22 @@ public class MultiGame extends JFrame {
 		button_reset = new JButton("Reset Board");
 		button_reset.setBounds(35, 343, 111, 23);
 		getContentPane().add(button_reset);
+		button_reset.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new ResetGameRequest(model,MultiGame.this.app).process();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				message.setText("You have reset your game");
+				
+			}
+			
+		});
 
 		JLabel lblScoreRanking = new JLabel("Score Ranking :");
 		lblScoreRanking.setBounds(42, 240, 101, 16);
@@ -410,7 +428,7 @@ public class MultiGame extends JFrame {
 		setallCellsbtns();
 
 		refreshBoard();
-		resetInfo();
+//		resetInfo();
 
 	}
 
@@ -541,6 +559,10 @@ public class MultiGame extends JFrame {
 		if (model.getGame().getManagingUser().equals(model.getPlayer().getName())) {
 			btnLock.setEnabled(true);
 			button_reset.setEnabled(true);
+			if(model.getGame().isLocked){
+				btnLock.setEnabled(false);
+			}
+			
 	}
 		else{
 			btnLock.setEnabled(false);

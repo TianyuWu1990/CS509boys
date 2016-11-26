@@ -2,7 +2,6 @@ package com.capricorn.ResponseController;
 
 import xml.Message;
 
-import com.capricorn.RequestController.ControllerChain;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
@@ -22,10 +21,11 @@ public class ResetGameResponse extends ControllerChain{
 		if (!type.equals ("resetGameResponse")) {
 			return next.process(response);
 		}
+		System.out.println(response.toString());
 		
 		//need to rewrite in model,empty function right now
 //		model.updateModel();
-
+        model.resetGame();
 		app.getManagerg().refreshBoard();
 			
 

@@ -11,11 +11,10 @@ import javax.swing.JTextField;
 
 import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.RequestController.JoinGameRequest;
-import com.capricorn.RequestController.StartPractice;
+import com.capricorn.client.ServerAccess;
 import com.capricorn.model.Model;
 import com.capricorn.entity.*;
-
-import client.ServerAccess;
+import com.capricorn.listener.StartPractice;
 
 public class Application extends JFrame {
 	private JTextField create_id_text;

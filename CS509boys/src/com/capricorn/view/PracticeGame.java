@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.capricorn.RequestController.Clear;
-import com.capricorn.RequestController.ClickLetter;
-import com.capricorn.RequestController.Exit;
-import com.capricorn.RequestController.Reset;
 import com.capricorn.entity.Board;
+import com.capricorn.listener.Clear;
+import com.capricorn.listener.ClickLetter;
+import com.capricorn.listener.Exit;
+import com.capricorn.listener.Reset;
 import com.capricorn.model.Model;
 /**
  *View part including here is designed by JFrame. PracticeGame is an interface

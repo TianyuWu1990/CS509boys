@@ -2,8 +2,8 @@ package com.capricorn.client;
 import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
-import com.capricorn.RequestController.ConnectResponseController;
 import com.capricorn.ResponseController.BoardResponse;
+import com.capricorn.ResponseController.ConnectResponseController;
 import com.capricorn.ResponseController.FindWordResponse;
 import com.capricorn.ResponseController.JoinGameResponse;
 import com.capricorn.ResponseController.LockGameResponse;
@@ -12,7 +12,6 @@ import com.capricorn.ResponseController.SampleClientMessageHandler;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
-import client.ServerAccess;
 import xml.Message;
 
 /** Launch command-line Client to show minimal access needs. */

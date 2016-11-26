@@ -1,7 +1,6 @@
-package com.capricorn.RequestController;
+package com.capricorn.ResponseController;
 
-import com.capricorn.RequestController.ControllerChain;
-import com.capricorn.RequestController.IClientController;
+import com.capricorn.ResponseController.ControllerChain;
 
 import xml.Message;
 

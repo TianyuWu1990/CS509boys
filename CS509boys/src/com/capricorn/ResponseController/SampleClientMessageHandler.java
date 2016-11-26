@@ -1,7 +1,4 @@
 package com.capricorn.ResponseController;
-import com.capricorn.RequestController.ControllerChain;
-import com.capricorn.RequestController.EmptyHandler;
-import com.capricorn.client.IMessageHandler;
 import com.capricorn.view.Application;
 
 import xml.Message;

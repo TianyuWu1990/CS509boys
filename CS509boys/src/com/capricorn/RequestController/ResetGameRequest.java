@@ -16,13 +16,13 @@ public class ResetGameRequest {
 	}
 	
 	public void process(){
-		String xmlString = Message.requestHeader() + String.format("<resetGameRequest gameID='%s'/></request>", 
+		String xmlString = Message.requestHeader() + String.format("<resetGameRequest gameId='%s'/></request>", 
 				
 				model.getGame().getGameId());		
 
 		Message m = new Message (xmlString);
 		
-		
+		System.out.println(m);
 		app.getServerAccess().sendRequest(m);
 	}
 	

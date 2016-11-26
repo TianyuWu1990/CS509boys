@@ -51,6 +51,11 @@ public class Model {
 		this.board.setBonusCell(bonusCell);//use the setBonusCell method 
 		
 	}
+	public void resetGame(){
+		getPlayer().setScore(0);
+		getBoard().clearChosenCells();
+		
+	}
 
 	
 	

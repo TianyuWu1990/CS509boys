@@ -1,4 +1,4 @@
-package com.capricorn.RequestController;
+package com.capricorn.ResponseController;
 
 import xml.Message;
 
