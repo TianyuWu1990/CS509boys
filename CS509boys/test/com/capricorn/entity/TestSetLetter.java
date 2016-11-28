@@ -4,7 +4,7 @@ import java.util.Random;
 
 import junit.framework.TestCase;
 /**Test of the setletter method*/
-public class SetLetter extends TestCase {  
+public class TestSetLetter extends TestCase {  
     public void testRandom1() throws Exception {  
 //        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";  
         String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","Qu"};  
