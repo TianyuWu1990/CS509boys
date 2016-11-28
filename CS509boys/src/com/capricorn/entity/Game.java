@@ -15,6 +15,7 @@ public class Game {
 	private String managingUser;
 	List<Player> playersInformation; 
 	public boolean isLocked;
+	List<String> playersLocation;
 	
 
 	
@@ -75,6 +76,12 @@ public class Game {
 	public void clearPlayersInformation() {
 		playersInformation.clear();
 		
+	}
+	public List<String> getPlayerslocation() {
+		return playersLocation;
+	}
+	public void setPlayerslocation(List<String> playerslocation) {
+		this.playersLocation = playerslocation;
 	}
 	
 	

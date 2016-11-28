@@ -86,6 +86,7 @@ public class MultiGame extends JFrame {
 		
 
 		JButton button = new JButton("UP");
+		button.setBackground(Color.WHITE);
 		button.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button.addActionListener(new ActionListener() {
 			int previousRow;
@@ -121,6 +122,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button);
 
 		JButton button_1 = new JButton("LEFT");
+		button_1.setBackground(Color.WHITE);
 		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_1.setBounds(555, 197, 75, 38);
 		getContentPane().add(button_1);
@@ -154,6 +156,7 @@ public class MultiGame extends JFrame {
 		});
 
 		JButton button_2 = new JButton("RIGHT");
+		button_2.setBackground(Color.WHITE);
 		button_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_2.setBounds(716, 197, 75, 38);
 		button_2.addActionListener(new ActionListener() {
@@ -188,6 +191,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(button_2);
 
 		JButton button_3 = new JButton("DOWN");
+		button_3.setBackground(Color.WHITE);
 		button_3.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_3.setBounds(641, 231, 69, 38);
 		getContentPane().add(button_3);
@@ -429,7 +433,7 @@ public class MultiGame extends JFrame {
 
 		refreshBoard();
 //		resetInfo();
-
+		
 	}
 
 	private void setLockEnable() {
@@ -514,23 +518,32 @@ public class MultiGame extends JFrame {
 				lettToBeAdd = "Qu";
 			}
 			this.allCellsbtns.get(i).setText(lettToBeAdd);
-		}
+			System.out.println(model.getBoard().getOverlapTimes()[i]);
+			
 		}
 
 		setScoreTable();
 		clearAllChosen();
 		resetInfo();
 		panel.repaint();
+		for(int i=0;i<16;i++){
+			this.allCellsbtns.get(i).setBackground(new Color(255 -( model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - 
+					(model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - (model.getBoard().getOverlapTimes()[i]-1) * 30));
+		}
+		}
+		
 
 	}
 
 	private void removeCellBtnsColors() {
 		for (int i = 0; i < 16; i++) {
 			JButton btn = this.allCellsbtns.get(i);
-			
-			btn.setForeground(Color.BLACK);
-			btn.setBackground(Color.WHITE);
+			btn.setBackground(new Color(255 -( model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - 
+					(model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - (model.getBoard().getOverlapTimes()[i]-1) * 30));
 		}
+//			btn.setForeground(Color.BLACK);
+//			btn.setBackground(Color.WHITE);
+		
 		panel.repaint();
 	}
 

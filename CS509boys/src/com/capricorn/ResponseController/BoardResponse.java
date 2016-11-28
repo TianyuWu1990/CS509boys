@@ -1,5 +1,6 @@
 package com.capricorn.ResponseController;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import com.capricorn.entity.Board;
 import com.capricorn.entity.Player;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
@@ -45,6 +47,9 @@ public class BoardResponse extends ControllerChain{
 		NodeList list = boardResponse.getChildNodes();		
 		
 		List<Player> allPlayersInfo =  new LinkedList<Player>();
+		List<String> playersLocation=new ArrayList<String>();
+		List<String> ownLocationList=new ArrayList<String>();
+		
 		
 		
 		for (int i = 0; i < list.getLength(); i++) {
@@ -61,21 +66,49 @@ public class BoardResponse extends ControllerChain{
 			Player player=new Player(pname,score,plocation);
 			allPlayersInfo.add(player);
 			
+			
 			if (this.flag == false){
 				
 				
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 						);
+				ownLocationList=Board.setBoardPositionList(plocation);
 				
 			}
 			else if (pname.equals(this.model.getPlayer().getName())){
 				
 				model.updateModel(gameId, managingUser, pname, globalStartingCol, globalStaringRow, boardInfo, score,bonusCell
 					);
+				ownLocationList=Board.setBoardPositionList(plocation);
 			}
 			
 		}	
+		model.getBoard().resetoverlapTimes();
 		model.getGame().setPlayersInformation(allPlayersInfo);
+		
+		for(Player player:allPlayersInfo){
+			String plocation=player.getPosition();
+			List<String> positionList=Board.setBoardPositionList(plocation);
+			for (String owncoordinate:ownLocationList){
+				for(String othercoordinate:positionList){
+       if(owncoordinate.equals(othercoordinate)){
+    	   int ownx=Integer.parseInt(owncoordinate.split(",")[0]);
+    	   int owny=Integer.parseInt(owncoordinate.split(",")[1]);
+    	   int col=model.getBoard().getGlobalStartingCol();
+    	   int row=model.getBoard().getGlobalStartingRow();
+    	  int index= (owny-row)*4+(ownx-col);
+    	  model.getBoard().getOverlapTimes()[index]+=1;
+    	   
+       }
+    	   
+       }
+             
+			}
+		}
+		for(int i=0;i<16;i++){
+		System.out.println(model.getBoard().getOverlapTimes()[i]);
+		}
+		
 		if (this.flag == true) {
 			
 			app.getManagerg().refreshBoard();

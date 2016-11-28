@@ -1,6 +1,7 @@
 package com.capricorn.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**As defined, the size of the board is should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
@@ -14,6 +15,13 @@ private int     globalStartingRow;
 private Integer requestColChange;
 private Integer requestRowChange;
 private String  bonusCell;
+private int[] overlapTimes=new int[16];
+//private List<String> boardPositionList=new ArrayList<String>();
+
+public int[] getOverlapTimes() {
+	return overlapTimes;
+}
+
 
 public String getBonusCell() {
 	return bonusCell;
@@ -48,6 +56,11 @@ public void setcellArrayForPractice(){
 		}
 	}
 }
+public void resetoverlapTimes(){
+	for(int i=0;i<16;i++)
+	this.overlapTimes[i]=0;
+}
+
 
 public Board(){
 	globalStartingCol=1;
@@ -65,6 +78,8 @@ public Board(){
 			cell.setGlobalCoordinate(globalCoordinate);
 			
 			this.cells[i-1][j-1]=cell;
+			int index=(i-1)*4+j-1;
+			overlapTimes[index]=0;
 		}
 	}
 }
@@ -90,7 +105,7 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 private void updateBoardByAllLetters(String cellsLetters){
 	
 	char[] cellInforList = cellsLetters.toCharArray();
-	System.out.println(cellInforList.length);
+	
 	for(int i = 0; i < 16; i++){
 		int row=i/4;
 		int col=i%4;
@@ -188,9 +203,69 @@ public void clearChosenCells(){
 	}
 	chosenCells.removeAll(chosenCells);
 }
+public static List<String> setBoardPositionList(String plocation){
+	 int startX=Integer.parseInt(plocation.split(",")[0]);
+	 int startY=Integer.parseInt(plocation.split(",")[1]);
+	List<String> locationList=new ArrayList<String>();
+	for(int i=0;i<4;i++){
+for(int j=0;j<4;j++){
+	int x=startX+j;
+	int y=startY+i;
+	String location=x+","+y;
+	locationList.add(location);
+	
+	
+	
 
+}
+	}
+	return locationList;
+	
+}
 
-
+//public void setOverlapTimes(String plocation,List<String> playersLocation){
+//  int ownx=Integer.parseInt(plocation.split(",")[0]);
+//  int owny=Integer.parseInt(plocation.split(",")[1]);
+//  for(String location:playersLocation){
+//	  int otherx=Integer.parseInt(location.split(",")[0]);
+//	  int othery=Integer.parseInt(location.split(",")[1]);
+//	  if(ownx-otherx<4&&ownx-otherx>-4&&owny-othery<4&&owny-othery>-4){
+//      for(int i=othery;i<owny+4;i++){
+//    	  for(int j=otherx;j<ownx+4;j++){
+//    		  System.out.println("i"+i);
+//    		  System.out.println("j"+j);
+//    		  int index=(i-owny)*4+(j-ownx);
+//    		  System.out.println(index);
+//    		     this.overlapTimes[index]+=1;
+//    	  }
+//      }
+//     
+//  
+//
+//
+//
+//}
+//}
+//}
+public static void main(String[] args) {
+	
+//	Board board=new Board();
+//	String plocation="2,2";
+//	String pl="2,3";
+//	List<String> list=board.setBoardPositionList(plocation);
+//	for(String str:list)
+//	System.out.println(str);
+	
+//	String pl1="2,2";
+//	List<String> playersLocation=new ArrayList<String>();
+//	playersLocation.add(pl);
+//	playersLocation.add(pl1);
+//	
+//	board.setOverlapTimes(plocation, playersLocation);
+//	for(int t:board.overlapTimes){
+//		System.out.println(t);
+//	}
+}
 }
 
 
