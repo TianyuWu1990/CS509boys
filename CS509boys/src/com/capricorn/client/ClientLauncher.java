@@ -4,6 +4,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import com.capricorn.ResponseController.BoardResponse;
 import com.capricorn.ResponseController.ConnectResponseController;
+import com.capricorn.ResponseController.ExitGameResponse;
 import com.capricorn.ResponseController.FindWordResponse;
 import com.capricorn.ResponseController.JoinGameResponse;
 import com.capricorn.ResponseController.LockGameResponse;
@@ -44,7 +45,7 @@ public class ClientLauncher {
 		Model model =Model.getInstance();
 		System.out.println(model);
 		Application app =Application.getInstance(model);
-		ServerAccess serverAccess = new ServerAccess("localhost");
+		
 		
 		
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
@@ -54,6 +55,8 @@ public class ClientLauncher {
 		handler.registerHandler(new ResetGameResponse(app, model));
 		handler.registerHandler(new LockGameResponse(app, model));
 		handler.registerHandler(new FindWordResponse(app, model));
+		handler.registerHandler(new ExitGameResponse(app, model));
+		
 		
 
 

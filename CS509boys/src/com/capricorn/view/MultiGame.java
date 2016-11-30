@@ -49,8 +49,6 @@ public class MultiGame extends JFrame {
 	public MultiGame(Model m, Application app) {
 		this.app = app;
 		this.model = m;
-		
-		
 
 		getContentPane().setLayout(null);
 		chosenbtns = new ArrayList<JButton>();
@@ -83,7 +81,6 @@ public class MultiGame extends JFrame {
 		getContentPane().add(textField_escore);
 		textField_escore.setText("0");
 		textField_escore.setEditable(false);
-		
 
 		JButton button = new JButton("UP");
 		button.setBackground(Color.WHITE);
@@ -94,28 +91,24 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Integer[] change={-1,0};
+				Integer[] change = { -1, 0 };
 				clearAllChosen();
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);
-				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
+
 				newRow = model.getBoard().getGlobalStartingRow();
 				if (previousRow == newRow) {
 					message.setText("No More Up!");
 				}
 			}
 
-			
-				
-			
 		});
 		button.setToolTipText("");
 		button.setBounds(641, 163, 69, 38);
@@ -132,27 +125,24 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Integer[] change={0,-1};
+				Integer[] change = { 0, -1 };
 				clearAllChosen();
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
-				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 				newCol = model.getBoard().getGlobalStartingCol();
 				if (previousCol == newCol) {
 					message.setText("No More Left!");
 				}
 			}
 
-			
-				
-			
 		});
 
 		JButton button_2 = new JButton("RIGHT");
@@ -165,28 +155,24 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Integer[] change={0,1};
+				Integer[] change = { 0, 1 };
 				clearAllChosen();
 				previousCol = model.getBoard().getGlobalStartingCol();
 				model.getBoard().setRequestColChange(1);
-				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				
+
 				newCol = model.getBoard().getGlobalStartingCol();
 				if (previousCol == newCol) {
 					message.setText("No More Right!");
 				}
 			}
 
-			
-				
-			
 		});
 		getContentPane().add(button_2);
 
@@ -201,27 +187,24 @@ public class MultiGame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Integer[] change={1,0};
+				Integer[] change = { 1, 0 };
 				clearAllChosen();
 				previousRow = model.getBoard().getGlobalStartingRow();
 				model.getBoard().setRequestColChange(1);
-				new RepositionBoardRequest(model,MultiGame.this.app,change).process();
+				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 				newRow = model.getBoard().getGlobalStartingRow();
 				if (previousRow == newRow) {
 					message.setText("No More Down!");
 				}
 			}
 
-			
-				
-			
 		});
 
 		JButton button_4 = new JButton("Submit");
@@ -236,42 +219,33 @@ public class MultiGame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				
-				
-				
 				String word = textField_word.getText();
 				if (word.length() <= 1) {
 					message.setText("Choose at least 2 letters");
 					return;
 				}
 				localExpectedWordScore = Long.parseLong(textField_escore.getText());
-				
 
-				
-				
-				
-
-				
 				playerPreviousScore = model.getPlayer().getScore();
 				new FindWordRequest(model, MultiGame.this.app).process();
-			   try {
-				Thread.sleep(50);
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
 				playerNewScore = model.getPlayer().getScore();
 				if (playerNewScore == playerPreviousScore) {
 					message.setText("Word Picked By Others");
 				} else {
 					String wordScoreFromServer = String.valueOf(playerNewScore - playerPreviousScore);
-					
+
 					if (localExpectedWordScore != Integer.valueOf(wordScoreFromServer)) {
 						message.setText("You get a bonus");
 					}
 				}
-				
+
 				clearAllChosen();
 				refreshBoard();
 			}
@@ -279,15 +253,15 @@ public class MultiGame extends JFrame {
 
 		JButton btnExit = new JButton("Exit");
 		btnExit.setBackground(Color.RED);
-		
+
 		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(625, 14, 69, 38);
 		getContentPane().add(btnExit);
 
 		btnLock = new JButton("Lock");
-		if (m.getGame().isLocked||!(m.getGame().getManagingUser().equals(m.getPlayer().getName()))) {
-			
+		if (m.getGame().isLocked || !(m.getGame().getManagingUser().equals(m.getPlayer().getName()))) {
+
 			btnLock.setEnabled(false);
 		} else {
 			btnLock.setEnabled(true);
@@ -315,11 +289,11 @@ public class MultiGame extends JFrame {
 		button_reset = new JButton("Reset Board");
 		button_reset.setBounds(35, 343, 111, 23);
 		getContentPane().add(button_reset);
-		button_reset.addActionListener(new ActionListener(){
+		button_reset.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				new ResetGameRequest(model,MultiGame.this.app).process();
+
+				new ResetGameRequest(model, MultiGame.this.app).process();
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e1) {
@@ -327,9 +301,9 @@ public class MultiGame extends JFrame {
 					e1.printStackTrace();
 				}
 				message.setText("You have reset your game");
-				
+
 			}
-			
+
 		});
 
 		JLabel lblScoreRanking = new JLabel("Score Ranking :");
@@ -353,21 +327,20 @@ public class MultiGame extends JFrame {
 		panel.setLayout(null);
 		panel.setBounds(6, 45, 426, 179);
 		getContentPane().add(panel);
-		panel.setBorder(new CompoundBorder()); 
+		panel.setBorder(new CompoundBorder());
 
-		 panel.setBorder(BorderFactory.createLineBorder(Color.gray));
-		 
-		 JLabel lblNewLabel = new JLabel("      Your Game Board");
-		 lblNewLabel.setBounds(114, 6, 285, 22);
-		 panel.add(lblNewLabel);
+		panel.setBorder(BorderFactory.createLineBorder(Color.gray));
+
+		JLabel lblNewLabel = new JLabel("      Your Game Board");
+		lblNewLabel.setBounds(114, 6, 285, 22);
+		panel.add(lblNewLabel);
 
 		message = new JLabel("");
 		message.setBounds(573, 281, 222, 195);
 		getContentPane().add(message);
-		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null)); 
+		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		message.setBorder(BorderFactory.createLineBorder(Color.gray));
 		message.setForeground(Color.red);
-		
 
 		JButton btnClear = new JButton("Clear");
 		btnClear.setBackground(Color.CYAN);
@@ -377,7 +350,7 @@ public class MultiGame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				clearAllChosen();
-				
+
 			}
 		});
 
@@ -400,7 +373,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(textField_gameId);
 		textField_gameId.setColumns(10);
 		textField_gameId.setEditable(false);
-		
+
 		textField_manager = new JTextField();
 		textField_manager.setBounds(242, 562, 134, 38);
 		getContentPane().add(textField_manager);
@@ -409,7 +382,7 @@ public class MultiGame extends JFrame {
 		JLabel lblManagerName = new JLabel("Manager Name:");
 		lblManagerName.setBounds(127, 568, 103, 16);
 		getContentPane().add(lblManagerName);
-		
+
 		textField_score = new JTextField();
 		textField_score.setText("0");
 		textField_score.setBounds(603, 120, 192, 28);
@@ -419,21 +392,20 @@ public class MultiGame extends JFrame {
 		JLabel lblYourScore_1 = new JLabel("Your Score:");
 		lblYourScore_1.setBounds(516, 126, 85, 16);
 		getContentPane().add(lblYourScore_1);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(586, 273, 89, 16);
 		getContentPane().add(lblNewLabel_1);
-		
+
 		JLabel lblMessage = new JLabel("Message:");
 		lblMessage.setBounds(579, 286, 61, 16);
 		getContentPane().add(lblMessage);
-		
-		
+
 		setallCellsbtns();
 
 		refreshBoard();
-//		resetInfo();
-		
+		// resetInfo();
+
 	}
 
 	private void setLockEnable() {
@@ -496,7 +468,7 @@ public class MultiGame extends JFrame {
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
-                btn.setBackground(Color.WHITE);
+				btn.setBackground(Color.WHITE);
 				panel.add(btn);
 
 			}
@@ -505,45 +477,48 @@ public class MultiGame extends JFrame {
 
 	public void refreshBoard() {
 		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
-		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
+		String[] points = { "2", "4", "3", "3", "1", "4", "4", "2", "2", "7", "5", "3", "3", "2", "2", "4", "2", "2",
+				"1", "3", "5", "3", "7", "4", "8", "11" };
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
-		System.out.println("info"+this.model.getBoard().getBoardInfo());
-		if (this.model.getBoard().getBoardInfo().length()!=0){
-				
-		for (int i = 0; i < 16; i++) {
-			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
-			
-			this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
-			if (lettToBeAdd.equals("Q")) {
-				lettToBeAdd = "Qu";
-			}
-			this.allCellsbtns.get(i).setText(lettToBeAdd);
-			System.out.println(model.getBoard().getOverlapTimes()[i]);
-			
-		}
+		System.out.println("info" + this.model.getBoard().getBoardInfo());
+		if (this.model.getBoard().getBoardInfo().length() != 0) {
 
-		setScoreTable();
-		clearAllChosen();
-		resetInfo();
-		panel.repaint();
-		for(int i=0;i<16;i++){
-			this.allCellsbtns.get(i).setBackground(new Color(255 -( model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - 
-					(model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - (model.getBoard().getOverlapTimes()[i]-1) * 30));
+			for (int i = 0; i < 16; i++) {
+				String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
+
+				this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
+				if (lettToBeAdd.equals("Q")) {
+					lettToBeAdd = "Qu";
+				}
+				this.allCellsbtns.get(i).setText(lettToBeAdd);
+				System.out.println(model.getBoard().getOverlapTimes()[i]);
+
+			}
+
+			setScoreTable();
+			clearAllChosen();
+			resetInfo();
+			panel.repaint();
+			for (int i = 0; i < 16; i++) {
+				this.allCellsbtns.get(i)
+						.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
+								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
+								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
+			}
 		}
-		}
-		
 
 	}
 
 	private void removeCellBtnsColors() {
 		for (int i = 0; i < 16; i++) {
 			JButton btn = this.allCellsbtns.get(i);
-			btn.setBackground(new Color(255 -( model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - 
-					(model.getBoard().getOverlapTimes()[i]-1) * 30, 255 - (model.getBoard().getOverlapTimes()[i]-1) * 30));
+			btn.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
+					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
+					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
 		}
-//			btn.setForeground(Color.BLACK);
-//			btn.setBackground(Color.WHITE);
-		
+		// btn.setForeground(Color.BLACK);
+		// btn.setBackground(Color.WHITE);
+
 		panel.repaint();
 	}
 
@@ -557,49 +532,48 @@ public class MultiGame extends JFrame {
 		for (JButton btn : allCellsbtns) {
 			btn.setEnabled(true);
 		}
-		
+
 	}
+
 	private void resetInfo() {
 		textField_name.setText(model.getPlayer().getName());
 		textField_gameId.setText(model.getGame().getGameId());
 		textField_score.setText(String.valueOf(model.getPlayer().getScore()));
-		if(model.getGame().getManagingUser().equals(model.getPlayer().getName())){
+		if (model.getGame().getManagingUser().equals(model.getPlayer().getName())) {
 			textField_manager.setText("Manager is You");
-		}
-		else{
-		textField_manager.setText(model.getGame().getManagingUser());
+		} else {
+			textField_manager.setText(model.getGame().getManagingUser());
 		}
 		if (model.getGame().getManagingUser().equals(model.getPlayer().getName())) {
 			btnLock.setEnabled(true);
 			button_reset.setEnabled(true);
-			if(model.getGame().isLocked){
+			if (model.getGame().isLocked) {
 				btnLock.setEnabled(false);
 			}
-			
-	}
-		else{
+
+		} else {
 			btnLock.setEnabled(false);
 			button_reset.setEnabled(false);
-}
-	  message.setText("");
-}
-	public boolean isBonusCell(int index){
-		String bonusString=model.getBoard().getBonusCell();
-		String []bonuscoordinate=bonusString.split(",");
-		int x=Integer.parseInt(bonuscoordinate[0]);
-		int y=Integer.parseInt(bonuscoordinate[1]);
-		int globalStartingCol=model.getBoard().getGlobalStartingCol();
-		int globalStartingRow=model.getBoard().getGlobalStartingRow();
-		int deltCol=x-globalStartingCol;
-		int deltRow=y-globalStartingRow;
-		if(deltRow>=0&&deltRow<3&&deltCol>=0&&deltCol<3){
-			if(index==deltRow*4+deltCol){
-                   return true;
 		}
-		
+		message.setText("");
 	}
+
+	public boolean isBonusCell(int index) {
+		String bonusString = model.getBoard().getBonusCell();
+		String[] bonuscoordinate = bonusString.split(",");
+		int x = Integer.parseInt(bonuscoordinate[0]);
+		int y = Integer.parseInt(bonuscoordinate[1]);
+		int globalStartingCol = model.getBoard().getGlobalStartingCol();
+		int globalStartingRow = model.getBoard().getGlobalStartingRow();
+		int deltCol = x - globalStartingCol;
+		int deltRow = y - globalStartingRow;
+		if (deltRow >= 0 && deltRow < 3 && deltCol >= 0 && deltCol < 3) {
+			if (index == deltRow * 4 + deltCol) {
+				return true;
+			}
+
+		}
 		return false;
 
-	
-}
+	}
 }

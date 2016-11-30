@@ -13,7 +13,7 @@ public class ExitGameRequest {
 	}
 	
 	public void process(){
-		String xmlString = Message.requestHeader() + String.format("<exitGameRequest name='%s' gameID='%s'/></request>", 
+		String xmlString = Message.requestHeader() + String.format("<exitGameRequest name='%s' gameId='%s'/></request>", 
 				model.getPlayer().getName(),
 				model.getGame().getGameId());		
 
