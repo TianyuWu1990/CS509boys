@@ -105,9 +105,7 @@ public class BoardResponse extends ControllerChain{
              
 			}
 		}
-		for(int i=0;i<16;i++){
-		System.out.println(model.getBoard().getOverlapTimes()[i]);
-		}
+		
 		
 		if (this.flag == true) {
 			
@@ -117,7 +115,7 @@ public class BoardResponse extends ControllerChain{
 		}
 		this.flag = true;
 
-
+		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}
 }

@@ -33,7 +33,7 @@ public class LockGameResponse extends ControllerChain{
 
 
 			app.getManagerg().refreshBoard();
-
+			app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 			return true;
 		}
 

@@ -27,7 +27,7 @@ public class ResetGameResponse extends ControllerChain{
 //		model.updateModel();
         model.resetGame();
 		app.getManagerg().refreshBoard();
-			
+		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 
 
 		return true;

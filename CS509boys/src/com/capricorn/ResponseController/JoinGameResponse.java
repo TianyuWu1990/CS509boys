@@ -35,7 +35,7 @@ public class JoinGameResponse extends ControllerChain{
 			model.getGame().setGameId(gameId);
 			
 			app.getManagerg().refreshBoard();
-			
+			app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 			return true;
 		}
 }

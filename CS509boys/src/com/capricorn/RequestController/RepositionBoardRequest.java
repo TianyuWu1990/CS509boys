@@ -25,6 +25,7 @@ public class RepositionBoardRequest {
 
 Message m = new Message (xmlString);
 System.out.println(m.toString());
-app.getServerAccess().sendRequest(m);	
+app.getServerAccess().sendRequest(m);
+app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 }
 }

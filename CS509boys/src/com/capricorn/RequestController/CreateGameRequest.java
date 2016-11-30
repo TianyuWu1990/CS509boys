@@ -30,7 +30,7 @@ public void process() {
 		Message m = new Message (xmlString);
 		//System.out.println(app.getServerAccess());
 		app.getServerAccess().sendRequest(m);
-		
+		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 		
 	}
 

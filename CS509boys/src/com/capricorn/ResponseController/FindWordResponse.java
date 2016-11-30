@@ -40,7 +40,7 @@ public class FindWordResponse extends ControllerChain{
 		model.getPlayer().setScore(Integer.valueOf(score));
 
 		app.getManagerg().refreshBoard();
-
+		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}
 }

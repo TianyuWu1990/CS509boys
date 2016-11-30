@@ -24,6 +24,7 @@ public class ResetGameRequest {
 		
 		System.out.println(m);
 		app.getServerAccess().sendRequest(m);
+		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}
 	
 }

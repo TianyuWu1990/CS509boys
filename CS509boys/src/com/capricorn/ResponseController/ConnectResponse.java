@@ -32,6 +32,7 @@ public class ConnectResponse extends ControllerChain {
 			
 		}
 		this.flag = true;
+		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 
 		return true;
 	}

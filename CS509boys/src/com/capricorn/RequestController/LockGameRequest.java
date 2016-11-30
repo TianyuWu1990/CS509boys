@@ -25,6 +25,7 @@ public class LockGameRequest {
 		//System.out.println(app);
 		System.out.println(m.toString());
 		app.getServerAccess().sendRequest(m);
+		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}
 	
 }

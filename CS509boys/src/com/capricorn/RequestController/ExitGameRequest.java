@@ -21,6 +21,7 @@ public class ExitGameRequest {
 		// Request the lock (this might not succeed).
 		
 		app.getServerAccess().sendRequest(m);
+		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}
 	
 }

@@ -2,6 +2,7 @@ package com.capricorn.client;
 import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
+import com.capricorn.RequestController.ExitGameRequest;
 import com.capricorn.ResponseController.BoardResponse;
 import com.capricorn.ResponseController.ConnectResponseController;
 import com.capricorn.ResponseController.ExitGameResponse;
@@ -19,7 +20,7 @@ import xml.Message;
 public class ClientLauncher {
 
 	// If requested by ClientLauncher (pass in '-server' as argument).
-	public static final String serverHost = "72.249.186.243";
+	public static final String serverHost = "cs509.frankgh.com";
 	
 	/**
 	 * Note that to simplify the coding of this command-client, it declares that it can throw an Exception,
@@ -36,16 +37,18 @@ public class ClientLauncher {
 		}
 		
 		// select dedicated server with '-server' options
-		String host = "localhost";
+		String host = "cs509.frankgh.com";
 		if (args.length > 0 && args[0].equals("-server")) {
 			host = serverHost;
 		}
 		
 		// Initialize the client application and its corresponding model
 		Model model =Model.getInstance();
-		System.out.println(model);
-		Application app =Application.getInstance(model);
 		
+		Application app =Application.getInstance(model);
+
+//		ServerAccess serverAccess = new ServerAccess("cs509.frankgh.com");
+
 		
 		
 		SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
@@ -56,20 +59,20 @@ public class ClientLauncher {
 		handler.registerHandler(new LockGameResponse(app, model));
 		handler.registerHandler(new FindWordResponse(app, model));
 		handler.registerHandler(new ExitGameResponse(app, model));
-		
-		
 
+	
 
 			
 		// try to connect to the server. Once connected, messages are going to be processed by 
 		// SampleClientMessageHandler. For now we just continue on with the initialization because
 		// no message is actually sent by the connect method.
-		ServerAccess sa = new ServerAccess(host, 31425);
+		ServerAccess sa = new ServerAccess(host, 11425);
 		if (!sa.connect(handler)) {
 			System.out.println("Unable to connect to server (" + host + "). Exiting.");
 			System.exit(0);
 		}
 		System.out.println("Connected to " + host);
+//		7b3l9duv86ed5mat9vfronf5s9
 		
 		
 		// Should we on the client ever need to communicate with the server, we need this ServerAccess

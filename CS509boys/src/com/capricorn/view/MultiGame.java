@@ -19,6 +19,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import com.capricorn.RequestController.ExitGameRequest;
 import com.capricorn.RequestController.FindWordRequest;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
@@ -45,8 +46,11 @@ public class MultiGame extends JFrame {
 	private JTextField textField_score;
 	private JButton btnLock;
 	private JButton button_reset;
+	private JButton btn_xmlc;
+	private JButton btn_xmlo;
+	
 
-	public MultiGame(Model m, Application app) {
+	public MultiGame(Model m, Application app)  {
 		this.app = app;
 		this.model = m;
 
@@ -97,7 +101,7 @@ public class MultiGame extends JFrame {
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(200);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -131,7 +135,7 @@ public class MultiGame extends JFrame {
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(200);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -161,7 +165,7 @@ public class MultiGame extends JFrame {
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(200);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -169,7 +173,7 @@ public class MultiGame extends JFrame {
 
 				newCol = model.getBoard().getGlobalStartingCol();
 				if (previousCol == newCol) {
-					message.setText("No More Right!");
+					message.setText("No More Right");
 				}
 			}
 
@@ -193,7 +197,7 @@ public class MultiGame extends JFrame {
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(200);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -253,6 +257,18 @@ public class MultiGame extends JFrame {
 
 		JButton btnExit = new JButton("Exit");
 		btnExit.setBackground(Color.RED);
+		btnExit.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				new ExitGameRequest(model, MultiGame.this.app).process();
+				MultiGame.this.dispose();
+				Application page = Application.getInstance(model);
+				page.setSize(600, 300); // set StartPage size
+				page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				page.setVisible(true);
+			}
+		});	
+
 
 		Exit exitControl = new Exit(this, model);
 		btnExit.addActionListener(exitControl);
@@ -336,7 +352,7 @@ public class MultiGame extends JFrame {
 		panel.add(lblNewLabel);
 
 		message = new JLabel("");
-		message.setBounds(573, 281, 222, 195);
+		message.setBounds(573, 281, 222, 144);
 		getContentPane().add(message);
 		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		message.setBorder(BorderFactory.createLineBorder(Color.gray));
@@ -400,11 +416,52 @@ public class MultiGame extends JFrame {
 		JLabel lblMessage = new JLabel("Message:");
 		lblMessage.setBounds(579, 286, 61, 16);
 		getContentPane().add(lblMessage);
+		
+		btn_xmlo = new JButton("Open Xml Message With Server");
+		btn_xmlo.setBounds(555, 454, 240, 38);
+		getContentPane().add(btn_xmlo);
+		this.btn_xmlo.addActionListener(new Action());
+		
+		btn_xmlc = new JButton("Close Xml Message With Server");
+		btn_xmlc.setBounds(555, 495, 240, 37);
+		getContentPane().add(btn_xmlc);
+		this.btn_xmlc.addActionListener(new Action());
+		
+		
+			
+			
+		
+		
+		
 
 		setallCellsbtns();
 
 		refreshBoard();
-		// resetInfo();
+//		resetInfo();
+		
+	}
+	class Action  implements ActionListener{
+		@Override
+	public void actionPerformed(ActionEvent e) {
+			
+			
+		
+		if(e.getSource().equals(btn_xmlo)){
+		JButton btn=(JButton)e.getSource();
+		
+		btn.setEnabled(false);
+		btn_xmlc.setEnabled(true);
+	    MultiGame.this.app.getXmlb().setVisible(true);
+		}
+		if(e.getSource().equals(btn_xmlc)){
+			JButton btn=(JButton)e.getSource();
+			
+			btn.setEnabled(false);
+			btn_xmlo.setEnabled(true);
+		    MultiGame.this.app.getXmlb().setVisible(false);
+			}
+//		
+	}
 
 	}
 
@@ -477,24 +534,34 @@ public class MultiGame extends JFrame {
 
 	public void refreshBoard() {
 		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
-		String[] points = { "2", "4", "3", "3", "1", "4", "4", "2", "2", "7", "5", "3", "3", "2", "2", "4", "2", "2",
-				"1", "3", "5", "3", "7", "4", "8", "11" };
+
+		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
+		
+
+		
+
 		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
-		System.out.println("info" + this.model.getBoard().getBoardInfo());
-		if (this.model.getBoard().getBoardInfo().length() != 0) {
 
-			for (int i = 0; i < 16; i++) {
-				String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
-
-				this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
-				if (lettToBeAdd.equals("Q")) {
-					lettToBeAdd = "Qu";
-				}
-				this.allCellsbtns.get(i).setText(lettToBeAdd);
-				System.out.println(model.getBoard().getOverlapTimes()[i]);
-
+		
+		if (this.model.getBoard().getBoardInfo().length()!=0){
+				
+		for (int i = 0; i < 16; i++) {
+			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
+			
+			this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
+			if (lettToBeAdd.equals("Q")) {
+				lettToBeAdd = "Qu";
 			}
+			this.allCellsbtns.get(i).setText(lettToBeAdd);
+			
+			
+		}
 
+		
+		
+
+
+			
 			setScoreTable();
 			clearAllChosen();
 			resetInfo();
@@ -506,6 +573,7 @@ public class MultiGame extends JFrame {
 								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
 			}
 		}
+		
 
 	}
 

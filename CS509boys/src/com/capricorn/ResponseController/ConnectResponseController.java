@@ -23,7 +23,7 @@ public class ConnectResponseController extends ControllerChain{
 			return next.process(response);
 		}
 		
-		
+		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}
 

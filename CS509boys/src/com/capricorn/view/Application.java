@@ -28,6 +28,7 @@ public class Application extends JFrame {
 	static Application app;
 	JLabel lbl_GameId;
 	JLabel lbl_Player;
+	private XmlInfoBoard xmlb;
 	
 	
 	
@@ -132,6 +133,8 @@ public class Application extends JFrame {
 		setSize(600, 300);
 		setTitle("WordSweeper");
 		getContentPane().setLayout(null);
+		xmlb=new XmlInfoBoard();
+		xmlb.setVisible(true);
 
 		JButton btnStart = new JButton("Create a game");
 		btnStart.addActionListener(new ActionListener() {
@@ -225,5 +228,17 @@ public class Application extends JFrame {
 		JLabel lblPasswordOptional = new JLabel("Password ( Optional )");
 		lblPasswordOptional.setBounds(389, 69, 137, 16);
 		getContentPane().add(lblPasswordOptional);
+	}
+
+
+
+	public XmlInfoBoard getXmlb() {
+		return xmlb;
+	}
+
+
+
+	public void setXmlb(XmlInfoBoard xmlb) {
+		this.xmlb = xmlb;
 	}
 }

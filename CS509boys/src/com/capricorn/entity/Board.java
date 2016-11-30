@@ -104,26 +104,22 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 
 private void updateBoardByAllLetters(String cellsLetters){
 	
-	char[] cellInforList = cellsLetters.toCharArray();
+	String[] cellInforList = cellsLetters.split(",");
 	
 	for(int i = 0; i < 16; i++){
 		int row=i/4;
 		int col=i%4;
-		if(cellInforList[i]=='Q'){
-			
-		cells[row][col].setLetter("QU");
-		}
-		else{
-			cells[row][col].setLetter(String.valueOf(cellInforList[i]));
+		
+			cells[row][col].setLetter(cellInforList[i]);
 	}
 }
-}
+
 
 public String getBoardInfo(){
 	String allCellLetters = "";
 	for(int i=0;i<4;i++){
 		for (int j=0;j<4;j++){
-			if (cells[i][j].getLetter().equals("QU")){
+			if (cells[i][j].getLetter().equals("Qu")){
 				allCellLetters+="Q";
 			}
 			else{
