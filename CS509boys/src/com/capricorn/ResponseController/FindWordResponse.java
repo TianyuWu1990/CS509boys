@@ -26,7 +26,7 @@ public class FindWordResponse extends ControllerChain{
 		if (!type.equals ("findWordResponse")) {
 			return next.process(response);
 		}
-		System.out.println(response.toString());
+		
 		
 		
 		Node boardResponse = response.contents.getFirstChild();
@@ -37,7 +37,7 @@ public class FindWordResponse extends ControllerChain{
 		String pname = map.getNamedItem("name").getNodeValue();
 		
 		
-		model.getPlayer().setScore(Integer.valueOf(score));
+		model.getPlayer().setWordScore(Integer.valueOf(score));
 
 		app.getManagerg().refreshBoard();
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");

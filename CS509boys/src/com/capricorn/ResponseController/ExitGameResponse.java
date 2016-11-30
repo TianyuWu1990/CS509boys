@@ -21,7 +21,7 @@ public class ExitGameResponse extends ControllerChain{
 		if (!type.equals ("exitGameResponse")) {
 			return next.process(response);
 		}
-       System.out.println(response.toString());
+      
 		
 		
 		//<xs:attribute name='gameId' type='xs:string' use='required'/>

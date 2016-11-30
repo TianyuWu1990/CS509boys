@@ -7,6 +7,13 @@ public class Player {
 	long score;
     String	position;
     boolean isManager;
+    long wordScore;
+public long getWordScore() {
+		return wordScore;
+	}
+	public void setWordScore(long wordScore) {
+		this.wordScore = wordScore;
+	}
 public boolean isManager() {
 		return isManager;
 	}

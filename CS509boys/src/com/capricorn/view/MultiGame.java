@@ -53,12 +53,13 @@ public class MultiGame extends JFrame {
 	public MultiGame(Model m, Application app)  {
 		this.app = app;
 		this.model = m;
+		
 
 		getContentPane().setLayout(null);
 		chosenbtns = new ArrayList<JButton>();
 		allCellsbtns = new ArrayList<JButton>();
 
-		setSize(820, 700); // set ManagerGame size
+		setSize(920, 800); // set ManagerGame size
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -66,7 +67,7 @@ public class MultiGame extends JFrame {
 		getContentPane().setLayout(null);
 
 		textField_word = new JTextField();
-		textField_word.setBounds(603, 65, 192, 22);
+		textField_word.setBounds(603, 65, 262, 22);
 		getContentPane().add(textField_word);
 		textField_word.setColumns(10);
 		textField_word.setEditable(false);
@@ -81,7 +82,7 @@ public class MultiGame extends JFrame {
 
 		textField_escore = new JTextField();
 		textField_escore.setColumns(10);
-		textField_escore.setBounds(603, 92, 192, 28);
+		textField_escore.setBounds(603, 92, 262, 28);
 		getContentPane().add(textField_escore);
 		textField_escore.setText("0");
 		textField_escore.setEditable(false);
@@ -216,8 +217,7 @@ public class MultiGame extends JFrame {
 		button_4.setBounds(472, 13, 147, 40);
 		getContentPane().add(button_4);
 		button_4.addActionListener(new ActionListener() {
-			long playerPreviousScore;
-			long playerNewScore;
+			
 			long localExpectedWordScore;
 
 			@Override
@@ -230,28 +230,29 @@ public class MultiGame extends JFrame {
 				}
 				localExpectedWordScore = Long.parseLong(textField_escore.getText());
 
-				playerPreviousScore = model.getPlayer().getScore();
+//				playerPreviousScore = model.getPlayer().getScore();
 				new FindWordRequest(model, MultiGame.this.app).process();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(250);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
-				playerNewScore = model.getPlayer().getScore();
-				if (playerNewScore == playerPreviousScore) {
-					message.setText("Word Picked By Others");
+				clearAllChosen();
+				long wordScore=model.getPlayer().getWordScore();
+//				playerNewScore = model.getPlayer().getScore();
+				if (wordScore==0) {
+					message.setText("Word Picked By Others or It is illegal");
 				} else {
-					String wordScoreFromServer = String.valueOf(playerNewScore - playerPreviousScore);
+					String wordScoreFromServer = String.valueOf(wordScore);
 
 					if (localExpectedWordScore != Integer.valueOf(wordScoreFromServer)) {
 						message.setText("You get a bonus");
 					}
 				}
 
-				clearAllChosen();
-				refreshBoard();
+				
+//				refreshBoard();
 			}
 		});
 
@@ -352,7 +353,7 @@ public class MultiGame extends JFrame {
 		panel.add(lblNewLabel);
 
 		message = new JLabel("");
-		message.setBounds(573, 281, 222, 144);
+		message.setBounds(555, 281, 310, 144);
 		getContentPane().add(message);
 		message.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		message.setBorder(BorderFactory.createLineBorder(Color.gray));
@@ -401,7 +402,7 @@ public class MultiGame extends JFrame {
 
 		textField_score = new JTextField();
 		textField_score.setText("0");
-		textField_score.setBounds(603, 120, 192, 28);
+		textField_score.setBounds(603, 120, 262, 28);
 		getContentPane().add(textField_score);
 		textField_score.setColumns(10);
 		textField_score.setEditable(false);
@@ -631,11 +632,19 @@ public class MultiGame extends JFrame {
 		String[] bonuscoordinate = bonusString.split(",");
 		int x = Integer.parseInt(bonuscoordinate[0]);
 		int y = Integer.parseInt(bonuscoordinate[1]);
+		
+		
 		int globalStartingCol = model.getBoard().getGlobalStartingCol();
 		int globalStartingRow = model.getBoard().getGlobalStartingRow();
+		
+		
+		
 		int deltCol = x - globalStartingCol;
 		int deltRow = y - globalStartingRow;
-		if (deltRow >= 0 && deltRow < 3 && deltCol >= 0 && deltCol < 3) {
+		
+		
+		if (deltRow >= 0 && deltRow <=3 && deltCol >= 0 && deltCol <=3) {
+			System.out.println(deltRow * 4 + deltCol);
 			if (index == deltRow * 4 + deltCol) {
 				return true;
 			}

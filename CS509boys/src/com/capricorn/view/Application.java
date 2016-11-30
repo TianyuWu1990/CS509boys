@@ -29,10 +29,23 @@ public class Application extends JFrame {
 	JLabel lbl_GameId;
 	JLabel lbl_Player;
 	private XmlInfoBoard xmlb;
+	boolean startGame;
 	
 	
 	
 	
+	public boolean isStartGame() {
+		return startGame;
+	}
+
+
+
+	public void setStartGame(boolean startGame) {
+		this.startGame = startGame;
+	}
+
+
+
 	ServerAccess serverAccess ;
 	
 	public static Application getInstance(Model model) {
@@ -146,7 +159,7 @@ public class Application extends JFrame {
 				
 				new CreateGameRequest(Application.this, model).process();
 				try {
-					Thread.sleep(100);
+					Thread.sleep(200);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -169,15 +182,21 @@ public class Application extends JFrame {
 				if(!notHasPlayerNameAndGameId()){
 					new JoinGameRequest(model, Application.this).process();
 					try {
-						Thread.sleep(100);
+						Thread.sleep(200);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
+					if(!startGame){
+						JOptionPane.showMessageDialog(Application.this, "This Game Has Been Locked or The Password Is Not Right or Your name has Been Used", "Warning", JOptionPane.WARNING_MESSAGE);
+					}
+					else{
 					mg = new MultiGame(model,app);
 					mg.setSize(1200, 900); 
 					mg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					mg.setVisible(true);
+					dispose();
+					}
 				
 				}
 			}

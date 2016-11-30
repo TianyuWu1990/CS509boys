@@ -27,11 +27,16 @@ public void actionPerformed(ActionEvent a) {
 		
 		JButton button = (JButton) a.getSource();
 		int index = mg.getAllCellsbtns().indexOf(button);  
+		
+		
 		if(mg.isBonusCell(index)){
 			button.setBackground(Color.CYAN);
+			mg.message.setText("The Bonus Cell You Click is Bonus Cell");
 		}
 		else{
 		button.setBackground(Color.red);
+		mg.message.setText("");
+		
 		}
 		
 		if(mg.getChosenbtns().contains(button)){
@@ -40,7 +45,7 @@ public void actionPerformed(ActionEvent a) {
         
         return;
         }
-		mg.message.setText("");
+//		mg.message.setText("");
 		
 		mg.getChosenbtns().add(button);
 		

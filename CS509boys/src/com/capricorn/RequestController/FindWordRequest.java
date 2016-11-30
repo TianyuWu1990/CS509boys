@@ -24,7 +24,7 @@ String chosenCellsInfoXMLString = model.getBoard().getChosenCellsXMLString();
 														model.getBoard().getWord().getContent())
 										    		+chosenCellsInfoXMLString
 										    		+"</findWordRequest></request>";
-		System.out.println(xmlString);
+		
 		Message m = new Message (xmlString);
 	
 		app.getServerAccess().sendRequest(m);

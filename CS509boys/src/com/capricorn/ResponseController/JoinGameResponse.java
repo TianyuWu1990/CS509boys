@@ -1,4 +1,6 @@
 package com.capricorn.ResponseController;
+import javax.swing.JOptionPane;
+
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
@@ -25,16 +27,11 @@ public class JoinGameResponse extends ControllerChain{
 			if (!type.equals ("joinGameResponse")) {
 				return next.process(response);
 			}
+			app.setStartGame(false);
 			
-			System.out.println(response.toString());
 			
-			Node boardResponse = response.contents.getFirstChild();
-			NamedNodeMap map = boardResponse.getAttributes();
-			
-			String gameId = map.getNamedItem("gameId").getNodeValue();
-			model.getGame().setGameId(gameId);
-			
-			app.getManagerg().refreshBoard();
+			Node joinGameResponse = response.contents.getFirstChild();
+			NamedNodeMap map = joinGameResponse.getAttributes();
 			app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 			return true;
 		}

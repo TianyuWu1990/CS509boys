@@ -29,7 +29,7 @@ public class JoinGameRequest {
 																		app.getPassword());		
 			}		
 			
-			System.out.println(xmlString);
+			
 			Message m = new Message (xmlString);
 			
 			
