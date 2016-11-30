@@ -1,6 +1,7 @@
 package com.capricorn.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import junit.framework.TestCase;
 
@@ -39,13 +40,14 @@ public class TestBoard extends TestCase {
 	public void testupdateBoard(){
 
 		board.setGlobalStartingCol(3);
-		board.setGlobalStartingRow(3);
+		board.setGlobalStartingRow(4);
 		
-		String a = ("AbcefwdladAbceaw");
+		String a = ("AbcefwdladAbceaQ");
+		String c = ("AbcefwdladAbceaQU");
 		String b="";
 		board.updateBoard(board.getGlobalStartingCol(),board.getGlobalStartingRow(),a);
 		
-		assertTrue(board.getGlobalStartingCol()==3&&board.getGlobalStartingRow()==3);
+		assertTrue(board.getGlobalStartingCol()==3&&board.getGlobalStartingRow()==4);
 
 		for(int i=0;i<board.cells.length;i++){
 			for(int j=0;j<board.cells.length;j++){
@@ -53,7 +55,8 @@ public class TestBoard extends TestCase {
 				System.out.println(board.cells[i][j].getLetter());
 			}
 		}
-		assertEquals(b,a);
+		assertEquals(b,c);
+		
 	 
 	}
 	public void testgetBoardInfo(){
@@ -65,8 +68,37 @@ public class TestBoard extends TestCase {
 	}
 	public void testgetChosenCellsXMLString(){
 		//?
-		String tgccxs=board.getChosenCellsXMLString();
-		System.out.println("ChosenCellsXMLString is"+tgccxs);
+		Cell a = new Cell();
+		Cell b = new Cell();
+		Coordinate co= new Coordinate(3,4);
+		Coordinate co1 = new Coordinate(2,3);
+		a.setLetter("a");
+		b.setLetter("QU");
+		a.setGlobalCoordinate(co);
+		b.setGlobalCoordinate(co1);
+		board.getChosenCells().add(a);
+		board.getChosenCells().add(b);
+		board.setChosenCells(board.getChosenCells());
+		String result=board.getChosenCellsXMLString();
+		
+		System.out.println("tegc is"+result);
+		assertEquals(result,"<cell position='3,4' letter='a'/><cell position='2,3' letter='Q'/>");
+		
+		
+	}
+	public void testsetBoardPositionList(){
+		
+//		x+","+y;
+		List<String> tbp = board.setBoardPositionList("2,3");
+		List<String> result = new ArrayList<String>();
+		result.add("2,3");
+		//?
+		System.out.println("tbp is");
+		for(int i=0;i<=tbp.size();i++){
+			System.out.println(tbp.get(i));
+		}
+		
+		
 	}
 	public void testaddToChosenCellsByIndex(){
 		String a = ("AbcegwdladAbceQw");
