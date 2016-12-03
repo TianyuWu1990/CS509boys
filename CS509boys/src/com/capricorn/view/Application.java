@@ -173,7 +173,7 @@ public class Application extends JFrame {
 			}
 			}
 		});
-		btnStart.setBounds(65, 37, 149, 23);
+		btnStart.setBounds(305, 186, 149, 58);
 		getContentPane().add(btnStart);
 
 		JButton btnStop = new JButton("Join a game");
@@ -201,7 +201,7 @@ public class Application extends JFrame {
 				}
 			}
 		});
-		btnStop.setBounds(65, 72, 149, 23);
+		btnStop.setBounds(157, 186, 149, 58);
 		getContentPane().add(btnStop);
 		
 		JButton btnNewButton_1 = new JButton("Practice mode");
@@ -209,7 +209,7 @@ public class Application extends JFrame {
 		StartPractice StartPracticeControl= new StartPractice(this,model);
 		
 		btnNewButton_1.addActionListener(StartPracticeControl);
-		btnNewButton_1.setBounds(65, 186, 149, 58);
+		btnNewButton_1.setBounds(6, 186, 149, 58);
 		getContentPane().add(btnNewButton_1);
 
 		JButton btnExit = new JButton("Exit");
@@ -218,7 +218,7 @@ public class Application extends JFrame {
 				System.exit(0); // exit game
 			}
 		});
-		btnExit.setBounds(353, 186, 134, 58);
+		btnExit.setBounds(460, 186, 134, 58);
 		getContentPane().add(btnExit);
 
 		create_id_text = new JTextField();
@@ -227,7 +227,7 @@ public class Application extends JFrame {
 		create_id_text.setColumns(10);
 
 		lbl_GameId = new JLabel("Game ID");
-		lbl_GameId.setBounds(389, 39, 61, 16);
+		lbl_GameId.setBounds(122, 39, 96, 16);
 		getContentPane().add(lbl_GameId);
 
 		name_id_text = new JTextField();
@@ -236,7 +236,7 @@ public class Application extends JFrame {
 		name_id_text.setColumns(10);
 
 		lbl_Player = new JLabel("Player Name");
-		lbl_Player.setBounds(389, 102, 98, 16);
+		lbl_Player.setBounds(122, 102, 98, 16);
 		getContentPane().add(lbl_Player);
 
 		create_pass_text = new JTextField();
@@ -245,7 +245,7 @@ public class Application extends JFrame {
 		create_pass_text.setColumns(10);
 
 		JLabel lblPasswordOptional = new JLabel("Password ( Optional )");
-		lblPasswordOptional.setBounds(389, 69, 137, 16);
+		lblPasswordOptional.setBounds(81, 69, 137, 16);
 		getContentPane().add(lblPasswordOptional);
 	}
 
