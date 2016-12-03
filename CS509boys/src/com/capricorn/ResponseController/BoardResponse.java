@@ -110,15 +110,13 @@ public class BoardResponse extends ControllerChain{
 		
 		
 		if (this.flag == true) {
-			System.out.println("true");
+			
 			
 			app.getManagerg().refreshBoard();
 			
 			
 		}
-		else{
-System.out.println(false);
-		}
+	
 		this.flag = true;
 		
 

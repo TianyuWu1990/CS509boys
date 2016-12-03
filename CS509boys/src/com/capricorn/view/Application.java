@@ -209,7 +209,7 @@ public class Application extends JFrame {
 		StartPractice StartPracticeControl= new StartPractice(this,model);
 		
 		btnNewButton_1.addActionListener(StartPracticeControl);
-		btnNewButton_1.setBounds(65, 215, 117, 29);
+		btnNewButton_1.setBounds(65, 186, 149, 58);
 		getContentPane().add(btnNewButton_1);
 
 		JButton btnExit = new JButton("Exit");
@@ -218,7 +218,7 @@ public class Application extends JFrame {
 				System.exit(0); // exit game
 			}
 		});
-		btnExit.setBounds(370, 215, 117, 29);
+		btnExit.setBounds(353, 186, 134, 58);
 		getContentPane().add(btnExit);
 
 		create_id_text = new JTextField();

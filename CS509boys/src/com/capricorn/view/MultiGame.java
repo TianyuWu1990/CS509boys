@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -25,6 +27,7 @@ import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
 import com.capricorn.RequestController.ResetGameRequest;
 import com.capricorn.entity.Player;
+import com.capricorn.entity.Word;
 import com.capricorn.listener.ClickButton_multiGame;
 import com.capricorn.listener.Exit;
 import com.capricorn.model.Model;
@@ -34,6 +37,7 @@ public class MultiGame extends JFrame {
 	public JTextField textField_escore;
 	private Model model;
 	private JTable table;
+	private JTable table2;
 	private List<JButton> chosenbtns;
 	private List<JButton> allCellsbtns;
 	public int sum;
@@ -233,19 +237,22 @@ public class MultiGame extends JFrame {
 //				playerPreviousScore = model.getPlayer().getScore();
 				new FindWordRequest(model, MultiGame.this.app).process();
 				try {
-					Thread.sleep(250);
+					Thread.sleep(350);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				clearAllChosen();
-				long wordScore=model.getPlayer().getWordScore();
+				long wordScore=model.getBoard().getWord().getScore();
 //				playerNewScore = model.getPlayer().getScore();
 				if (wordScore==0) {
 					message.setText("Word Picked By Others or It is illegal");
 				} else {
 					String wordScoreFromServer = String.valueOf(wordScore);
-
+					SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss");
+                    model.getGame().getSelectedWord().add(new Word(word,wordScore,df.format(new Date())));
+                    setWordTable();
+                    
 					if (localExpectedWordScore != Integer.valueOf(wordScoreFromServer)) {
 						message.setText("You get a bonus");
 					}
@@ -312,7 +319,7 @@ public class MultiGame extends JFrame {
 
 				new ResetGameRequest(model, MultiGame.this.app).process();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(250);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -419,14 +426,27 @@ public class MultiGame extends JFrame {
 		getContentPane().add(lblMessage);
 		
 		btn_xmlo = new JButton("Open Xml Message With Server");
-		btn_xmlo.setBounds(555, 454, 240, 38);
+		btn_xmlo.setBounds(555, 437, 240, 38);
 		getContentPane().add(btn_xmlo);
 		this.btn_xmlo.addActionListener(new Action());
 		
 		btn_xmlc = new JButton("Close Xml Message With Server");
-		btn_xmlc.setBounds(555, 495, 240, 37);
+		btn_xmlc.setBounds(555, 475, 240, 37);
 		getContentPane().add(btn_xmlc);
+		
+		
 		this.btn_xmlc.addActionListener(new Action());
+		JScrollPane scrollPane_selectedword = new JScrollPane();
+		scrollPane_selectedword.setBounds(516, 562, 361, 210);
+		getContentPane().add(scrollPane_selectedword);
+		table2 = new JTable();
+
+		scrollPane_selectedword.setViewportView(table2);
+		
+		JLabel lblWordSelectedHistory = new JLabel("      Legal Words Selected History");
+		lblWordSelectedHistory.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		lblWordSelectedHistory.setBounds(517, 524, 297, 30);
+		getContentPane().add(lblWordSelectedHistory);
 		
 		
 			
@@ -475,6 +495,10 @@ public class MultiGame extends JFrame {
 		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
 				new String[] { "Player Name", "Player Score", "Position", "Rank" }));
 	}
+	public void setWordTable() {
+		table2.setModel(new DefaultTableModel(convertWordListToArray(),
+				new String[] { "Word", "Score","Time"}));
+	}
 
 	public Model getModel() {
 		return model;
@@ -502,6 +526,21 @@ public class MultiGame extends JFrame {
 			objAy[i][1] = p.getScore();
 			objAy[i][2] = p.getPosition();
 			objAy[i][3] = "No." + (i + 1);
+
+		}
+		return objAy;
+	}
+	public Object[][] convertWordListToArray() {
+		List<Word> WordList = model.getGame().getSelectedWord();
+		Object[][] objAy = new Object[WordList.size()][3];
+		for (int i = 0; i < objAy.length; i++) {
+
+			Word w = WordList.get(i);
+			objAy[i][0] = w.getContent();
+			objAy[i][1] = w.getScore();
+			objAy[i][2] = w.getWordSelectedTime();
+			
+			
 
 		}
 		return objAy;
@@ -557,13 +596,7 @@ public class MultiGame extends JFrame {
 			
 			
 		}
-
 		
-		
-
-
-			
-			setScoreTable();
 			clearAllChosen();
 			resetInfo();
 			panel.repaint();
@@ -575,6 +608,8 @@ public class MultiGame extends JFrame {
 			}
 		}
 		
+		setWordTable();
+		setScoreTable();
 
 	}
 

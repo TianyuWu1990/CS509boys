@@ -7,6 +7,7 @@ import org.w3c.dom.Node;
 
 import xml.Message;
 
+import com.capricorn.entity.Word;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
@@ -22,10 +23,12 @@ public class FindWordResponse extends ControllerChain{
 	
 	@Override
 	public boolean process(Message response) {
+		
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("findWordResponse")) {
 			return next.process(response);
 		}
+		System.out.println(response.toString());
 		
 		
 		
@@ -37,7 +40,8 @@ public class FindWordResponse extends ControllerChain{
 		String pname = map.getNamedItem("name").getNodeValue();
 		
 		
-		model.getPlayer().setWordScore(Integer.valueOf(score));
+		model.getBoard().getWord().setScore(Integer.valueOf(score));
+		
 
 		app.getManagerg().refreshBoard();
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");

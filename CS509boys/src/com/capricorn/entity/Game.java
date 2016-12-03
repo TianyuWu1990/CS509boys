@@ -16,14 +16,22 @@ public class Game {
 	List<Player> playersInformation; 
 	public boolean isLocked;
 	List<String> playersLocation;
+	List<Word> selectedWordList;
 	
 
 	
+	public List<Word> getSelectedWord() {
+		return selectedWordList;
+	}
+	public void setSelectedWord(List<Word> selectedWord) {
+		this.selectedWordList = selectedWord;
+	}
 	public Game() {
 		gameId = "";
 		managingUser = "";
 		isLocked = false;
 		playersInformation = new LinkedList<Player>();
+		selectedWordList=new ArrayList<Word>();
 	}
 	public String getGameId() {
 		return gameId;

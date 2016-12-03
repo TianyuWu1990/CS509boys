@@ -4,15 +4,30 @@ package com.capricorn.entity;
  */
 public class Word {
 	private String content;
-    private int score;
+    private long score;
+    private String wordSelectedTime;
+    
     
 /**Construct Word object to use default port number.*/
 	public Word(){
 		this.score = 0;
 		this.content = "";
 		
+		
 	}
-   //get and set
+   public Word(String word, long wordScore, String time) {
+	   this.content=word;
+	   this.score=wordScore;
+	   this.wordSelectedTime=time;
+	// TODO Auto-generated constructor stub
+}
+	public String getWordSelectedTime() {
+	return wordSelectedTime;
+}
+public void setWordSelectedTime(String wordSelectedTime) {
+	this.wordSelectedTime = wordSelectedTime;
+}
+	//get and set
 	public String getContent() {
 		return content;
 	}
@@ -25,7 +40,7 @@ public class Word {
 		this.score = score;
 	}
 	
-	public int getScore() {
+	public long getScore() {
 		return score;
 	}
 }
