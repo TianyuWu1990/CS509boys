@@ -296,7 +296,7 @@ public class MultiGame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				new LockGameRequest(model, MultiGame.this.app).process();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(150);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
