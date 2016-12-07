@@ -41,6 +41,7 @@ public class Game {
 	 * @return the selected word
 	 */
 	public List<Word> getSelectedWord() {
+		
 		return selectedWordList;
 	}
 	

@@ -52,6 +52,7 @@ public class MultiGame extends JFrame {
 	private JButton button_reset;
 	private JButton btn_xmlc;
 	private JButton btn_xmlo;
+	private JTextField textField_playerNum;
 	
 
 	public MultiGame(Model m, Application app)  {
@@ -448,6 +449,16 @@ public class MultiGame extends JFrame {
 		lblWordSelectedHistory.setBounds(517, 524, 297, 30);
 		getContentPane().add(lblWordSelectedHistory);
 		
+		JLabel lblNewLabel_playerNum = new JLabel("Player number:");
+		lblNewLabel_playerNum.setBounds(107, 650, 101, 38);
+		getContentPane().add(lblNewLabel_playerNum);
+		
+		textField_playerNum = new JTextField();
+		textField_playerNum.setEditable(false);
+		textField_playerNum.setBounds(205, 655, 101, 33);
+		getContentPane().add(textField_playerNum);
+		textField_playerNum.setColumns(10);
+		
 		
 			
 			
@@ -606,6 +617,7 @@ public class MultiGame extends JFrame {
 								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
 								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
 			}
+			this.textField_playerNum.setText(String.valueOf(model.getGame().getPlayersListByScore().size()));
 		}
 		
 		setWordTable();
@@ -636,6 +648,8 @@ public class MultiGame extends JFrame {
 		for (JButton btn : allCellsbtns) {
 			btn.setEnabled(true);
 		}
+		this.sum=0;
+		
 
 	}
 
