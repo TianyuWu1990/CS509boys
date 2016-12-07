@@ -14,8 +14,12 @@ import com.capricorn.view.PracticeGame;
  */
 public class ClickLetter implements ActionListener{
 	PracticeGame p;
-	/** Define the defalut p for PracticeGame
-	 *Construct ClickLetter object to use default port number. 
+	
+	/**
+	 *  Define the defalut p for PracticeGame
+	 * Construct ClickLetter object to use default port number.
+	 *
+	 * @param p the p
 	 */
 	public ClickLetter(PracticeGame p){
 		this.p=p;

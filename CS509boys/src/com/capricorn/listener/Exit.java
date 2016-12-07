@@ -14,8 +14,14 @@ import com.capricorn.view.Application;
 public class Exit implements ActionListener{
 	JFrame j;
 	Model m;
-/**Here is a constructor for Exit in order to make a fault value.
-	 * Construct Exit object to use default port number.*/
+
+/**
+ * Here is a constructor for Exit in order to make a fault value.
+ * Construct Exit object to use default port number.
+ *
+ * @param j the j
+ * @param m the m
+ */
 	public Exit(JFrame j,Model m){
 		this.j=j;
 		this.m=m;

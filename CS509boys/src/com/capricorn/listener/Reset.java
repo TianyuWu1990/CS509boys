@@ -23,7 +23,12 @@ public class Reset implements ActionListener{
 		this.p=p;
 		this.m=m;
 	}
-/**ActionListener when the reset button push and the following happen.*/
+
+/**
+ * ActionListener when the reset button push and the following happen.
+ *
+ * @param e the e
+ */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (p.txtOwn.getText().length() != 0) {

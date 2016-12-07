@@ -17,7 +17,11 @@ public ClickButton_multiGame(MultiGame mg){
 		this.mg=mg;
 	}
 	
-	/**Define the function actionPerformed is used after clicking  */
+	/**
+	 * Define the function actionPerformed is used after clicking.
+	 *
+	 * @param a the a
+	 */
 	@Override
 public void actionPerformed(ActionEvent a) {
 		/**

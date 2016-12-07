@@ -8,17 +8,33 @@ import xml.Message;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class CreateGameRequest.
+ */
 public class CreateGameRequest{
 
+    /** The app. */
     Application app;
+    
+    /** The model. */
     Model model;
 
+	/**
+	 * Instantiates a new creates the game request.
+	 *
+	 * @param app the app
+	 * @param model the model
+	 */
 	public CreateGameRequest(Application app,Model model) {
 		this.app = app;
 		
 	}
 
 
+/**
+ * Process.
+ */
 public void process() {
 		
 		String xmlString;
