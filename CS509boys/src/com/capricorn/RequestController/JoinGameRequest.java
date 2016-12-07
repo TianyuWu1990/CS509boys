@@ -21,7 +21,7 @@ public class JoinGameRequest {
 				xmlString = Message.requestHeader() + String.format("<joinGameRequest gameId='%s' name='%s'/></request>", 
 																		app.getGameNumber(), 
 																		app.getPlayerName());
-				 System.out.println(xmlString.toString());
+				
 			}else{
 				xmlString = Message.requestHeader() + String.format("<joinGameRequest gameId='%s' name='%s' password='%s'/></request>", 
 																		app.getGameNumber(), 
