@@ -21,6 +21,7 @@ public class Game {
 
 	
 	public List<Word> getSelectedWord() {
+		
 		return selectedWordList;
 	}
 	public void setSelectedWord(List<Word> selectedWord) {

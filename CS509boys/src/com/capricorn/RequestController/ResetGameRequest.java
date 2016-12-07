@@ -22,7 +22,7 @@ public class ResetGameRequest {
 
 		Message m = new Message (xmlString);
 		
-		System.out.println(m);
+		
 		app.getServerAccess().sendRequest(m);
 		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}

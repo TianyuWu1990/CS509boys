@@ -636,6 +636,7 @@ public class MultiGame extends JFrame {
 		for (JButton btn : allCellsbtns) {
 			btn.setEnabled(true);
 		}
+		this.sum=0;
 
 	}
 
