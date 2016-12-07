@@ -27,11 +27,13 @@ public class Model {
 		
 		return model;
 	}
-	//get the board method
+	
+	/**get the board method **/
 	public Board getBoard() {
 		return board;
 	}
-	//get the player method
+	
+	/**get the player method**/
 	public Player getPlayer(){
 		return player;
 	}

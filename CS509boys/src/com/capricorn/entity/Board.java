@@ -84,6 +84,7 @@ public Board(){
 	}
 }
 
+/**update board **/
 public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardInfo){
 	this.globalStartingCol = newStartingCol;
 	this.globalStartingRow = newStaringRow;
