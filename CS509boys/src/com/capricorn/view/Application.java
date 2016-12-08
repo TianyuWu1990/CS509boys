@@ -23,18 +23,22 @@ public class Application extends JFrame {
 	private JTextField name_id_text;
 	private JTextField create_pass_text;
 	public Model model;
-	String playerName;
-	String password;
-	String gameNumber;
-	MultiGame mg;
+	public String playerName;
+	public String gameNumber;
+	public String passWord;
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+	private MultiGame mg;
 	static Application app;
-	JLabel lbl_GameId;
-	JLabel lbl_Player;
+	private JLabel lbl_GameId;
+	private JLabel lbl_Player;
 	private XmlInfoBoard xmlb;
-	boolean startGame;
-	
-	
-	
+	private boolean startGame;	
 	/**
 	 * method if the game is start
 	 * @return startGae
@@ -42,7 +46,6 @@ public class Application extends JFrame {
 	public boolean isStartGame() {
 		return startGame;
 	}
-
 
 /**
  * set the game 
@@ -52,11 +55,7 @@ public class Application extends JFrame {
 	public void setStartGame(boolean startGame) {
 		this.startGame = startGame;
 	}
-
-
-
 	ServerAccess serverAccess ;
-	
 	public static Application getInstance(Model model) {
 		if (app == null) {
 			app = new Application(model);
@@ -100,9 +99,7 @@ public class Application extends JFrame {
 		}
 		return false;
 	}			
-//	public List<Player> getPlayerInformation():
 		
-
 	public String getPlayerName() {
 		return playerName;
 	}
@@ -121,34 +118,21 @@ public class Application extends JFrame {
 
 
 
-	
-
-
-	
-
-
-
 	public String getPassword() {
 		return create_pass_text.getText();
 	}
-
 	
-
+    
+	
 	public String getGameNumber() {
 		return gameNumber;
 	}
-
 	
 
 	public MultiGame getManagerg() {
 		return mg;
 	}
 
-	
-
-	
-
-	
 
 	public Application(Model m) {
         this.model=m;
@@ -161,14 +145,10 @@ public class Application extends JFrame {
 		JButton btnStart = new JButton("Create a game");
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!notHasPlayerName()){
-					
-				
-				
-				
+				if(!notHasPlayerName()){	
 				new CreateGameRequest(Application.this, model).process();
 				try {
-					Thread.sleep(200);
+					Thread.sleep(300);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -191,7 +171,7 @@ public class Application extends JFrame {
 				if(!notHasPlayerNameAndGameId()){
 					new JoinGameRequest(model, Application.this).process();
 					try {
-						Thread.sleep(200);
+						Thread.sleep(300);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
