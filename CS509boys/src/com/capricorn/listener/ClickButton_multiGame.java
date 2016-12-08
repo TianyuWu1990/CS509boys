@@ -27,26 +27,21 @@ public void actionPerformed(ActionEvent a) {
 		/**
 		 * first part is aim to make the button dark after clicking 
 		 * avoid re-clicking the button again
-		 */
-		
+		 */	
 		JButton button = (JButton) a.getSource();
 		int index = mg.getAllCellsbtns().indexOf(button);  
-		
-		
 		if(mg.isBonusCell(index)){
 			button.setBackground(Color.CYAN);
 			mg.message.setText("The Bonus Cell You Click is Bonus Cell");
 		}
 		else{
 		button.setBackground(Color.red);
-		mg.message.setText("");
-		
+		mg.message.setText("");		
 		}
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
-//		mg.message.setForeground(Color.red);
-        
+//		mg.message.setForeground(Color.red); 
         return;
         }
 //		mg.message.setText("");
@@ -68,12 +63,8 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 		}
 		else{
 				mg.getAllCellsbtns().get(i).setEnabled(false);
-				
-				
-				
-				}
-		
-				
+								
+				}				
 			}
 	
         /**After clicking, get the value on the button and then sent to the 'txtOwn'*/
@@ -89,14 +80,10 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 		}else{
 			points = Integer.parseInt(mg.textField_escore.getText()) + Integer.parseInt(button.getToolTipText());
 		}
-		mg.textField_escore.setText(String.valueOf(points));
-		
-		
+		mg.textField_escore.setText(String.valueOf(points));	
 
 	}
-	
-	
-	
+		
 	}
 
 

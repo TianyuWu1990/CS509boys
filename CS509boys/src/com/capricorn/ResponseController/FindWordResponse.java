@@ -28,21 +28,11 @@ public class FindWordResponse extends ControllerChain{
 		if (!type.equals ("findWordResponse")) {
 			return next.process(response);
 		}
-		
-		
-		
-		
+			
 		Node boardResponse = response.contents.getFirstChild();
-		NamedNodeMap map = boardResponse.getAttributes();
-		
-		String gameId = map.getNamedItem("gameId").getNodeValue();
+		NamedNodeMap map = boardResponse.getAttributes();	
 		String score = map.getNamedItem("score").getNodeValue();
-		String pname = map.getNamedItem("name").getNodeValue();
-		
-		
 		model.getBoard().getWord().setScore(Integer.valueOf(score));
-		
-
 		app.getManagerg().refreshBoard();
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;

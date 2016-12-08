@@ -9,10 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import com.capricorn.entity.Board;
-import com.capricorn.listener.Clear;
-import com.capricorn.listener.ClickLetter;
-import com.capricorn.listener.Exit;
-import com.capricorn.listener.Reset;
+import com.capricorn.listener.ClearButton_practiceGame;
+import com.capricorn.listener.ClickButton_practiceGame;
+import com.capricorn.listener.Exit_practiceGame;
+import com.capricorn.listener.Reset_practiceGame;
 import com.capricorn.model.Model;
 /**
  * View part including here is designed by JFrame. PracticeGame is an interface
@@ -43,7 +43,7 @@ public class PracticeGame extends JFrame {
 				btnArray[i][j] = new JButton(m.board.cells[i][j].letter);
 				btnArray[i][j].setToolTipText(m.board.cells[i][j].points);
 				btnArray[i][j].setBounds(x, y, 89, 23);
-				ClickLetter clickControl = new ClickLetter(this);
+				ClickButton_practiceGame clickControl = new ClickButton_practiceGame(this);
 				btnArray[i][j].addActionListener(clickControl);
 				getContentPane().add(btnArray[i][j]);
 			}
@@ -76,20 +76,20 @@ public class PracticeGame extends JFrame {
 		textField.setColumns(10);
 
 		JButton btnResetBoard = new JButton("Reset Board");
-		Reset resetControl = new Reset(this,m);//Reset(PracticeGame,model)
+		Reset_practiceGame resetControl = new Reset_practiceGame(this,m);//Reset(PracticeGame,model)
 		btnResetBoard.addActionListener(resetControl);//addActionListener()
 		btnResetBoard.setBounds(462, 89, 111, 23);
 		getContentPane().add(btnResetBoard);
 
 		//Clear text when click clear button
 		JButton btnUndo = new JButton("Clear");
-		Clear clearControl = new Clear(this);//this represents PracticeGame part above  
+		ClearButton_practiceGame clearControl = new ClearButton_practiceGame(this);//this represents PracticeGame part above  
 		btnUndo.addActionListener(clearControl);
 		btnUndo.setBounds(333, 49, 117, 29);
 		getContentPane().add(btnUndo);
 		
 		JButton btnNewButton_2 = new JButton("Exit Practice");
-		Exit exitControl = new Exit(this,m);
+		Exit_practiceGame exitControl = new Exit_practiceGame(this,m);
 		btnNewButton_2.addActionListener(exitControl);
 		btnNewButton_2.setBounds(462, 14, 111, 38);
 		getContentPane().add(btnNewButton_2);

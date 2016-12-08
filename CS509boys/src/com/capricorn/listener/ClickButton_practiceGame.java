@@ -12,7 +12,7 @@ import com.capricorn.view.PracticeGame;
  * In the word board, we want to realize the function that click the letter
  * and demostrate the letter in the blank 
  */
-public class ClickLetter implements ActionListener{
+public class ClickButton_practiceGame implements ActionListener{
 	PracticeGame p;
 	
 	/**
@@ -21,7 +21,7 @@ public class ClickLetter implements ActionListener{
 	 *
 	 * @param p the p
 	 */
-	public ClickLetter(PracticeGame p){
+	public ClickButton_practiceGame(PracticeGame p){
 		this.p=p;
 	}
 	/**Define the function actionPerformed is used after clicking  */

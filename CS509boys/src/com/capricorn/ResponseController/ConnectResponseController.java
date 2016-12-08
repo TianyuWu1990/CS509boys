@@ -21,8 +21,7 @@ public class ConnectResponseController extends ControllerChain{
 		String type = response.contents.getFirstChild().getLocalName();
 		if (!type.equals ("connectResponse")) {
 			return next.process(response);
-		}
-		
+		}		
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}

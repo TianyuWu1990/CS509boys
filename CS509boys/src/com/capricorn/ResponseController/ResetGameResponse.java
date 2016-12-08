@@ -21,15 +21,9 @@ public class ResetGameResponse extends ControllerChain{
 		if (!type.equals ("resetGameResponse")) {
 			return next.process(response);
 		}
-		
-		
-		//need to rewrite in model,empty function right now
-//		model.updateModel();
         model.resetGame();
 		app.getManagerg().refreshBoard();
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
-
-
 		return true;
 	}
 }

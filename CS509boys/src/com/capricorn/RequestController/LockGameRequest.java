@@ -20,10 +20,7 @@ public class LockGameRequest {
 	public void process(){
 		model.getGame().setLocked(true);
 		String xmlString = Message.requestHeader() + String.format("<lockGameRequest gameId='%s'/></request>", model.getGame().getGameId());		
-
 		Message m = new Message (xmlString);
-		//System.out.println(app);
-		
 		app.getServerAccess().sendRequest(m);
 		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}

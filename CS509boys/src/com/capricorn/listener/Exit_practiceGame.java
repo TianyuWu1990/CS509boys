@@ -11,7 +11,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
 import com.capricorn.view.Application;
 /**Exit controller implement actionlistener.*/
-public class Exit implements ActionListener{
+public class Exit_practiceGame implements ActionListener{
 	JFrame j;
 	Model m;
 
@@ -22,7 +22,7 @@ public class Exit implements ActionListener{
  * @param j the j
  * @param m the m
  */
-	public Exit(JFrame j,Model m){
+	public Exit_practiceGame(JFrame j,Model m){
 		this.j=j;
 		this.m=m;
 	}

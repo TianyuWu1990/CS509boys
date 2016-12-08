@@ -49,7 +49,6 @@ public class BoardResponse extends ControllerChain{
 		NodeList list = boardResponse.getChildNodes();		
 		
 		List<Player> allPlayersInfo =  new LinkedList<Player>();
-		List<String> playersLocation=new ArrayList<String>();
 		List<String> ownLocationList=new ArrayList<String>();
 		
 		
@@ -60,15 +59,12 @@ public class BoardResponse extends ControllerChain{
 			String pscore = n.getAttributes().getNamedItem("score").getNodeValue();
 			String boardInfo = n.getAttributes().getNamedItem("board").getNodeValue();
 			String plocation = n.getAttributes().getNamedItem("position").getNodeValue();
-			
 			char[] corRowArray = plocation.toCharArray();
 			int globalStartingCol = Integer.valueOf(String.valueOf(corRowArray[0]));
 			int globalStaringRow = Integer.valueOf(String.valueOf(corRowArray[corRowArray.length - 1]));
-			Long score = Long.valueOf(n.getAttributes().getNamedItem("score").getNodeValue());
+			Long score = Long.valueOf(pscore);
 			Player player=new Player(pname,score,plocation);
 			allPlayersInfo.add(player);
-			
-			
 			if (this.flag == false){
 				
 				
@@ -110,16 +106,12 @@ public class BoardResponse extends ControllerChain{
 		
 		
 		if (this.flag == true) {
-			
-			
+					
 			app.getManagerg().refreshBoard();
-			
-			
+				
 		}
 	
 		this.flag = true;
-		
-
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}

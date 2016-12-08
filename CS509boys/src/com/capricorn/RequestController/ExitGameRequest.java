@@ -3,6 +3,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
+/** Exit game request and back to the application view.*/
 public class ExitGameRequest {
 	Model model;
 	Application app;
@@ -11,15 +12,13 @@ public class ExitGameRequest {
 		this.app = app;
 		
 	}
-	
+	/** Process to send the exit request to the server.*/
 	public void process(){
 		String xmlString = Message.requestHeader() + String.format("<exitGameRequest name='%s' gameId='%s'/></request>", 
 				model.getPlayer().getName(),
 				model.getGame().getGameId());		
 
-		Message m = new Message (xmlString);
-		// Request the lock (this might not succeed).
-		
+		Message m = new Message (xmlString);	
 		app.getServerAccess().sendRequest(m);
 		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}
