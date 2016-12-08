@@ -45,7 +45,7 @@ public class TestCreateGameController extends TestCase{
 		String r = app.getXmlb().getMessageInfo().getText();
 
 		assertTrue(r.contains("createGameRequest"));
-					
+
 		
 		}
 

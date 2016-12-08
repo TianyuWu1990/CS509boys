@@ -9,7 +9,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-/**Join game request.*/
+/**Join game response.*/
 public class JoinGameResponse extends ControllerChain{
 	
 
@@ -22,7 +22,7 @@ public class JoinGameResponse extends ControllerChain{
 			this.app = a;
 			this.model = m;
 		}
-		/** Process the join game request*/
+		/** Process the join game response.*/
 		@Override
 		public boolean process(Message response) {
 			
