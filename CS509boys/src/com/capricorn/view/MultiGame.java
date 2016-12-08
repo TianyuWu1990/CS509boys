@@ -107,7 +107,7 @@ public class MultiGame extends JFrame {
 				model.getBoard().setRequestColChange(1);
 				new RepositionBoardRequest(model, MultiGame.this.app, change).process();
 				try {
-					Thread.sleep(200);
+					Thread.sleep(300);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -679,17 +679,10 @@ public class MultiGame extends JFrame {
 		String[] bonuscoordinate = bonusString.split(",");
 		int x = Integer.parseInt(bonuscoordinate[0]);
 		int y = Integer.parseInt(bonuscoordinate[1]);
-		
-		
 		int globalStartingCol = model.getBoard().getGlobalStartingCol();
 		int globalStartingRow = model.getBoard().getGlobalStartingRow();
-		
-		
-		
 		int deltCol = x - globalStartingCol;
-		int deltRow = y - globalStartingRow;
-		
-		
+		int deltRow = y - globalStartingRow;	
 		if (deltRow >= 0 && deltRow <=3 && deltCol >= 0 && deltCol <=3) {
 			System.out.println(deltRow * 4 + deltCol);
 			if (index == deltRow * 4 + deltCol) {
