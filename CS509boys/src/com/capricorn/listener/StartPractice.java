@@ -19,7 +19,7 @@ import com.capricorn.view.Application;
  */
 public class StartPractice implements ActionListener{
 	
-	/** The st. */
+	/** The st */
 	Application st;
 	
 	/** The m. */

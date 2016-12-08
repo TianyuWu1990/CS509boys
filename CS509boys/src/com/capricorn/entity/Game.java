@@ -1,8 +1,4 @@
 package com.capricorn.entity;
-
-
-
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -191,10 +187,5 @@ public class Game {
 	public void setPlayerslocation(List<String> playerslocation) {
 		this.playersLocation = playerslocation;
 	}
-	
-	
-	
-	
-	
 }
 

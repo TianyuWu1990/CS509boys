@@ -56,12 +56,13 @@ public void setcellArrayForPractice(){
 		}
 	}
 }
+/**Method is used to reset the overlapTimes matrix to 0*/
 public void resetoverlapTimes(){
 	for(int i=0;i<16;i++)
 	this.overlapTimes[i]=0;
 }
 
-
+/**Construct Board object to use default port number.*/
 public Board(){
 	globalStartingCol=1;
 	globalStartingRow=1;
@@ -179,7 +180,6 @@ public String getChosenCellsXMLString(){
 	
 
 public void addToChosenCellsByIndex(int ChosenCellIndex){
-	
 		int row=ChosenCellIndex/4;
 		int col=ChosenCellIndex%4;
 		chosenCells.add(cells[row][col]);
