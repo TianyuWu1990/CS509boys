@@ -1,10 +1,9 @@
 package com.capricorn.RequestController;
 
 import xml.Message;
-
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Find if the submitted word in the word library. */
 public class FindWordRequest {
 	
 	Model model;
@@ -14,7 +13,7 @@ public class FindWordRequest {
 		this.app = app;
 		
 	}
-	
+	/** Process to get the word we choose.*/
 	public void process(){
 String chosenCellsInfoXMLString = model.getBoard().getChosenCellsXMLString();
 		

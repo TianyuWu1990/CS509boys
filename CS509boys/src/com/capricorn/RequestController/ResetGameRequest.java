@@ -4,7 +4,7 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Reset the game */
 public class ResetGameRequest {
 	
 	Model model;

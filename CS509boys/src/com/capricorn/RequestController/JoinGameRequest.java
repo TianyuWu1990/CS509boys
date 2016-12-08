@@ -4,7 +4,7 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Send a join game request to the server.*/
 public class JoinGameRequest {
 	
 		Model model;
@@ -14,7 +14,7 @@ public class JoinGameRequest {
 			this.app = app;
 			
 		}
-		
+		/** Process to build the join game request and send to the server if the server is connected.*/
 		public void process(){
 			String xmlString;
 			if(this.app.getPassword().length() == 0){

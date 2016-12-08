@@ -4,7 +4,7 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Reposition game board means to change the game filed position in the server and back with a new game board.*/
 public class RepositionBoardRequest {
 	Model model;
 	Application app;
@@ -15,7 +15,7 @@ public class RepositionBoardRequest {
 		this.change = change;
 		
 	}
-	
+	/** Process to formating the reposition request and send to the server.*/
 	public void process(){
 		
 	String xmlString = Message.requestHeader() + String.format("<repositionBoardRequest name='%s' gameId='%s'", 

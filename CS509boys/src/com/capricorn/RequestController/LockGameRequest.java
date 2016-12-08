@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Lock game controller is designed to sending the server with the message to lock the game.
+ *  The game is existed, but players can not manage or play the game.
+ */
 public class LockGameRequest {
 	Model model;
 	Application app;
@@ -16,7 +18,7 @@ public class LockGameRequest {
 		
 	}
 
-	
+	/** Process to formating the lock game request.*/
 	public void process(){
 		model.getGame().setLocked(true);
 		String xmlString = Message.requestHeader() + String.format("<lockGameRequest gameId='%s'/></request>", model.getGame().getGameId());		
