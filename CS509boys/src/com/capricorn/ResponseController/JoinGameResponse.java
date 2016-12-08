@@ -16,7 +16,7 @@ public class JoinGameResponse extends ControllerChain{
 	
 		public Application app;
 		public Model model;
-		
+/** Construct JoinGameResponse object to use default port number.*/
 		public JoinGameResponse(Application a, Model m) {
 			super();
 			this.app = a;

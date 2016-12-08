@@ -4,17 +4,17 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Controller is designed to process the message and find the ResetGameResponse response. */
 public class ResetGameResponse extends ControllerChain{
 	public Application app;
 	public Model model;
-	
+	/** Construct ResetGameResponse object to use default port number.*/
 	public ResetGameResponse(Application a, Model m) {
 		super();
 		this.app = a;
 		this.model = m;
 	}
-	
+	/** Find the resetGameResponse from the message class and reset the the game.*/
 	@Override
 	public boolean process(Message response) {
 		String type = response.contents.getFirstChild().getLocalName();

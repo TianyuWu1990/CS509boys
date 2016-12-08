@@ -10,17 +10,17 @@ import xml.Message;
 import com.capricorn.entity.Word;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-
+/** Find word response tell the word submitted is legal or not.*/
 public class FindWordResponse extends ControllerChain{
 	public Application app;
 	public Model model;
-	
+	/** Construct FindWordResponse object to use default port number.*/
 	public FindWordResponse(Application a, Model m) {
 		super();
 		this.app = a;
 		this.model = m;
 	}
-	
+	/** Process to dealing with the message from the server and realize find word function. */
 	@Override
 	public boolean process(Message response) {
 		

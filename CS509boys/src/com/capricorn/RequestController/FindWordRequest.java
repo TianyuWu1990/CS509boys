@@ -8,6 +8,7 @@ public class FindWordRequest {
 	
 	Model model;
 	Application app;
+	
 	public FindWordRequest(Model model,Application app){
 		this.model = model;
 		this.app = app;
