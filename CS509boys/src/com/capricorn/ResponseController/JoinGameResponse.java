@@ -1,6 +1,7 @@
 package com.capricorn.ResponseController;
 import javax.swing.JOptionPane;
 
+
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
@@ -8,6 +9,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
+/**Join game request.*/
 public class JoinGameResponse extends ControllerChain{
 	
 
@@ -20,6 +22,7 @@ public class JoinGameResponse extends ControllerChain{
 			this.app = a;
 			this.model = m;
 		}
+		/** Process the join game request*/
 		@Override
 		public boolean process(Message response) {
 			
