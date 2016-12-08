@@ -15,11 +15,11 @@ import com.capricorn.listener.Exit;
 import com.capricorn.listener.Reset;
 import com.capricorn.model.Model;
 /**
- *View part including here is designed by JFrame. PracticeGame is an interface
- *connect to the player who want to play a single game without request and response. 
- *Which means practice game can be run under the condition without connecting to server.
+ * View part including here is designed by JFrame. PracticeGame is an interface
+ * connect to the player who want to play a single game without request and response. 
+ * Which means practice game can be run under the condition without connecting to server.
  *<p>
- *JFrame owns the advantage that different parts are individually and will not affect each other.
+ * JFrame owns the advantage that different parts are individually and will not affect each other.
  */
 public class PracticeGame extends JFrame {
 	public List<String> list=new ArrayList<String>();//new word list
@@ -28,14 +28,13 @@ public class PracticeGame extends JFrame {
 	public Model m;//define a new modle of game 
 	public int sum;//the sum of combination of score with different word 
 	public JButton btnArray[][] = new JButton[4][4];//define the variables in order to implement the game function
-	
-	/**Here is a constructor for PracticeGame in order to make a fault value.
-	 * Construct PracticeGame object to use default port number.
+	/** Here is a constructor for PracticeGame in order to make a fault value.
+	 *  Construct PracticeGame object to use default port number.
 	 */
     public PracticeGame(Model m) {
     	this.m=m;
 		setTitle("PracticeGame");//set the title
-		/**Define the size of the game zone.*/
+		/** Define the size of the game zone.*/
 		getContentPane().setLayout(null);
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {

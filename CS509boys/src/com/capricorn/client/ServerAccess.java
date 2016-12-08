@@ -188,5 +188,7 @@ public class ServerAccess {
 	public String getHost() {
 		return host;
 	}
+	
+
 
 }

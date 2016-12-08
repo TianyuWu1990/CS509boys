@@ -28,6 +28,7 @@ public class CreateGameRequest{
 	 */
 	public CreateGameRequest(Application app,Model model) {
 		this.app = app;
+		//this.model=model;
 		
 	}
 
