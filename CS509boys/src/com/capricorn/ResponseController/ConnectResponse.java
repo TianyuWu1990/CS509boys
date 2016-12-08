@@ -25,8 +25,6 @@ public class ConnectResponse extends ControllerChain {
 			return next.process(response);
 		}
 		
-//		app.getResponseArea().append(response.toString() + "\n");
-
 		if (this.flag == true) {
 			app.getManagerg().refreshBoard();
 			

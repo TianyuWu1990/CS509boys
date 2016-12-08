@@ -29,7 +29,7 @@ import com.capricorn.RequestController.ResetGameRequest;
 import com.capricorn.entity.Player;
 import com.capricorn.entity.Word;
 import com.capricorn.listener.ClickButton_multiGame;
-import com.capricorn.listener.Exit;
+import com.capricorn.listener.Exit_practiceGame;
 import com.capricorn.model.Model;
 
 public class MultiGame extends JFrame {
@@ -285,7 +285,7 @@ public class MultiGame extends JFrame {
 		});	
 
 
-		Exit exitControl = new Exit(this, model);
+		Exit_practiceGame exitControl = new Exit_practiceGame(this, model);
 		btnExit.addActionListener(exitControl);
 		btnExit.setBounds(625, 14, 69, 38);
 		getContentPane().add(btnExit);
@@ -593,20 +593,11 @@ public class MultiGame extends JFrame {
 
 	public void refreshBoard() {
 		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
-
 		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
-		
-
-		
-
-		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();
-
-		
-		if (this.model.getBoard().getBoardInfo().length()!=0){
-				
+		char[] LettersToBeAdd = this.model.getBoard().getBoardInfo().toCharArray();	
+		if (this.model.getBoard().getBoardInfo().length()!=0){			
 		for (int i = 0; i < 16; i++) {
 			String lettToBeAdd = String.valueOf(LettersToBeAdd[i]);
-			
 			this.allCellsbtns.get(i).setToolTipText(points[letter.indexOf(lettToBeAdd)]);
 			if (lettToBeAdd.equals("Q")) {
 				lettToBeAdd = "Qu";
@@ -615,7 +606,6 @@ public class MultiGame extends JFrame {
 			
 			
 		}
-		
 			clearAllChosen();
 			resetInfo();
 			panel.repaint();

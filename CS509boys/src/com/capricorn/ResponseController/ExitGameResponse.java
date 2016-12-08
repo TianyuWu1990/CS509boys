@@ -22,9 +22,6 @@ public class ExitGameResponse extends ControllerChain{
 			return next.process(response);
 		}
       
-		
-		
-		//<xs:attribute name='gameId' type='xs:string' use='required'/>
 		app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 		return true;
 	}

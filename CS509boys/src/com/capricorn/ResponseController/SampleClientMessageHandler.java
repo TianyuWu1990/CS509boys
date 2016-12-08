@@ -10,12 +10,9 @@ import xml.Message;
  * Note: This one does nothing more than dump the XML message into the client window. Nothing that special.
  */
 public class SampleClientMessageHandler implements IMessageHandler {
-
-	Application app;
-	
+	Application app;	
 	// by default is the empty handler...
-	ControllerChain chain = new EmptyHandler();
-	
+	ControllerChain chain = new EmptyHandler();	
 	/**
 	 * Register new controller chain as occurring before existing chain.
 	 */

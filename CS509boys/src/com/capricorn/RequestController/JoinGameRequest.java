@@ -31,8 +31,6 @@ public class JoinGameRequest {
 			
 			
 			Message m = new Message (xmlString);
-			
-			
 			app.getServerAccess().sendRequest(m);
 			app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 		}

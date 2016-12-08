@@ -8,13 +8,13 @@ import com.capricorn.view.PracticeGame;
 /**
  * Responsible for clear all the letters in the board field.
  */
-public class Clear implements ActionListener{
+public class ClearButton_practiceGame implements ActionListener{
 	/**
 	 * Here is a constructor for Clear in order to make a fault value.
 	 * Construct Clear object to use default port number.
 	 */
 	PracticeGame p;
-	public Clear(PracticeGame p){
+	public ClearButton_practiceGame(PracticeGame p){
 		this.p=p;
 	}
 	/** 

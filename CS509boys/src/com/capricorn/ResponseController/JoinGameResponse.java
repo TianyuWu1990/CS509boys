@@ -27,11 +27,7 @@ public class JoinGameResponse extends ControllerChain{
 			if (!type.equals ("joinGameResponse")) {
 				return next.process(response);
 			}
-			app.setStartGame(false);
-			
-			
-			Node joinGameResponse = response.contents.getFirstChild();
-			NamedNodeMap map = joinGameResponse.getAttributes();
+			app.setStartGame(false);		
 			app.getXmlb().getMessageInfo().append(response.toString()+"\n");
 			return true;
 		}

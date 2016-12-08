@@ -18,8 +18,6 @@ public class ExitGameRequest {
 				model.getGame().getGameId());		
 
 		Message m = new Message (xmlString);
-		// Request the lock (this might not succeed).
-		
 		app.getServerAccess().sendRequest(m);
 		app.getXmlb().getMessageInfo().append(m.toString()+"\n");
 	}

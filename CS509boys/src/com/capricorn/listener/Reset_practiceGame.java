@@ -16,10 +16,10 @@ import com.capricorn.view.PracticeGame;
  * Same like clear function, not only will reset clear everything, but also renew the board   
  */
 /**Actionlistener relate to Rest also attached with Constructor */
-public class Reset implements ActionListener{
+public class Reset_practiceGame implements ActionListener{
 	PracticeGame p;
 	Model m;
-	public Reset(PracticeGame p,Model m){
+	public Reset_practiceGame(PracticeGame p,Model m){
 		this.p=p;
 		this.m=m;
 	}
