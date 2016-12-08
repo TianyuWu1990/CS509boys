@@ -13,7 +13,7 @@ import com.capricorn.view.Application;
 /**
  * This is the enter to the practice game.
  * If the client want to be familiar with the game before the true competition.
- * Here is a good palce for the player to have fun and practice.
+ * Here is a good place for the player to have fun and practice.
  * This function do not need to connect to sever, so no request and response will generate
  * or receive.
  */

@@ -95,10 +95,10 @@ public class MultiGame extends JFrame {
 		JButton button = new JButton("UP");
 		button.setBackground(Color.WHITE);
 		button.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		/**Adding an actionListener when click the button up, the game board domain will shift up forward.*/
 		button.addActionListener(new ActionListener() {
 			int previousRow;
 			int newRow;
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Integer[] change = { -1, 0 };
@@ -129,6 +129,7 @@ public class MultiGame extends JFrame {
 		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_1.setBounds(555, 197, 75, 38);
 		getContentPane().add(button_1);
+		/**Adding an actionListener when click the button left, the game board domain will shift left forward.*/
 		button_1.addActionListener(new ActionListener() {
 			int previousCol;
 			int newCol;
@@ -159,6 +160,7 @@ public class MultiGame extends JFrame {
 		button_2.setBackground(Color.WHITE);
 		button_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_2.setBounds(716, 197, 75, 38);
+		/**Adding an actionListener when click the button right, the game board domain will shift right forward.*/
 		button_2.addActionListener(new ActionListener() {
 			int previousCol;
 			int newCol;
@@ -191,6 +193,7 @@ public class MultiGame extends JFrame {
 		button_3.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		button_3.setBounds(641, 231, 69, 38);
 		getContentPane().add(button_3);
+		/**Adding an actionListener when click the button down, the game board domain will shift down forward.*/
 		button_3.addActionListener(new ActionListener() {
 			int previousRow;
 			int newRow;
@@ -221,6 +224,9 @@ public class MultiGame extends JFrame {
 		button_4.setBackground(Color.WHITE);
 		button_4.setBounds(472, 13, 147, 40);
 		getContentPane().add(button_4);
+		/**Adding an actionListener when click the button submit, the game board domain will show the validation of the word
+		 * and add scores to the score area. 
+		 */
 		button_4.addActionListener(new ActionListener() {
 			
 			long localExpectedWordScore;
@@ -267,7 +273,7 @@ public class MultiGame extends JFrame {
 		JButton btnExit = new JButton("Exit");
 		btnExit.setBackground(Color.RED);
 		btnExit.addActionListener(new ActionListener() {
-
+/**Realize the exit button.*/
 			public void actionPerformed(ActionEvent e) {
 				new ExitGameRequest(model, MultiGame.this.app).process();
 				MultiGame.this.dispose();
@@ -291,7 +297,7 @@ public class MultiGame extends JFrame {
 		} else {
 			btnLock.setEnabled(true);
 		}
-
+/**Realize the lock button.*/
 		btnLock.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -371,6 +377,7 @@ public class MultiGame extends JFrame {
 		btnClear.setBackground(Color.CYAN);
 		btnClear.setBounds(706, 13, 89, 38);
 		getContentPane().add(btnClear);
+		/**Realize the clear button*/
 		btnClear.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -472,6 +479,7 @@ public class MultiGame extends JFrame {
 //		resetInfo();
 		
 	}
+	
 	class Action  implements ActionListener{
 		@Override
 	public void actionPerformed(ActionEvent e) {

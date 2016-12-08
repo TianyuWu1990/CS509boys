@@ -140,14 +140,14 @@ public String getPoints() {
 	return points;
 }
 //Boring stop
-/**Setletter replace the set method. The Letter should be define among English letter with unique posibility. */
+/** Setletter replace the set method. The Letter should be define among English letter with unique posibility. */
 public void setLetterForPractice() {
 	String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","Qu"};  
     //English words demonstrated in order to be generated to the setletter function
 	int k=0;
     int m=0;
-    /**Here is the possibility each word will appear in the game according to a big data analyze.
-     * 810 means the value 8.1% and sum the value up is 10000.
+    /** Here is the possibility each word will appear in the game according to a big data analyze.
+     *  810 means the value 8.1% and sum the value up is 10000.
      */
 	int[] pro={810,149,278,425,1270,223,202,609,697,15,77,403,241,675,751,193,599,633,906,276,98,236,15,197,7,10};
     for(int i=0;i<=25;i++){
@@ -161,7 +161,7 @@ public void setLetterForPractice() {
     		k++;
     	}
     };
-    /**Here is the points for each word correspond to the order from A to Z and Qu.*/
+    /** Here is the points for each word correspond to the order from A to Z and Qu.*/
 	String[] p = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 	Random random = new Random();  
 //    for( int i = 0; i < 8; i ++) {  

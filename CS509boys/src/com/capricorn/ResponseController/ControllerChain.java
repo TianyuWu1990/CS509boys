@@ -3,7 +3,7 @@ package com.capricorn.ResponseController;
 import com.capricorn.ResponseController.ControllerChain;
 
 import xml.Message;
-
+/**Form an abstract class ControllerChain without main method implement the interface IClientController.*/
 public abstract class ControllerChain implements IClientController{
 
 	/** Next one in the chain. Once null is reached, done. */

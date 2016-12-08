@@ -3,7 +3,7 @@ package com.capricorn.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-/**As defined, the size of the board is should be 4-letters'-long and 4-letters'-wide.
+/**As defined, the size of the board should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
   */
 public class Board {

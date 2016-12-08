@@ -47,7 +47,7 @@ public class ClientLauncher {
 		
 		Application app =Application.getInstance(model);
 
-//		ServerAccess serverAccess = new ServerAccess("cs509.frankgh.com");
+//	ServerAccess serverAccess = new ServerAccess("cs509.frankgh.com");
 
 		
 		

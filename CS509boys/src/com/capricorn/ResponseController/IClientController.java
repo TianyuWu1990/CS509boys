@@ -1,7 +1,7 @@
 package com.capricorn.ResponseController;
 
 import xml.Message;
-
+/** From an IClientController interface */
 public interface IClientController {
 	
 	/**

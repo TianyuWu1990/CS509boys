@@ -15,7 +15,9 @@ import com.capricorn.client.ServerAccess;
 import com.capricorn.model.Model;
 import com.capricorn.entity.*;
 import com.capricorn.listener.StartPractice;
-
+/**Application is the entrance to the game, containing practice game and multiple game.
+ * This is designed by JFrame with text filed and button.
+ */
 public class Application extends JFrame {
 	private JTextField create_id_text;
 	private JTextField name_id_text;
@@ -33,13 +35,20 @@ public class Application extends JFrame {
 	
 	
 	
-	
+	/**
+	 * method if the game is start
+	 * @return startGae
+	 */
 	public boolean isStartGame() {
 		return startGame;
 	}
 
 
-
+/**
+ * set the game 
+ * @param startGame
+ * @return void 
+ */
 	public void setStartGame(boolean startGame) {
 		this.startGame = startGame;
 	}

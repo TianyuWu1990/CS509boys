@@ -17,7 +17,7 @@ public class SampleClientMessageHandler implements IMessageHandler {
 	ControllerChain chain = new EmptyHandler();
 	
 	/**
-	 * Register new controller chain as occuring before existing chain.
+	 * Register new controller chain as occurring before existing chain.
 	 */
 	public void registerHandler(ControllerChain handler) {
 		handler.next = chain;

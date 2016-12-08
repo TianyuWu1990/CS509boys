@@ -75,7 +75,6 @@ public class Model {
 	
 	/**
 	 * Update model.
-	 *
 	 * @param gameID the game ID
 	 * @param managingUser the managing user
 	 * @param playerName the player name
