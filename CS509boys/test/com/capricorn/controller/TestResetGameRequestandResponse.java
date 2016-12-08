@@ -63,21 +63,6 @@ public void testprocess() throws Exception{
 				
 				// at this point, we need to make app visible, otherwise we would terminate application
 				app.setVisible(true);
-				class ClientResponseHandler implements IController, IMessageHandler {
-
-					// responses are stored here.
-					ArrayList<Message> responses = new ArrayList<Message>();
-
-					@Override
-					public void process(Message request, Message response) {
-						responses.add(response);			
-					}
-
-					@Override
-					public void process(Message response) {
-						responses.add(response);
-					}
-				}
 
 	String player = "player";
 	String gameid = "gameid";
