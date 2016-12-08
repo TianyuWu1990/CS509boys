@@ -7,7 +7,7 @@ import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Game.
+ * The Class Game including all the attributes.
  */
 public class Game {
 	

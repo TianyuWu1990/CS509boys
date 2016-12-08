@@ -10,13 +10,13 @@ import com.capricorn.view.MultiGame;
 import com.capricorn.view.PracticeGame;
 /**
  * In the word board, we want to realize the function that click the letter
- * and demostrate the letter in the blank 
+ * and demonstrate the letter in the blank 
  */
 public class ClickButton_practiceGame implements ActionListener{
 	PracticeGame p;
 	
 	/**
-	 *  Define the defalut p for PracticeGame
+	 *  Define the default p for PracticeGame
 	 * Construct ClickLetter object to use default port number.
 	 *
 	 * @param p the p

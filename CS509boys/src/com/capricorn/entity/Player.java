@@ -4,7 +4,7 @@ import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Player.
+ * Create a player.
  */
 public class Player {
 	
