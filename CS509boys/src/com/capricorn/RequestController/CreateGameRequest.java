@@ -14,7 +14,7 @@ import xml.Message;
  */
 public class CreateGameRequest{
 
-    /** The app. */
+    /** The app */
     Application app;
     
     /** The model. */
@@ -34,7 +34,7 @@ public class CreateGameRequest{
 
 
 /**
- * Process.
+ * Process the create game request according to existence of the password.
  */
 public void process() {
 		
