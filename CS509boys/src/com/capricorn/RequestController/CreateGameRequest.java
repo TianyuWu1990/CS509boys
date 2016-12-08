@@ -10,7 +10,7 @@ import xml.Message;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class CreateGameRequest.
+ * Send a create game request to the server and waut for the request.
  */
 public class CreateGameRequest{
 
@@ -34,7 +34,7 @@ public class CreateGameRequest{
 
 
 /**
- * Process.
+ * Process to send the create game request with two different condition, with the password and without the password.
  */
 public void process() {
 		
