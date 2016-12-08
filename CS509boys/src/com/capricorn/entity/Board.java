@@ -85,7 +85,7 @@ public Board(){
 	}
 }
 
-/**update board **/
+/**update board method*/
 public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardInfo){
 	this.globalStartingCol = newStartingCol;
 	this.globalStartingRow = newStaringRow;
@@ -103,7 +103,7 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 
 	updateBoardByAllLetters(NewBoardInfo);
 }
-
+/**Renew the letters in the game.*/
 private void updateBoardByAllLetters(String cellsLetters){
 	
 	String[] cellInforList = cellsLetters.split(",");
@@ -200,6 +200,7 @@ public void clearChosenCells(){
 	}
 	chosenCells.removeAll(chosenCells);
 }
+/**Identify the method to position the board.*/
 public static List<String> setBoardPositionList(String plocation){
 	 int startX=Integer.parseInt(plocation.split(",")[0]);
 	 int startY=Integer.parseInt(plocation.split(",")[1]);
