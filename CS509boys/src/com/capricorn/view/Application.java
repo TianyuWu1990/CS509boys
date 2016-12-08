@@ -77,6 +77,7 @@ public class Application extends JFrame {
 	public String getPlayName(){
 		return name_id_text.getText();
 	}
+	/**Identify the existence of the  game name.*/
 	public boolean notHasPlayerName(){
 		playerName = name_id_text.getText();
 		if(playerName.length() == 0){
@@ -86,6 +87,7 @@ public class Application extends JFrame {
 		}
 		return false;
 	}
+	/**Identify the existence of the game name and game ID. */
 	public boolean notHasPlayerNameAndGameId(){			
 		gameNumber = create_id_text.getText();
 		playerName = name_id_text.getText();
@@ -159,6 +161,7 @@ public class Application extends JFrame {
 		xmlb.setVisible(true);
 
 		JButton btnStart = new JButton("Create a game");
+		/** Realizing create a game button by applying Create game Request.*/
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerName()){
@@ -186,6 +189,7 @@ public class Application extends JFrame {
 		getContentPane().add(btnStart);
 
 		JButton btnStop = new JButton("Join a game");
+		/**Realizing join a game button.*/
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
