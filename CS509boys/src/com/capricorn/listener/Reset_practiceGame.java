@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import com.capricorn.entity.Board;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.PracticeGame;
 /**
  * When occur to some conflict condition like no word can be find 

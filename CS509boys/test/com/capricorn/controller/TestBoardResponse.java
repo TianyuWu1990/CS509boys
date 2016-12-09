@@ -4,7 +4,7 @@ import javax.swing.UIManager;
 import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import com.capricorn.client.ServerAccess;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 
 import junit.framework.TestCase;

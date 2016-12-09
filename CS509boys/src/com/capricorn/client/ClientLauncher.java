@@ -11,7 +11,7 @@ import com.capricorn.ResponseController.JoinGameResponse;
 import com.capricorn.ResponseController.LockGameResponse;
 import com.capricorn.ResponseController.ResetGameResponse;
 import com.capricorn.ResponseController.SampleClientMessageHandler;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;

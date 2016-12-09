@@ -26,11 +26,11 @@ import com.capricorn.RequestController.FindWordRequest;
 import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.RequestController.RepositionBoardRequest;
 import com.capricorn.RequestController.ResetGameRequest;
+import com.capricorn.entity.Model;
 import com.capricorn.entity.Player;
 import com.capricorn.entity.Word;
 import com.capricorn.listener.ClickButton_multiGame;
 import com.capricorn.listener.Exit_practiceGame;
-import com.capricorn.model.Model;
 /** MultiGame is designed by JFrame and be designed to let players join the game.
  *  It is main board of the game in order to communication with server and players as a boundary
  *  @author Chen Li, Tianyu Wu, Yu Li

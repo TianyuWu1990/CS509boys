@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;

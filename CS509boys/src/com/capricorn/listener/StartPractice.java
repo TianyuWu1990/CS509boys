@@ -5,9 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-
-import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 // TODO: Auto-generated Javadoc
 /**

@@ -2,7 +2,7 @@ package com.capricorn.RequestController;
 
 import xml.Message;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Reposition game board means to change the game filed position in the server and back with a new game board.
  *  @author Chen Li, Tianyu Wu

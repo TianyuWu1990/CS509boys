@@ -7,8 +7,8 @@ import org.w3c.dom.Node;
 
 import xml.Message;
 
+import com.capricorn.entity.Model;
 import com.capricorn.entity.Word;
-import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 /** Find word response tell the word submitted is legal or not.
  *  @author Chen Li, Tianyu Wu

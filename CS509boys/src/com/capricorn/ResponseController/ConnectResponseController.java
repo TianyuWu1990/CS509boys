@@ -1,7 +1,7 @@
 package com.capricorn.ResponseController;
 
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;

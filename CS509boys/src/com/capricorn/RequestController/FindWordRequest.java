@@ -1,7 +1,8 @@
 package com.capricorn.RequestController;
 
 import xml.Message;
-import com.capricorn.model.Model;
+
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Find if the submitted word in the word library. 
  *  @author Chen Li, Tianyu Wu

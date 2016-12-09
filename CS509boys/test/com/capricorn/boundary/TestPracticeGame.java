@@ -1,5 +1,5 @@
 package com.capricorn.boundary;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.PracticeGame;
 import junit.framework.TestCase;
 

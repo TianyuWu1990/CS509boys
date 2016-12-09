@@ -2,7 +2,7 @@ package com.capricorn.ResponseController;
 
 import xml.Message;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Receive and find out the lock game response from the server and realize the lock request.
  *  @author Chen Li, Tianyu Wu

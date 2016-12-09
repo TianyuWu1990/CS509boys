@@ -3,8 +3,8 @@ package com.capricorn.view;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.capricorn.entity.Model;
 import com.capricorn.entity.Player;
-import com.capricorn.model.Model;
 
 public class TestStartPage {
 /**main function the start the single game*/

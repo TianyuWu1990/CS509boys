@@ -1,19 +1,22 @@
 package com.capricorn.controller;
 
-import java.util.ArrayList;
-
-import javax.swing.UIManager;
-import javax.swing.plaf.metal.MetalLookAndFeel;
-
-import xml.Message;
-import junit.framework.TestCase;
-
-import com.capricorn.RequestController.ExitGameRequest;
+import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.RequestController.ResetGameRequest;
-import com.capricorn.ResponseController.*;
+import com.capricorn.ResponseController.BoardResponse;
+import com.capricorn.ResponseController.ConnectResponseController;
+import com.capricorn.ResponseController.ExitGameResponse;
+import com.capricorn.ResponseController.FindWordResponse;
+import com.capricorn.ResponseController.JoinGameResponse;
+import com.capricorn.ResponseController.LockGameResponse;
+import com.capricorn.ResponseController.ResetGameResponse;
+import com.capricorn.ResponseController.SampleClientMessageHandler;
 import com.capricorn.client.ServerAccess;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
+import com.capricorn.view.MultiGame;
+
+import junit.framework.TestCase;
+import xml.Message;
 
 public class TestResetGameRequestandResponse extends TestCase {
 	
@@ -54,6 +57,18 @@ public void testprocess() throws Exception{
 				System.out.println("Connected to " + host);
 
 				app.setServerAccess(sa);
+				SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
+				handler.registerHandler(new BoardResponse(app, model));
+				handler.registerHandler(new JoinGameResponse(app, model));
+				handler.registerHandler(new ConnectResponseController(app, model));
+				handler.registerHandler(new ResetGameResponse(app, model));
+				handler.registerHandler(new LockGameResponse(app, model));
+				handler.registerHandler(new FindWordResponse(app, model));
+				handler.registerHandler(new ExitGameResponse(app, model));
+				if (!sa.connect(handler)) {
+					System.out.println("Unable to connect to server (" + host + "). Exiting.");
+					System.exit(0);
+				}
 				// send an introductory connect request now that we have created (but not made visible!)
 				// the GUI
 				String xmlString = Message.requestHeader() + "<connectRequest/></request>";
@@ -73,11 +88,16 @@ public void testprocess() throws Exception{
 	
 	
 	
-	
-	
+
+	app.setMg(new MultiGame(model, app));
+	JoinGameRequest jgr=new JoinGameRequest(model,app);
+	jgr.process();
+	Thread.sleep(300);;
 	ResetGameRequest req = new ResetGameRequest(model,app);
 	req.process();
 	String r = app.getXmlb().getMessageInfo().getText();
+	Thread.sleep(300);
+	
 	//?problem tested
 	assertEquals(model.getPlayer().getScore(),0);
 	assertTrue(r.contains("resetGameRequest"));

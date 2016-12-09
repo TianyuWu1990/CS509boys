@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.client.ServerAccess;
-import com.capricorn.model.Model;
 import com.capricorn.entity.*;
 import com.capricorn.listener.StartPractice;
 /**Application is the entrance to the game, containing practice game and multiple game.
@@ -74,6 +73,14 @@ public class Application extends JFrame {
 	public void setServerAccess(ServerAccess serverAccess) {
 		this.serverAccess = serverAccess;
 	}
+	public MultiGame getMg() {
+		return mg;
+	}
+
+	public void setMg(MultiGame mg) {
+		this.mg = mg;
+	}
+
 	public String getPlayName(){
 		return name_id_text.getText();
 	}

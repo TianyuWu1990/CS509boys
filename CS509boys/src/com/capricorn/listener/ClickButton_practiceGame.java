@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.MultiGame;
 import com.capricorn.view.PracticeGame;
 /**

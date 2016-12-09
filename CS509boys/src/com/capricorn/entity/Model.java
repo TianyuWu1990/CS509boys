@@ -1,9 +1,4 @@
-package com.capricorn.model;
-
-import com.capricorn.entity.Board;
-import com.capricorn.entity.Game;
-import com.capricorn.entity.Player;
-// TODO: Auto-generated Javadoc
+package com.capricorn.entity;
 
 /**
  * The model part contains everything on the board except for the request and response

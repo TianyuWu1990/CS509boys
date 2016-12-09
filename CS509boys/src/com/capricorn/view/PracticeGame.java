@@ -9,11 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import com.capricorn.entity.Board;
+import com.capricorn.entity.Model;
 import com.capricorn.listener.ClearButton_practiceGame;
 import com.capricorn.listener.ClickButton_practiceGame;
 import com.capricorn.listener.Exit_practiceGame;
 import com.capricorn.listener.Reset_practiceGame;
-import com.capricorn.model.Model;
 /**
  * View part including here is designed by JFrame. PracticeGame is an interface
  * connect to the player who want to play a single game without request and response. 

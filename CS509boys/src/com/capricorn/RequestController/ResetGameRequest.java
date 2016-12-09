@@ -2,7 +2,7 @@ package com.capricorn.RequestController;
 
 import xml.Message;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Reset the game board with a manager player and all the player refresh with new board and scores reset to 0.
  *  @author Chen Li, Tianyu Wu

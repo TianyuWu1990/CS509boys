@@ -2,7 +2,7 @@ package com.capricorn.RequestController;
 
 import xml.Message;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Send a join game request to the server.
  *  @author Chen Li, Tianyu Wu

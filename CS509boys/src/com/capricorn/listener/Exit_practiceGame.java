@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import com.capricorn.entity.Board;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.PracticeGame;
 import com.capricorn.view.Application;
 /**Exit controller implement actionlistener.

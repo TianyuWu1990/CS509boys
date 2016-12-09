@@ -4,7 +4,7 @@ import xml.Message;
 
 import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.client.ServerAccess;
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 
 import junit.framework.TestCase;

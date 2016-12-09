@@ -9,8 +9,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.capricorn.entity.Board;
+import com.capricorn.entity.Model;
 import com.capricorn.entity.Player;
-import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;

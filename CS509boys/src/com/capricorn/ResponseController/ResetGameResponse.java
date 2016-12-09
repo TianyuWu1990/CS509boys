@@ -2,7 +2,7 @@ package com.capricorn.ResponseController;
 
 import xml.Message;
 
-import com.capricorn.model.Model;
+import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Controller is designed to process the message and find the ResetGameResponse response. 
  *  @author Chen Li, Tianyu Wu
