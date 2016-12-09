@@ -43,14 +43,6 @@ public class TestJoinGameandResponse extends TestCase {
 	
 	
 	app.setGameNumber("123");
-	
-	
-	
-	
-	
-	
-	
-	
 	JoinGameRequest req = new JoinGameRequest(model,app);
 	req.process();
 	String r = app.getXmlb().getMessageInfo().getText();
