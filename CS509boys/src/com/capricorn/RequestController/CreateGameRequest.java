@@ -10,7 +10,8 @@ import xml.Message;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class CreateGameRequest.
+ * Send a create game request to the server and waut for the request.
+ * @author Chen Li, Tianyu Wu
  */
 public class CreateGameRequest{
 
@@ -28,13 +29,13 @@ public class CreateGameRequest{
 	 */
 	public CreateGameRequest(Application app,Model model) {
 		this.app = app;
-		//this.model=model;
+		
 		
 	}
 
 
 /**
- * Process.
+ * Process to send the create game request with two different condition, with the password and without the password.
  */
 public void process() {
 		

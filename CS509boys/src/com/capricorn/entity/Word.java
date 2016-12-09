@@ -4,6 +4,7 @@ package com.capricorn.entity;
 /**
  * Basic entity word with no more description Two attributes
  * content(a,b,c,d......) and score
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Word {
 
@@ -64,7 +65,7 @@ public class Word {
 	 *
 	 * @return the content
 	 */
-	// get and set
+	
 	public String getContent() {
 		return content;
 	}

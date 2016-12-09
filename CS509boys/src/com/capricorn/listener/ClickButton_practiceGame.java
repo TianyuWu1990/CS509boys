@@ -10,13 +10,14 @@ import com.capricorn.view.MultiGame;
 import com.capricorn.view.PracticeGame;
 /**
  * In the word board, we want to realize the function that click the letter
- * and demostrate the letter in the blank 
+ * and demonstrate the letter in the blank 
+ *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class ClickButton_practiceGame implements ActionListener{
 	PracticeGame p;
 	
 	/**
-	 *  Define the defalut p for PracticeGame
+	 *  Define the default p for PracticeGame
 	 * Construct ClickLetter object to use default port number.
 	 *
 	 * @param p the p
@@ -54,7 +55,7 @@ public void actionPerformed(ActionEvent a) {
 		String val = p.txtOwn.getText();
 		int points = 0;
 		p.sum += Integer.parseInt(button.getToolTipText());
-		//System.out.println(p.sum);
+	
 		p.txtOwn.setText(val + button.getText());
 		
 		if(p.txtOwn.getText().length() >= 3){

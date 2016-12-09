@@ -17,6 +17,7 @@ import com.capricorn.entity.*;
 import com.capricorn.listener.StartPractice;
 /**Application is the entrance to the game, containing practice game and multiple game.
  * This is designed by JFrame with text filed and button.
+ * @author Chen Li, Yu Li
  */
 public class Application extends JFrame {
 	private JTextField create_id_text;
@@ -177,7 +178,7 @@ public class Application extends JFrame {
 					try {
 						Thread.sleep(300);
 					} catch (InterruptedException e1) {
-						// TODO Auto-generated catch block
+						
 						e1.printStackTrace();
 					}
 					if(!startGame){
@@ -198,7 +199,7 @@ public class Application extends JFrame {
 		getContentPane().add(btnStop);
 		
 		JButton btnNewButton_1 = new JButton("Practice mode");
-//		m=new Model();
+
 		StartPractice StartPracticeControl= new StartPractice(this,model);
 		
 		btnNewButton_1.addActionListener(StartPracticeControl);
@@ -208,7 +209,7 @@ public class Application extends JFrame {
 		JButton btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0); // exit game
+				System.exit(0); 
 			}
 		});
 		btnExit.setBounds(460, 186, 134, 58);

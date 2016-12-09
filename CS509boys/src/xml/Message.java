@@ -12,12 +12,13 @@ import javax.xml.validation.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
-/** Support class for XML parsing of requests and responses. */
+/** Support class for XML parsing of requests and responses. 
+ */
 public class Message {
-	static DocumentBuilder builder = null;              // builder for parsing XML strings
-	static XMLHandler errorHandler = new XMLHandler();  // we must provide an error handler
-	static Transformer transformer;                     // to convert to string
-	public final Node contents;                         // root of DOM containing parsed XML
+	static DocumentBuilder builder = null;              
+	static XMLHandler errorHandler = new XMLHandler();  
+	static Transformer transformer;                     
+	public final Node contents;                        
 
 	/** Configure builder at first use. */
 	public static boolean configure (String schema) {
@@ -53,14 +54,14 @@ public class Message {
 		try {
 			InputSource is = new InputSource (new StringReader (xmlSource));
 
-			// parse method in builder is not thread safe.
+			
 			Document d = null;
 			synchronized (builder) {
 				d = builder.parse(is);
 				errorHandler.failFast();
 			}
 
-			// Grab first (and only) child (either request or response)
+			
 			NodeList children = d.getChildNodes();
 			for (int i = 0; i < children.getLength(); i++) {
 				Node n = children.item(i);

@@ -16,6 +16,7 @@ import com.capricorn.view.Application;
  * Here is a good place for the player to have fun and practice.
  * This function do not need to connect to sever, so no request and response will generate
  * or receive.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class StartPractice implements ActionListener{
 	
@@ -45,11 +46,11 @@ public class StartPractice implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		m.getBoard().setcellArrayForPractice();
 		st.dispose();
-	//startpage disappear
+	
 		PracticeGame practice = new PracticeGame(m);
 		
-		// initialized practice page
-		practice.setSize(600, 300); // set practicegame size
+		
+		practice.setSize(600, 300); 
 		practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		practice.setVisible(true);
 		}

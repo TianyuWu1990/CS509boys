@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.capricorn.view.PracticeGame;
 /**
  * Responsible for clear all the letters in the board field.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class ClearButton_practiceGame implements ActionListener{
 	/**
@@ -29,7 +30,7 @@ public class ClearButton_practiceGame implements ActionListener{
 		}
 		p.textField.setText("0");
 		p.sum = 0;
-		//loop to set the button true
+		
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				p.btnArray[i][j].setEnabled(true);;

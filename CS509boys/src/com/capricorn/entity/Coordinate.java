@@ -4,6 +4,7 @@ package com.capricorn.entity;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Coordinate.
+ *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Coordinate {
 

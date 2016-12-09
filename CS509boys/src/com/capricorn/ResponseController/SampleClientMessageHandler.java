@@ -8,10 +8,10 @@ import xml.Message;
  * You should follow this template when designing YOUR message handler.
  * 
  * Note: This one does nothing more than dump the XML message into the client window. Nothing that special.
+ * @author Chen Li, Tianyu Wu
  */
 public class SampleClientMessageHandler implements IMessageHandler {
 	Application app;	
-	// by default is the empty handler...
 	ControllerChain chain = new EmptyHandler();	
 	/**
 	 * Register new controller chain as occurring before existing chain.

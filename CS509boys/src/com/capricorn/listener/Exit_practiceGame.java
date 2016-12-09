@@ -10,7 +10,9 @@ import com.capricorn.entity.Board;
 import com.capricorn.model.Model;
 import com.capricorn.view.PracticeGame;
 import com.capricorn.view.Application;
-/**Exit controller implement actionlistener.*/
+/**Exit controller implement actionlistener.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
+ */
 public class Exit_practiceGame implements ActionListener{
 	JFrame j;
 	Model m;
@@ -32,7 +34,7 @@ public class Exit_practiceGame implements ActionListener{
 		j.dispose();
 		
 		Application page = Application.getInstance(m);
-		page.setSize(600, 300); // set StartPage size
+		page.setSize(600, 300); 
 		page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		page.setVisible(true);
 	}

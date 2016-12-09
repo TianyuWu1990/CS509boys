@@ -12,6 +12,7 @@ import javax.swing.border.EmptyBorder;
 public class XmlInfoBoard extends JFrame {
 /**
  * A interface which can monitoring the request and response between client and server.
+ * @author Chen Li
  */
 	private JPanel contentPane;
 	private JTextArea messageInfo;
@@ -25,7 +26,7 @@ public class XmlInfoBoard extends JFrame {
 	 * Create the frame.
 	 */
 	public XmlInfoBoard() {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

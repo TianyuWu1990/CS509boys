@@ -9,20 +9,22 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-/**Join game request.*/
+/**Join game response.
+ * @author Chen Li, Tianyu Wu
+ */
 public class JoinGameResponse extends ControllerChain{
 	
 
 	
 		public Application app;
 		public Model model;
-		
+/** Construct JoinGameResponse object to use default port number.*/
 		public JoinGameResponse(Application a, Model m) {
 			super();
 			this.app = a;
 			this.model = m;
 		}
-		/** Process the join game request*/
+		/** Process the join game response.*/
 		@Override
 		public boolean process(Message response) {
 			

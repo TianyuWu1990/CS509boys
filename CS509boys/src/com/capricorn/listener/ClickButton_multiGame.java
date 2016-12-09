@@ -7,11 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import com.capricorn.view.MultiGame;
-
+/** Realize multigame button.*/
 public class ClickButton_multiGame implements ActionListener {
 	MultiGame mg;
 	/** Define the default p for PracticeGame
 	 *Construct ClickLetter object to use default port number. 
+	 *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
 	 */
 public ClickButton_multiGame(MultiGame mg){
 		this.mg=mg;
@@ -41,10 +42,10 @@ public void actionPerformed(ActionEvent a) {
 		
 		if(mg.getChosenbtns().contains(button)){
 		mg.message.setText("This Letter has been chosen!");
-//		mg.message.setForeground(Color.red); 
+
         return;
         }
-//		mg.message.setText("");
+
 		
 		mg.getChosenbtns().add(button);
 		

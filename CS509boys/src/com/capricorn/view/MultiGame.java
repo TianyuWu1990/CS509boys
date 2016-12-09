@@ -31,7 +31,10 @@ import com.capricorn.entity.Word;
 import com.capricorn.listener.ClickButton_multiGame;
 import com.capricorn.listener.Exit_practiceGame;
 import com.capricorn.model.Model;
-
+/** MultiGame is designed by JFrame and be designed to let players join the game.
+ *  It is main board of the game in order to communication with server and players as a boundary
+ *  @author Chen Li, Tianyu Wu, Yu Li
+ */
 public class MultiGame extends JFrame {
 	public JTextField textField_word;
 	public JTextField textField_escore;
@@ -54,7 +57,7 @@ public class MultiGame extends JFrame {
 	private JButton btn_xmlo;
 	private JTextField textField_playerNum;
 	
-
+/** Construct MultiGame object to use default port number.*/
 	public MultiGame(Model m, Application app)  {
 		this.app = app;
 		this.model = m;
@@ -64,7 +67,7 @@ public class MultiGame extends JFrame {
 		chosenbtns = new ArrayList<JButton>();
 		allCellsbtns = new ArrayList<JButton>();
 
-		setSize(920, 800); // set ManagerGame size
+		setSize(920, 800); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
@@ -109,7 +112,7 @@ public class MultiGame extends JFrame {
 				try {
 					Thread.sleep(300);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -144,7 +147,7 @@ public class MultiGame extends JFrame {
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -175,7 +178,7 @@ public class MultiGame extends JFrame {
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -208,7 +211,7 @@ public class MultiGame extends JFrame {
 				try {
 					Thread.sleep(200);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -241,17 +244,17 @@ public class MultiGame extends JFrame {
 				}
 				localExpectedWordScore = Long.parseLong(textField_escore.getText());
 
-//				playerPreviousScore = model.getPlayer().getScore();
+
 				new FindWordRequest(model, MultiGame.this.app).process();
 				try {
 					Thread.sleep(350);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
+				
 					e1.printStackTrace();
 				}
 				clearAllChosen();
 				long wordScore=model.getBoard().getWord().getScore();
-//				playerNewScore = model.getPlayer().getScore();
+
 				if (wordScore==0) {
 					message.setText("Word Picked By Others or It is illegal");
 				} else {
@@ -266,7 +269,7 @@ public class MultiGame extends JFrame {
 				}
 
 				
-//				refreshBoard();
+
 			}
 		});
 
@@ -278,7 +281,7 @@ public class MultiGame extends JFrame {
 				new ExitGameRequest(model, MultiGame.this.app).process();
 				MultiGame.this.dispose();
 				Application page = Application.getInstance(model);
-				page.setSize(600, 300); // set StartPage size
+				page.setSize(600, 300); 
 				page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				page.setVisible(true);
 			}
@@ -476,7 +479,7 @@ public class MultiGame extends JFrame {
 		setallCellsbtns();
 
 		refreshBoard();
-//		resetInfo();
+
 		
 	}
 	
@@ -500,13 +503,13 @@ public class MultiGame extends JFrame {
 			btn_xmlo.setEnabled(true);
 		    MultiGame.this.app.getXmlb().setVisible(false);
 			}
-//		
+	
 	}
 
 	}
 
 	private void setLockEnable() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
@@ -590,7 +593,8 @@ public class MultiGame extends JFrame {
 			}
 		}
 	}
-
+/** The place to store the different score of each letter.
+ */
 	public void refreshBoard() {
 		String letter = "ABCDEFGHIJKLMNOPRSTUVWXYZQ";
 		String[] points = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
@@ -622,7 +626,7 @@ public class MultiGame extends JFrame {
 		setScoreTable();
 
 	}
-
+/** Initialize the color of the button.*/
 	private void removeCellBtnsColors() {
 		for (int i = 0; i < 16; i++) {
 			JButton btn = this.allCellsbtns.get(i);
@@ -630,12 +634,11 @@ public class MultiGame extends JFrame {
 					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
 					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
 		}
-		// btn.setForeground(Color.BLACK);
-		// btn.setBackground(Color.WHITE);
+		
 
 		panel.repaint();
 	}
-
+/** Clear all chosen button.*/
 	private void clearAllChosen() {
 		textField_word.setText("");
 		textField_escore.setText("0");
@@ -650,7 +653,7 @@ public class MultiGame extends JFrame {
 		
 
 	}
-
+/** Reset the information in the game board.*/
 	private void resetInfo() {
 		textField_name.setText(model.getPlayer().getName());
 		textField_gameId.setText(model.getGame().getGameId());
@@ -673,7 +676,7 @@ public class MultiGame extends JFrame {
 		}
 		message.setText("");
 	}
-
+/** Identify if the cell is bonus or not.*/
 	public boolean isBonusCell(int index) {
 		String bonusString = model.getBoard().getBonusCell();
 		String[] bonuscoordinate = bonusString.split(",");

@@ -31,17 +31,17 @@ import xml.Parser;
  * terminated and the background {@link ServerThread} thread will cleanly shut down. 
  */
 public class ServerAccess {
-	String host = null;            /* Server to whom we are connecting */
-	Socket server;                 /* Connection to server */
-	BufferedReader fromBuffer;     /* BufferedReader for input from server */
-	PrintWriter toServer;          /* Write to server through this PrintWriter */
-	final int serverPort;          /* Actual port to use. */
+	String host = null;            
+	Socket server;                 
+	BufferedReader fromBuffer;    
+	PrintWriter toServer;          
+	final int serverPort;         
 
-	boolean isActive = false;      /* Are we actively connected to server? */
-	static final int defaultPort = 21425;  /* Default server port. */
+	boolean isActive = false;      
+	static final int defaultPort = 21425;  
 
 	
-	/* Waiting controllers. */
+	
 	Hashtable<String,Tuple> pending = new Hashtable<String,Tuple>();   
 
 	class Tuple {
@@ -83,7 +83,7 @@ public class ServerAccess {
 			return false;
 		}
 
-		// start connection by starting reader thread and send proper LOGIN request.
+		
 		isActive = true;
 		new FromServer(handler).start();
 		return true;
@@ -94,10 +94,10 @@ public class ServerAccess {
 		if (!isActive) { return; } 
 		isActive = false;
 
-		pending.clear();  // eliminate any waiting controllers
+		pending.clear(); 
 
 		try {
-			// Terminate connection to server and (by implication) stop FromServer thread
+			
 			server.close();
 			toServer = null;
 			server = null;

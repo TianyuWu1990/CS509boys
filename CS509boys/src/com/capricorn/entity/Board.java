@@ -5,6 +5,7 @@ import java.util.List;
 
 /**As defined, the size of the board should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
+  *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
   */
 public class Board {
 public Cell cells[][] = new Cell[4][4];
@@ -16,7 +17,7 @@ private Integer requestColChange;
 private Integer requestRowChange;
 private String  bonusCell;
 private int[] overlapTimes=new int[16];
-//private List<String> boardPositionList=new ArrayList<String>();
+
 
 public int[] getOverlapTimes() {
 	return overlapTimes;
@@ -85,7 +86,7 @@ public Board(){
 	}
 }
 
-/**update board **/
+/**update board method*/
 public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardInfo){
 	this.globalStartingCol = newStartingCol;
 	this.globalStartingRow = newStaringRow;
@@ -103,7 +104,7 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 
 	updateBoardByAllLetters(NewBoardInfo);
 }
-
+/**Renew the letters in the game.*/
 private void updateBoardByAllLetters(String cellsLetters){
 	
 	String[] cellInforList = cellsLetters.split(",");
@@ -200,6 +201,7 @@ public void clearChosenCells(){
 	}
 	chosenCells.removeAll(chosenCells);
 }
+/**Identify the method to position the board.*/
 public static List<String> setBoardPositionList(String plocation){
 	 int startX=Integer.parseInt(plocation.split(",")[0]);
 	 int startY=Integer.parseInt(plocation.split(",")[1]);
@@ -220,48 +222,10 @@ for(int j=0;j<4;j++){
 	
 }
 
-//public void setOverlapTimes(String plocation,List<String> playersLocation){
-//  int ownx=Integer.parseInt(plocation.split(",")[0]);
-//  int owny=Integer.parseInt(plocation.split(",")[1]);
-//  for(String location:playersLocation){
-//	  int otherx=Integer.parseInt(location.split(",")[0]);
-//	  int othery=Integer.parseInt(location.split(",")[1]);
-//	  if(ownx-otherx<4&&ownx-otherx>-4&&owny-othery<4&&owny-othery>-4){
-//      for(int i=othery;i<owny+4;i++){
-//    	  for(int j=otherx;j<ownx+4;j++){
-//    		  System.out.println("i"+i);
-//    		  System.out.println("j"+j);
-//    		  int index=(i-owny)*4+(j-ownx);
-//    		  System.out.println(index);
-//    		     this.overlapTimes[index]+=1;
-//    	  }
-//      }
-//     
-//  
-//
-//
-//
-//}
-//}
-//}
+
 public static void main(String[] args) {
 	
-//	Board board=new Board();
-//	String plocation="2,2";
-//	String pl="2,3";
-//	List<String> list=board.setBoardPositionList(plocation);
-//	for(String str:list)
-//	System.out.println(str);
-	
-//	String pl1="2,2";
-//	List<String> playersLocation=new ArrayList<String>();
-//	playersLocation.add(pl);
-//	playersLocation.add(pl1);
-//	
-//	board.setOverlapTimes(plocation, playersLocation);
-//	for(int t:board.overlapTimes){
-//		System.out.println(t);
-//	}
+
 }
 }
 
