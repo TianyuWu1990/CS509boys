@@ -1,6 +1,7 @@
 package com.capricorn.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import junit.framework.TestCase;
 
@@ -46,6 +47,13 @@ public class TestGame extends TestCase{
 		//clear all Players' informations
 		game.clearPlayersInformation();
 		assertEquals(game.getPlayersInformation().size(),0);
+	    
+		List<Word> a = new ArrayList<Word>();
+		a.add(new Word());
+		a.add(new Word());
+		game.setSelectedWord(a);
+		assertEquals(game.getSelectedWord(),a);
+		
 			
 			
 		}
