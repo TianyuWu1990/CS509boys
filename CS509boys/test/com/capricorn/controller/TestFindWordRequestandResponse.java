@@ -6,6 +6,7 @@ import xml.Message;
 
 import com.capricorn.RequestController.FindWordRequest;
 import com.capricorn.client.ServerAccess;
+import com.capricorn.entity.Cell;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
@@ -61,6 +62,10 @@ public class TestFindWordRequestandResponse extends TestCase {
 		model.getBoard().getWord().setContent("fortest");
 		model.getGame().setGameId(gameid);
 		FindWordRequest req = new FindWordRequest(model,app);
+		
+		ArrayList<Cell> chosenCells = new ArrayList<Cell>();
+		chosenCells.add(new Cell());
+		model.getBoard().setChosenCells(chosenCells);
 		req.process();
 		String r = app.getXmlb().getMessageInfo().getText();
 		//problem here
