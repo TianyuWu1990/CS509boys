@@ -29,7 +29,7 @@ public class ClearButton_practiceGame implements ActionListener{
 		}
 		p.textField.setText("0");
 		p.sum = 0;
-		//loop to set the button true
+		
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				p.btnArray[i][j].setEnabled(true);;

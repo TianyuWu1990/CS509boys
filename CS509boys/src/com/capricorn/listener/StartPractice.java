@@ -45,11 +45,11 @@ public class StartPractice implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		m.getBoard().setcellArrayForPractice();
 		st.dispose();
-	//startpage disappear
+	
 		PracticeGame practice = new PracticeGame(m);
 		
-		// initialized practice page
-		practice.setSize(600, 300); // set practicegame size
+		
+		practice.setSize(600, 300); 
 		practice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		practice.setVisible(true);
 		}

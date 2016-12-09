@@ -54,7 +54,7 @@ public void actionPerformed(ActionEvent a) {
 		String val = p.txtOwn.getText();
 		int points = 0;
 		p.sum += Integer.parseInt(button.getToolTipText());
-		//System.out.println(p.sum);
+	
 		p.txtOwn.setText(val + button.getText());
 		
 		if(p.txtOwn.getText().length() >= 3){

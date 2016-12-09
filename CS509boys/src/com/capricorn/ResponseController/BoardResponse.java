@@ -38,7 +38,7 @@ public class BoardResponse extends ControllerChain{
 		app.setStartGame(true);
 		
 		
-		// this refers to the outer node of the Message DOM (in this case, updateResponse).
+		
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
 		

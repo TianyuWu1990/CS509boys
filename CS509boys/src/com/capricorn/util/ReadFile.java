@@ -26,10 +26,10 @@ public class ReadFile {
 			String line;
 			read = new InputStreamReader(new FileInputStream(file),"UTF-8"); 
 			br = new BufferedReader(read);
-			//List<String> cleanList = new ArrayList<String>();	// remove reduplication
+			
 			int count = 1;
 			while((line=br.readLine())!=null){
-				//
+				
 				String str = line.trim();
 				if(str.equals("")) continue;
 				writeFile("T"+count+": "+str,newFileName);
@@ -50,8 +50,7 @@ public class ReadFile {
 			  }
 			  OutputStreamWriter write = new OutputStreamWriter(new FileOutputStream(f,true),"UTF-8"); 
 			  BufferedWriter writer = new BufferedWriter(write);   
-			  //PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter(filePathAndName))); 
-			  //PrintWriter writer = new PrintWriter(new FileWriter(filePathAndName)); 
+			  
 			  writer.write(content); 
 			  writer.newLine();
 			  writer.close(); 

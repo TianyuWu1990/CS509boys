@@ -16,7 +16,7 @@ public class ConnectResponseController extends ControllerChain{
 		this.app = app;
 		this.model = model;
 	}
-	/** Process the response and establish the conection.*/
+	/** Process the response and establish the connection.*/
 	@Override
 	public boolean process(Message response) {
 		String type = response.contents.getFirstChild().getLocalName();

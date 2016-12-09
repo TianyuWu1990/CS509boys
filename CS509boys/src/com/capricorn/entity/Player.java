@@ -4,7 +4,7 @@ import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
- * Create a player.
+ * Create a player who play the game.
  */
 public class Player {
 	
@@ -98,14 +98,13 @@ public String getPosition() {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	//	board;
-//	List PlayerInformation;
+
 /**
 	 * Gets the name.
 	 *
 	 * @return the name
 	 */
-	//	List<Player> PlayerInformations;
+	
 	public String getName() {
 		return name;
 	}
@@ -127,17 +126,13 @@ public String getPosition() {
 public void setName(String name) {
 		this.name = name;
 	}
-	//	public List getPlayerInformation() {
-//		return PlayerInformation;
-//	}
-//	public List<Player> getPlayerInformations() {
-//		return PlayerInformations;
+
 /**
 	 * Sets the score.
 	 *
 	 * @param score the new score
 	 */
-	//	}
+	
 	public void setScore(long score) {
 		this.score = score;
 	}
