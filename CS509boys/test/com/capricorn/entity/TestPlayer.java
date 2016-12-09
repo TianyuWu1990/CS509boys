@@ -15,6 +15,15 @@ public class TestPlayer extends TestCase{
 			assertEquals(pl.getScore(),100);
 			assertEquals(pl.getPosition(),"2,3");
 			
+			Player p2=new Player("Yu",20,"3,1");
+			assertEquals(p2.getName(),"Yu");
+			assertEquals(p2.getPosition(),"3,1");
+			assertEquals(p2.getScore(),20);
+			p2.setWordScore(1440);
+			assertEquals(p2.getWordScore(),1440);
+			
+			
+			
 		}
 
 }
