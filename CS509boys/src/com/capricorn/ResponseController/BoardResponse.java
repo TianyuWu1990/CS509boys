@@ -14,19 +14,19 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-
+/** From the server, after receiving the board message response which contains all the information we need in the board, the refresh the board.*/
 public class BoardResponse extends ControllerChain{
 	public Application app;
 	public Model model;
 	private boolean flag;
-	
+	/** Construct Boardresponse object to use default port number.*/
 	public BoardResponse(Application a, Model m) {
 		super();
 		this.app = a;
 		this.model = m;
 		this.flag = false;
 	}
-	
+	/** Process to find out the corresponding titles in the xml files and refresh the board information. */
 	@Override
 	public boolean process(Message response) {
 		
@@ -38,7 +38,7 @@ public class BoardResponse extends ControllerChain{
 		app.setStartGame(true);
 		
 		
-		// this refers to the outer node of the Message DOM (in this case, updateResponse).
+		
 		Node boardResponse = response.contents.getFirstChild();
 		NamedNodeMap map = boardResponse.getAttributes();
 		

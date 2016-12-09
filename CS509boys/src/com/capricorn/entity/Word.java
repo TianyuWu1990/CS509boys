@@ -64,7 +64,7 @@ public class Word {
 	 *
 	 * @return the content
 	 */
-	// get and set
+	
 	public String getContent() {
 		return content;
 	}

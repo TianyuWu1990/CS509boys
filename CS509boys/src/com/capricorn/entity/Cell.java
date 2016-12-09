@@ -13,29 +13,29 @@ import com.capricorn.entity.Coordinate;
 public class Cell {
 
 /** The letter. */
-public String letter;               //each cell contains a cell
+public String letter;               
 
 /** The points. */
-public String points;               //each letter owns a point(here ignore the entity word)
+public String points;               
 
 /** The local coordinate. */
-private Coordinate localCoordinate; //Define a local coordinate.
+private Coordinate localCoordinate; 
 
 /** The global coordinate. */
-private Coordinate globalCoordinate;//Define a server coordinate.
+private Coordinate globalCoordinate;
 
 /** The is selected. */
-boolean isSelected;                 //Is the cell clicked?
+boolean isSelected;               
 
 /** The is bonus. */
-boolean isBonus;                    //Is it a bonus cell?
+boolean isBonus;                    
 /**Construct Cell object to use default port number.*/
 public Cell(){
 	localCoordinate=new Coordinate();
 	globalCoordinate=new Coordinate();
-	letter = "";                   //set the letter attribute to "null"
-	isBonus = false;               //Is the cell a bonus cell?No.
-	isSelected = false;            //Is the cell selected?    No.
+	letter = "";                  
+	isBonus = false;               
+	isSelected = false;            
 }
 
 
@@ -44,7 +44,7 @@ public Cell(){
  *
  * @return the local coordinate
  */
-//following boring get and set
+
 public Coordinate getLocalCoordinate() {
 	return localCoordinate;
 }
@@ -126,7 +126,7 @@ public void setLetter(String letter) {
  *
  * @return the letter
  */
-//two attributes of cell letter and points
+
 public String getLetter() {
 	return letter;
 }
@@ -139,11 +139,11 @@ public String getLetter() {
 public String getPoints() {
 	return points;
 }
-//Boring stop
+
 /** Setletter replace the set method. The Letter should be define among English letter with unique posibility. */
 public void setLetterForPractice() {
 	String[] c = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z","Qu"};  
-    //English words demonstrated in order to be generated to the setletter function
+    
 	int k=0;
     int m=0;
     /** Here is the possibility each word will appear in the game according to a big data analyze.
@@ -154,7 +154,7 @@ public void setLetterForPractice() {
     	m+=pro[i];
     	}
     
-    int[] w= new int[m];//Replace the word into whole number from 0 to 25.
+    int[] w= new int[m];
     for(int i=0; i<=25;i++){
     	for(int j=1; j<=pro[i];j++){
     		w[k]=i;
@@ -164,10 +164,9 @@ public void setLetterForPractice() {
     /** Here is the points for each word correspond to the order from A to Z and Qu.*/
 	String[] p = {"2","4","3","3","1","4","4","2","2","7","5","3","3","2","2","4","2","2","1","3","5","3","7","4","8","11"};
 	Random random = new Random();  
-//    for( int i = 0; i < 8; i ++) {  
-//        System.out.println(c[random.nextInt(c.length)]); 
+
 	int rand = random.nextInt(w.length);
-	int q = w[rand];//write back to the matrix and convert the number into word 
+	int q = w[rand];
     this.letter = c[q];
     this.points = p[q];
     

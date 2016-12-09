@@ -11,7 +11,6 @@ import xml.Message;
  */
 public class SampleClientMessageHandler implements IMessageHandler {
 	Application app;	
-	// by default is the empty handler...
 	ControllerChain chain = new EmptyHandler();	
 	/**
 	 * Register new controller chain as occurring before existing chain.

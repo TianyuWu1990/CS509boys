@@ -13,7 +13,7 @@ import com.capricorn.entity.Player;
 public class Model {
 	
 	/** The model. */
-	static Model model=null;              //define a default null to model
+	static Model model=null;              
 	
 	/** The game. */
 	public Game game=new Game();
@@ -39,7 +39,7 @@ public class Model {
 	 */
 	public Model(){
 		
-//       board.setcellArrayForPractice();
+
 	}
 	
 	/**
@@ -86,18 +86,18 @@ public class Model {
 	 */
 	public void updateModel(String gameID, String managingUser, String playerName, int newStartingCol, int newStaringRow,
 			String boardInfo, long score, String bonusCell) {
-		this.game.setGameId(gameID);       //entity.game.setGameId
-		this.player.setName(playerName);   //entity.player.setName
-		this.player.setScore(score);       //entity.player.setScore
+		this.game.setGameId(gameID);       
+		this.player.setName(playerName);   
+		this.player.setScore(score);       
 		this.game.setManagingUser(managingUser);
-		//figure out if the people is the manager or not 
+		 
 		if (managingUser.equals(this.player.getName())) {
 			this.player.setManager(true);
 		}
-		this.board.updateBoard(newStartingCol, newStaringRow, boardInfo);//a method in the entity.board
-		this.board.setRequestColChange(0);//??????????????????????????
-		this.board.setRequestRowChange(0);//??????????????????????????
-		this.board.setBonusCell(bonusCell);//use the setBonusCell method 
+		this.board.updateBoard(newStartingCol, newStaringRow, boardInfo);
+		this.board.setRequestColChange(0);
+		this.board.setRequestRowChange(0);
+		this.board.setBonusCell(bonusCell);
 		
 	}
 	

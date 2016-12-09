@@ -32,7 +32,7 @@ public class Exit_practiceGame implements ActionListener{
 		j.dispose();
 		
 		Application page = Application.getInstance(m);
-		page.setSize(600, 300); // set StartPage size
+		page.setSize(600, 300); 
 		page.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		page.setVisible(true);
 	}
