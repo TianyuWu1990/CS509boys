@@ -55,27 +55,17 @@ public class TestFindWordRequestandResponse extends TestCase {
 					app.setVisible(true);
 				
 
-		String player = "player";
+		String playername = "playername";
 		String gameid = "gameid";
-		
-		
-		model.getPlayer().setName(player);
+		model.getPlayer().setName(playername);
 		model.getBoard().getWord().setContent("fortest");
 		model.getGame().setGameId(gameid);
-		
-		
-		
-		
-		
 		FindWordRequest req = new FindWordRequest(model,app);
 		req.process();
 		String r = app.getXmlb().getMessageInfo().getText();
+		//problem here
 		assertTrue(r.contains("findWordRequest"));
-		System.out.println(r);
-//		 m = clientResponseHandler.responses.remove(0); 
-//		<?xml version="1.0" encoding="UTF-8"?><request id="05eb8cd7-bdea-41c9-8195-aa48bf5696df" version="1.0"><resetGameRequest gameId="gameid"/></request>
-//		ResetGameResponse res = new ResetGameResponse(app,model);
 		
-//		res.process(r);
+		System.out.println(r);
 	}
 }
