@@ -33,7 +33,7 @@ import com.capricorn.listener.Exit_practiceGame;
 import com.capricorn.model.Model;
 /** MultiGame is designed by JFrame and be designed to let players join the game.
  *  It is main board of the game in order to communication with server and players as a boundary
- *  
+ *  @author Chen Li, Tianyu Wu, Yu Li
  */
 public class MultiGame extends JFrame {
 	public JTextField textField_word;

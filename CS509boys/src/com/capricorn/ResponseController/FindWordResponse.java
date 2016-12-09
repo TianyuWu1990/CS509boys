@@ -10,7 +10,9 @@ import xml.Message;
 import com.capricorn.entity.Word;
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-/** Find word response tell the word submitted is legal or not.*/
+/** Find word response tell the word submitted is legal or not.
+ *  @author Chen Li, Tianyu Wu
+ */
 public class FindWordResponse extends ControllerChain{
 	public Application app;
 	public Model model;

@@ -5,6 +5,7 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**
  * Create a player who play the game.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Player {
 	

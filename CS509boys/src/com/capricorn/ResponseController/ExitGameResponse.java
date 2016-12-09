@@ -4,7 +4,9 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-/** Exit game response from the server and quit the game if the response is legal. */
+/** Exit game response from the server and quit the game if the response is legal. 
+ *  @author Chen Li, Tianyu Wu
+ */
 public class ExitGameResponse extends ControllerChain{
 	public Application app;
 	public Model model;

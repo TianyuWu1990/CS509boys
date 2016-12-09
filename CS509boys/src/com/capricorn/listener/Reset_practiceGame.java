@@ -15,7 +15,9 @@ import com.capricorn.view.PracticeGame;
  * The whole process is rebuild the data letter randomly and resends to the board
  * Same like clear function, not only will reset clear everything, but also renew the board   
  */
-/**Actionlistener relate to Rest also attached with Constructor */
+/**Actionlistener relate to Rest also attached with Constructor 
+  *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
+  */
 public class Reset_practiceGame implements ActionListener{
 	PracticeGame p;
 	Model m;

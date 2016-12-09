@@ -9,6 +9,7 @@ import com.capricorn.entity.Player;
  * The model part contains everything on the board except for the request and response
  * The information including the model, the game, the game board, the player
  * If we define a model M, M need to cover all the things following.
+ *  @author Chen Li
  */
 public class Model {
 	

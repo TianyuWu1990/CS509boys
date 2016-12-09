@@ -20,6 +20,7 @@ import com.capricorn.model.Model;
  * Which means practice game can be run under the condition without connecting to server.
  *<p>
  * JFrame owns the advantage that different parts are individually and will not affect each other.
+ * @author Chen Li, Tianyu Wu, Yu Li
  */
 public class PracticeGame extends JFrame {
 	public List<String> list=new ArrayList<String>();

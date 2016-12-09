@@ -9,7 +9,9 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-/**Join game response.*/
+/**Join game response.
+ * @author Chen Li, Tianyu Wu
+ */
 public class JoinGameResponse extends ControllerChain{
 	
 

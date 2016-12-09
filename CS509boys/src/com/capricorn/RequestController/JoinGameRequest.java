@@ -4,7 +4,9 @@ import xml.Message;
 
 import com.capricorn.model.Model;
 import com.capricorn.view.Application;
-/** Send a join game request to the server.*/
+/** Send a join game request to the server.
+ *  @author Chen Li, Tianyu Wu
+ */
 public class JoinGameRequest {
 	
 		Model model;

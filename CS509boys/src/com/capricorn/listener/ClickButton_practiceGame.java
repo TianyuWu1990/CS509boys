@@ -11,6 +11,7 @@ import com.capricorn.view.PracticeGame;
 /**
  * In the word board, we want to realize the function that click the letter
  * and demonstrate the letter in the blank 
+ *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class ClickButton_practiceGame implements ActionListener{
 	PracticeGame p;

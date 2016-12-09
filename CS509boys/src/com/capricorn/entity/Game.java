@@ -8,6 +8,7 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Game including all the attributes.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Game {
 	

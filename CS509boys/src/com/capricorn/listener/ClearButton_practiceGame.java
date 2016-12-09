@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.capricorn.view.PracticeGame;
 /**
  * Responsible for clear all the letters in the board field.
+ * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class ClearButton_practiceGame implements ActionListener{
 	/**

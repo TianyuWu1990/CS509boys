@@ -17,6 +17,7 @@ import com.capricorn.entity.*;
 import com.capricorn.listener.StartPractice;
 /**Application is the entrance to the game, containing practice game and multiple game.
  * This is designed by JFrame with text filed and button.
+ * @author Chen Li, Yu Li
  */
 public class Application extends JFrame {
 	private JTextField create_id_text;

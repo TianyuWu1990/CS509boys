@@ -3,7 +3,9 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-/** Exit game request and back to the application view.*/
+/** Exit game request and back to the application view.
+ *  @author Chen Li, Tianyu Wu
+ */
 public class ExitGameRequest {
 	Model model;
 	Application app;

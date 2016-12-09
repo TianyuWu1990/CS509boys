@@ -14,7 +14,9 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 
 import xml.Message;
-/** From the server, after receiving the board message response which contains all the information we need in the board, the refresh the board.*/
+/** From the server, after receiving the board message response which contains all the information we need in the board, the refresh the board.
+ *  @author Chen Li, Tianyu Wu
+ */
 public class BoardResponse extends ControllerChain{
 	public Application app;
 	public Model model;

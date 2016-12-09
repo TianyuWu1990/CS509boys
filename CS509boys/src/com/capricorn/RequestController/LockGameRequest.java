@@ -8,6 +8,7 @@ import com.capricorn.model.Model;
 import com.capricorn.view.Application;
 /** Lock game controller is designed to sending the server with the message to lock the game.
  *  The game is existed, but players can not manage or play the game.
+ *  @author Chen Li, Tianyu Wu
  */
 public class LockGameRequest {
 	Model model;
