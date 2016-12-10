@@ -7,6 +7,7 @@ import javax.swing.plaf.metal.MetalLookAndFeel;
 
 import org.junit.Test;
 
+import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.RequestController.ExitGameRequest;
 import com.capricorn.ResponseController.BoardResponse;
 import com.capricorn.ResponseController.ConnectResponseController;
@@ -41,6 +42,19 @@ public class TestExitGameController extends TestCase {
 			Application app =Application.getInstance(model);
 
 			ServerAccess sa = new ServerAccess(host, 11425);
+			
+			SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
+			handler.registerHandler(new BoardResponse(app, model));
+			handler.registerHandler(new JoinGameResponse(app, model));
+			handler.registerHandler(new ConnectResponseController(app, model));
+			handler.registerHandler(new ResetGameResponse(app, model));
+			handler.registerHandler(new LockGameResponse(app, model));
+			handler.registerHandler(new FindWordResponse(app, model));
+			handler.registerHandler(new ExitGameResponse(app, model));
+			if (!sa.connect(handler)) {
+				System.out.println("Unable to connect to server (" + host + "). Exiting.");
+				System.exit(0);
+			}
 
 			app.setServerAccess(sa);
 
@@ -52,15 +66,20 @@ public class TestExitGameController extends TestCase {
 			String gameid = "1111";
 			model.getPlayer().setName(player);
 			model.getGame().setGameId(gameid);
-			
+			CreateGameRequest cr=new CreateGameRequest(app, model);
+			cr.process();
+			Thread.sleep(300);
 			
 			
 			ExitGameRequest exitreq = new ExitGameRequest(model,app);
 			exitreq.process();
+			Thread.sleep(300);
 			
 			String r = app.getXmlb().getMessageInfo().getText();
+			System.out.println(r);
 
 			assertTrue(r.contains("exitGameRequest"));
+			assertTrue(r.contains("exitGameResponse"));
 						
 			
 			}
