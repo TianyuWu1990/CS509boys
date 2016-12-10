@@ -1,11 +1,9 @@
 package com.capricorn.reponse;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.capricorn.ResponseController.BoardResponse;
@@ -15,8 +13,8 @@ import com.capricorn.entity.Model;
 import com.capricorn.entity.Player;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
+import com.capricorn.view.MultiGame;
 
-import junit.framework.TestCase;
 import xml.Message;
 
 
@@ -30,7 +28,7 @@ public class TestBoardResponse {
 
 	@Test
 	public void TestBoardResponse1(){
-		
+		app.setMg(new MultiGame(model, app));
 		/**this is the setting for the test*/
 		// FIRST thing to do is register the protocol being used.
 		if (!Message.configure("wordsweeper.xsd")) {
@@ -63,7 +61,9 @@ public class TestBoardResponse {
 		
 		
 		Message m = new Message(xml);
-		new BoardResponse(app,model).process(m);
+		BoardResponse br=new BoardResponse(app,model);
+		br.process(m);
+		
 		
 		Board b = model.getBoard();
 		
@@ -85,6 +85,8 @@ public class TestBoardResponse {
 		assertEquals(p.getName(), name);
 		assertEquals(p.getScore(), score);
 		assertTrue(p.isManager());
+		System.out.println(m);
+		br.process(m);
 		
 	}
 	
