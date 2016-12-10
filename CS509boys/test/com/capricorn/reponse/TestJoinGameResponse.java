@@ -58,7 +58,6 @@ public class TestJoinGameResponse {
 				+ "</joinGameResponse></response>";
 		
 		xml= String.format(xml,id);
-		System.out.println(xml);
 		Message m = new Message(xml);
 		
 		/**this is the test for connect response process part 2*/

@@ -85,7 +85,6 @@ public class TestBoardResponse {
 		assertEquals(p.getName(), name);
 		assertEquals(p.getScore(), score);
 		assertTrue(p.isManager());
-		System.out.println(m);
 		br.process(m);
 		
 		/**this is the test for connect response process part 2*/
