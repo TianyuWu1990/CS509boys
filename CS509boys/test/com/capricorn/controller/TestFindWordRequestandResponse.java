@@ -75,7 +75,7 @@ public class TestFindWordRequestandResponse extends TestCase {
 					
 					
 					// at this point, we need to make app visible, otherwise we would terminate application
-					app.setVisible(true);
+			
 				
 
 		String playername = "playername";
