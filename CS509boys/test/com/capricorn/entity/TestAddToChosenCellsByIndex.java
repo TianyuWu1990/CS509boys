@@ -11,9 +11,6 @@ public class TestAddToChosenCellsByIndex extends TestCase{
 		board.updateBoard(0,0,a);
 		board.addToChosenCellsByIndex(4);
 		String bgg = board.getWord().getContent();
-		System.out.println("a="+bgg);
-		System.out.println("cells are "+board.getCells()[1][0].getLetter());
-		System.out.println("chosen cells are"+board.getChosenCells().size());
 		assertTrue(board.cells[1][0].isSelected);
 		assertEquals(bgg,"g");
 		

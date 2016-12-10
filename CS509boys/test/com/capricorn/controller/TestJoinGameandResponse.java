@@ -59,7 +59,7 @@ public class TestJoinGameandResponse extends TestCase {
 	
 	
 	// at this point, we need to make app visible, otherwise we would terminate application
-	app.setVisible(true);
+
 	
 	app.setPlayerName("lee");
 	app.setGameNumber("123");

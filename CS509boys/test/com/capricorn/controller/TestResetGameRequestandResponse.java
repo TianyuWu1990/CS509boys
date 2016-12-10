@@ -80,7 +80,7 @@ public void testprocess() throws Exception{
 				
 				
 				// at this point, we need to make app visible, otherwise we would terminate application
-				app.setVisible(true);
+				
 
 	String player = "player";
 	String gameid = "gameid";
