@@ -29,7 +29,6 @@ public class TestUpdateBoard extends TestCase {
 				if(b.length() < 31){
 					b += ",";
 				}
-				System.out.print(board.cells[i][j].getLetter());
 			}
 		}
 		assertEquals(b,a);
