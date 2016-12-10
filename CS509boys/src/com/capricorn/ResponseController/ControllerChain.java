@@ -19,10 +19,10 @@ public abstract class ControllerChain implements IClientController{
 		
 	}
 	
-	/** Chain together. */
-	protected ControllerChain(ControllerChain next) {
-		this.next = next;
-	}
+//	/** Chain together. */
+//	protected ControllerChain(ControllerChain next) {
+//		this.next = next;
+//	}
 	
 	/** 
 	 * Carry out the processing. 
