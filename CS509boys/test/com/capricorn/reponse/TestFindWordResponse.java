@@ -13,7 +13,7 @@ import com.capricorn.view.MultiGame;
 
 import xml.Message;
 
-public class TestFindWordResponseController {
+public class TestFindWordResponse {
 	/**@author Ruochen Shi; 
 	 * This is responsible for testing "Find Word Response" Controller*/
 	Model model = new Model();
