@@ -16,19 +16,21 @@ import com.capricorn.entity.Player;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
 
+import junit.framework.TestCase;
 import xml.Message;
 
 
 public class TestBoardResponse {
 
-/**@author Ruochen Shi; 
+/**
  * This is responsible for testing "Board Response" Controller*/
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");
 
-	@Before
-	public void set() {
+	@Test
+	public void TestBoardResponse1(){
+		
 		/**this is the setting for the test*/
 		// FIRST thing to do is register the protocol being used.
 		if (!Message.configure("wordsweeper.xsd")) {
@@ -36,11 +38,9 @@ public class TestBoardResponse {
 		}
 		app.setVisible(true);
 		app.setServerAccess(mockServer);
-	}
-
-	@Test
-	public void TestBoardResponseProcess1(){
-		/**@author Ruochen Shi; 
+	
+		
+		/**
 		 * This is responsible for testing the process of "Board Response" Controller
 		 * the situation is that the list is more than 1*/
 		String name="player";
@@ -87,7 +87,6 @@ public class TestBoardResponse {
 		assertTrue(p.isManager());
 		
 	}
-	//@Test
+	
 	
 }
-//end of TestBoardResponseController
