@@ -1,5 +1,8 @@
 package com.capricorn.controller;
 
+
+import com.capricorn.RequestController.CreateGameRequest;
+
 import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.RequestController.ResetGameRequest;
 import com.capricorn.ResponseController.BoardResponse;
@@ -87,20 +90,42 @@ public void testprocess() throws Exception{
 	model.getGame().setGameId(gameid);
 	
 	
+	app.playerName="lee";
+
+	app.setMg(new MultiGame(model, app));
+//	JoinGameRequest jgr=new JoinGameRequest(model,app);
+	CreateGameRequest create = new CreateGameRequest(app,model);
+	create.process();
+	String r = app.getXmlb().getMessageInfo().getText();
 	
+
+	assertTrue(r.contains("createGameRequest"));
+	Thread.sleep(500);
+	String  s= app.getXmlb().getMessageInfo().getText();
+	assertTrue(s.contains("boardResponse"));
+	assertEquals(model.getPlayer().getName(),"lee");
+	assertEquals(model.getGame().getManagingUser(),"lee");
 
 	app.setMg(new MultiGame(model, app));
 	JoinGameRequest jgr=new JoinGameRequest(model,app);
 	jgr.process();
 	Thread.sleep(300);;
+
 	ResetGameRequest req = new ResetGameRequest(model,app);
 	req.process();
-	String r = app.getXmlb().getMessageInfo().getText();
+
+	Thread.sleep(300);
+	String ss = app.getXmlb().getMessageInfo().getText();
+	System.out.println(ss);
+
+	
 	Thread.sleep(300);
 	
 	//?problem tested
+
 	assertEquals(model.getPlayer().getScore(),0);
-	assertTrue(r.contains("resetGameRequest"));
+	assertTrue(ss.contains("resetGameRequest"));
+	assertTrue(ss.contains("boardResponse"));
 //	assertEquals(model.getPlayer().getScore(),0);
 //	System.out.println(r);
 //	 m = clientResponseHandler.responses.remove(0); 
