@@ -15,7 +15,7 @@ import com.capricorn.listener.ClickButton_practiceGame;
 import com.capricorn.listener.Exit_practiceGame;
 import com.capricorn.listener.Reset_practiceGame;
 /**
- * View part including here is designed by JFrame. PracticeGame is an interface
+ * View part is designed by JFrame. PracticeGame is an interface
  * connect to the player who want to play a single game without request and response. 
  * Which means practice game can be run under the condition without connecting to server.
  *<p>
