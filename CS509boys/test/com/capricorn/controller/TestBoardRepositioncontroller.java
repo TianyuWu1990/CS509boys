@@ -73,7 +73,7 @@ public class TestBoardRepositioncontroller extends TestCase {
 					
 					// at this point, we need to make app visible, otherwise we would terminate application
 					app.setVisible(true);
-				
+		app.setPlayerName("lee");	
 		model.getPlayer().setName("lee");
 		model.getGame().setGameId("game12");
 		Integer[] repo={1,0};
@@ -81,10 +81,10 @@ public class TestBoardRepositioncontroller extends TestCase {
 		app.setMg(new MultiGame(model, app));
 		CreateGameRequest create = new CreateGameRequest(app,model);
 		create.process();
-		Thread.sleep(300);
+		Thread.sleep(500);
 		RepositionBoardRequest reposit=new RepositionBoardRequest(model, app, repo);
 		reposit.process();
-		Thread.sleep(400);
+		Thread.sleep(500);
 		String  s= app.getXmlb().getMessageInfo().getText();
 		System.out.println(s);
 		assertTrue(s.contains("boardResponse"));

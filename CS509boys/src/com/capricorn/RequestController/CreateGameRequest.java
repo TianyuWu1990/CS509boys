@@ -41,9 +41,9 @@ public void process() {
 		
 		String xmlString;
 		if(this.app.getPassword() == null){
-			xmlString = Message.requestHeader() + String.format("<createGameRequest name='%s'/></request>", this.app.getPlayName());		
+			xmlString = Message.requestHeader() + String.format("<createGameRequest name='%s'/></request>", this.app.getPlayerName());		
 		}else{
-			xmlString = Message.requestHeader() + String.format("<createGameRequest name='%s' password='%s'/></request>", this.app.getPlayName(), this.app.getPassword());
+			xmlString = Message.requestHeader() + String.format("<createGameRequest name='%s' password='%s'/></request>", this.app.getPlayerName(), this.app.getPassword());
 		}		
 		Message m = new Message (xmlString);
 		app.getServerAccess().sendRequest(m);

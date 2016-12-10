@@ -81,9 +81,7 @@ public class Application extends JFrame {
 		this.mg = mg;
 	}
 
-	public String getPlayName(){
-		return name_id_text.getText();
-	}
+	
 	/**Identify the existence of the  game name.*/
 	public boolean notHasPlayerName(){
 		playerName = name_id_text.getText();
