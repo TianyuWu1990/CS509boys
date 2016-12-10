@@ -31,7 +31,7 @@ public class Application extends JFrame {
 	}
 
 	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+		this.create_pass_text.setText(passWord); 
 	}
 	private MultiGame mg;
 	static Application app;

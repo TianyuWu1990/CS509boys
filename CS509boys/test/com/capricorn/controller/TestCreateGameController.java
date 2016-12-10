@@ -20,33 +20,23 @@ public class TestCreateGameController extends TestCase{
 		if (!Message.configure("wordsweeper.xsd")) {
 			System.exit(0);
 		}
-		
 		// select dedicated server with '-server' options
 		String host = "cs509.frankgh.com";
-
 		Model model =Model.getInstance();
-		
 		Application app =Application.getInstance(model);
-
 		ServerAccess sa = new ServerAccess(host, 11425);
-
 		app.setServerAccess(sa);
-
 		String xmlString = Message.requestHeader() + "<connectRequest/></request>";
 		Message m = new Message (xmlString);
 		sa.sendRequest(m);
-
-		String player = "player123";
-		model.getPlayer().setName(player);
-
+		app.setPlayerName("lee");
 		CreateGameRequest create = new CreateGameRequest(app,model);
-		create.process();
-		
+		create.process();		
 		String r = app.getXmlb().getMessageInfo().getText();
-
 		assertTrue(r.contains("createGameRequest"));
-
-		
+		app.setPassWord("123");
+		create.process();
+		String r2 = app.getXmlb().getMessageInfo().getText();	
 		}
 
 }
