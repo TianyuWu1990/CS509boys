@@ -84,7 +84,6 @@ public class TestBoardResponse {
 		assertEquals(p.getName(), name);
 		assertEquals(p.getScore(), score);
 		assertTrue(p.isManager());
-		System.out.println(m);
 		br.process(m);
 		
 	}

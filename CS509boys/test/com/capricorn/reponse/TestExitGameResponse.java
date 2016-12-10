@@ -49,7 +49,6 @@ public class TestExitGameResponse {
 				+ "</exitGameResponse></response>";
 		
 		xml= String.format(xml,id);
-		System.out.println(xml);
 		Message m = new Message(xml);
 		ExitGameResponse egrc=new ExitGameResponse(app,model);
 		assertTrue(egrc.process(m));

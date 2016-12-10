@@ -50,7 +50,6 @@ public class TestJoinGameResponse {
 				+ "</joinGameResponse></response>";
 		
 		xml= String.format(xml,id);
-		System.out.println(xml);
 		Message m = new Message(xml);
 		JoinGameResponse join=new JoinGameResponse(app,model);
 		assertTrue(join.process(m));
