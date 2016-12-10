@@ -2,8 +2,11 @@ package com.capricorn.reponse;
 
 import xml.Message;
 
+import static org.junit.Assert.assertTrue;
+
 import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.ResponseController.LockGameResponse;
+import com.capricorn.ResponseController.SampleClientMessageHandler;
 import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
@@ -38,9 +41,30 @@ public class TestLockGameResponse extends TestCase {
 				+ "<lockGameResponse gameId=\"%s\"/></response>";
 		xml=String.format(xml,model.getGame().getGameId());
 		Message m = new Message(xml);
-		boolean succe=new LockGameResponse(app,model).process(m);
+		LockGameResponse lck=new LockGameResponse(app,model);
+		boolean succe=lck.process(m);
 		assertTrue(succe);
-		assertTrue(model.getGame().isLocked());	
 			
+		
+		/**this is the test for connect response process part 2*/
+		String xml2= "<?xml version=\"1.0\" encoding=\"UTF-8\"?><response id=\"someMessageID\" success=\"true\">"
+		    + "<connectResponse id=\"game1\">"
+		    +"</connectResponse></response>";
+		xml2 =String.format(xml2);
+		Message n = new Message(xml2);
+		
+SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
+		
+		
+		handler.registerHandler(lck);
+		//handler.registerHandler(new BoardResponse(app, model));
+		//handler.registerHandler(new ResetGameResponse(app, model));
+		//handler.registerHandler(new LockGameResponse(app, model));
+		//handler.registerHandler(new FindWordResponse(app, model));
+		//handler.registerHandler(new ExitGameResponse(app, model));
+		//handler.registerHandler(new ConnectResponseController(app, model));
+	
+		assertTrue(model.getGame().isLocked());	
+		assertTrue(lck.process(n));
 	}
 }
