@@ -30,7 +30,6 @@ public class TestFindWordResponse {
 		if (!Message.configure("wordsweeper.xsd")) {
 			fail("unable to configure protocol");
 		}
-		app.setVisible(true);
 		app.setServerAccess(mockServer);
 		/**this is responsible for testing the process of "Find Word Response" controller*/
 		String gameID="game";

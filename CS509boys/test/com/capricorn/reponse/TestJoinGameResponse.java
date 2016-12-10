@@ -38,7 +38,6 @@ public class TestJoinGameResponse {
 		if (!Message.configure("wordsweeper.xsd")) {
 			fail ("unable to configure protocol");
 		}
-		app.setVisible(true);
 		app.setServerAccess(mockServer);
 		
 		
