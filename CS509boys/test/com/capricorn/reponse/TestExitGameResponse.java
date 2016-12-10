@@ -14,7 +14,7 @@ import xml.Message;
 
 
 
-public class TestExitGameController {
+public class TestExitGameResponse {
 	/**@author Ruochen Shi; 
 	 * This is responsible for testing "Exit Game" Controller*/
 
