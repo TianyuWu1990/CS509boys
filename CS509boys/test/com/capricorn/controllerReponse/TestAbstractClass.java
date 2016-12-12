@@ -1,4 +1,4 @@
-package com.capricorn.reponse;
+package com.capricorn.controllerReponse;
 
 import static org.junit.Assert.fail;
 
