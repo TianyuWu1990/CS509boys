@@ -10,19 +10,19 @@ import java.util.List;
 public class Player {
 	
 	/** The name. */
-	String name;
+	private String name;
 	
 	/** The score. */
-	long score;
+	private long score;
     
     /** The position. */
-    String	position;
+    private String	position;
     
     /** The is manager. */
-    boolean isManager;
+    private boolean isManager;
     
     /** The word score. */
-    long wordScore;
+    private long wordScore;
 
 /**
  * Gets the word score.

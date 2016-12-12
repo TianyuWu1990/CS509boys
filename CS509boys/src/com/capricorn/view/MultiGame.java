@@ -294,7 +294,7 @@ public class MultiGame extends JFrame {
 		getContentPane().add(btnExit);
 
 		btnLock = new JButton("Lock");
-		if (m.getGame().isLocked || !(m.getGame().getManagingUser().equals(m.getPlayer().getName()))) {
+		if (m.getGame().isLocked() || !(m.getGame().getManagingUser().equals(m.getPlayer().getName()))) {
 
 			btnLock.setEnabled(false);
 		} else {
@@ -583,7 +583,7 @@ public class MultiGame extends JFrame {
 				int y = 40 + i * 35;
 				JButton btn = new JButton();
 				btn.setBounds(x, y, 89, 23);
-				btn.setToolTipText(model.board.cells[i][j].getPoints());
+				btn.setToolTipText(model.getBoard().cells[i][j].getPoints());
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
@@ -666,7 +666,7 @@ public class MultiGame extends JFrame {
 		if (model.getGame().getManagingUser().equals(model.getPlayer().getName())) {
 			btnLock.setEnabled(true);
 			button_reset.setEnabled(true);
-			if (model.getGame().isLocked) {
+			if (model.getGame().isLocked()) {
 				btnLock.setEnabled(false);
 			}
 

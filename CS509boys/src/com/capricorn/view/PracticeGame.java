@@ -41,8 +41,8 @@ public class PracticeGame extends JFrame {
 			for (int j = 0; j < 4; j++) {
 				int x = 30 + i * 100;
 				int y = 80 + j * 40;
-				btnArray[i][j] = new JButton(m.board.cells[i][j].letter);
-				btnArray[i][j].setToolTipText(m.board.cells[i][j].points);
+				btnArray[i][j] = new JButton(m.getBoard().cells[i][j].letter);
+				btnArray[i][j].setToolTipText(m.getBoard().cells[i][j].points);
 				btnArray[i][j].setBounds(x, y, 89, 23);
 				ClickButton_practiceGame clickControl = new ClickButton_practiceGame(this);
 				btnArray[i][j].addActionListener(clickControl);

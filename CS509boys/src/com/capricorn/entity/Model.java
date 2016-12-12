@@ -12,13 +12,13 @@ public class Model {
 	static Model model=null;              
 	
 	/** The game. */
-	public Game game=new Game();
+	private Game game=new Game();
 	
 	/** The board. */
-	public Board board=new Board();
+	private Board board=new Board();
 	
 	/** The player. */
-	public Player player = new Player();
+	private Player player = new Player();
 	
 	/**
 	 * Gets the game.

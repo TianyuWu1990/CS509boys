@@ -38,11 +38,11 @@ public class Reset_practiceGame implements ActionListener{
 		}
 		p.textField.setText("0");
 		p.sum = 0;
-		m.board.setcellArrayForPractice();
+		m.getBoard().setcellArrayForPractice();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {						
-			p.btnArray[i][j].setText(m.board.cells[i][j].letter); 
-			p.btnArray[i][j].setToolTipText(m.board.cells[i][j].points);	
+			p.btnArray[i][j].setText(m.getBoard().cells[i][j].letter); 
+			p.btnArray[i][j].setToolTipText(m.getBoard().cells[i][j].points);	
 			}					
 		}
 		for (int i = 0; i < 4; i++) {

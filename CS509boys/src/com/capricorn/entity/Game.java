@@ -13,22 +13,22 @@ import java.util.List;
 public class Game {
 	
 	/** The game id. */
-	String gameId;
+	private String gameId;
 
 	/** The managing user. */
 	private String managingUser;
 	
 	/** The players information. */
-	List<Player> playersInformation; 
+	private List<Player> playersInformation; 
 	
 	/** The is locked. */
-	public boolean isLocked;
+	private boolean isLocked;
 	
 	/** The players location. */
-	List<String> playersLocation;
+	private List<String> playersLocation;
 	
 	/** The selected word list. */
-	List<Word> selectedWordList;
+	private List<Word> selectedWordList;
 	
 
 	
@@ -60,6 +60,7 @@ public class Game {
 		isLocked = false;
 		playersInformation = new LinkedList<Player>();
 		selectedWordList=new ArrayList<Word>();
+		playersLocation=new ArrayList<String>();
 	}
 	
 	/**
