@@ -19,8 +19,8 @@ import com.capricorn.listener.StartPractice;
  * @author Chen Li, Yu Li
  */
 public class Application extends JFrame {
-	private JTextField create_id_text;
-	private JTextField name_id_text;
+	public JTextField create_id_text;
+	public JTextField name_id_text;
 	private JTextField create_pass_text;
 	public Model model;
 	public String playerName;

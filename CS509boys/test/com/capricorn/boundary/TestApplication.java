@@ -1,6 +1,7 @@
 package com.capricorn.boundary;
 
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
@@ -20,8 +21,20 @@ public class TestApplication extends TestCase{
 	}
 	Application app = new Application(model);
 	app.setServerAccess(mockServer);
-	assertTrue(app.notHasPlayerName());
-	assertTrue(app.notHasPlayerNameAndGameId());
+	
+	
+	app.create_id_text.setText("game123");
+	app.name_id_text.setText("lee");
+	app.btnPractice.doClick();
+	app.setStartGame(true);
+	app.btnPractice.doClick();
+	app.btnJoin.doClick();
+	app.btnStart.doClick();
+	
+	
+	assertFalse(app.notHasPlayerName());
+	assertFalse(app.notHasPlayerNameAndGameId());
+	
 	
 	
 	
