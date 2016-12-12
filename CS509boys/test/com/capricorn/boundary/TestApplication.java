@@ -10,8 +10,10 @@ public class TestApplication extends TestCase{
 	public void testprocess() throws Exception{
 	Model model = new Model();
 	Application app = new Application(model);
+	
 	assertTrue(app.notHasPlayerName());
 	assertTrue(app.notHasPlayerNameAndGameId());
+	
 	
 	
 	
