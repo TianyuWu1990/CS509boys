@@ -105,6 +105,12 @@ public class BoardResponse extends ControllerChain{
              
 			}
 		}
+		for(int i=0;i<16;i++){
+		model.getBoard().getOverlapTimes()[i]-=1;
+		
+		}
+		
+		
 		
 		
 		if (this.flag == true) {

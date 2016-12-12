@@ -72,11 +72,11 @@ if ((index%4!=0&&(index+1)%4!=0)&&(1==Math.abs(index-i)||4==Math.abs(index-i)||3
 		String val = mg.textField_word.getText();
 		int points = 0;
 		int m=mg.getModel().getBoard().getOverlapTimes()[index];
-		mg.sum += Integer.parseInt(button.getToolTipText())*(int)Math.pow(2, m-1);
+		mg.wordScoreSum += Integer.parseInt(button.getToolTipText())*(int)Math.pow(2, m-1);
 		mg.textField_word.setText(val + button.getText());
 		
 		if(mg.textField_word.getText().length() >= 3){
-			points = mg.sum*10*((int)Math.pow(2, mg.textField_word.getText().length()));
+			points = mg.wordScoreSum*10*((int)Math.pow(2, mg.textField_word.getText().length()));
 			
 		}else{
 			points = Integer.parseInt(mg.textField_escore.getText()) + Integer.parseInt(button.getToolTipText());

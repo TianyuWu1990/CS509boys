@@ -18,7 +18,10 @@ public class TestPracticeGame extends TestCase {
 			for (int j = 0; j < 4; j++) {
 				prac.btnArray[i][j].doClick();
 			}
-		
+			prac.btn_submit.doClick();
+			prac.btnResetBoard.doClick();
+			prac.btnUndo.doClick();
+			prac.btn_exit.doClick();
 		prac.setVisible(true);
 		assertTrue(prac.isVisible());
 

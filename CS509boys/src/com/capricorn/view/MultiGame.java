@@ -43,7 +43,7 @@ public class MultiGame extends JFrame {
 	private JTable table2;
 	private List<JButton> chosenbtns;
 	private List<JButton> allCellsbtns;
-	public int sum;
+	public int wordScoreSum;
 	private JPanel panel;
 	private Application app;
 	public JLabel message;
@@ -51,10 +51,17 @@ public class MultiGame extends JFrame {
 	private JTextField textField_gameId;
 	private JTextField textField_manager;
 	private JTextField textField_score;
-	private JButton btnLock;
-	private JButton button_reset;
-	private JButton btn_xmlc;
-	private JButton btn_xmlo;
+	public JButton btnLock;
+	public JButton button_reset;
+	public JButton btn_xmlc;
+	public JButton btn_xmlo;
+	public JButton button_left;
+	public JButton button_up;
+	public JButton button_right;
+	public JButton button_down;
+	public JButton button_submit;
+	public JButton btnExit;
+	public JButton btnClear;
 	private JTextField textField_playerNum;
 	
 /** Construct MultiGame object to use default port number.*/
@@ -95,11 +102,11 @@ public class MultiGame extends JFrame {
 		textField_escore.setText("0");
 		textField_escore.setEditable(false);
 
-		JButton button = new JButton("UP");
-		button.setBackground(Color.WHITE);
-		button.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_up = new JButton("UP");
+		button_up.setBackground(Color.WHITE);
+		button_up.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
 		/**Adding an actionListener when click the button up, the game board domain will shift up forward.*/
-		button.addActionListener(new ActionListener() {
+		button_up.addActionListener(new ActionListener() {
 			int previousRow;
 			int newRow;
 			@Override
@@ -123,17 +130,17 @@ public class MultiGame extends JFrame {
 			}
 
 		});
-		button.setToolTipText("");
-		button.setBounds(641, 163, 69, 38);
-		getContentPane().add(button);
+		button_up.setToolTipText("");
+		button_up.setBounds(641, 163, 69, 38);
+		getContentPane().add(button_up);
 
-		JButton button_1 = new JButton("LEFT");
-		button_1.setBackground(Color.WHITE);
-		button_1.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		button_1.setBounds(555, 197, 75, 38);
-		getContentPane().add(button_1);
+		button_left = new JButton("LEFT");
+		button_left.setBackground(Color.WHITE);
+		button_left.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_left.setBounds(555, 197, 75, 38);
+		getContentPane().add(button_left);
 		/**Adding an actionListener when click the button left, the game board domain will shift left forward.*/
-		button_1.addActionListener(new ActionListener() {
+		button_left.addActionListener(new ActionListener() {
 			int previousCol;
 			int newCol;
 
@@ -159,12 +166,12 @@ public class MultiGame extends JFrame {
 
 		});
 
-		JButton button_2 = new JButton("RIGHT");
-		button_2.setBackground(Color.WHITE);
-		button_2.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		button_2.setBounds(716, 197, 75, 38);
+		button_right = new JButton("RIGHT");
+		button_right.setBackground(Color.WHITE);
+		button_right.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_right.setBounds(716, 197, 75, 38);
 		/**Adding an actionListener when click the button right, the game board domain will shift right forward.*/
-		button_2.addActionListener(new ActionListener() {
+		button_right.addActionListener(new ActionListener() {
 			int previousCol;
 			int newCol;
 
@@ -189,15 +196,15 @@ public class MultiGame extends JFrame {
 			}
 
 		});
-		getContentPane().add(button_2);
+		getContentPane().add(button_right);
 
-		JButton button_3 = new JButton("DOWN");
-		button_3.setBackground(Color.WHITE);
-		button_3.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
-		button_3.setBounds(641, 231, 69, 38);
-		getContentPane().add(button_3);
+		button_down = new JButton("DOWN");
+		button_down.setBackground(Color.WHITE);
+		button_down.setFont(new Font("Lucida Grande", Font.PLAIN, 10));
+		button_down.setBounds(641, 231, 69, 38);
+		getContentPane().add(button_down);
 		/**Adding an actionListener when click the button down, the game board domain will shift down forward.*/
-		button_3.addActionListener(new ActionListener() {
+		button_down.addActionListener(new ActionListener() {
 			int previousRow;
 			int newRow;
 
@@ -223,14 +230,14 @@ public class MultiGame extends JFrame {
 
 		});
 
-		JButton button_4 = new JButton("Submit");
-		button_4.setBackground(Color.WHITE);
-		button_4.setBounds(472, 13, 147, 40);
-		getContentPane().add(button_4);
+		button_submit = new JButton("Submit");
+		button_submit.setBackground(Color.WHITE);
+		button_submit.setBounds(472, 13, 147, 40);
+		getContentPane().add(button_submit);
 		/**Adding an actionListener when click the button submit, the game board domain will show the validation of the word
 		 * and add scores to the score area. 
 		 */
-		button_4.addActionListener(new ActionListener() {
+		button_submit.addActionListener(new ActionListener() {
 			
 			long localExpectedWordScore;
 
@@ -273,7 +280,7 @@ public class MultiGame extends JFrame {
 			}
 		});
 
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.setBackground(Color.RED);
 		btnExit.addActionListener(new ActionListener() {
 /**Realize the exit button.*/
@@ -376,7 +383,7 @@ public class MultiGame extends JFrame {
 		message.setBorder(BorderFactory.createLineBorder(Color.gray));
 		message.setForeground(Color.red);
 
-		JButton btnClear = new JButton("Clear");
+		btnClear = new JButton("Clear");
 		btnClear.setBackground(Color.CYAN);
 		btnClear.setBounds(706, 13, 89, 38);
 		getContentPane().add(btnClear);
@@ -468,16 +475,7 @@ public class MultiGame extends JFrame {
 		textField_playerNum.setBounds(205, 655, 101, 33);
 		getContentPane().add(textField_playerNum);
 		textField_playerNum.setColumns(10);
-		
-		
-			
-			
-		
-		
-		
-
 		setallCellsbtns();
-
 		refreshBoard();
 
 		
@@ -508,10 +506,7 @@ public class MultiGame extends JFrame {
 
 	}
 
-	private void setLockEnable() {
-		
 
-	}
 
 	public void setScoreTable() {
 		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
@@ -615,9 +610,9 @@ public class MultiGame extends JFrame {
 			panel.repaint();
 			for (int i = 0; i < 16; i++) {
 				this.allCellsbtns.get(i)
-						.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
-								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
-								255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
+						.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i]) * 15,
+								255 - (model.getBoard().getOverlapTimes()[i]) * 15,
+								255 - (model.getBoard().getOverlapTimes()[i]) * 15));
 			}
 			this.textField_playerNum.setText(String.valueOf(model.getGame().getPlayersListByScore().size()));
 		}
@@ -630,9 +625,9 @@ public class MultiGame extends JFrame {
 	private void removeCellBtnsColors() {
 		for (int i = 0; i < 16; i++) {
 			JButton btn = this.allCellsbtns.get(i);
-			btn.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
-					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30,
-					255 - (model.getBoard().getOverlapTimes()[i] - 1) * 30));
+			btn.setBackground(new Color(255 - (model.getBoard().getOverlapTimes()[i] ) *15,
+					255 - (model.getBoard().getOverlapTimes()[i] ) *15,
+					255 - (model.getBoard().getOverlapTimes()[i] ) *15));
 		}
 		
 
@@ -649,7 +644,7 @@ public class MultiGame extends JFrame {
 		for (JButton btn : allCellsbtns) {
 			btn.setEnabled(true);
 		}
-		this.sum=0;
+		this.wordScoreSum=0;
 		
 
 	}

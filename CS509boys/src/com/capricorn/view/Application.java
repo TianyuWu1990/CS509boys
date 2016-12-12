@@ -26,6 +26,10 @@ public class Application extends JFrame {
 	public String playerName;
 	public String gameNumber;
 	public String passWord;
+	public JButton btnStart;
+	public JButton btnJoin;
+	public JButton btnExit;
+	public JButton btnPractice;
 	public String getPassWord() {
 		return passWord;
 	}
@@ -150,7 +154,7 @@ public class Application extends JFrame {
 		xmlb=new XmlInfoBoard();
 		xmlb.setVisible(true);
 
-		JButton btnStart = new JButton("Create a game");
+		btnStart = new JButton("Create a game");
 		/** Realizing create a game button by applying Create game Request.*/
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -174,9 +178,9 @@ public class Application extends JFrame {
 		btnStart.setBounds(305, 186, 149, 58);
 		getContentPane().add(btnStart);
 
-		JButton btnStop = new JButton("Join a game");
+		btnJoin = new JButton("Join a game");
 		/**Realizing join a game button.*/
-		btnStop.addActionListener(new ActionListener() {
+		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!notHasPlayerNameAndGameId()){
 					new JoinGameRequest(model, Application.this).process();
@@ -200,18 +204,18 @@ public class Application extends JFrame {
 				}
 			}
 		});
-		btnStop.setBounds(157, 186, 149, 58);
-		getContentPane().add(btnStop);
+		btnJoin.setBounds(157, 186, 149, 58);
+		getContentPane().add(btnJoin);
 		
-		JButton btnNewButton_1 = new JButton("Practice mode");
+		btnPractice = new JButton("Practice mode");
 
 		StartPractice StartPracticeControl= new StartPractice(this,model);
 		
-		btnNewButton_1.addActionListener(StartPracticeControl);
-		btnNewButton_1.setBounds(6, 186, 149, 58);
-		getContentPane().add(btnNewButton_1);
+		btnPractice.addActionListener(StartPracticeControl);
+		btnPractice.setBounds(6, 186, 149, 58);
+		getContentPane().add(btnPractice);
 
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0); 

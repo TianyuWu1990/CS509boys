@@ -29,6 +29,10 @@ public class PracticeGame extends JFrame {
 	public Model m; 
 	public int sum; 
 	public JButton btnArray[][] = new JButton[4][4];
+	public JButton btn_submit;
+	public JButton btnResetBoard;
+	public JButton btnUndo;
+	public JButton btn_exit;
 	/** Here is a constructor for PracticeGame in order to make a fault value.
 	 *  Construct PracticeGame object to use default port number.
 	 */
@@ -60,9 +64,9 @@ public class PracticeGame extends JFrame {
 		txtOwn.setEditable(false);
 		getContentPane().add(txtOwn);
 
-		JButton btnNewButton_4 = new JButton("Submit");
-		btnNewButton_4.setBounds(322, 13, 134, 40);
-		getContentPane().add(btnNewButton_4);
+		btn_submit = new JButton("Submit");
+		btn_submit.setBounds(322, 13, 134, 40);
+		getContentPane().add(btn_submit);
 
 
 		JLabel lblScore = new JLabel("Score :");
@@ -76,24 +80,24 @@ public class PracticeGame extends JFrame {
 		textField.setEditable(false);
 		textField.setColumns(10);
 
-		JButton btnResetBoard = new JButton("Reset Board");
+		btnResetBoard = new JButton("Reset Board");
 		Reset_practiceGame resetControl = new Reset_practiceGame(this,m);
 		btnResetBoard.addActionListener(resetControl);
 		btnResetBoard.setBounds(462, 89, 111, 23);
 		getContentPane().add(btnResetBoard);
 
 
-		JButton btnUndo = new JButton("Clear");
+		btnUndo = new JButton("Clear");
 		ClearButton_practiceGame clearControl = new ClearButton_practiceGame(this);  
 		btnUndo.addActionListener(clearControl);
 		btnUndo.setBounds(333, 49, 117, 29);
 		getContentPane().add(btnUndo);
 		
-		JButton btnNewButton_2 = new JButton("Exit Practice");
+		btn_exit = new JButton("Exit Practice");
 		Exit_practiceGame exitControl = new Exit_practiceGame(this,m);
-		btnNewButton_2.addActionListener(exitControl);
-		btnNewButton_2.setBounds(462, 14, 111, 38);
-		getContentPane().add(btnNewButton_2);
+		btn_exit.addActionListener(exitControl);
+		btn_exit.setBounds(462, 14, 111, 38);
+		getContentPane().add(btn_exit);
 	}
 
 }
