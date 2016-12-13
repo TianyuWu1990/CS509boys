@@ -20,7 +20,6 @@ public ClickButton_multiGame(MultiGame mg){
 	
 	/**
 	 * Define the function actionPerformed is used after clicking.
-	 *
 	 * @param a the a
 	 */
 	@Override

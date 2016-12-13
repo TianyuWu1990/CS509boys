@@ -4,7 +4,7 @@ package com.capricorn.entity;
 // TODO: Auto-generated Javadoc
 /**
  * The Class Coordinate.
- *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
+ *@author Chen Li, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Coordinate {
 
@@ -22,13 +22,14 @@ public Coordinate(){
 	this.row=0;
 }
 
+
+public Coordinate(int col,int row){
 /**
  * Instantiates a new coordinate.
  *
  * @param col the col
  * @param row the row
  */
-public Coordinate(int col,int row){
 	this.col=col;
 	this.row=row;
 }

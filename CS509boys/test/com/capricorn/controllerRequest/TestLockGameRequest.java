@@ -7,21 +7,21 @@ import com.capricorn.RequestController.LockGameRequest;
 import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
-
-public class TestLockGameRequest extends TestCase{
-	/**
+/**
 	 * @author yli14
 	 * This is for test 'LockGameRequest' in controller
 	 */
+public class TestLockGameRequest extends TestCase{
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer ms = new MockServer("localhost");
 	
-	
-	public void testprocess() throws Exception{
-		/**
+	/**
 		 * Test Process() method in 'LockGameRequest'
 		 */
+	public void testprocess() throws Exception{
+		
 		if (!Message.configure("wordsweeper.xsd")) { 
 			fail ("unable to configure protocol"); 
 		}

@@ -10,21 +10,21 @@ import com.capricorn.entity.Cell;
 import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
-
-public class TestFindWordRequest extends TestCase{
-	/**
+/**
 	 * @author yli14
 	 * This is for test 'FindWordRequest' in controller
 	 */
+public class TestFindWordRequest extends TestCase{
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer ms = new MockServer("localhost");
 	
-	
-	public void testprocess() throws Exception{
-		/**
+	/**
 		 * Test Process() method in 'FindWordRequest'
 		 */
+	public void testprocess() throws Exception{
+		
 		if (!Message.configure("wordsweeper.xsd")) { 
 			fail ("unable to configure protocol"); 
 		}

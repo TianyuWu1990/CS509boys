@@ -10,21 +10,21 @@ import com.capricorn.mockServer.*;
 import com.capricorn.view.Application;
 
 import junit.framework.TestCase;
-
-public class TestResetGameRequest extends TestCase {
-	/**
+/**
 	 * @author yli14
 	 * This is for test 'ResetGameRequest' in controller
 	 */
+public class TestResetGameRequest extends TestCase {
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer ms = new MockServer("localhost");
 			
-	
-	public void testprocess() throws Exception{
-		/**
+	/**
 		 * Test Process() method in 'ResetGameRequest'
 		 */
+	public void testprocess() throws Exception{
+		
 		if (!Message.configure("wordsweeper.xsd")) { 
 			fail ("unable to configure protocol"); 
 		}

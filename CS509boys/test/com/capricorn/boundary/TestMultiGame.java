@@ -11,9 +11,9 @@ import com.capricorn.view.MultiGame;
 
 import junit.framework.TestCase;
 import xml.Message;
-
+/**Test the 'MultiGame'*/
 public class TestMultiGame extends TestCase{
-	
+	/**Test the function process() in the multigame*/
 	public void testprocess() throws Exception{
 		MockServer mockServer = new MockServer("localhost");
 		Model model = new Model();

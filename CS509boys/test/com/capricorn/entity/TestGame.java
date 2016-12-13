@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test 'Game' in entities
+ */
 public class TestGame extends TestCase{
-	
+	/**
+     * Test Game entity.
+     */
 	public void testGame(){
-		//Test get and set.
 		Game game = new Game();
 		Player p1 = new Player();
 		Player p2 = new Player();
@@ -26,7 +30,6 @@ public class TestGame extends TestCase{
 		assertTrue(game.getGameId()=="g1");
 		game.getPlayersInformation().add(p1);
 		game.getPlayersInformation().add(p2);
-		//Test lock game.
 		game.setLocked(true);
 			
 		assertTrue(game.isLocked());
@@ -39,11 +42,9 @@ public class TestGame extends TestCase{
 	
 		p1.setScore(45);
 		game.getPlayersListByScore();
-		//after change lee's score, his rank shoud be 2,and Son should be 1
 		assertTrue(game.getPlayersInformation().get(0).getName()=="son");
 		
 		assertTrue(game.getPlayersInformation().get(0).getScore()>game.getPlayersInformation().get(1).getScore());
-		//clear all Players' informations
 		game.clearPlayersInformation();
 		assertEquals(game.getPlayersInformation().size(),0);
 	    

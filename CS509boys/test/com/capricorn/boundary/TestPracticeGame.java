@@ -6,8 +6,9 @@ import com.capricorn.view.Application;
 import com.capricorn.view.MultiGame;
 import com.capricorn.view.PracticeGame;
 import junit.framework.TestCase;
-
+/**Test the 'PracticeGame'*/
 public class TestPracticeGame extends TestCase {
+	/**Test the process() in the 'PracticeGame'*/
 	public void testprocess() throws Exception{
 		Model model = new Model();
 		model.getBoard().setcellArrayForPractice();

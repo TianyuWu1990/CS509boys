@@ -9,9 +9,9 @@ import com.capricorn.view.Application;
 
 import junit.framework.TestCase;
 import xml.Message;
-
+/**Testcase for application*/
 public class TestApplication extends TestCase{
-		
+		/**Test the process() in application */
 	public void testprocess() throws Exception{
 	MockServer mockServer = new MockServer("localhost");
 	Model model = new Model();

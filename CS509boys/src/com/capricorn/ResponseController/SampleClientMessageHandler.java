@@ -20,10 +20,10 @@ public class SampleClientMessageHandler implements IMessageHandler {
 		handler.next = chain;
 		chain = handler;
 	}
-	
+	/** Construct SampleClientMessageHandler(Application app) object to use default port number.*/
 	public SampleClientMessageHandler(Application app) {		this.app = app;
 	}
-	
+	/**Process to do with the response message*/
 	@Override
 	public void process(Message response) {
 		chain.process(response);
