@@ -19,7 +19,6 @@ public class ClickButton_practiceGame implements ActionListener{
 	/**
 	 *  Define the default p for PracticeGame
 	 * Construct ClickLetter object to use default port number.
-	 *
 	 * @param p the p
 	 */
 	public ClickButton_practiceGame(PracticeGame p){

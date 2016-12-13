@@ -7,21 +7,21 @@ import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
 import junit.framework.TestCase;
-
-public class TestJoinGameRequest extends TestCase{
-	/**
+/**
 	 * @author yli14
 	 * This is for test 'JoinGameRequest' in controller
 	 */
+public class TestJoinGameRequest extends TestCase{
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer ms = new MockServer("localhost");
 			
-	
-	public void testprocess() throws Exception{
-		/**
+	/**
 		 * Test Process() method in 'JoinGameRequest'
 		 */
+	public void testprocess() throws Exception{
+		
 		if (!Message.configure("wordsweeper.xsd")) { 
 			fail ("unable to configure protocol"); 
 		}

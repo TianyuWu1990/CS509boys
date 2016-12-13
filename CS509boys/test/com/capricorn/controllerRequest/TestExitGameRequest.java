@@ -7,21 +7,21 @@ import com.capricorn.RequestController.ExitGameRequest;
 import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
-
-public class TestExitGameRequest extends TestCase{
-	/**
+/**
 	 * @author yli14
 	 * This is for test 'ExitGameRequest' in controller
 	 */
+public class TestExitGameRequest extends TestCase{
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer ms = new MockServer("localhost");
 	
-	
-	public void testprocess() throws Exception{
-		/**
+	/**
 		 * Test Process() method in 'ExitGameRequest'
 		 */
+	public void testprocess() throws Exception{
+		
 		if (!Message.configure("wordsweeper.xsd")) { 
 			fail ("unable to configure protocol"); 
 		}

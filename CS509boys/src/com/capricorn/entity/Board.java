@@ -5,7 +5,7 @@ import java.util.List;
 
 /**As defined, the size of the board should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
-  *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
+  *@author Chen Li, Yu Li, Tianyu Wu, Bowen Sun
   */
 public class Board {
 public Cell cells[][] = new Cell[4][4];
