@@ -305,8 +305,8 @@ public class MultiGame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				String word = textField_word.getText();
-				if (word.length() <= 1) {
-					message.setText("Choose at least 2 letters");
+				if (word.length() <= 2) {
+					message.setText("Choose at least 3 letters");
 					return;
 				}
 				localExpectedWordScore = Long.parseLong(textField_escore.getText());
