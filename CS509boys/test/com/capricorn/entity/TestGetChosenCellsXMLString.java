@@ -1,13 +1,17 @@
 package com.capricorn.entity;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test 'GetChosenCellsXMLString' in entity cell
+ */
 public class TestGetChosenCellsXMLString extends TestCase{
 	
 	Board board = new Board();
-
+	/**
+     * Test getChosenCellsXMLString() in entity cell.
+     */
 	public void testgetChosenCellsXMLString(){
-		// Test get ChosenCells in XMLString form
 		Cell a = new Cell();
 		Cell b = new Cell();
 		Coordinate co= new Coordinate(3,4);
@@ -23,7 +27,6 @@ public class TestGetChosenCellsXMLString extends TestCase{
 		
 
 		assertEquals(result,"<cell position='3,4' letter='a'/><cell position='2,3' letter='QU'/>");
-		//Test set and get for coordinate col and row.
 		co.setCol(2);
 		co.setRow(2);
 		co1.setCol(3);

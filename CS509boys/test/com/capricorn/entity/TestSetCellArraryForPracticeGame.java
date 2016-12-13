@@ -7,9 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test 'SetCellArraryForPracticeGame' in entity 'PracticeGame'
+ */
 public class TestSetCellArraryForPracticeGame extends TestCase {
-				
+		/** Test the 'SetCellArraryForPracticeGame'. */
 		public void testsetcellArrayForPractice(){
 			Board board = new Board();
 			Board board1 = new Board();
@@ -17,7 +20,6 @@ public class TestSetCellArraryForPracticeGame extends TestCase {
 			board.setcellArrayForPractice();
 			board1.setcellArrayForPractice();
 
-			//Two Array of cells should be different because we generate them randomly.
 			assertTrue(board.cells!=board1.cells);
 			
 			

@@ -7,11 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test 'UpdateBoard' in entity 'Board'.
+ */
 public class TestUpdateBoard extends TestCase {
 	
 	Board board = new Board();
-	
+	/** Test the 'UpdateBoard' funtion.*/
 	public void testupdateBoard(){
 
 		board.setGlobalStartingCol(3);

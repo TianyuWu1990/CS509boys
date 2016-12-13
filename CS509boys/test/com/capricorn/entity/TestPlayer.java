@@ -1,9 +1,12 @@
 package com.capricorn.entity;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test entity 'Player'.
+ */
 public class TestPlayer extends TestCase{
-	
+	/** Test the entity 'Player'.*/
 	public void testPlayer(){
 			Player pl=new Player();		
 			pl.setManager(true);

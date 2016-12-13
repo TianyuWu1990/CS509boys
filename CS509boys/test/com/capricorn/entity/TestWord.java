@@ -1,7 +1,11 @@
 package com.capricorn.entity;
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test 'Word' in entities
+ */
 public class TestWord extends TestCase{
+	/** Test the entity 'Word'.*/
 	public void testWord(){
 		Word word1=new Word("word", 500, "11.23");
 		assertEquals(word1.getContent(),"word");

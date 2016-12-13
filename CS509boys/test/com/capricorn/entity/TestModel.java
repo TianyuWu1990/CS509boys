@@ -1,9 +1,12 @@
 package com.capricorn.entity;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14
+ * This is for test entity 'Model'.
+ */
 public class TestModel extends TestCase{
-	
+	/**Test the 'Model'*/
 	public void testModel(){
 			Model model=new Model();	
 			model.updateModel("g123", "chen", "lee", 1, 2, "a,b,c,d,f,g,t,r,e,u,i,s,g,f,d,r" ,500, "3,1");
