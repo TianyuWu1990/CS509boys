@@ -12,7 +12,7 @@ import junit.framework.TestCase;
 
 public class TestResetGameResponse extends TestCase {
 	/**
-	 * @author yli14
+	 * @author yli14, Bowen Sun, Chen Li
 	 * For test "ResetGameResponse" in controller.
 	 */
 	Model model = new Model();
@@ -53,13 +53,6 @@ SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
 		
 		
 		handler.registerHandler(rgr);
-		//handler.registerHandler(new BoardResponse(app, model));
-		//handler.registerHandler(new ResetGameResponse(app, model));
-		//handler.registerHandler(new LockGameResponse(app, model));
-		//handler.registerHandler(new FindWordResponse(app, model));
-		//handler.registerHandler(new ExitGameResponse(app, model));
-		//handler.registerHandler(new ConnectResponseController(app, model));
-	
 		assertEquals(model.getPlayer().getScore(),0);	
 		assertTrue(rgr.process(n));
 			

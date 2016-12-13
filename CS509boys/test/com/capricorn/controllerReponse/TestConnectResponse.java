@@ -14,11 +14,13 @@ import com.capricorn.view.Application;
 import xml.Message;
 
 public class TestConnectResponse {
-
+/** Test for the 'Connect response' in the controller
+ *  @author Bowen Sun, Chen Li
+ */
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");
-	
+	/**test the process in the 'Connect response' controller*/
 	@Test
 	public void TestConnectRespnse1(){
 		if (!Message.configure("wordsweeper.xsd")) {
@@ -53,12 +55,6 @@ public class TestConnectResponse {
 			
 			
 			handler.registerHandler(crc);
-			//handler.registerHandler(new BoardResponse(app, model));
-			//handler.registerHandler(new ResetGameResponse(app, model));
-			//handler.registerHandler(new LockGameResponse(app, model));
-			//handler.registerHandler(new FindWordResponse(app, model));
-			//handler.registerHandler(new ExitGameResponse(app, model));
-			//handler.registerHandler(new ConnectResponseController(app, model));
 			assertTrue(crc.process(n));
 			assertTrue(crc.process(m));
 		

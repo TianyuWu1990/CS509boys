@@ -16,7 +16,7 @@ import xml.Message;
 
 
 public class TestExitGameResponse {
-	/**@author Ruochen Shi; 
+	/**@author Bowen Sun, Chen Li 
 	 * This is responsible for testing "Exit Game" Controller*/
 
 	Model model=new Model();
@@ -26,11 +26,10 @@ public class TestExitGameResponse {
 	
 	
 	
-		/**this is the setting for the test*/
-		// FIRST thing to do is register the protocol being used.
+		
 		
 	
-
+/** Test the process in the 'Exit Game' controller.*/
 	@Test
 	public void TestExitGameProcess(){
 		

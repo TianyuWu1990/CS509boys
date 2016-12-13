@@ -22,8 +22,8 @@ import xml.Message;
 
 
 public class TestJoinGameResponse {
-	/**@author Ruochen Shi; 
-	 * This is responsible for testing "Exit Game" Controller*/
+	/**@author Bowen Sun, Chen Li 
+	 * This is the test for 'Join Game Response' in Controller*/
 
 	Model model=new Model();
 	Application app=new Application(model);
@@ -32,11 +32,9 @@ public class TestJoinGameResponse {
 	
 	
 	
-		/**this is the setting for the test*/
-		// FIRST thing to do is register the protocol being used.
 		
 	
-
+/** Test the process in 'Join Game Response'*/
 	@Test
 	public void TestExitGameProcess(){
 		

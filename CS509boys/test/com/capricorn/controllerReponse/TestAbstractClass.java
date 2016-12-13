@@ -13,7 +13,9 @@ import com.capricorn.view.Application;
 import com.capricorn.view.MultiGame;
 
 import xml.Message;
-
+/**This is the test method for 'SampleClientMessageHandler'
+ * @author Bowen Sun, Chen Li
+ */
 public class TestAbstractClass {
 	
 	Model model=new Model();
@@ -24,14 +26,13 @@ MockServer mockServer=new MockServer("localhost");
 	
 	public void testConSampleMessagehandler(){
 		
-		//app.setMg(new MultiGame(model, app));
-		/**this is the setting for the test*/
-		// FIRST thing to do is register the protocol being used.
+		
+		/**this is the setting for the test and the Test Process() method in 'SampleClientMessageHandler'*/
+		
 		if (!Message.configure("wordsweeper.xsd")) {
 			fail("unable to configure protocol");
 		}
 		app.setServerAccess(mockServer);
-		/**this is the test for connect response process part 2*/
 		String xml2= "<?xml version=\"1.0\" encoding=\"UTF-8\"?><response id=\"someMessageID\" success=\"true\">"
 		    + "<connectResponse id=\"game1\">"
 		    +"</connectResponse></response>";

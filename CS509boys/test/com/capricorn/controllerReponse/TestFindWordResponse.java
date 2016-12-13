@@ -16,15 +16,15 @@ import com.capricorn.view.MultiGame;
 import xml.Message;
 
 public class TestFindWordResponse {
-	/**@author Ruochen Shi; 
-	 * This is responsible for testing "Find Word Response" Controller*/
+	/**@author Bowen Sun, Chen Li
+	 * This is the test for 'Find Word Response' in Controller*/
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");
 
 
 	
-
+/**Test the process of the 'Find  word REsponse' in controller*/
 	@Test
 	public void TestFindWordResponseProcess(){
 		app.setMg(new MultiGame(model, app));
@@ -50,7 +50,7 @@ public class TestFindWordResponse {
 		FindWordResponse fwr=new FindWordResponse(app,model);
 		assertTrue(fwr.process(m));
 		
-		/**this is the test for connect response process part 2*/
+		/**this is the test for connect response process part */
 		String xml2= "<?xml version=\"1.0\" encoding=\"UTF-8\"?><response id=\"someMessageID\" success=\"true\">"
 		    + "<connectResponse id=\"game1\">"
 		    +"</connectResponse></response>";
@@ -63,12 +63,6 @@ public class TestFindWordResponse {
 		
 		
 		handler.registerHandler(fwr);
-		//handler.registerHandler(new BoardResponse(app, model));
-		//handler.registerHandler(new ResetGameResponse(app, model));
-		//handler.registerHandler(new LockGameResponse(app, model));
-		//handler.registerHandler(new FindWordResponse(app, model));
-		//handler.registerHandler(new ExitGameResponse(app, model));
-		//handler.registerHandler(new ConnectResponseController(app, model));
 		assertTrue(fwr.process(n));
 	
 		

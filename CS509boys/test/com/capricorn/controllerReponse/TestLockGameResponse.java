@@ -15,7 +15,7 @@ import com.capricorn.view.MultiGame;
 import junit.framework.TestCase;
 public class TestLockGameResponse extends TestCase {
 	/**
-	 * @author yli14
+	 * @author yli14, Chen Li, Bowen Sun
 	 * For test "LockGameResponse" in controller.
 	 */
 
@@ -57,12 +57,6 @@ SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
 		
 		
 		handler.registerHandler(lck);
-		//handler.registerHandler(new BoardResponse(app, model));
-		//handler.registerHandler(new ResetGameResponse(app, model));
-		//handler.registerHandler(new LockGameResponse(app, model));
-		//handler.registerHandler(new FindWordResponse(app, model));
-		//handler.registerHandler(new ExitGameResponse(app, model));
-		//handler.registerHandler(new ConnectResponseController(app, model));
 	
 		assertTrue(model.getGame().isLocked());	
 		assertTrue(lck.process(n));

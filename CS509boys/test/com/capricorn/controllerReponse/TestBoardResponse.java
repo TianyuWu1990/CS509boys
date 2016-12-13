@@ -18,15 +18,21 @@ import com.capricorn.view.MultiGame;
 
 import xml.Message;
 
-
+/**
+ * This is responsible for testing "Board Response" Controller
+ * @author Bowen Sun, Chen Li
+ */
 public class TestBoardResponse {
 
-/**
- * This is responsible for testing "Board Response" Controller*/
+
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");
-
+	/**
+	 * Test Process() method in 'Board Response' in controller.
+     * This is responsible for testing the process of "Board Response" Controller
+     * the situation is that the list is more than 1
+	 */
 	@Test
 	public void TestBoardResponse1(){
 		app.setMg(new MultiGame(model, app));
@@ -38,9 +44,7 @@ public class TestBoardResponse {
 		app.setServerAccess(mockServer);
 	
 		
-		/**
-		 * This is responsible for testing the process of "Board Response" Controller
-		 * the situation is that the list is more than 1*/
+		
 		String name="player";
 		int col=2, row=1;
 		String bonus = "3,3";
@@ -98,12 +102,6 @@ SampleClientMessageHandler handler = new SampleClientMessageHandler(app);
 		
 		
 		handler.registerHandler(br);
-		//handler.registerHandler(new BoardResponse(app, model));
-		//handler.registerHandler(new ResetGameResponse(app, model));
-		//handler.registerHandler(new LockGameResponse(app, model));
-		//handler.registerHandler(new FindWordResponse(app, model));
-		//handler.registerHandler(new ExitGameResponse(app, model));
-		//handler.registerHandler(new ConnectResponseController(app, model));
 		assertTrue(br.process(n));
 		
 	}
