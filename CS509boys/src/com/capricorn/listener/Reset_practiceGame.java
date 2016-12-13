@@ -41,8 +41,8 @@ public class Reset_practiceGame implements ActionListener{
 		m.getBoard().setcellArrayForPractice();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {						
-			p.btnArray[i][j].setText(m.getBoard().cells[i][j].letter); 
-			p.btnArray[i][j].setToolTipText(m.getBoard().cells[i][j].points);	
+			p.btnArray[i][j].setText(m.getBoard().getCells()[i][j].getLetter()); 
+			p.btnArray[i][j].setToolTipText(m.getBoard().getCells()[i][j].getPoints());	
 			}					
 		}
 		for (int i = 0; i < 4; i++) {

@@ -11,7 +11,7 @@ import java.util.List;
 public class Board {
 
 /** The cells. */
-public Cell cells[][] = new Cell[4][4];
+private Cell cells[][] = new Cell[4][4];
 
 /** The chosen cells. */
 private ArrayList<Cell> chosenCells;
@@ -370,15 +370,7 @@ for(int j=0;j<4;j++){
 }
 
 
-/**
- * The main method.
- *
- * @param args the arguments
- */
-public static void main(String[] args) {
-	
 
-}
 }
 
 

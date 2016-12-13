@@ -260,7 +260,5 @@ public class Application extends JFrame {
 
 
 
-	public void setXmlb(XmlInfoBoard xmlb) {
-		this.xmlb = xmlb;
-	}
+	
 }

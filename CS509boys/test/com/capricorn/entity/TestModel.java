@@ -22,6 +22,11 @@ public class TestModel extends TestCase{
 			model.resetGame();
 			assertEquals(model.getPlayer().getScore(),0);
 			assertEquals(model.getBoard().getChosenCellsLetters(),"");
+			Model model2=Model.getInstance();
+			Model model3=Model.getInstance();
+			assertEquals(model2,model3);
+			
+			
 			
 			
 		}

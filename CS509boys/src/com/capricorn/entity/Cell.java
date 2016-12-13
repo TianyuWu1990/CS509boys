@@ -14,10 +14,10 @@ import com.capricorn.entity.Coordinate;
 public class Cell {
 
 /** The letter. */
-public String letter;               
+private String letter;               
 
 /** The points. */
-public String points;               
+private String points;               
 
 /** The local coordinate. */
 private Coordinate localCoordinate; 
@@ -26,10 +26,10 @@ private Coordinate localCoordinate;
 private Coordinate globalCoordinate;
 
 /** The is selected. */
-boolean isSelected;               
+private boolean isSelected;               
 
 /** The is bonus. */
-boolean isBonus;                    
+private boolean isBonus;                    
 /**Construct Cell object to use default port number.*/
 public Cell(){
 	localCoordinate=new Coordinate();

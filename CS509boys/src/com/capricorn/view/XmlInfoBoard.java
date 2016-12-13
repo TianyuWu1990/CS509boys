@@ -50,7 +50,5 @@ public class XmlInfoBoard extends JFrame {
 		return messageInfo;
 	}
 
-	public void setMessageInfo(JTextArea messageInfo) {
-		this.messageInfo = messageInfo;
-	}
+	
 }

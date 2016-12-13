@@ -20,7 +20,7 @@ public class TestClearChosenCells extends TestCase {
 		board.addToChosenCellsByIndex(4);
 		board.clearChosenCells();
 		assertEquals(board.getChosenCells(),ce);
-		assertFalse(board.cells[1][0].isSelected());
+		assertFalse(board.getCells()[1][0].isSelected());
 		
 	}
 

@@ -26,9 +26,9 @@ public class TestUpdateBoard extends TestCase {
 		
 		assertTrue(board.getGlobalStartingCol()==3&&board.getGlobalStartingRow()==4);
 
-		for(int i=0;i<board.cells.length;i++){
-			for(int j=0;j<board.cells.length;j++){
-				b += board.cells[i][j].getLetter();
+		for(int i=0;i<board.getCells().length;i++){
+			for(int j=0;j<board.getCells().length;j++){
+				b += board.getCells()[i][j].getLetter();
 				if(b.length() < 31){
 					b += ",";
 				}

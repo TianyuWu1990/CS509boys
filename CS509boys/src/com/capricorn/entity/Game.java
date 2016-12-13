@@ -181,13 +181,6 @@ public class Game {
 		return playersLocation;
 	}
 	
-	/**
-	 * Sets the playerslocation.
-	 *
-	 * @param playerslocation the new playerslocation
-	 */
-	public void setPlayerslocation(List<String> playerslocation) {
-		this.playersLocation = playerslocation;
-	}
+	
 }
 

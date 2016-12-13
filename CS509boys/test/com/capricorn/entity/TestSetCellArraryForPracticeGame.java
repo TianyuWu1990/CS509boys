@@ -20,7 +20,7 @@ public class TestSetCellArraryForPracticeGame extends TestCase {
 			board.setcellArrayForPractice();
 			board1.setcellArrayForPractice();
 
-			assertTrue(board.cells!=board1.cells);
+			assertTrue(board.getCells()!=board1.getCells());
 			
 			
 		}

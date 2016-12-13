@@ -524,7 +524,7 @@ public class MultiGame extends JFrame {
 	public void setModel(Model model) {
 		this.model = model;
 	}
-
+	
 	public List<JButton> getAllCellsbtns() {
 		return allCellsbtns;
 	}
@@ -578,7 +578,7 @@ public class MultiGame extends JFrame {
 				int y = 40 + i * 35;
 				JButton btn = new JButton();
 				btn.setBounds(x, y, 89, 23);
-				btn.setToolTipText(model.getBoard().cells[i][j].getPoints());
+				btn.setToolTipText(model.getBoard().getCells()[i][j].getPoints());
 				allCellsbtns.add(btn);
 				ClickButton_multiGame clickControl = new ClickButton_multiGame(this);
 				btn.addActionListener(clickControl);
