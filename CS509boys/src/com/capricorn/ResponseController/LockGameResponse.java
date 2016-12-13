@@ -5,7 +5,7 @@ import xml.Message;
 import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Receive and find out the lock game response from the server and realize the lock request.
- *  @author Chen Li, Tianyu Wu
+ *  @author Chen Li, Tianyu Wu, Dongsheng Wang
  */
 public class LockGameResponse extends ControllerChain{
 	
@@ -13,7 +13,12 @@ public class LockGameResponse extends ControllerChain{
 		public Application app;
 		public Model model;
 		
-/** Construct LockGameResponse object to use default port number.*/
+/**
+ *  Construct LockGameResponse object to use default port number.
+ *
+ * @param a the Application
+ * @param m the Model
+ */
 		public LockGameResponse(Application a, Model m) {
 			super();
 			this.app = a;

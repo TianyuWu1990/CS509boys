@@ -28,8 +28,8 @@ public class StartPractice implements ActionListener{
 	/**
 	 *  Construct StartPractice object to use default port data.
 	 *
-	 * @param p the p
-	 * @param m the m
+	 * @param p is the Application
+	 * @param m is the Model
 	 */
 	public StartPractice(Application p,Model m){
 		this.st=p;
@@ -39,7 +39,7 @@ public class StartPractice implements ActionListener{
 	/**
 	 * Dispose the default board at the beginning and connect to the game board.
 	 *
-	 * @param e the e
+	 * @param e is the ActionEvent
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {

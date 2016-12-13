@@ -8,7 +8,7 @@ import xml.Message;
  * You should follow this template when designing YOUR message handler.
  * 
  * Note: This one does nothing more than dump the XML message into the client window. Nothing that special.
- * @author Chen Li, Tianyu Wu
+ * @author Chen Li, Tianyu Wu, Dongshegn
  */
 public class SampleClientMessageHandler implements IMessageHandler {
 	Application app;	
@@ -23,7 +23,12 @@ public class SampleClientMessageHandler implements IMessageHandler {
 	/** Construct SampleClientMessageHandler(Application app) object to use default port number.*/
 	public SampleClientMessageHandler(Application app) {		this.app = app;
 	}
-	/**Process to do with the response message*/
+	
+	/**
+	 * Process to do with the response message.
+	 *
+	 * @param response the response
+	 */
 	@Override
 	public void process(Message response) {
 		chain.process(response);

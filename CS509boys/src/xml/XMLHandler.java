@@ -12,7 +12,12 @@ public class XMLHandler implements ErrorHandler{
     errors.add(spe.toString());
   }
 
-  /** Fail immediately with fatal errors. */
+  /**
+   *  Fail immediately with fatal errors.
+   *
+   * @param spe the spe
+   * @throws SAXException the SAX exception
+   */
   public void fatalError(SAXParseException spe) throws SAXException {
     throw spe;
   }
