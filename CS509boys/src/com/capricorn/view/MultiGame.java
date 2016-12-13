@@ -405,19 +405,19 @@ public class MultiGame extends JFrame {
 		getContentPane().add(lblGameId);
 
 		textField_name = new JTextField();
-		textField_name.setBounds(242, 503, 134, 35);
+		textField_name.setBounds(242, 503, 240, 35);
 		getContentPane().add(textField_name);
 		textField_name.setColumns(10);
 		textField_name.setEditable(false);
 
 		textField_gameId = new JTextField();
-		textField_gameId.setBounds(242, 451, 141, 33);
+		textField_gameId.setBounds(242, 451, 301, 33);
 		getContentPane().add(textField_gameId);
 		textField_gameId.setColumns(10);
 		textField_gameId.setEditable(false);
 
 		textField_manager = new JTextField();
-		textField_manager.setBounds(242, 562, 134, 38);
+		textField_manager.setBounds(242, 562, 240, 38);
 		getContentPane().add(textField_manager);
 		textField_manager.setColumns(10);
 		textField_manager.setEditable(false);
