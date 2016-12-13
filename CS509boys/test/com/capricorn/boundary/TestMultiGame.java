@@ -66,6 +66,7 @@ public class TestMultiGame extends TestCase{
 		List<Word> list=new ArrayList<Word>();
 		list.add(new Word("tree",500 ,"10.31"));
         model.getGame().setSelectedWord(list);
+        model.getBoard().getWord().setScore(500);
 		mult.button_submit.doClick();
 		
 		model.getBoard().setBonusCell("3,1");

@@ -600,14 +600,7 @@ public class MultiGame extends JFrame {
 		return model;
 	}
 
-	/**
-	 * Sets the model.
-	 *
-	 * @param model the new model
-	 */
-	public void setModel(Model model) {
-		this.model = model;
-	}
+	
 
 	public List<JButton> getAllCellsbtns() {
 		return allCellsbtns;
@@ -672,15 +665,7 @@ public class MultiGame extends JFrame {
 		return this.chosenbtns;
 	}
 
-	/**
-	 * Sets the chosenbtns.
-	 *
-	 * @param btn the new chosenbtns
-	 */
-	public void setChosenbtns(JButton btn) {
-		chosenbtns.add(btn);
-	}
-
+	
 	/**
 	 * Setall cellsbtns.
 	 */

@@ -54,24 +54,6 @@ public class Application extends JFrame {
 	/** The btn practice. */
 	public JButton btnPractice;
 	
-	/**
-	 * Gets the pass word.
-	 *
-	 * @return the pass word
-	 */
-	public String getPassWord() {
-		return passWord;
-	}
-
-	/**
-	 * Sets the pass word.
-	 *
-	 * @param passWord the new pass word
-	 */
-	public void setPassWord(String passWord) {
-		this.create_pass_text.setText(passWord); 
-	}
-	
 	/** The mg. MultiGame*/
 	private MultiGame mg;
 	
@@ -90,14 +72,7 @@ public class Application extends JFrame {
 	/** The start game. */
 	private boolean startGame;	
 	
-	/**
-	 * method if the game is start.
-	 *
-	 * @return startGae
-	 */
-	public boolean isStartGame() {
-		return startGame;
-	}
+
 
 /**
  * set the game .
@@ -126,6 +101,23 @@ public class Application extends JFrame {
 		return app;
 	}
 	
+	/**
+	 * Gets the pass word.
+	 *
+	 * @return the pass word
+	 */
+	public String getPassWord() {
+		return passWord;
+	}
+
+	/**
+	 * Sets the pass word.
+	 *
+	 * @param passWord the new pass word
+	 */
+	public void setPassWord(String passWord) {
+		this.create_pass_text.setText(passWord); 
+	}
 	
 
 	/**
@@ -389,13 +381,6 @@ public class Application extends JFrame {
 
 
 
-	/**
-	 * Sets the xmlb.
-	 *
-	 * @param xmlb the new XmlInfoBoard
-	 */
-	public void setXmlb(XmlInfoBoard xmlb) {
-		this.xmlb = xmlb;
-	}
+
 
 }

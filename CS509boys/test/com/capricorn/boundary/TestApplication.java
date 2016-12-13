@@ -32,6 +32,8 @@ public class TestApplication extends TestCase{
 	app.btnStart.doClick();
 	app.btnJoin.doClick();
 	app.btnStart.doClick();
+	app.setStartGame(false);
+	app.btnPractice.doClick();
 	
 	
 	
@@ -59,6 +61,7 @@ public class TestApplication extends TestCase{
 			
 			app.create_id_text.setText("");
 			app.name_id_text.setText("");
+			app.setStartGame(false);
 			app.btnPractice.doClick();
 			app.setStartGame(true);
 			app.btnPractice.doClick();
@@ -66,8 +69,7 @@ public class TestApplication extends TestCase{
 			app.btnStart.doClick();
 			app.btnJoin.doClick();
 			app.btnStart.doClick();
-			
-			
+				
 			
 			assertTrue(app.notHasPlayerName());
 			assertTrue(app.notHasPlayerNameAndGameId());
