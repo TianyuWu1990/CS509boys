@@ -9,12 +9,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class XmlInfoBoard.
+ */
 public class XmlInfoBoard extends JFrame {
 /**
  * A interface which can monitoring the request and response between client and server.
  * @author Chen Li
  */
 	private JPanel contentPane;
+	
+	/** The message info. */
 	private JTextArea messageInfo;
 
 	/**
@@ -46,10 +52,20 @@ public class XmlInfoBoard extends JFrame {
 		scrollPane.setViewportView(messageInfo);
 	}
 
+	/**
+	 * Gets the message info.
+	 *
+	 * @return the message info
+	 */
 	public JTextArea getMessageInfo() {
 		return messageInfo;
 	}
 
+	/**
+	 * Sets the message info.
+	 *
+	 * @param messageInfo the new message info
+	 */
 	public void setMessageInfo(JTextArea messageInfo) {
 		this.messageInfo = messageInfo;
 	}

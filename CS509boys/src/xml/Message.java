@@ -12,15 +12,29 @@ import javax.xml.validation.*;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
+// TODO: Auto-generated Javadoc
 /** Support class for XML parsing of requests and responses. 
  */
 public class Message {
+	
+	/** The builder. */
 	static DocumentBuilder builder = null;              
+	
+	/** The error handler. */
 	static XMLHandler errorHandler = new XMLHandler();  
+	
+	/** The transformer. */
 	static Transformer transformer;                     
+	
+	/** The contents. */
 	public final Node contents;                        
 
-	/** Configure builder at first use. */
+	/**
+	 *  Configure builder at first use.
+	 *
+	 * @param schema the schema
+	 * @return true, if successful
+	 */
 	public static boolean configure (String schema) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		factory.setNamespaceAware(true);
@@ -45,7 +59,12 @@ public class Message {
 		return true;
 	}
 
-	/** Parse XML and construct Message object only if it succeeds. */
+	/**
+	 *  Parse XML and construct Message object only if it succeeds.
+	 *
+	 * @param xmlSource the xml source
+	 * @throws IllegalArgumentException the illegal argument exception
+	 */
 	public Message (String xmlSource) throws IllegalArgumentException {
 		if (builder == null) {
 			throw new RuntimeException ("XML Protocol not configured.");
@@ -77,7 +96,11 @@ public class Message {
 		} 
 	}
 
-	/** Represent message as a string. */
+	/**
+	 *  Represent message as a string.
+	 *
+	 * @return the string
+	 */
 	public String toString() {
 		DOMSource domSource = new DOMSource(contents);
 		StringWriter writer = new StringWriter();
@@ -91,37 +114,64 @@ public class Message {
 	}  
 
 
-	/** Determine the success of the given message. */
+	/**
+	 *  Determine the success of the given message.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean success() {
 		return Boolean.valueOf(contents.getAttributes().getNamedItem(Parser.success).getNodeValue());
 	}
 
-	/** Determine the reason for failure of the message. */
+	/**
+	 *  Determine the reason for failure of the message.
+	 *
+	 * @return the string
+	 */
 	public String reason() {
 		Node r = contents.getAttributes().getNamedItem(Parser.reason);
 		if (r == null) { return ""; }
 		return r.getNodeValue();
 	}
 
-	/** Determine the id for the message. */
+	/**
+	 *  Determine the id for the message.
+	 *
+	 * @return the string
+	 */
 	public String id() {
 		Node r = contents.getAttributes().getNamedItem(Parser.id);
 		if (r == null) { return ""; }
 		return r.getNodeValue();
 	}
 	
-	/** Create standard request XML header string with built-in (statistically) unique id. */
+	/**
+	 *  Create standard request XML header string with built-in (statistically) unique id.
+	 *
+	 * @return the string
+	 */
 	public static String requestHeader() {
 		String id = UUID.randomUUID().toString();
 		return "<request id='" + id + "'>";
 	}
 	
-	/** Create standard response XML header string for a successful response. */
+	/**
+	 *  Create standard response XML header string for a successful response.
+	 *
+	 * @param id the id
+	 * @return the string
+	 */
 	public static String responseHeader(String id) {
 		return "<response id = '" + id + "' success='true'>";
 	}
 	
-	/** Create standard response XML header string for a failed response. */
+	/**
+	 *  Create standard response XML header string for a failed response.
+	 *
+	 * @param id the id
+	 * @param reason the reason
+	 * @return the string
+	 */
 	public static String responseHeader(String id, String reason) {
 		return "<response id='" + id + "' success='false' reason='" + reason + "'>";
 	}
