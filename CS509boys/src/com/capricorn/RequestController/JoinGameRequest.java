@@ -5,7 +5,7 @@ import xml.Message;
 import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Send a join game request to the server.
- *  @author Chen Li, Tianyu Wu
+ *  @author Chen Li, Tianyu Wu, Yu Li
  */
 public class JoinGameRequest {
 	

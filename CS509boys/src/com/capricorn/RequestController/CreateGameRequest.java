@@ -11,7 +11,7 @@ import xml.Message;
 // TODO: Auto-generated Javadoc
 /**
  * Send a create game request to the server and wait for the request.
- * @author Chen Li, Tianyu Wu
+ * @author Chen Li, Tianyu Wu, Yu Li
  */
 public class CreateGameRequest{
 
