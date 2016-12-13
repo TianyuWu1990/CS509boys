@@ -6,6 +6,11 @@ import java.util.List;
 // TODO: Auto-generated Javadoc
 /**As defined, the size of the board should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
+  *The Board entity is the most important entity in the program as the board 
+  *contains huge amount of methods to balance the request and response. 
+  *Also, the need to relate other entities makes this more complex. 
+  *Board the also a brief introduction to the practice game and multiple player game,
+  *which has to set all the details clearly.
   *@author Dongsheng Wang, Chen Li, Yu Li, Tianyu Wu, Bowen Sun
   */
 public class Board {
@@ -146,7 +151,7 @@ public Board(){
 }
 
 /**
- * update board method.
+ * update board method to reposition the game area.
  *
  * @param newStartingCol the new starting color
  * @param newStaringRow the new staring row
