@@ -341,7 +341,7 @@ public class Application extends JFrame {
 		getContentPane().add(btnExit);
 
 		create_id_text = new JTextField();
-		create_id_text.setBounds(226, 33, 134, 28);
+		create_id_text.setBounds(226, 33, 368, 28);
 		getContentPane().add(create_id_text);
 		create_id_text.setColumns(10);
 
@@ -350,7 +350,7 @@ public class Application extends JFrame {
 		getContentPane().add(lbl_GameId);
 
 		name_id_text = new JTextField();
-		name_id_text.setBounds(226, 96, 134, 28);
+		name_id_text.setBounds(226, 96, 368, 28);
 		getContentPane().add(name_id_text);
 		name_id_text.setColumns(10);
 
@@ -359,7 +359,7 @@ public class Application extends JFrame {
 		getContentPane().add(lbl_Player);
 
 		create_pass_text = new JTextField();
-		create_pass_text.setBounds(226, 63, 134, 28);
+		create_pass_text.setBounds(226, 63, 368, 28);
 		getContentPane().add(create_pass_text);
 		create_pass_text.setColumns(10);
 
