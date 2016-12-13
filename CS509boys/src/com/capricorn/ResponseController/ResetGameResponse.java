@@ -16,7 +16,13 @@ public class ResetGameResponse extends ControllerChain{
 		this.app = a;
 		this.model = m;
 	}
-	/** Find the resetGameResponse from the message class and reset the the game.*/
+	
+	/**
+	 *  Find the resetGameResponse from the message class and reset the the game.
+	 *
+	 * @param response the response
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean process(Message response) {
 		String type = response.contents.getFirstChild().getLocalName();

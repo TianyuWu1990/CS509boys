@@ -31,40 +31,100 @@ import com.capricorn.entity.Player;
 import com.capricorn.entity.Word;
 import com.capricorn.listener.ClickButton_multiGame;
 import com.capricorn.listener.Exit_practiceGame;
+// TODO: Auto-generated Javadoc
 /** MultiGame is designed by JFrame and be designed to let players join the game.
  *  It is main board of the game in order to communication with server and players as a boundary
  *  @author Chen Li, Tianyu Wu, Yu Li
  */
 public class MultiGame extends JFrame {
+	
+	/** The text field word. */
 	public JTextField textField_word;
+	
+	/** The text field escore. */
 	public JTextField textField_escore;
+	
+	/** The model. */
 	private Model model;
+	
+	/** The table. */
 	private JTable table;
+	
+	/** The table 2. */
 	private JTable table2;
+	
+	/** The chosenbtns. */
 	private List<JButton> chosenbtns;
+	
+	/** The all cellsbtns. */
 	private List<JButton> allCellsbtns;
+	
+	/** The word score sum. */
 	public int wordScoreSum;
+	
+	/** The panel. */
 	private JPanel panel;
+	
+	/** The app. */
 	private Application app;
+	
+	/** The message. */
 	public JLabel message;
+	
+	/** The text field name. */
 	private JTextField textField_name;
+	
+	/** The text field game id. */
 	private JTextField textField_gameId;
+	
+	/** The text field manager. */
 	private JTextField textField_manager;
+	
+	/** The text field score. */
 	private JTextField textField_score;
+	
+	/** The button lock. */
 	public JButton btnLock;
+	
+	/** The button reset. */
 	public JButton button_reset;
+	
+	/** The button xmlc. */
 	public JButton btn_xmlc;
+	
+	/** The button xmlo. */
 	public JButton btn_xmlo;
+	
+	/** The button left. */
 	public JButton button_left;
+	
+	/** The button up. */
 	public JButton button_up;
+	
+	/** The button right. */
 	public JButton button_right;
+	
+	/** The button down. */
 	public JButton button_down;
+	
+	/** The button submit. */
 	public JButton button_submit;
+	
+	/** The btn exit. */
 	public JButton btnExit;
+	
+	/** The btn clear. */
 	public JButton btnClear;
+	
+	/** The text field player num. */
 	private JTextField textField_playerNum;
 	
-/** Construct MultiGame object to use default port number.*/
+/**
+ *  Construct MultiGame object to use default port number.
+ *
+ * @param m the Model
+ * @param app the Application
+ */
 	public MultiGame(Model m, Application app)  {
 		this.app = app;
 		this.model = m;
@@ -481,7 +541,14 @@ public class MultiGame extends JFrame {
 		
 	}
 	
+	/**
+	 * The Class Action.
+	 */
 	class Action  implements ActionListener{
+		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
 		@Override
 	public void actionPerformed(ActionEvent e) {
 			
@@ -508,31 +575,63 @@ public class MultiGame extends JFrame {
 
 
 
+	/**
+	 * Sets the score table.
+	 */
 	public void setScoreTable() {
 		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
 				new String[] { "Player Name", "Player Score", "Position", "Rank" }));
 	}
+	
+	/**
+	 * Sets the word table.
+	 */
 	public void setWordTable() {
 		table2.setModel(new DefaultTableModel(convertWordListToArray(),
 				new String[] { "Word", "Score","Time"}));
 	}
 
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
 	public Model getModel() {
 		return model;
 	}
 
+	/**
+	 * Sets the model.
+	 *
+	 * @param model the new model
+	 */
 	public void setModel(Model model) {
 		this.model = model;
 	}
 
+	/**
+	 * Gets the all cellsbtns.
+	 *
+	 * @return the all cellsbtns
+	 */
 	public List<JButton> getAllCellsbtns() {
 		return allCellsbtns;
 	}
 
+	/**
+	 * Sets the all cellsbtns.
+	 *
+	 * @param allCellsbtns the new all cellsbtns
+	 */
 	public void setAllCellsbtns(List<JButton> allCellsbtns) {
 		this.allCellsbtns = allCellsbtns;
 	}
 
+	/**
+	 * Convert players list to array.
+	 *
+	 * @return the object[][]
+	 */
 	public Object[][] convertPlayersListToArray() {
 		List playersList = model.getGame().getPlayersListByScore();
 		Object[][] objAy = new Object[playersList.size()][4];
@@ -547,6 +646,12 @@ public class MultiGame extends JFrame {
 		}
 		return objAy;
 	}
+	
+	/**
+	 * Convert word list to array.
+	 *
+	 * @return the object[][]
+	 */
 	public Object[][] convertWordListToArray() {
 		List<Word> WordList = model.getGame().getSelectedWord();
 		Object[][] objAy = new Object[WordList.size()][3];
@@ -563,14 +668,27 @@ public class MultiGame extends JFrame {
 		return objAy;
 	}
 
+	/**
+	 * Gets the chosenbtns.
+	 *
+	 * @return the chosenbtns
+	 */
 	public List<JButton> getChosenbtns() {
 		return this.chosenbtns;
 	}
 
+	/**
+	 * Sets the chosenbtns.
+	 *
+	 * @param btn the new chosenbtns
+	 */
 	public void setChosenbtns(JButton btn) {
 		chosenbtns.add(btn);
 	}
 
+	/**
+	 * Setall cellsbtns.
+	 */
 	public void setallCellsbtns() {
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
@@ -671,7 +789,13 @@ public class MultiGame extends JFrame {
 		}
 		message.setText("");
 	}
-/** Identify if the cell is bonus or not.*/
+
+/**
+ *  Identify if the cell is bonus or not.
+ *
+ * @param index the index
+ * @return true, if is bonus cell
+ */
 	public boolean isBonusCell(int index) {
 		String bonusString = model.getBoard().getBonusCell();
 		String[] bonuscoordinate = bonusString.split(",");

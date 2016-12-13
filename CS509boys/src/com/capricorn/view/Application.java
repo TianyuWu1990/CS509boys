@@ -14,37 +14,85 @@ import com.capricorn.RequestController.JoinGameRequest;
 import com.capricorn.client.ServerAccess;
 import com.capricorn.entity.*;
 import com.capricorn.listener.StartPractice;
+// TODO: Auto-generated Javadoc
 /**Application is the entrance to the game, containing practice game and multiple game.
  * This is designed by JFrame with text filed and button.
  * @author Chen Li, Yu Li
  */
 public class Application extends JFrame {
+	
+	/** The create id text. */
 	public JTextField create_id_text;
+	
+	/** The name id text. */
 	public JTextField name_id_text;
+	
+	/** The create pass text. */
 	private JTextField create_pass_text;
+	
+	/** The model. */
 	public Model model;
+	
+	/** The player name. */
 	public String playerName;
+	
+	/** The game number. */
 	public String gameNumber;
+	
+	/** The pass word. */
 	public String passWord;
+	
+	/** The btn start. */
 	public JButton btnStart;
+	
+	/** The btn join. */
 	public JButton btnJoin;
+	
+	/** The btn exit. */
 	public JButton btnExit;
+	
+	/** The btn practice. */
 	public JButton btnPractice;
+	
+	/**
+	 * Gets the pass word.
+	 *
+	 * @return the pass word
+	 */
 	public String getPassWord() {
 		return passWord;
 	}
 
+	/**
+	 * Sets the pass word.
+	 *
+	 * @param passWord the new pass word
+	 */
 	public void setPassWord(String passWord) {
 		this.create_pass_text.setText(passWord); 
 	}
+	
+	/** The mg. MultiGame*/
 	private MultiGame mg;
+	
+	/** The Application. */
 	static Application app;
+	
+	/** The lbl game id. */
 	private JLabel lbl_GameId;
+	
+	/** The lbl player. */
 	private JLabel lbl_Player;
+	
+	/** The xmlb. */
 	private XmlInfoBoard xmlb;
+	
+	/** The start game. */
 	private boolean startGame;	
+	
 	/**
-	 * method if the game is start
+	 * method if the game is start.
+	 *
 	 * @return startGae
 	 */
 	public boolean isStartGame() {
@@ -52,14 +100,24 @@ public class Application extends JFrame {
 	}
 
 /**
- * set the game 
- * @param startGame
- * @return void 
+ * set the game .
+ *
+ * @param startGame the new start game
+ * @return void
  */
 	public void setStartGame(boolean startGame) {
 		this.startGame = startGame;
 	}
+	
+	/** The server access. */
 	ServerAccess serverAccess ;
+	
+	/**
+	 * Gets the single instance of Application.
+	 *
+	 * @param model the model
+	 * @return single instance of Application
+	 */
 	public static Application getInstance(Model model) {
 		if (app == null) {
 			app = new Application(model);
@@ -70,23 +128,48 @@ public class Application extends JFrame {
 	
 	
 
+	/**
+	 * Gets the server access.
+	 *
+	 * @return the server access
+	 */
 	public ServerAccess getServerAccess() {
 		return serverAccess;
 	}
 
+	/**
+	 * Sets the server access.
+	 *
+	 * @param serverAccess the new server access
+	 */
 	public void setServerAccess(ServerAccess serverAccess) {
 		this.serverAccess = serverAccess;
 	}
+	
+	/**
+	 * Gets the mg.
+	 *
+	 * @return the mg
+	 */
 	public MultiGame getMg() {
 		return mg;
 	}
 
+	/**
+	 * Sets the mg.
+	 *
+	 * @param mg the new MultiGame
+	 */
 	public void setMg(MultiGame mg) {
 		this.mg = mg;
 	}
 
 	
-	/**Identify the existence of the  game name.*/
+	/**
+	 * Identify the existence of the  game name.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean notHasPlayerName(){
 		playerName = name_id_text.getText();
 		if(playerName.length() == 0){
@@ -96,7 +179,12 @@ public class Application extends JFrame {
 		}
 		return false;
 	}
-	/**Identify the existence of the game name and game ID. */
+	
+	/**
+	 * Identify the existence of the game name and game ID.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean notHasPlayerNameAndGameId(){			
 		gameNumber = create_id_text.getText();
 		playerName = name_id_text.getText();
@@ -112,40 +200,75 @@ public class Application extends JFrame {
 		return false;
 	}			
 		
+	/**
+	 * Gets the player name.
+	 *
+	 * @return the player name
+	 */
 	public String getPlayerName() {
 		return playerName;
 	}
 
 
 
+	/**
+	 * Sets the player name.
+	 *
+	 * @param playerName the new player name
+	 */
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
 
 
 
+	/**
+	 * Sets the game number.
+	 *
+	 * @param gameNumber the new game number
+	 */
 	public void setGameNumber(String gameNumber) {
 		this.gameNumber = gameNumber;
 	}
 
 
 
+	/**
+	 * Gets the password.
+	 *
+	 * @return the password
+	 */
 	public String getPassword() {
 		return create_pass_text.getText();
 	}
 	
     
 	
+	/**
+	 * Gets the game number.
+	 *
+	 * @return the game number
+	 */
 	public String getGameNumber() {
 		return gameNumber;
 	}
 	
 
+	/**
+	 * Gets the managerg.
+	 *
+	 * @return the managerg
+	 */
 	public MultiGame getManagerg() {
 		return mg;
 	}
 
 
+	/**
+	 * Instantiates a new application.
+	 *
+	 * @param m the m
+	 */
 	public Application(Model m) {
         this.model=m;
 		setSize(600, 300);
@@ -254,12 +377,22 @@ public class Application extends JFrame {
 
 
 
+	/**
+	 * Gets the XmlInfoBoard.
+	 *
+	 * @return the XmlInfoBoard
+	 */
 	public XmlInfoBoard getXmlb() {
 		return xmlb;
 	}
 
 
 
+	/**
+	 * Sets the xmlb.
+	 *
+	 * @param xmlb the new XmlInfoBoard
+	 */
 	public void setXmlb(XmlInfoBoard xmlb) {
 		this.xmlb = xmlb;
 	}
