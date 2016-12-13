@@ -3,52 +3,108 @@ package com.capricorn.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**As defined, the size of the board should be 4-letters'-long and 4-letters'-wide.
   *Applying cell to generate a 4*4 board with 16 letters.
-  *@author Chen Li, Yu Li, Tianyu Wu, Bowen Sun
+  *@author Dongsheng Wang, Chen Li, Yu Li, Tianyu Wu, Bowen Sun
   */
 public class Board {
+
+/** The cells. */
 public Cell cells[][] = new Cell[4][4];
+
+/** The chosen cells. */
 private ArrayList<Cell> chosenCells;
+
+/** The word. */
 private Word word=new Word();
+
+/** The global starting col. */
 private int     globalStartingCol;
+
+/** The global starting row. */
 private int     globalStartingRow;
+
+/** The request color change. */
 private Integer requestColChange;
+
+/** The request row change. */
 private Integer requestRowChange;
+
+/** The bonus cell. */
 private String  bonusCell;
+
+/** The overlap times. */
 private int[] overlapTimes=new int[16];
 
 
+/**
+ * Gets the overlap times.
+ *
+ * @return the overlap times
+ */
 public int[] getOverlapTimes() {
 	return overlapTimes;
 }
 
 
+/**
+ * Gets the bonus cell.
+ *
+ * @return the bonus cell
+ */
 public String getBonusCell() {
 	return bonusCell;
 }
 
+/**
+ * Sets the bonus cell.
+ *
+ * @param bonusCell the new bonus cell
+ */
 public void setBonusCell(String bonusCell) {
 	this.bonusCell = bonusCell;
 }
 
+/**
+ * Gets the request color change.
+ *
+ * @return the request color change
+ */
 public Integer getRequestColChange() {
 	return requestColChange;
 }
 
+/**
+ * Sets the request color change.
+ *
+ * @param requestColChange the new request color change
+ */
 public void setRequestColChange(Integer requestColChange) {
 	this.requestColChange = requestColChange;
 }
 
+/**
+ * Gets the request row change.
+ *
+ * @return the request row change
+ */
 public Integer getRequestRowChange() {
 	return requestRowChange;
 }
 
+/**
+ * Sets the request row change.
+ *
+ * @param requestRowChange the new request row change
+ */
 public void setRequestRowChange(Integer requestRowChange) {
 	this.requestRowChange = requestRowChange;
 }
 
-/**SetLetter method to fill in the cell with different words*/
+/**
+ * SetLetter method to fill in the cell with different words.
+ */
 public void setcellArrayForPractice(){
 	for(int i=0;i<4;i++){
 		for(int j=0;j<4;j++){
@@ -57,7 +113,10 @@ public void setcellArrayForPractice(){
 		}
 	}
 }
-/**Method is used to reset the overlapTimes matrix to 0*/
+
+/**
+ * Method is used to reset the overlapTimes matrix to 0.
+ */
 public void resetoverlapTimes(){
 	for(int i=0;i<16;i++)
 	this.overlapTimes[i]=0;
@@ -86,7 +145,13 @@ public Board(){
 	}
 }
 
-/**update board method*/
+/**
+ * update board method.
+ *
+ * @param newStartingCol the new starting color
+ * @param newStaringRow the new staring row
+ * @param NewBoardInfo the new board information
+ */
 public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardInfo){
 	this.globalStartingCol = newStartingCol;
 	this.globalStartingRow = newStaringRow;
@@ -104,7 +169,12 @@ public void updateBoard(int newStartingCol, int newStaringRow, String NewBoardIn
 
 	updateBoardByAllLetters(NewBoardInfo);
 }
-/**Renew the letters in the game.*/
+
+/**
+ * Renew the letters in the game.
+ *
+ * @param cellsLetters the cells letters
+ */
 private void updateBoardByAllLetters(String cellsLetters){
 	
 	String[] cellInforList = cellsLetters.split(",");
@@ -118,6 +188,11 @@ private void updateBoardByAllLetters(String cellsLetters){
 }
 
 
+/**
+ * Gets the board information.
+ *
+ * @return the board information
+ */
 public String getBoardInfo(){
 	String allCellLetters = "";
 	for(int i=0;i<4;i++){
@@ -133,41 +208,92 @@ public String getBoardInfo(){
 	return allCellLetters;
 }
 
+/**
+ * Gets the chosen cells.
+ *
+ * @return the chosen cells
+ */
 public ArrayList<Cell> getChosenCells() {
 	return chosenCells;
 }
 
+/**
+ * Sets the chosen cells.
+ *
+ * @param chosenCells the new chosen cells
+ */
 public void setChosenCells(ArrayList<Cell> chosenCells) {
 	this.chosenCells = chosenCells;
 }
 
+/**
+ * Gets the word.
+ *
+ * @return the word
+ */
 public Word getWord() {
 	return word;
 }
 
+/**
+ * Sets the word.
+ *
+ * @param word the new word
+ */
 public void setWord(Word word) {
 	this.word = word;
 }
 
+/**
+ * Gets the global starting color.
+ *
+ * @return the global starting color
+ */
 public int getGlobalStartingCol() {
 	return globalStartingCol;
 }
 
+/**
+ * Sets the global starting color.
+ *
+ * @param globalStartingCol the new global starting color
+ */
 public void setGlobalStartingCol(int globalStartingCol) {
 	this.globalStartingCol = globalStartingCol;
 }
 
+/**
+ * Gets the global starting row.
+ *
+ * @return the global starting row
+ */
 public int getGlobalStartingRow() {
 	return globalStartingRow;
 }
 
+/**
+ * Sets the global starting row.
+ *
+ * @param globalStartingRow the new global starting row
+ */
 public void setGlobalStartingRow(int globalStartingRow) {
 	this.globalStartingRow = globalStartingRow;
 }
 
+/**
+ * Gets the cells.
+ *
+ * @return the cells
+ */
 public Cell[][] getCells() {
 	return cells;
 }
+
+/**
+ * Gets the chosen cells XML string.
+ *
+ * @return the chosen cells XML string
+ */
 public String getChosenCellsXMLString(){
 	String chosenCellsString = "";
 	for(Cell cell:chosenCells){
@@ -180,6 +306,11 @@ public String getChosenCellsXMLString(){
 		}
 	
 
+/**
+ * Adds the to chosen cells by index.
+ *
+ * @param ChosenCellIndex the chosen cell index
+ */
 public void addToChosenCellsByIndex(int ChosenCellIndex){
 		int row=ChosenCellIndex/4;
 		int col=ChosenCellIndex%4;
@@ -189,19 +320,35 @@ public void addToChosenCellsByIndex(int ChosenCellIndex){
 		
 
 }
+
+/**
+ * Gets the chosen cells letters.
+ *
+ * @return the chosen cells letters
+ */
 public String getChosenCellsLetters(){
 	String chosenLetters = "";
 	for(Cell cell : chosenCells)
 			chosenLetters += cell.getLetter(); 
 	return chosenLetters;
 }
+
+/**
+ * Clear chosen cells.
+ */
 public void clearChosenCells(){
 	for(Cell cell : chosenCells){
 		cell.setSelected(false);
 	}
 	chosenCells.removeAll(chosenCells);
 }
-/**Identify the method to position the board.*/
+
+/**
+ * Identify the method to position the board.
+ *
+ * @param plocation the plocation
+ * @return the list
+ */
 public static List<String> setBoardPositionList(String plocation){
 	 int startX=Integer.parseInt(plocation.split(",")[0]);
 	 int startY=Integer.parseInt(plocation.split(",")[1]);
@@ -223,6 +370,11 @@ for(int j=0;j<4;j++){
 }
 
 
+/**
+ * The main method.
+ *
+ * @param args the arguments
+ */
 public static void main(String[] args) {
 	
 

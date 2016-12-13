@@ -74,7 +74,7 @@ public class Model {
 	 * @param gameID the game ID
 	 * @param managingUser the managing user
 	 * @param playerName the player name
-	 * @param newStartingCol the new starting col
+	 * @param newStartingCol the new starting color
 	 * @param newStaringRow the new staring row
 	 * @param boardInfo the board info
 	 * @param score the score
