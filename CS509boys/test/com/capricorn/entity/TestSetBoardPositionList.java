@@ -5,7 +5,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 /**
- * @author yli14
+ * @author yli14, Tianyu Wu
  * This is for test 'SetBoardPositionList' in entity 'Board'
  */
 public class TestSetBoardPositionList extends TestCase{

@@ -11,7 +11,7 @@ import com.capricorn.entity.Model;
 import com.capricorn.entity.Word;
 import com.capricorn.view.Application;
 /** Find word response tell the word submitted is legal or not.
- *  @author Chen Li, Tianyu Wu
+ *  @author Chen Li, Yu Li, Tianyu Wu
  */
 public class FindWordResponse extends ControllerChain{
 	public Application app;

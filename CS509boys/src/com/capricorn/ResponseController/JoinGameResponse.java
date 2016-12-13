@@ -10,7 +10,7 @@ import com.capricorn.view.Application;
 
 import xml.Message;
 /**Join game response.
- * @author Chen Li, Tianyu Wu
+ * @author Chen Li, Yu Li, Tianyu Wu
  */
 public class JoinGameResponse extends ControllerChain{
 	

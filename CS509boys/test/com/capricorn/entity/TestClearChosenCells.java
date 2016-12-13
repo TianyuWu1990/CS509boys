@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 /**
- * @author yli14
+ * @author yli14, Tianyu Wu, Chen Li
  * This is for test 'ClearChosenCells' in entity cell
  */
 public class TestClearChosenCells extends TestCase {

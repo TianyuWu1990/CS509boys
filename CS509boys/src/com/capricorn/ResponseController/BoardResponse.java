@@ -17,7 +17,7 @@ import xml.Message;
 /** From the server, after receiving the board message response which contains all the information we need in the board, the refresh the board.
  *  Whatever a request is, the response must contains a response about the board. 
  *  Each action contributes to refresh process. 
- *  @author Chen Li, Tianyu Wu
+ *  @author Chen Li, Yu Li, Tianyu Wu
  */
 public class BoardResponse extends ControllerChain{
 	public Application app;

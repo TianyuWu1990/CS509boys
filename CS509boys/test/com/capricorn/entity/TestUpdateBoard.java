@@ -8,7 +8,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 /**
- * @author yli14
+ * @author yli14, Tianyu Wu, Chen Li
  * This is for test 'UpdateBoard' in entity 'Board'.
  */
 public class TestUpdateBoard extends TestCase {

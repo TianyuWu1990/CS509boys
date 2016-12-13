@@ -5,7 +5,7 @@ import xml.Message;
 import com.capricorn.entity.Model;
 import com.capricorn.view.Application;
 /** Find if the submitted word in the word library. 
- *  @author Chen Li, Tianyu Wu
+ *  @author Chen Li, Tianyu Wu, Yu Li
  */
 public class FindWordRequest {
 	
