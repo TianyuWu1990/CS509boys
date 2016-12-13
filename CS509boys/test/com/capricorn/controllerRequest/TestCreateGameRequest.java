@@ -18,8 +18,8 @@ public class TestCreateGameRequest extends TestCase{
 	MockServer ms = new MockServer("localhost");
 	
 	/**
-		 * Test Process() method in 'CreateGameRequest'
-		 */
+      * Test Process() method in 'CreateGameRequest'
+	  */
 	public void testprocess() throws Exception{
 		
 		
