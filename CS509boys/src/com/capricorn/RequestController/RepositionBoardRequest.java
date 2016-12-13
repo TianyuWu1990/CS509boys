@@ -12,6 +12,14 @@ public class RepositionBoardRequest {
 	Model model;
 	Application app;
 	Integer []change;
+	
+	/**
+	 * Instantiates a new reposition board request.
+	 *
+	 * @param model the model
+	 * @param app the Application
+	 * @param change the change
+	 */
 	public RepositionBoardRequest(Model model,Application app,Integer[] change){
 		this.model = model;
 		this.app = app;

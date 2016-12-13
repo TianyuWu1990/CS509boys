@@ -11,6 +11,13 @@ public class ResetGameRequest {
 	
 	Model model;
 	Application app;
+	
+	/**
+	 * Instantiates a new reset game request.
+	 *
+	 * @param model the model
+	 * @param app the Application
+	 */
 	public ResetGameRequest(Model model,Application app){
 		this.model = model;
 		this.app = app;

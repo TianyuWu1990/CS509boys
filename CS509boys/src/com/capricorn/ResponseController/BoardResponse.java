@@ -28,7 +28,13 @@ public class BoardResponse extends ControllerChain{
 		this.model = m;
 		this.flag = false;
 	}
-	/** Process to find out the corresponding titles in the xml files and refresh the board information. */
+	
+	/**
+	 *  Process to find out the corresponding titles in the xml files and refresh the board information.
+	 *
+	 * @param response the response
+	 * @return true, if successful
+	 */
 	@Override
 	public boolean process(Message response) {
 		

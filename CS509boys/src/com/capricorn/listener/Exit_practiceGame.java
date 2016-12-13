@@ -28,7 +28,10 @@ public class Exit_practiceGame implements ActionListener{
 		this.j=j;
 		this.m=m;
 	}
-/**Dispose the interface and shut down the software.*/
+
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		j.dispose();

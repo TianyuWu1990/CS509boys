@@ -29,7 +29,7 @@ public class Reset_practiceGame implements ActionListener{
 /**
  * ActionListener when the reset button push and the following happen.
  *
- * @param e the e
+ * @param e is the ActionEvent
  */
 	@Override
 	public void actionPerformed(ActionEvent e) {
