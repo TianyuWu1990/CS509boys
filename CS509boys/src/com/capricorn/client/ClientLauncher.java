@@ -20,7 +20,7 @@ import xml.Message;
 public class ClientLauncher {
 
 	
-	public static final String serverHost= "cs509.frankgh.com" ;
+	public static final String serverHost= "cccwork3.wpi.edu" ;
 	
 	/**
 	 * Note that to simplify the coding of this command-client, it declares that it can throw an Exception,
@@ -36,7 +36,7 @@ public class ClientLauncher {
 		}
 		
 		
-		String host = "cs509.frankgh.com";
+		String host = "cccwork3.wpi.edu";
 		if (args.length > 0 && args[0].equals("-server")) {
 			host = serverHost;
 		}
