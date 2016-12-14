@@ -7,12 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import com.capricorn.view.MultiGame;
-/** Realize multigame button.*/
+/** Realize multigame button.
+  *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun*/
 public class ClickButton_multiGame implements ActionListener {
 	MultiGame mg;
 	/** Define the default p for PracticeGame
 	 *Construct ClickLetter object to use default port number. 
-	 *@author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
 	 */
 public ClickButton_multiGame(MultiGame mg){
 		this.mg=mg;

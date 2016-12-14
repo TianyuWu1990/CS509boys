@@ -78,7 +78,7 @@ public class Application extends JFrame {
  * set the game .
  *
  * @param startGame the new start game
- * @return void
+ 
  */
 	public void setStartGame(boolean startGame) {
 		this.startGame = startGame;

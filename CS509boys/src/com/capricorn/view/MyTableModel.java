@@ -3,8 +3,9 @@ package com.capricorn.view;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
-/**Model the table and make cell in the table can not be editable*/
+/**build the new class extend DefaultTableModel*/
 public class MyTableModel extends DefaultTableModel {
+	/**override construct*/
 	MyTableModel(Object[][] data, String[] columnNames) {
 	        super(data, columnNames);
 	    }

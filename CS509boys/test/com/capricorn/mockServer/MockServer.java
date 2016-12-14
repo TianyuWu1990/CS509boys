@@ -20,7 +20,7 @@ import xml.Message;
  * case, note that this object states it offers the behavior but completely does
  * things without actually communicating to a server.
  * <p>
- * Use the {@link #getAndClearMessages()} and {@link #getAndClearWaitingMessages()}
+ * Use the {@link #getAndClearMessages()} 
  * methods to retrieve the requests that were "processed" by this mock server.
  * 
  * @author heineman

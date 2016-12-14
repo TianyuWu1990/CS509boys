@@ -12,11 +12,12 @@ import javax.swing.border.EmptyBorder;
 // TODO: Auto-generated Javadoc
 /**
  * The Class XmlInfoBoard.
+ * @author Chen Li
  */
 public class XmlInfoBoard extends JFrame {
 /**
  * A interface which can monitoring the request and response between client and server.
- * @author Chen Li
+ 
  */
 	private JPanel contentPane;
 	

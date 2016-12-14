@@ -3,7 +3,7 @@ package com.capricorn.entity;
 // TODO: Auto-generated Javadoc
 /**
  * Basic entity word with no more description Two attributes
- * content(a,b,c,d......) and score
+ * content and score
  * @author Chen Li, Dongsheng Wang, Yu Li, Tianyu Wu, Bowen Sun
  */
 public class Word {
