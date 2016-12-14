@@ -12,11 +12,11 @@ import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
 
 import xml.Message;
-
-public class TestConnectResponse {
 /** Test for the 'Connect response' in the controller
  *  @author Bowen Sun, Chen Li
  */
+public class TestConnectResponse {
+
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");

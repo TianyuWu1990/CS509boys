@@ -9,12 +9,12 @@ import com.capricorn.view.Application;
 import com.capricorn.view.MultiGame;
 
 import junit.framework.TestCase;
-
+/**
+ * @author yli14, Bowen Sun, Chen Li
+ * For test "ResetGameResponse" in controller.
+ */
 public class TestResetGameResponse extends TestCase {
-	/**
-	 * @author yli14, Bowen Sun, Chen Li
-	 * For test "ResetGameResponse" in controller.
-	 */
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");

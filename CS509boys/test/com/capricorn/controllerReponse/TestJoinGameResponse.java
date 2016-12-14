@@ -20,10 +20,10 @@ import com.capricorn.view.Application;
 import xml.Message;
 
 
-
+/**@author Bowen Sun, Chen Li 
+ * This is the test for 'Join Game Response' in Controller*/
 public class TestJoinGameResponse {
-	/**@author Bowen Sun, Chen Li 
-	 * This is the test for 'Join Game Response' in Controller*/
+	
 
 	Model model=new Model();
 	Application app=new Application(model);

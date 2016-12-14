@@ -14,10 +14,10 @@ import com.capricorn.view.Application;
 import xml.Message;
 
 
+/**@author Bowen Sun, Chen Li 
+ * This is responsible for testing "Exit Game" Controller*/
 
 public class TestExitGameResponse {
-	/**@author Bowen Sun, Chen Li 
-	 * This is responsible for testing "Exit Game" Controller*/
 
 	Model model=new Model();
 	Application app=new Application(model);

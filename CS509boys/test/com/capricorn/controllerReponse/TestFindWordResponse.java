@@ -14,10 +14,10 @@ import com.capricorn.view.Application;
 import com.capricorn.view.MultiGame;
 
 import xml.Message;
-
+/**@author Bowen Sun, Chen Li
+ * This is the test for 'Find Word Response' in Controller*/
 public class TestFindWordResponse {
-	/**@author Bowen Sun, Chen Li
-	 * This is the test for 'Find Word Response' in Controller*/
+	
 	Model model = new Model();
 	Application app = new Application(model);
 	MockServer mockServer = new MockServer("localhost");

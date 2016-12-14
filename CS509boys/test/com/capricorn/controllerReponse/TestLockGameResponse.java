@@ -1,9 +1,7 @@
 package com.capricorn.controllerReponse;
 
 import xml.Message;
-
 import static org.junit.Assert.assertTrue;
-
 import com.capricorn.RequestController.CreateGameRequest;
 import com.capricorn.ResponseController.LockGameResponse;
 import com.capricorn.ResponseController.SampleClientMessageHandler;
@@ -11,13 +9,13 @@ import com.capricorn.entity.Model;
 import com.capricorn.mockServer.MockServer;
 import com.capricorn.view.Application;
 import com.capricorn.view.MultiGame;
-
 import junit.framework.TestCase;
+/**
+ * @author yli14, Chen Li, Bowen Sun
+ * For test "LockGameResponse" in controller.
+ */
 public class TestLockGameResponse extends TestCase {
-	/**
-	 * @author yli14, Chen Li, Bowen Sun
-	 * For test "LockGameResponse" in controller.
-	 */
+	
 
 	Model model = new Model();
 	Application app = new Application(model);
