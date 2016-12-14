@@ -579,7 +579,7 @@ public class MultiGame extends JFrame {
 	 * Sets the score table.
 	 */
 	public void setScoreTable() {
-		table.setModel(new DefaultTableModel(convertPlayersListToArray(),
+		table.setModel(new MyTableModel(convertPlayersListToArray(),
 				new String[] { "Player Name", "Player Score", "Position", "Rank" }));
 	}
 	
@@ -587,7 +587,7 @@ public class MultiGame extends JFrame {
 	 * Sets the word table.
 	 */
 	public void setWordTable() {
-		table2.setModel(new DefaultTableModel(convertWordListToArray(),
+		table2.setModel(new MyTableModel(convertWordListToArray(),
 				new String[] { "Word", "Score","Time"}));
 	}
 
