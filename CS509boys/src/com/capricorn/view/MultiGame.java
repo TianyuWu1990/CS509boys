@@ -786,7 +786,6 @@ public class MultiGame extends JFrame {
 		int deltCol = x - globalStartingCol;
 		int deltRow = y - globalStartingRow;	
 		if (deltRow >= 0 && deltRow <=3 && deltCol >= 0 && deltCol <=3) {
-			System.out.println(deltRow * 4 + deltCol);
 			if (index == deltRow * 4 + deltCol) {
 				return true;
 			}
